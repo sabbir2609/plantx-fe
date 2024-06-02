@@ -48,7 +48,7 @@ const works = [
 
 export default function OurWorks() {
     return (
-        <section className="py-16">
+        <section className="py-16 px-2">
             <div
                 className="container mx-auto p-4 rounded-lg"
                 style={

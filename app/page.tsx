@@ -22,9 +22,10 @@ export default function Home() {
       </div>
 
       <TopPicks />
+
       <OurWorks />
 
-      {/* <ContactUs /> */}
+      <ContactUs />
 
       <Footer />
 
