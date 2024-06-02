@@ -1,5 +1,4 @@
-import { FeaturedCategory, Footer, Hero, Navbar, Slogan } from "@/components/home";
-import ContactUs from "@/components/home/ContactUs";
+import { ContactUs, FeaturedCategory, Footer, Hero, Navbar, Slogan } from "@/components/home";
 import { CircleChevronRight } from "lucide-react";
 import Link from "next/link";
 

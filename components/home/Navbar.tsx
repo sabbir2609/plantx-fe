@@ -1,4 +1,6 @@
 import { AlignLeft, Menu, Phone, Search } from "lucide-react";
+import { ThemeChange } from "@/components/common";
+import Link from "next/link";
 
 export default function Navbar() {
     return (
@@ -36,11 +38,12 @@ export default function Navbar() {
                         </li>
                     </ul>
                 </div>
-            </div>
-            <div className="navbar-center">
-                <a className="btn btn-ghost text-xl">Inde Core</a>
+                <div className="flex-1">
+                    <Link href="/" className="btn btn-ghost text-xl">InDecor</Link>
+                </div>
             </div>
             <div className="navbar-end">
+                <ThemeChange />
                 <button className="btn btn-ghost btn-circle">
                     <Search />
                 </button>
