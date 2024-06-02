@@ -10,9 +10,9 @@ const config: Config = {
   daisyui: {
     themes: [
       "light",
-      // "dark",
-      // "garden",
-      // "forest",
+      "dark",
+      "garden",
+      "forest",
     ],
   },
 };

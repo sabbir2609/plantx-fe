@@ -1,10 +1,12 @@
-import { FeaturedCategory, Footer, Hero, Slogan } from "@/components/home";
+import { FeaturedCategory, Footer, Hero, Navbar, Slogan } from "@/components/home";
+import ContactUs from "@/components/home/ContactUs";
 import { CircleChevronRight } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {
   return (
     <>
+      <Navbar />
       <Hero />
       <Slogan />
 
@@ -19,6 +21,8 @@ export default function Home() {
         </div>
         <FeaturedCategory />
       </div>
+
+      <ContactUs />
 
       <Footer />
 
