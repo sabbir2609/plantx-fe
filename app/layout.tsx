@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/home";
+import { Sidebar } from "@/components/common";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +18,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {children}
+        <div className="bg-base-100 drawer">
+          <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+
+          <div className="drawer-content">
+            {children}
+          </div>
+
+          <div className="drawer-side z-40" style={{ scrollBehavior: "smooth", scrollPaddingTop: "5rem" }}>
+            <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
+            <Sidebar />
+          </div>
+
+        </div>
       </body>
     </html>
   );
