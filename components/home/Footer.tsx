@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Footer() {
     return (
-        <footer className="bg-base-200 text-base-content py-10 px-3 lg:px-10">
+        <footer className="bg-base-200 text-base-content py-10 px-3 lg:px-10 mt-2">
 
             <div className="pb-5">
                 <Flower2 size={50} />
