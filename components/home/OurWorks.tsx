@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -60,11 +60,11 @@ export default function OurWorks() {
                     }
                 }
             >
-                <div className="text-center text-5xl font-extrabold">
-                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
+                <div className="text-center font-extrabold">
+                    <span className="text-5xl bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
                         Our Works
                     </span>
-                    <p className="text-center text-white mb-12">A Selection of Signature Projects</p>
+                    <p className="text-3xl text-white mb-12">A Selection of Signature Projects</p>
                 </div>
 
                 <Swiper
@@ -79,15 +79,15 @@ export default function OurWorks() {
                     breakpoints={{
                         640: {
                             slidesPerView: 1,
-                            spaceBetween: 20,
+                            spaceBetween: 10,
                         },
                         768: {
                             slidesPerView: 2,
-                            spaceBetween: 40,
+                            spaceBetween: 20,
                         },
                         1024: {
                             slidesPerView: 3,
-                            spaceBetween: 50,
+                            spaceBetween: 30,
                         },
                     }}
                     className="mySwiper"
@@ -95,8 +95,14 @@ export default function OurWorks() {
 
                     {works.map((work, index) => (
                         <SwiperSlide key={index}>
-                            <div className="shadow-lg rounded-md overflow-hidden backdrop-blur-lg">
-                                <div className="h-56 bg-cover bg-center transition duration-300 ease-in-out hover:scale-110" style={{ backgroundImage: `url(${work.image})` }}></div>
+                            <div className="shadow-lg rounded-lg overflow-hidden backdrop-blur-lg transition duration-300 ease-in-out hover:scale-110">
+                                <Image
+                                    src={work.image}
+                                    alt={work.title}
+                                    width={300}
+                                    height={200}
+                                    className="w-full h-56 object-cover rounded-lg shadow-md"
+                                />
                                 <div className="p-4">
                                     <h3 className="text-white text-xl font-semibold">{work.title}</h3>
                                     <p className="text-white">Client: {work.client}</p>
