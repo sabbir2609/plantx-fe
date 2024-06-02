@@ -1,4 +1,4 @@
-import { Airplay, Bath, Building2, CalendarCheck2, ChevronRight, CircleCheckBig, Fence, HandPlatter, HelpCircle, LayoutDashboard, LogOut, NotebookPen, Search, Settings2, UserRoundCog, UsersRound, Warehouse, } from "lucide-react";
+import { Airplay, Bath, Building2, CalendarCheck2, ChevronRight, CircleCheckBig, Cylinder, Fence, HandPlatter, HelpCircle, LayoutDashboard, Lightbulb, LogOut, NotebookPen, Search, Settings2, ShoppingBag, Sprout, UserRoundCog, UsersRound, Warehouse, } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
@@ -23,160 +23,58 @@ interface MenuGroupProps {
 }
 
 export default function Sidebar() {
-    const menuItemsMain = [
-        {
-            title: "Dashboard",
-            icon: <LayoutDashboard size={20} />,
-            link: "/dashboard"
-        },
-        {
-            title: "Reservations",
-            icon: <CalendarCheck2 size={20} />,
-            link: "/dashboard/reservations"
-        }
-    ]
+
+
 
     const menuItemsOne = {
 
-        "Accounts": {
-            "icon": <UsersRound size={20} className="inline-block" />,
-            "users": {
-                "title": "Users",
-                "link": "/dashboard/users"
+        "Plants": {
+            "icon": <Sprout size={20} className="inline-block" />,
+            "indoor": {
+                "title": "Indoor",
+                "link": "#"
             },
-            "guests": {
-                "title": "Guests",
-                "link": "/dashboard/users/guests"
+            "outdoor": {
+                "title": "Outdoor",
+                "link": "#"
             }
         },
 
-        "Tasks": {
-            "icon": <CircleCheckBig size={20} className="inline-block" />,
-            "addTask": {
-                "title": "New Task",
-                "link": "/dashboard/tasks/new"
+        "Planters": {
+            "icon": <Cylinder size={20} className="inline-block" />,
+            "ceramic": {
+                "title": "Ceramic",
+                "link": "#"
             },
-            "allTasks": {
-                "title": "All Tasks",
-                "link": "/dashboard/tasks"
-            }
+            "concrete": {
+                "title": "Concrete",
+                "link": "#"
+            },
+            "geobags": {
+                "title": "Geobags",
+                "link": "#"
+            },
+            "plastic": {
+                "title": "Plastic",
+                "link": "#"
+            },
+
         },
 
-        "Devices": {
-            "icon": <Airplay size={20} className="inline-block" />,
-            "deviceTypes": {
-                "title": "Device Types",
-                "link": "/dashboard/devices/type"
-            },
-            "allDevices": {
-                "title": "All Devices",
-                "link": "/dashboard/devices"
-            }
-        },
-
-        "Floors": {
-            "icon": <Building2 size={20} className="inline-block" />,
-            "addFloor": {
-                "title": "New Floor",
-                "link": "/dashboard/floors/new"
-            },
-            "allFloors": {
-                "title": "All Floors",
-                "link": "/dashboard/floors"
-            }
-        },
-
-        "Rooms": {
-            "icon": <Bath size={20} className="inline-block" />,
-            "roomTypes": {
-                "title": "Room Types",
-                "link": "/dashboard/rooms/type"
-            },
-            "allRooms": {
-                "title": "All Rooms",
-                "link": "/dashboard/rooms"
-            },
-        },
-
-        "Facilities": {
-            "icon": <Fence size={20} className="inline-block" />,
-            "addFacility": {
-                "title": "Add Facility ",
-                "link": "/dashboard/facilities/new"
-            },
-            "allFacilities": {
-                "title": "All Facilities",
-                "link": "/dashboard/facilities"
-            },
-        },
-
-        "Inventory": {
-            "icon": <Warehouse size={20} className="inline-block" />,
-            "addInventory": {
-                "title": "Add Inventory",
-                "link": "/dashboard/inventory/new"
-            },
-            "Inventory": {
-                "title": "Inventory",
-                "link": "/dashboard/inventory"
-            }
-        },
-
-        "Staff Management": {
-            "icon": <UserRoundCog size={20} className="inline-block" />,
-            "addStaff": {
-                "title": "Add Staff",
-                "link": "/dashboard/staffs/new"
-            },
-            "allStaff": {
-                "title": "All Staff",
-                "link": "/dashboard/staffs"
-            },
-            "Roles": {
-                "title": "Roles",
-                "link": "/dashboard/staffs/roles"
-            }
-        },
-
-        "Restaurant": {
-            "icon": <HandPlatter size={20} className="inline-block" />,
-            "reservation": {
-                "title": "Reservations",
-                "link": "/dashboard/restaurant/reservations"
-            },
-            "menu": {
-                "title": "Menu",
-                "link": "/dashboard/restaurant/menu"
-            },
-            "orders": {
-                "title": "Orders",
-                "link": "/dashboard/restaurant/orders"
-            },
-            "tables": {
-                "title": "Tables",
-                "link": "/dashboard/restaurant/tables"
-            }
-        }
     };
 
-    const menuItemsTwo = {
-        "Reports": {
-            "icon": <NotebookPen size={20} className="inline-block" />,
-            "dailyReport": {
-                "title": "Daily Report",
-                "link": "/dashboard/reports/daily"
-            },
-            "monthlyReport": {
-                "title": "Monthly Report",
-                "link": "/dashboard/reports/monthly"
-            },
-            "yearlyReport": {
-                "title": "Yearly Report",
-                "link": "/dashboard/reports/yearly"
-            }
+    const menuItems = [
+        {
+            title: "Innovate Your Space",
+            icon: <Lightbulb size={20} className="inline-block" />,
+            link: "#"
+        },
+        {
+            title: "Get Your Service",
+            icon: <HandPlatter size={20} className="inline-block" />,
+            link: "/dashboard/reservations"
         }
-    };
-
+    ]
     return (
         <aside className="min-h-screen w-72 flex flex-col bg-base-300">
             <div className="flex-grow">
@@ -185,8 +83,13 @@ export default function Sidebar() {
                 {/* Menu section */}
                 <ul className="menu gap-2">
 
+                    {/* Menu items one */}
+                    {Object.entries(menuItemsOne).map(([title, { icon, ...items }]) => (
+                        <MenuGroup key={title} title={title} icon={icon} items={items} />
+                    ))}
+
                     {/* Main menu items */}
-                    {menuItemsMain.map(({ title, icon, link }) => (
+                    {menuItems.map(({ title, icon, link }) => (
                         <li key={title}>
                             <Link href={link} className="font-semibold">
                                 {icon}
@@ -194,18 +97,6 @@ export default function Sidebar() {
                             </Link>
                         </li>
                     ))}
-
-                    {/* Menu items one */}
-                    {Object.entries(menuItemsOne).map(([title, { icon, ...items }]) => (
-                        <MenuGroup key={title} title={title} icon={icon} items={items} />
-                    ))}
-
-                    <div className="divider m-3 h-1"></div>
-
-                    {Object.entries(menuItemsTwo).map(([title, { icon, ...items }]) => (
-                        <MenuGroup key={title} title={title} icon={icon} items={items} />
-                    ))}
-
                 </ul>
             </div>
 
@@ -220,7 +111,7 @@ const SidebarHeader = () => {
             {/* Logo section */}
             <div className='sticky top-0 z-20 hidden gap-2 px-4 py-2 lg:flex shadow-sm bg-base-200'>
                 <Link href="/" className='btn btn-ghost px-2'>
-                    <p className='text-justify font-extrabold text-2xl'>Zenith Admin</p>
+                    <p className='text-justify font-extrabold text-2xl'>InDecor</p>
                 </Link>
             </div>
 
@@ -260,7 +151,7 @@ const SidebarFooter = () => {
 
 const MenuGroup: React.FC<MenuGroupProps> = ({ title, icon, items }) => (
     <li key={title}>
-        <details>
+        <details open>
             <summary className="font-semibold">
                 {icon}
                 {title}

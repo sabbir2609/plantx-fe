@@ -1,4 +1,5 @@
 import { ContactUs, FeaturedCategory, Footer, Hero, Navbar, Slogan } from "@/components/home";
+import TopPicks from "@/components/home/TopPicks";
 import { CircleChevronRight } from "lucide-react";
 import Link from "next/link";
 
@@ -20,6 +21,8 @@ export default function Home() {
         </div>
         <FeaturedCategory />
       </div>
+
+      <TopPicks />
 
       <ContactUs />
 

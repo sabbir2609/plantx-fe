@@ -99,7 +99,7 @@ export default function FeaturedCategory() {
                 {categories.map((category, index) => (
                     <SwiperSlide key={index}>
                         <div className="flex flex-col items-center justify-center p-2 mb-2  rounded-lg shadow-md">
-                            <Image src={category.image} alt={category.title} className="w-full h-48 object-cover rounded-lg shadow-md" width={300} height={200} />
+                            <Image src={category.image} alt={category.title} className="w-full h-48 object-cover rounded-lg shadow-md transition duration-300 ease-in-out hover:scale-110" width={300} height={200} />
                             <h3 className="mt-2 text-lg font-semibold text-center">{category.title}</h3>
                         </div>
                     </SwiperSlide>
