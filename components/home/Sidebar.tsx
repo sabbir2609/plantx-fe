@@ -32,7 +32,7 @@ export default function Sidebar() {
             "icon": <Sprout size={20} className="inline-block" />,
             "indoor": {
                 "title": "Indoor",
-                "link": "#"
+                "link": "plants/indoor"
             },
             "outdoor": {
                 "title": "Outdoor",
@@ -109,22 +109,10 @@ const SidebarHeader = () => {
     return (
         <>
             {/* Logo section */}
-            <div className='sticky top-0 z-20 hidden gap-2 px-4 py-2 lg:flex shadow-sm bg-base-200'>
+            <div className='sticky top-0 z-20 gap-2 px-4 py-2 lg:flex shadow-sm bg-base-200'>
                 <Link href="/" className='btn btn-ghost px-2'>
                     <p className='text-justify font-extrabold text-2xl'>InDecor</p>
                 </Link>
-            </div>
-
-            {/* Search section */}
-            <div className="sticky top-0 z-20 lg:hidden items-center py-2 bg-base-200 shadow-sm">
-                <form role="search" className="relative m-2 lg:hidden">
-                    <div className="form-control">
-                        <input type="search" name="q" className="input input-bordered" placeholder="Search..." />
-                    </div>
-                    <button className="btn rounded-l-none absolute right-0 top-0">
-                        <Search size={20} />
-                    </button>
-                </form>
             </div>
         </>
     )

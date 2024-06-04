@@ -35,7 +35,7 @@ export default function Hero() {
             >
                 {slides.map((slide, index) => (
                     <SwiperSlide key={index}>
-                        <Image width={1024} height={1024} src={slide} alt={`Slide ${index + 1}`} className="object-cover w-full h-full" />
+                        <Image width={800} height={800} src={slide} alt={`Slide ${index + 1}`} className="object-cover w-full h-full" />
                     </SwiperSlide>
                 ))}
             </Swiper>

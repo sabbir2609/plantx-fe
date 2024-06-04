@@ -1,2 +1,2 @@
 export { default as ThemeChange } from "./ThemeChange";
-export { default as Sidebar } from "./Sidebar";
+export { default as Sidebar } from "../home/Sidebar";
