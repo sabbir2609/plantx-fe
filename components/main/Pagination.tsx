@@ -9,12 +9,11 @@ interface PaginationProps {
 }
 
 export default function Pagination({ totalPages, baseURL }: PaginationProps) {
+    const [active, setActive] = useState(1);
 
     if (totalPages <= 1) {
         return null;
     }
-
-    const [active, setActive] = useState(1);
 
     const prevPage = active > 1 ? active - 1 : null;
     const nextPage = active < totalPages ? active + 1 : null;
