@@ -1,8 +1,9 @@
 import { Navbar, Sidebar } from "@/components/main";
 import type { Metadata } from "next";
+
 export const metadata: Metadata = {
-    title: "Zenith System",
-    description: "Zenith System Dashboard",
+    title: "InDecor",
+    description: "InDecor - Your one-stop shop for all things plants and planters",
 };
 
 export default function DashboardLayout({

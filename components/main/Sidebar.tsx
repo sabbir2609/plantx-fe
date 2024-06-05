@@ -1,4 +1,4 @@
-import { Airplay, Bath, Building2, CalendarCheck2, ChevronRight, CircleCheckBig, Cylinder, Fence, HandPlatter, HelpCircle, LayoutDashboard, Lightbulb, LogOut, NotebookPen, Search, Settings2, ShoppingBag, Sprout, UserRoundCog, UsersRound, Warehouse, } from "lucide-react";
+import { ChevronRight, Cylinder, HandPlatter, HelpCircle, Leaf, Lightbulb, LogOut, MessageSquareHeart, Rss, Search, Settings2, Sprout } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
@@ -32,7 +32,7 @@ export default function Sidebar() {
             "icon": <Sprout size={20} className="inline-block" />,
             "indoor": {
                 "title": "Indoor",
-                "link": "plants/indoor"
+                "link": "/plants/indoor"
             },
             "outdoor": {
                 "title": "Outdoor",
@@ -82,6 +82,12 @@ export default function Sidebar() {
 
                 {/* Menu section */}
                 <ul className="menu gap-2">
+
+                    <li>
+                        <Link href="/plants" className="font-semibold">
+                            <Leaf size={20} className="inline-block" /> Explore all Plants
+                        </Link>
+                    </li>
 
                     {/* Menu items one */}
                     {Object.entries(menuItemsOne).map(([title, { icon, ...items }]) => (
@@ -135,14 +141,14 @@ const SidebarFooter = () => {
     return (
         <div className="p-1 sticky bottom-0 bg-base-200">
             <div className="grid grid-cols-3 gap-2">
-                <Link href="/settings" className="btn btn-ghost rounded-sm">
-                    <Settings2 size={20} />
+                <Link href="/feedback" className="btn btn-ghost rounded-sm">
+                    <MessageSquareHeart size={20} className="inline-block" />
                 </Link>
                 <Link href="/support" className="btn btn-ghost rounded-sm">
                     <HelpCircle size={20} />
                 </Link>
-                <Link href="/logout" className="btn btn-ghost rounded-sm">
-                    <LogOut size={20} />
+                <Link href="/subscribe" className="btn btn-ghost rounded-sm">
+                    <Rss size={20} className="inline-block" />
                 </Link>
             </div>
         </div>
