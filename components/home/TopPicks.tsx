@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 
 export default function TopPicks() {
@@ -84,7 +85,7 @@ export default function TopPicks() {
                 {topPicksData.map((item) => (
                     <div key={item.id} className="rounded-lg shadow-md overflow-hidden">
                         <Link href={item.link}>
-                            <img src={item.image} alt={item.title} className="w-full h-40 object-cover transition duration-300 ease-in-out hover:scale-110" />
+                            <Image height={200} width={200} src={item.image} alt={item.title} className="w-full h-40 object-cover transition duration-300 ease-in-out hover:scale-110" />
                             <div className="p-4">
                                 <h3 className="text-lg font-semibold">{item.title}</h3>
                             </div>
