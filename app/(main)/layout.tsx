@@ -21,7 +21,7 @@ export default function DashboardLayout({
 
                 </div>
 
-                <div className="p-1">
+                <div className="p-2">
 
                     {children}
 

@@ -30,6 +30,10 @@ export default function Sidebar() {
 
         "Plants": {
             "icon": <Sprout size={20} className="inline-block" />,
+            "all": {
+                "title": "All Plants",
+                "link": "/plants"
+            },
             "indoor": {
                 "title": "Indoor",
                 "link": "/plants/indoor"
@@ -84,8 +88,8 @@ export default function Sidebar() {
                 <ul className="menu gap-2">
 
                     <li>
-                        <Link href="/plants" className="font-semibold">
-                            <Leaf size={20} className="inline-block" /> Explore all Plants
+                        <Link href="/plants/category" className="font-semibold">
+                            <Leaf size={20} className="inline-block" /> Explore Plant Category
                         </Link>
                     </li>
 
