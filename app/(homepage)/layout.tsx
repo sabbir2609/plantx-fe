@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Sidebar } from "@/components/common";
 
 export const metadata: Metadata = {
-    title: "InDecor",
+    title: "Viriditas",
     description: "We design your home, indoor, outdoor, office, and hotel.",
 };
 

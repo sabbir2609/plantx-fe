@@ -2,19 +2,31 @@ import Loading from '@/app/loading';
 import { Pagination } from '@/components/main';
 import { FlaskConicalOff, PawPrint } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
-interface PlantImage {
+interface PlantCategory {
     id: number;
+    name: string;
+    description: string;
     image: string;
+}
+
+interface Tag {
+    id: number;
+    name: string;
 }
 
 interface Plant {
     id: number;
-    name: string;
-    category: string;
-    tags: string[];
-    price: string;
-    images: PlantImage[];
+    title: string;
+    category: PlantCategory;
+    indoor_or_outdoor: string;
+    size: string;
+    description: string;
+    care_instructions: string;
+    tags: Tag[];
+    created_at: string;
+    images: { id: number; image: string }[];
 }
 
 export default async function Plants(context: any) {
@@ -41,42 +53,41 @@ export default async function Plants(context: any) {
 
     return (
         <>
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mb-16">
+            <h1 className="text-3xl font-bold mb-6">
+                Browse all Plants
+            </h1>
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 lg:gap-4 lg:p-2 mb-16">
 
                 {plants.map((plant) => (
-                    <div key={plant.id} className="shadow-lg rounded-lg overflow-hidden bg-base-200">
-                        <div className="relative h-48">
-                            {plant.images && plant.images.length > 0 ? (
-                                <Image
-                                    height={500}
-                                    width={500}
-                                    src={plant.images[0].image}
-                                    alt={plant.name}
-                                    className='hover:scale-110 transition duration-300 ease-in-out object-center object-cover h-48 w-full' />
-                            ) : (
-                                <Image
-                                    src="/static/no-img.png"
-                                    alt={plant.name}
-                                    height={500}
-                                    width={500}
-                                    className='hover:scale-110 transition duration-300 ease-in-out object-center object-cover h-48 w-full'
-                                />
-                            )}
-                        </div>
-                        <div className="p-4">
-                            <h2 className="text-xl font-semibold">{plant.name}</h2>
-                            <p className="text-sm">{plant.category}</p>
-                            <p className="text-sm">{plant.tags.join(', ')}</p>
-                            <div className="flex flex-row justify-between items-center">
-                                <p className="mt-2 text-lg font-semibold">${plant.price}</p>
-                                <div className='flex flex-row gap-1'>
-                                    <PawPrint size={18} />
-                                    <FlaskConicalOff size={18} />
-                                </div>
+                    <div key={plant.id} className="bg-base-200 shadow-lg rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 ease-in-out">
+                        <Link href={`/plants/${plant.id}`}>
+                            <div className="relative h-48">
+                                {plant.images && plant.images.length > 0 ? (
+                                    <Image
+                                        src={plant.images[0].image}
+                                        alt={plant.title}
+                                        layout="fill"
+                                        objectFit="cover"
+                                    />
+                                ) : (
+                                    <Image
+                                        src="/static/no-img.png"
+                                        alt={plant.title}
+                                        layout="fill"
+                                        objectFit="cover"
+                                    />
+                                )}
                             </div>
-                        </div>
+                            <div className="p-3">
+                                <h2 className="text-lg font-semibold">{plant.title}</h2>
+                                <p className="text-sm">{plant.category.name}</p>
+                                <p className="text-sm">{plant.indoor_or_outdoor}</p>
+                                <p className="text-xs">{plant.tags.map(tag => tag.name).join(', ')}</p>
+                            </div>
+                        </Link>
                     </div>
                 ))}
+
             </div>
             <div className="fixed bottom-4 right-4">
                 <Pagination baseURL={baseURL} totalPages={totalPages} />

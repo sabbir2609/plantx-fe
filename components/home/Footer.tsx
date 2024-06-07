@@ -7,7 +7,7 @@ export default function Footer() {
 
             <div className="pb-5">
                 <Flower2 size={50} />
-                <p className="mt-2 font-bold">InDecor.<br />Providing reliable service since 2024</p>
+                <p className="mt-2 font-bold">Viriditas.<br />Providing reliable service since 2024</p>
             </div>
 
             <div className="mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
@@ -61,7 +61,7 @@ export default function Footer() {
                 </nav>
             </div>
             <div className="text-center lg:text-right mt-5">
-                <p>© 2024 InDecor. All rights reserved.</p>
+                <p>© 2024 Viriditas. All rights reserved.</p>
             </div>
         </footer>
     );

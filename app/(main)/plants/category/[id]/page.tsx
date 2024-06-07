@@ -46,7 +46,7 @@ export default async function Page({ params }: { params: { id: number } }) {
     const plants: Plant[] = await fetchPlants(params.id);
 
     return (
-        <div className="container mx-auto p-4">
+        <div className="mx-auto">
 
             <div className="bg-base-200 shadow-lg rounded-lg overflow-hidden mb-6">
                 <div className="relative h-64">
@@ -63,32 +63,34 @@ export default async function Page({ params }: { params: { id: number } }) {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 lg:gap-6">
 
                 {plants.map((plant) => (
-                    <div key={plant.id} className="bg-base-200 shadow-lg rounded-lg overflow-hidden">
-                        <div className="relative h-48">
-                            {plant.images && plant.images.length > 0 ? (
-                                <Image
-                                    src={plant.images[0].image}
-                                    alt={plant.title}
-                                    layout="fill"
-                                    objectFit="cover"
-                                />
-                            ) : (
-                                <Image
-                                    src="/static/no-img.png"
-                                    alt={plant.title}
-                                    layout="fill"
-                                    objectFit="cover"
-                                />
-                            )}
-                        </div>
-                        <div className="p-4">
-                            <h2 className="text-xl font-semibold">{plant.title}</h2>
-                            <p className="text-sm">{plant.category.name}</p>
-                            <p className="text-sm">{plant.tags.map(tag => tag.name).join(', ')}</p>
-                        </div>
+                    <div key={plant.id} className="bg-base-200 shadow-lg rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 ease-in-out">
+                        <Link href={`/plants/${plant.id}`}>
+                            <div className="relative h-48">
+                                {plant.images && plant.images.length > 0 ? (
+                                    <Image
+                                        src={plant.images[0].image}
+                                        alt={plant.title}
+                                        layout="fill"
+                                        objectFit="cover"
+                                    />
+                                ) : (
+                                    <Image
+                                        src="/static/no-img.png"
+                                        alt={plant.title}
+                                        layout="fill"
+                                        objectFit="cover"
+                                    />
+                                )}
+                            </div>
+                            <div className="p-4">
+                                <h2 className="text-lg font-semibold">{plant.title}</h2>
+                                <p className="text-sm">{plant.category.name}</p>
+                                <p className="text-xs">{plant.tags.map(tag => tag.name).join(', ')}</p>
+                            </div>
+                        </Link>
                     </div>
                 ))}
 

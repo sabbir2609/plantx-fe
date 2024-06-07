@@ -35,7 +35,7 @@ export default function Navbar() {
                     </svg>
                 </label>
                 <div className="flex-1 lg:hidden">
-                    <Link href="/" className="btn btn-ghost text-xl">InDecor</Link>
+                    <Link href="/" className="btn btn-ghost text-xl">Viriditas</Link>
                 </div>
             </div>
             <div className="navbar-end">
