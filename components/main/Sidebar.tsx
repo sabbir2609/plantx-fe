@@ -40,7 +40,7 @@ export default function Sidebar() {
             },
             "outdoor": {
                 "title": "Outdoor",
-                "link": "#"
+                "link": "/plants/outdoor"
             }
         },
 
