@@ -58,12 +58,11 @@ export default function Plants({ params }: { params: { id: number } }) {
         images: []
     });
 
-    // fetch plant data
     useEffect(() => {
         fetch(`${process.env.NEXT_PUBLIC_HOST}/plants/${params.id}`)
             .then(response => response.json())
             .then(data => setPlant(data));
-    }, []);
+    }, [params.id]);
 
     return (
         <div className="mx-auto flex flex-wrap">
