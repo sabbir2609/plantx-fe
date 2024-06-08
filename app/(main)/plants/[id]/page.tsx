@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -43,9 +43,27 @@ interface Plant {
 }
 
 
-export default async function Plants({ params }: { params: { id: number } }) {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/plants/${params.id}`, { cache: 'no-cache' });
-    const plant: Plant = await res.json();
+export default function Plants({ params }: { params: { id: number } }) {
+
+    const [plant, setPlant] = useState<Plant>({
+        id: 0,
+        title: '',
+        category: { id: 0, name: '' },
+        indoor_or_outdoor: '',
+        size: '',
+        description: '',
+        care_instructions: '',
+        tags: [],
+        created_at: '',
+        images: []
+    });
+
+    // fetch plant data
+    useEffect(() => {
+        fetch(`${process.env.NEXT_PUBLIC_HOST}/plants/${params.id}`)
+            .then(response => response.json())
+            .then(data => setPlant(data));
+    }, []);
 
     return (
         <div className="mx-auto flex flex-wrap">
@@ -65,8 +83,7 @@ export default async function Plants({ params }: { params: { id: number } }) {
                                     src={image.image}
                                     height={800}
                                     width={800}
-                                    objectPosition='center'
-                                    objectFit="fill"
+                                    className='object-cover'
                                     alt={image.short_description} />
                             </SwiperSlide>
                         ))}
@@ -77,8 +94,7 @@ export default async function Plants({ params }: { params: { id: number } }) {
                             src="/static/no-img.png"
                             height={800}
                             width={800}
-                            objectFit="fill"
-                            className="object-cover w-full h-64 lg:h-auto shadow-lg rounded-lg"
+                            className="object-cover"
                             alt="Placeholder" />
                     </div>
                 )}

@@ -6,7 +6,7 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'pythonanywhere.com',
+                hostname: 'sabbir2609.pythonanywhere.com',
             },
             {
                 protocol: 'http',

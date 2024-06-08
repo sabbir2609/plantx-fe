@@ -48,16 +48,25 @@ export default async function Page({ params }: { params: { id: number } }) {
     return (
         <div className="mx-auto">
 
-            <div className="bg-base-200 shadow-lg rounded-lg overflow-hidden mb-6">
-                <div className="relative h-64">
+            <div className="bg-base-200 h-auto lg:h-80 shadow-lg rounded-lg overflow-hidden mb-6 relative">
+                {category.image ? (
                     <Image
                         src={category.image}
+                        height={1200}
+                        width={1200}
                         alt={category.name}
-                        layout="fill"
-                        objectFit="cover"
+                        className="object-cover"
                     />
-                </div>
-                <div className="p-4">
+                ) : (
+                    <Image
+                        src="/static/no-img.png"
+                        height={1200}
+                        width={1200}
+                        alt={category.name}
+                        className="object-cover"
+                    />
+                )}
+                <div className="p-4 absolute bottom-0 left-0 h-full md:w-1/2 content-center bg-opacity-50 bg-black text-white">
                     <h1 className="text-3xl font-semibold">{category.name}</h1>
                     <p className="mt-2">{category.description}</p>
                 </div>
@@ -72,16 +81,18 @@ export default async function Page({ params }: { params: { id: number } }) {
                                 {plant.images && plant.images.length > 0 ? (
                                     <Image
                                         src={plant.images[0].image}
+                                        height={500}
+                                        width={500}
                                         alt={plant.title}
-                                        layout="fill"
-                                        objectFit="cover"
+                                        className="object-cover"
                                     />
                                 ) : (
                                     <Image
                                         src="/static/no-img.png"
+                                        height={500}
+                                        width={500}
                                         alt={plant.title}
-                                        layout="fill"
-                                        objectFit="cover"
+                                        className="object-cover"
                                     />
                                 )}
                             </div>

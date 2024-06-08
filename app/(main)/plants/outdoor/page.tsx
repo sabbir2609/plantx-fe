@@ -59,19 +59,23 @@ export default async function Page(context: any) {
                 {plants.map((plant) => (
                     <div key={plant.id} className="bg-base-200 shadow-lg rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 ease-in-out">
                         <Link href={`/plants/${plant.id}`}>
-                            <div className="relative h-48">
+                            <div className="relative">
                                 {plant.images && plant.images.length > 0 ? (
                                     <Image
                                         src={plant.images[0].image}
                                         alt={plant.title}
-                                        layout="fill"
-                                        objectFit="cover" />
+                                        height={500}
+                                        width={500}
+                                        className="object-cover"
+                                    />
                                 ) : (
                                     <Image
                                         src="/static/no-img.png"
                                         alt={plant.title}
-                                        layout="fill"
-                                        objectFit="cover" />
+                                        height={500}
+                                        width={500}
+                                        className="object-cover"
+                                    />
                                 )}
                             </div>
                             <div className="p-4">
