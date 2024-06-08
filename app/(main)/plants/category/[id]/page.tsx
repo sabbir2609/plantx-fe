@@ -48,7 +48,7 @@ export default async function Page({ params }: { params: { id: number } }) {
     return (
         <div className="mx-auto">
 
-            <div className="bg-base-200 h-auto lg:h-80 shadow-lg rounded-lg overflow-hidden mb-6 relative">
+            <div className="bg-base-200 h-auto lg:h-80 shadow-lg rounded-lg overflow-hidden mb-4 relative">
                 {category.image ? (
                     <Image
                         src={category.image}
@@ -72,12 +72,12 @@ export default async function Page({ params }: { params: { id: number } }) {
                 </div>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 lg:gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 lg:gap-5">
 
                 {plants.map((plant) => (
                     <div key={plant.id} className="bg-base-200 shadow-lg rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 ease-in-out">
                         <Link href={`/plants/${plant.id}`}>
-                            <div className="relative h-48">
+                            <div className="relative">
                                 {plant.images && plant.images.length > 0 ? (
                                     <Image
                                         src={plant.images[0].image}
