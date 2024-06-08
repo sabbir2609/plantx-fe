@@ -39,6 +39,17 @@ interface Plant {
     images: PlantImage[];
 }
 
+const richTextStyles: Record<string, string> = {
+    h1: 'text-2xl font-bold mb-4',
+    h2: 'text-xl font-semibold mb-3',
+    p: 'mb-2',
+    ul: 'list-disc pl-5 mb-2',
+    ol: 'list-decimal pl-5 mb-2',
+    blockquote: 'border-l-4 border-gray-300 pl-4 italic text-gray-600 mb-4',
+    a: 'text-blue-500 underline',
+    pre: 'bg-gray-200 p-2 rounded mb-2',
+    code: 'bg-gray-200 p-1 rounded',
+};
 
 export default function Plants({ params }: { params: { id: number } }) {
 
@@ -60,6 +71,8 @@ export default function Plants({ params }: { params: { id: number } }) {
             .then(response => response.json())
             .then(data => setPlant(data));
     }, [params.id]);
+
+    console.log(plant.description);
 
     if (plant.id === 0) {
         return <Loading />;
@@ -105,12 +118,34 @@ export default function Plants({ params }: { params: { id: number } }) {
                         <div className="p-4">
                             <h1 className="text-2xl font-bold">{plant.title}</h1>
                             <p className="text-xl">{plant.category.name}</p>
-                            <p className="mt-2 text-lg" dangerouslySetInnerHTML={{ __html: plant.description }}>
-                            </p>
-                            <div className="mt-4">
-                                <h2 className="text-lg font-semibold">Care Instructions</h2>
-                                <p className="text-sm" dangerouslySetInnerHTML={{ __html: plant.care_instructions }}></p>
+
+                            <div className="join join-vertical w-full">
+                                <div className="collapse collapse-arrow join-item border border-base-300 rounded-sm">
+                                    <input type="radio" name="my-accordion" />
+                                    <div className="collapse-title text-xl font-medium">
+                                        Description
+                                    </div>
+                                    <div className="collapse-content">
+                                        <div
+                                            className="prose"
+                                            style={richTextStyles}
+                                            dangerouslySetInnerHTML={{ __html: plant.description }}></div>
+                                    </div>
+                                </div>
+                                <div className="collapse collapse-arrow join-item border border-base-300">
+                                    <input type="radio" name="my-accordion" />
+                                    <div className="collapse-title text-xl font-medium">
+                                        Care Instructions
+                                    </div>
+                                    <div className="collapse-content">
+                                        <div
+                                            className="prose"
+                                            style={richTextStyles}
+                                            dangerouslySetInnerHTML={{ __html: plant.care_instructions }}></div>
+                                    </div>
+                                </div>
                             </div>
+
                             <div className="mt-4">
                                 <h2 className="text-lg font-semibold">Tags</h2>
                                 <p className="text-sm">{plant.tags.map(tag => tag.name).join(', ')}</p>

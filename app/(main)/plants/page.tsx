@@ -80,15 +80,22 @@ export default async function Plants(context: any) {
                                         className='h-56 object-cover rounded-t-xl'
                                     />
                                 )}
+                                <div className="absolute top-2 lg:top-0 lg:left-0 py-1 px-2 rounded-br-md bg-opacity-50 backdrop-filter backdrop-blur-lg">
+                                    <p className="lg:text-sm text-accent flex flex-col lg:gap-2 lg:flex-row">
+                                        {plant.tags.map(tag => (
+                                            <span key={tag.id} className="text-xs">{tag.name}</span>
+                                        ))}
+                                    </p>
+                                </div>
                             </div>
                             <div className="p-3">
                                 <h2 className="text-lg font-semibold">{plant.title}</h2>
                                 <p className="text-sm">{plant.category.name}</p>
                                 <p className="text-sm">{plant.indoor_or_outdoor}</p>
-                                <p className="text-xs">{plant.tags.map(tag => tag.name).join(', ')}</p>
                             </div>
                         </Link>
                     </div>
+
                 ))}
 
             </div>
