@@ -64,17 +64,17 @@ export default async function Page(context: any) {
                                     <Image
                                         src={plant.images[0].image}
                                         alt={plant.title}
-                                        height={500}
-                                        width={500}
-                                        className="object-cover"
+                                        height={227}
+                                        width={384}
+                                        className='h-56 object-cover rounded-t-xl'
                                     />
                                 ) : (
                                     <Image
                                         src="/static/no-img.png"
                                         alt={plant.title}
-                                        height={500}
-                                        width={500}
-                                        className="object-cover"
+                                        height={227}
+                                        width={384}
+                                        className='h-56 object-cover rounded-t-xl'
                                     />
                                 )}
                             </div>

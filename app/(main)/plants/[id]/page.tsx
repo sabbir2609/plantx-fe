@@ -66,58 +66,59 @@ export default function Plants({ params }: { params: { id: number } }) {
     }
 
     return (
-        <div className="mx-auto flex flex-wrap">
 
-            <div className="w-full lg:w-1/2 mb-6 lg:mb-0">
-                {plant.images.length > 0 ? (
-                    <Swiper
-                        pagination={{
-                            dynamicBullets: true,
-                        }}
-                        modules={[Pagination]}
-                        className="mySwiper lg:h-[550px] rounded-lg shadow-lg"
-                    >
-                        {plant.images.map(image => (
-                            <SwiperSlide key={image.id}>
-                                <Image
-                                    src={image.image}
-                                    height={800}
-                                    width={800}
-                                    className='object-cover'
-                                    alt={image.short_description} />
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
-                ) : (
-                    <div className="relative h-64 lg:h-auto">
-                        <Image
-                            src="/static/no-img.png"
-                            height={800}
-                            width={800}
-                            className="object-cover"
-                            alt="Placeholder" />
-                    </div>
-                )}
-            </div>
-
-            <div className="w-full lg:w-1/2 lg:pl-4">
-                <div className="shadow-lg rounded-lg overflow-hidden">
-                    <div className="p-4">
-                        <h1 className="text-2xl font-bold">{plant.title}</h1>
-                        <p className="text-xl">{plant.category.name}</p>
-                        <p className="mt-2 text-lg">{plant.description}</p>
-                        <div className="mt-4">
-                            <h2 className="text-lg font-semibold">Care Instructions</h2>
-                            <p className="text-sm">{plant.care_instructions}</p>
+        <div className='p-2'>
+            <h1 className="text-3xl font-bold mb-4">Plant Details</h1><div className="mx-auto flex flex-wrap">
+                <div className="w-full lg:w-1/2 mb-6 lg:mb-0">
+                    {plant.images.length > 0 ? (
+                        <Swiper
+                            pagination={{
+                                dynamicBullets: true,
+                            }}
+                            modules={[Pagination]}
+                            className="mySwiper lg:h-[500px] rounded-lg shadow-lg"
+                        >
+                            {plant.images.map(image => (
+                                <SwiperSlide key={image.id}>
+                                    <Image
+                                        src={image.image}
+                                        height={800}
+                                        width={800}
+                                        className='object-cover'
+                                        alt={image.short_description} />
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    ) : (
+                        <div className="relative h-64 lg:h-auto">
+                            <Image
+                                src="/static/no-img.png"
+                                height={800}
+                                width={800}
+                                alt="Placeholder" />
                         </div>
-                        <div className="mt-4">
-                            <h2 className="text-lg font-semibold">Tags</h2>
-                            <p className="text-sm">{plant.tags.map(tag => tag.name).join(', ')}</p>
+                    )}
+                </div>
+
+                <div className="w-full lg:w-1/2 lg:pl-4">
+                    <div className="shadow-lg rounded-lg overflow-hidden">
+                        <div className="p-4">
+                            <h1 className="text-2xl font-bold">{plant.title}</h1>
+                            <p className="text-xl">{plant.category.name}</p>
+                            <p className="mt-2 text-lg" dangerouslySetInnerHTML={{ __html: plant.description }}>
+                            </p>
+                            <div className="mt-4">
+                                <h2 className="text-lg font-semibold">Care Instructions</h2>
+                                <p className="text-sm" dangerouslySetInnerHTML={{ __html: plant.care_instructions }}></p>
+                            </div>
+                            <div className="mt-4">
+                                <h2 className="text-lg font-semibold">Tags</h2>
+                                <p className="text-sm">{plant.tags.map(tag => tag.name).join(', ')}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     );
 }

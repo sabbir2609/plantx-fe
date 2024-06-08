@@ -59,6 +59,7 @@ export default async function Plants(context: any) {
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 lg:gap-4 lg:p-2 mb-16">
 
                 {plants.map((plant) => (
+
                     <div key={plant.id} className="bg-base-200 shadow-lg rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 ease-in-out">
                         <Link href={`/plants/${plant.id}`}>
                             <div className="relative">
@@ -66,17 +67,17 @@ export default async function Plants(context: any) {
                                     <Image
                                         src={plant.images[0].image}
                                         alt={plant.title}
-                                        height={500}
-                                        width={500}
-                                        className='object-cover'
+                                        height={227}
+                                        width={384}
+                                        className='h-56 object-cover rounded-t-xl'
                                     />
                                 ) : (
                                     <Image
                                         src="/static/no-img.png"
                                         alt={plant.title}
-                                        height={500}
-                                        width={500}
-                                        className='object-cover'
+                                        height={227}
+                                        width={384}
+                                        className='h-56 object-cover rounded-t-xl'
                                     />
                                 )}
                             </div>

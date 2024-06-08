@@ -72,7 +72,7 @@ export default async function Page({ params }: { params: { id: number } }) {
                 </div>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 lg:gap-5">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 lg:gap-5 p-2">
 
                 {plants.map((plant) => (
                     <div key={plant.id} className="bg-base-200 shadow-lg rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 ease-in-out">
@@ -81,18 +81,18 @@ export default async function Page({ params }: { params: { id: number } }) {
                                 {plant.images && plant.images.length > 0 ? (
                                     <Image
                                         src={plant.images[0].image}
-                                        height={500}
-                                        width={500}
                                         alt={plant.title}
-                                        className="object-cover"
+                                        height={227}
+                                        width={384}
+                                        className='h-56 object-cover rounded-t-xl'
                                     />
                                 ) : (
                                     <Image
                                         src="/static/no-img.png"
-                                        height={500}
-                                        width={500}
                                         alt={plant.title}
-                                        className="object-cover"
+                                        height={227}
+                                        width={384}
+                                        className='h-56 object-cover rounded-t-xl'
                                     />
                                 )}
                             </div>
