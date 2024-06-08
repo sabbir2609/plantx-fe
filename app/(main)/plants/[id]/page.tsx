@@ -2,16 +2,13 @@
 
 import Image from 'next/image';
 
-import React, { useEffect, useRef, useState } from 'react';
-// Import Swiper React components
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-
-// import required modules
 import { Pagination } from 'swiper/modules';
+
+import Loading from '@/app/loading';
 
 interface PlantCategory {
     id: number;
@@ -64,6 +61,10 @@ export default function Plants({ params }: { params: { id: number } }) {
             .then(data => setPlant(data));
     }, [params.id]);
 
+    if (plant.id === 0) {
+        return <Loading />;
+    }
+
     return (
         <div className="mx-auto flex flex-wrap">
 
@@ -104,18 +105,19 @@ export default function Plants({ params }: { params: { id: number } }) {
                     <div className="p-4">
                         <h1 className="text-2xl font-bold">{plant.title}</h1>
                         <p className="text-xl">{plant.category.name}</p>
-                        <p className="mt-2 text-lg text-gray-800">{plant.description}</p>
+                        <p className="mt-2 text-lg">{plant.description}</p>
                         <div className="mt-4">
-                            <h2 className="text-lg font-semibold text-gray-800">Care Instructions</h2>
+                            <h2 className="text-lg font-semibold">Care Instructions</h2>
                             <p className="text-sm">{plant.care_instructions}</p>
                         </div>
                         <div className="mt-4">
-                            <h2 className="text-lg font-semibold text-gray-800">Tags</h2>
+                            <h2 className="text-lg font-semibold">Tags</h2>
                             <p className="text-sm">{plant.tags.map(tag => tag.name).join(', ')}</p>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     );
 }
