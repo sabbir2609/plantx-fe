@@ -16,7 +16,6 @@ export default function RootLayout({
         <div className="bg-base-100 drawer">
             <input id="my-drawer" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content">
-                <Navbar />
                 {children}
             </div>
             <div className="drawer-side z-40" style={{ scrollBehavior: "smooth", scrollPaddingTop: "5rem" }}>

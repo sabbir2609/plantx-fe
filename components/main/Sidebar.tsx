@@ -46,41 +46,37 @@ export default function Sidebar() {
 
         "Planters": {
             "icon": <Cylinder size={20} className="inline-block" />,
-            "All Planters": {
-                "title": "All Planters",
-                "link": "/planters"
-            },
-            "Planters Category": {
+            "Category": {
                 "title": "Planters Category",
                 "link": "/planters/category"
+            },
+            "Planters": {
+                "title": "All Planters",
+                "link": "/planters"
             },
             "Our Custom Planters": {
                 "title": "Our Custom Planters",
                 "link": "/planters/custom"
             },
-            "Get a Custom Planter": {
-                "title": "Get a Custom Planter",
+            "Upload Your Design": {
+                "title": "Upload Your Design",
                 "link": "/planters/customize"
             }
 
         },
-        "Designs": {
+        "Services": {
             "icon": <PaintRoller size={20} className="inline-block" />,
-            "All Designs": {
-                "title": "All Designs",
-                "link": "/designs"
+            "Service Plan": {
+                "title": "Service Plan",
+                "link": "/services/plan"
             },
-            "Designs Category": {
-                "title": "Designs Category",
-                "link": "/designs/category"
+            "Services Category": {
+                "title": "Services Category",
+                "link": "/services/category"
             },
-            "Our Custom Designs": {
-                "title": "Our Custom Designs",
-                "link": "/designs/custom"
-            },
-            "Get a Custom Design": {
-                "title": "Get a Custom Design",
-                "link": "/designs/customize"
+            "Services Showcase": {
+                "title": "Services Showcase",
+                "link": "/services"
             }
         },
 
@@ -90,12 +86,12 @@ export default function Sidebar() {
         {
             title: "Innovate Your Space",
             icon: <Lightbulb size={20} className="inline-block" />,
-            link: "#"
+            link: "/innovate"
         },
         {
             title: "Get Your Service",
             icon: <HandPlatter size={20} className="inline-block" />,
-            link: "/dashboard/reservations"
+            link: "/service"
         },
 
         {

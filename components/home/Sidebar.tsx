@@ -95,7 +95,7 @@ export default function Sidebar() {
         {
             title: "Get Your Service",
             icon: <HandPlatter size={20} className="inline-block" />,
-            link: "/dashboard/reservations"
+            link: "#"
         },
         {
             title: "Contact Us",
