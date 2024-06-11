@@ -16,7 +16,7 @@ export default function Page() {
                         <div>
                             <h1 className="text-5xl lg:text-7xl font-bold">Viriditas: Innovate
                                 Your Space</h1>
-                            <p className="py-6">Elevate your home with nature's restorative power. Discover the transformative impact of biophilic design.</p>
+                            <p className="py-6">Elevate your home with nature&aposs restorative power. Discover the transformative impact of biophilic design.</p>
                             <div className="flex flex-row gap-4">
                                 <button className="btn btn-primary rounded-sm">Explore Collection</button>
                                 <button className="btn btn-secondary rounded-sm">Book Service</button>
@@ -28,7 +28,7 @@ export default function Page() {
 
             <section className="min-h-full lg:mx-10">
                 <h1 className="text-4xl font-bold py-10 text-center">
-                    Elevate Your Home with Nature's Essence
+                    Elevate Your Home with Nature&aposs Essence
                 </h1>
                 <div className="flex flex-col lg:flex-row justify-between lg:p-4">
 
