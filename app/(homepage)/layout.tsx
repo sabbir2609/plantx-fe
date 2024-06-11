@@ -1,6 +1,5 @@
+import { Sidebar } from "@/components/main";
 import type { Metadata } from "next";
-import { Sidebar } from "@/components/common";
-import { Navbar } from "@/components/home";
 
 export const metadata: Metadata = {
     title: "Viriditas",
