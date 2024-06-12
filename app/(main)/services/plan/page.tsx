@@ -11,7 +11,11 @@ interface Plan {
 }
 
 export default async function Page() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/service_types`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/service_types`,
+        {
+            cache: 'no-cache',
+        }
+    );
     if (!res.ok) {
         return <div>Error</div>;
     }
