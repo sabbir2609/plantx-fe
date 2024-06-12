@@ -3,6 +3,7 @@
 import Image from 'next/image';
 
 import React, { useEffect, useState } from 'react';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -81,7 +82,7 @@ export default function Plants({ params }: { params: { id: number } }) {
     return (
 
         <div className='p-2'>
-            <h1 className="text-3xl font-bold mb-4">Plant Details</h1><div className="mx-auto flex flex-wrap">
+            <div className="mx-auto flex flex-wrap">
                 <div className="w-full lg:w-1/2 mb-6 lg:mb-0">
                     {plant.images.length > 0 ? (
                         <Swiper
@@ -89,7 +90,7 @@ export default function Plants({ params }: { params: { id: number } }) {
                                 dynamicBullets: true,
                             }}
                             modules={[Pagination]}
-                            className="mySwiper lg:h-[500px] rounded-lg shadow-lg"
+                            className="mySwiper h-[480px] lg:max-h-[65vh] rounded-lg shadow-lg"
                         >
                             {plant.images.map(image => (
                                 <SwiperSlide key={image.id}>
@@ -97,13 +98,13 @@ export default function Plants({ params }: { params: { id: number } }) {
                                         src={image.image}
                                         height={800}
                                         width={800}
-                                        className='object-cover'
+                                        className="object-cover w-full h-full rounded-lg"
                                         alt={image.short_description} />
                                 </SwiperSlide>
                             ))}
                         </Swiper>
                     ) : (
-                        <div className="relative h-64 lg:h-auto">
+                        <div className="relative h-64 lg:h-full">
                             <Image
                                 src="/static/no-img.png"
                                 height={800}
@@ -111,45 +112,38 @@ export default function Plants({ params }: { params: { id: number } }) {
                                 alt="Placeholder" />
                         </div>
                     )}
+                    <div className="rounded-lg px-4 mt-4 pb-2 lg:pb-0 shadow-md">
+                        <h1 className="text-2xl font-bold">{plant.title}</h1>
+                        <p className="text-xl">{plant.category.name}</p>
+                        <div className="">
+                            <p className="text-sm"><span className="text-lg font-semibold">Tags: </span>{plant.tags.map(tag => tag.name).join(', ')}</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div className="w-full lg:w-1/2 lg:pl-4">
-                    <div className="shadow-lg rounded-lg overflow-hidden">
-                        <div className="p-4">
-                            <h1 className="text-2xl font-bold">{plant.title}</h1>
-                            <p className="text-xl">{plant.category.name}</p>
-
-                            <div className="join join-vertical w-full">
-                                <div className="collapse collapse-arrow join-item border border-base-300 rounded-sm">
-                                    <input type="radio" name="my-accordion" />
-                                    <div className="collapse-title text-xl font-medium">
-                                        Description
-                                    </div>
-                                    <div className="collapse-content">
-                                        <div
-                                            className="prose"
-                                            style={richTextStyles}
-                                            dangerouslySetInnerHTML={{ __html: plant.description }}></div>
-                                    </div>
-                                </div>
-                                <div className="collapse collapse-arrow join-item border border-base-300">
-                                    <input type="radio" name="my-accordion" />
-                                    <div className="collapse-title text-xl font-medium">
-                                        Care Instructions
-                                    </div>
-                                    <div className="collapse-content">
-                                        <div
-                                            className="prose"
-                                            style={richTextStyles}
-                                            dangerouslySetInnerHTML={{ __html: plant.care_instructions }}></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="mt-4">
-                                <h2 className="text-lg font-semibold">Tags</h2>
-                                <p className="text-sm">{plant.tags.map(tag => tag.name).join(', ')}</p>
-                            </div>
+                <div className="join join-vertical lg:w-1/2 w-full lg:px-4">
+                    <div className="collapse collapse-arrow join-item border border-base-300 rounded-sm shadow-lg">
+                        <input type="radio" name="my-accordion" />
+                        <div className="collapse-title text-xl font-medium bg-base-200">
+                            Description
+                        </div>
+                        <div className="collapse-content">
+                            <div
+                                className="prose overflow-auto max-h-[60vh]"
+                                style={richTextStyles}
+                                dangerouslySetInnerHTML={{ __html: plant.description }}></div>
+                        </div>
+                    </div>
+                    <div className="collapse collapse-arrow join-item border border-base-300">
+                        <input type="radio" name="my-accordion" />
+                        <div className="collapse-title text-xl font-medium bg-base-200">
+                            Care Instructions
+                        </div>
+                        <div className="collapse-content">
+                            <div
+                                className="prose overflow-auto max-h-[60vh]"
+                                style={richTextStyles}
+                                dangerouslySetInnerHTML={{ __html: plant.care_instructions }}></div>
                         </div>
                     </div>
                 </div>

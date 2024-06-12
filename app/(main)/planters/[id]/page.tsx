@@ -68,7 +68,7 @@ export default function Plants({ params }: { params: { id: number } }) {
     return (
 
         <div className='p-2'>
-            <h1 className="text-3xl font-bold mb-4">Plant Details</h1><div className="mx-auto flex flex-wrap">
+            <h1 className="text-3xl font-bold mb-4">Planter Details</h1><div className="mx-auto flex flex-wrap">
                 <div className="w-full lg:w-1/2 mb-6 lg:mb-0">
                     {planter.images.length > 0 ? (
                         <Swiper
@@ -76,15 +76,20 @@ export default function Plants({ params }: { params: { id: number } }) {
                                 dynamicBullets: true,
                             }}
                             modules={[Pagination]}
-                            className="mySwiper lg:h-[500px] rounded-lg shadow-lg"
+                            className="mySwiper h-[500px] lg:max-h-[50vh] rounded-lg shadow-lg"
                         >
                             {planter.images.map(image => (
                                 <SwiperSlide key={image.id}>
                                     <Image
                                         src={image.image}
-                                        height={800}
-                                        width={800}
-                                        className='object-cover'
+                                        fill={true}
+                                        style={
+                                            {
+                                                objectFit: 'cover',
+                                                width: '100%',
+                                                height: '100%',
+                                            }
+                                        }
                                         alt={image.short_description} />
                                 </SwiperSlide>
                             ))}
@@ -98,34 +103,27 @@ export default function Plants({ params }: { params: { id: number } }) {
                                 alt="Placeholder" />
                         </div>
                     )}
+                    <div className="p-4 shadow-md rounded-lg">
+                        <h1 className="text-2xl font-bold">{planter.model}</h1>
+                        <p className="text-xl">{planter.category.name}</p>
+                        <p className="text-xl">{planter.size}</p>
+                        <p className="text-xl">{planter.color}</p>
+                    </div>
                 </div>
 
                 <div className="w-full lg:w-1/2 lg:pl-4">
-
-                    <div className="shadow-lg rounded-lg overflow-hidden">
-                        <div className="p-4">
-                            <h1 className="text-2xl font-bold">{planter.model}</h1>
-                            <p className="text-xl">{planter.category.name}</p>
-                            <p className="text-xl">{planter.size}</p>
-                            <p className="text-xl">{planter.color}</p>
+                    <div className="collapse collapse-arrow join-item border rounded-lg shadow-lg">
+                        <input type="radio" name="my-accordion" />
+                        <div className="collapse-title text-xl font-medium bg-base-200">
+                            Description
                         </div>
-
-                        <div className="p-4">
-                            <div className="collapse collapse-arrow join-item border border-base-300 rounded-sm">
-                                <input type="radio" name="my-accordion" />
-                                <div className="collapse-title text-xl font-medium">
-                                    Description
-                                </div>
-                                <div className="collapse-content">
-                                    <div
-                                        className="prose"
-                                        style={richTextStyles}
-                                        dangerouslySetInnerHTML={{ __html: planter.description }}></div>
-                                </div>
-                            </div>
+                        <div className="collapse-content">
+                            <div
+                                className="overflow-auto max-h-[60vh]"
+                                style={richTextStyles}
+                                dangerouslySetInnerHTML={{ __html: planter.description }}></div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

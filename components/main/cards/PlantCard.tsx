@@ -43,7 +43,7 @@ export default function PlantCard({ plant }: PlantCardProps) {
                             alt={plant.title}
                             height={227}
                             width={384}
-                            className='h-56 object-cover rounded-t-xl'
+                            className='h-56 object-cover'
                         />
                     ) : (
                         <Image
@@ -51,10 +51,10 @@ export default function PlantCard({ plant }: PlantCardProps) {
                             alt={plant.title}
                             height={227}
                             width={384}
-                            className='h-56 object-cover rounded-t-xl'
+                            className='h-56 object-cover'
                         />
                     )}
-                    <div className="absolute top-0 left-0 py-1 px-2 rounded-br-md bg-base-200">
+                    <div className="absolute top-0 left-0 py-1 px-2 rounded-br-md backdrop-blur-md bg-base-200 bg-opacity-50">
                         {plant.tags.map(tag => (
                             <p key={tag.id} className="text-sm flex flex-col lg:gap-2 lg:flex-row">
                                 {tag.name}
