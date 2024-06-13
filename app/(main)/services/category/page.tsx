@@ -9,7 +9,11 @@ interface Category {
 }
 
 export default async function Page() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/service_categories/`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/service_categories/`,
+        {
+            cache: "no-cache",
+        }
+    );
     if (!res.ok) {
         return <div>Error</div>;
     }
