@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Slogan />
+      {/* <Slogan /> */}
 
       <div className="flex flex-col">
         <div className="flex flex-row justify-between items-center ms-2">

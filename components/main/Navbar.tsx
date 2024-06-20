@@ -40,9 +40,9 @@ export default function Navbar() {
             </div>
             <div className="navbar-end">
                 <ThemeChange />
-                <button className="btn btn-ghost btn-circle lg:hidden">
+                {/* <button className="btn btn-ghost btn-circle lg:hidden">
                     <Search />
-                </button>
+                </button> */}
                 <button className="btn btn-ghost btn-circle">
                     <div className="indicator">
                         <Phone />

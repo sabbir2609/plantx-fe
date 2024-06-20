@@ -31,13 +31,24 @@ export default async function PlantsCategoryPage() {
                         href={`/plants/category/${category.id}`}
                         className="block shadow-md rounded-lg overflow-hidden relative h-32 hover:scale-105 transition-transform duration-300 ease-in-out"
                     >
-                        <Image
-                            height={200}
-                            width={300}
-                            src={category.image}
-                            alt={category.name}
-                            className="w-full h-48 object-cover absolute z-0"
-                        />
+                        {category.image ? (
+                            <Image
+                                height={200}
+                                width={300}
+                                src={category.image}
+                                alt={category.name}
+                                className="w-full h-48 object-cover absolute z-0"
+                            />
+                        ) : (
+                            <Image
+                                height={200}
+                                width={300}
+                                src="/static/no-img.png"
+                                alt={category.name}
+                                className="w-full h-48 object-cover absolute z-0"
+                            />
+                        )}
+
                         <div className="p-4 relative z-10 flex items-center justify-center h-full bg-black bg-opacity-50">
                             <h2 className="text-xl font-semibold text-white">{category.name}</h2>
                         </div>

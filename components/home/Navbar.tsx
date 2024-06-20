@@ -30,9 +30,9 @@ export default function Navbar() {
             </div>
             <div className="navbar-end">
                 <ThemeChange />
-                <button className="btn btn-ghost btn-circle">
+                {/* <button className="btn btn-ghost btn-circle">
                     <Search />
-                </button>
+                </button> */}
                 <button className="btn btn-ghost btn-circle">
                     <div className="indicator">
                         <Phone />
