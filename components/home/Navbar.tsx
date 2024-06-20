@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Navbar() {
     return (
-        <div className="navbar sticky min-h-0 h-14 top-0 z-10 bg-transparent backdrop-filter backdrop-blur-lg bg-opacity-30">
+        <div className="navbar sticky min-h-0 h-14 top-0 z-10 bg-base-300 backdrop-filter backdrop-blur-lg bg-opacity-30">
             <div className="navbar-start">
                 <label
                     htmlFor="my-drawer"

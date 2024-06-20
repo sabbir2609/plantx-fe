@@ -19,7 +19,7 @@ export default function Hero() {
     ];
 
     return (
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap pb-3">
 
             <div className="w-full lg:w-3/5 px-2">
                 <Swiper
@@ -44,13 +44,15 @@ export default function Hero() {
                 </Swiper>
             </div>
 
-            <div className="w-full lg:w-2/5 mb-10">
+            <div className="w-full lg:w-2/5 lg:mb-10">
                 <div className="container mx-auto h-full">
                     <header className="container px-4 lg:flex mt-10 items-center h-full lg:mt-0">
                         <div className="w-full">
-                            <h1 className="text-4xl lg:text-6xl font-bold">Find your <span className="text-green-700">greeny</span> stuff for your room</h1>
+                            <h1 className="text-4xl lg:text-6xl font-bold">Find your <span className="text-green-700">greeny</span> stuff for your surrounding</h1>
                             <div className="w-20 h-2 bg-green-700 my-4"></div>
-                            <p className="text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae maiores neque eaque ea odit placeat, tenetur illum distinctio nulla voluptatum a corrupti beatae tempora aperiam quia id aliquam possimus aut.</p>
+                            <p className="text-xl">
+                                At Viriditas, our vision is to revolutionize urban landscapes through sustainable and innovative plant-based solutions. We aim to create green spaces that enhance well-being and foster environmental stewardship. Committed to excellence, we strive to make cities greener, healthier, and more vibrant for everyone.
+                            </p>
                         </div>
                     </header>
                 </div>

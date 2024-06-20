@@ -30,7 +30,7 @@ export default function PlantCard(
     { plant }: { plant: Plant }
 ) {
     return (
-        <div className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 lg:hover:scale-105">
+        <div className="shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 lg:hover:scale-105">
             <Link href={`/plants/${plant.id}`}>
                 <div className="relative">
                     <Image
@@ -49,9 +49,9 @@ export default function PlantCard(
                     </div>
                 </div>
                 <div className="p-4">
-                    <h2 className="text-xl font-semibold text-gray-900 mb-2">{plant.title}</h2>
-                    <p className="text-sm text-gray-600 mb-1">{plant.category.name}</p>
-                    <p className="text-sm text-gray-600">{plant.indoor_or_outdoor}</p>
+                    <h2 className="text-xl font-semibold mb-2">{plant.title}</h2>
+                    <p className="text-sm mb-1">{plant.category.name}</p>
+                    <p className="text-sm">{plant.indoor_or_outdoor}</p>
                 </div>
             </Link>
         </div>

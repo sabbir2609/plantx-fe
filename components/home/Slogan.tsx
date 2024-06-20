@@ -1,25 +1,35 @@
 "use client";
 
+import { useState } from 'react';
 import { TypeAnimation } from 'react-type-animation';
 
 export default function Slogan() {
+    const [textColor, setTextColor] = useState('green');
     return (
-        <div className="bg-base-100 text-center text-lg font-semibold">
+        <div
+            className="text-center text-5xl lg:text-7xl font-semibold m-4"
+            style={{ color: textColor }}
+        >
+            <div className="md:inline block">We Design Your </div>
             <TypeAnimation
                 sequence={[
-                    // Same substring at the start will only be typed out once, initially
-                    'We Design Your Home',
-                    2000, // Pause for 1 second
-                    'We Design Your Indoor',
-                    2000, // Pause for 1 second
-                    'We Design Your Outdoor',
-                    2000,
-                    'We Design Your Office',
-                    2000,
-                    'We Design Your Hotel',
-                    3000,
+                    'Home',
+                    5000,
+                    () => setTextColor('#32de84'),
+                    'Indoor',
+                    5000,
+                    () => setTextColor('#17B169'),
+                    'Outdoor',
+                    5000,
+                    () => setTextColor('#90EE90'),
+                    'Office',
+                    5000,
+                    () => setTextColor('#018749'),
+                    'Hotel',
+                    5000,
+                    () => setTextColor('#228B22'),
                 ]}
-                speed={30}
+                speed={40}
                 repeat={Infinity}
             />
         </div>

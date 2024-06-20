@@ -6,8 +6,9 @@ export default function Home() {
   return (
     <>
       <Hero />
-      {/* <Slogan /> */}
-
+      <div className="bg-base-200 p-2 rounded-lg mx-1">
+        <Slogan />
+      </div>
       <div className="flex flex-col">
         <div className="flex flex-row justify-between items-center ms-2">
           <h4 className="text-2xl font-semibold text-left">
