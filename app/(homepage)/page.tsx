@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <div className="bg-base-200 p-2 rounded-lg mx-1">
+      <div className="bg-base-200 p-2 rounded-lg mx-1 shadow-sm">
         <Slogan />
       </div>
       <div className="flex flex-col">

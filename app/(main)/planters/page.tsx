@@ -2,16 +2,14 @@ import Loading from '@/app/loading';
 import { Pagination, PlanterCard } from '@/components/main';
 
 interface PlanterCategory {
-    id: number;
     name: string;
-    description: string;
-    image: string;
 }
 
 interface Planter {
     id: number;
     model: string;
     category: PlanterCategory;
+    features: { id: number; name: string }[];
     size: string;
     color: string;
     images: { id: number; image: string }[];
