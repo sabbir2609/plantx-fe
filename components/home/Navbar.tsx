@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Navbar() {
     return (
-        <div className="navbar sticky top-0 z-10 bg-transparent backdrop-filter backdrop-blur-lg bg-opacity-30">
+        <div className="navbar sticky min-h-0 h-14 top-0 z-10 bg-transparent backdrop-filter backdrop-blur-lg bg-opacity-30">
             <div className="navbar-start">
                 <label
                     htmlFor="my-drawer"
@@ -35,7 +35,9 @@ export default function Navbar() {
                 </button> */}
                 <button className="btn btn-ghost btn-circle">
                     <div className="indicator">
-                        <Phone />
+                        <a href="tel:+2348123456789">
+                            <Phone />
+                        </a>
                     </div>
                 </button>
             </div>

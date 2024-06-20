@@ -1,6 +1,5 @@
 import { ChevronRight, Cylinder, HandPlatter, HelpCircle, Leaf, Lightbulb, MessageSquareHeart, MessageSquareText, PaintRoller, Rss, Search, Sprout } from "lucide-react";
 import Link from "next/link";
-import React from "react";
 
 interface MenuItemProps {
     id: string;
@@ -88,11 +87,6 @@ export default function Sidebar() {
             icon: <Lightbulb size={20} className="inline-block" />,
             link: "/innovate"
         },
-        {
-            title: "Get Your Service",
-            icon: <HandPlatter size={20} className="inline-block" />,
-            link: "/service"
-        },
 
         {
             title: "Contact Us",
@@ -143,23 +137,22 @@ const SidebarHeader = () => {
     return (
         <>
             {/* Logo section */}
-            <div className='sticky top-0 z-20 gap-2 px-4 py-2 lg:flex shadow-sm bg-base-200 hidden'>
-                <Link href="/" className='btn btn-ghost px-2'>
-                    <p className='text-justify font-extrabold text-2xl'>Viriditas</p>
+            <div className='sticky top-0 z-20 gap-2 h-14 px-4 py-2 lg:block shadow-sm bg-base-200 hidden'>
+                <Link href="/" className='btn btn-sm btn-ghost flex items-center justify-center px-2 text-xl font-semibold text-green-700 mt-1'>
+                    Viriditas
                 </Link>
             </div>
 
             {/* Search section */}
-            <div className="sticky top-0 z-20 lg:hidden items-center py-2 bg-base-200 shadow-sm">
-                <form role="search" className="relative m-2 lg:hidden">
+            <div className="sticky h-14 top-0 z-20 lg:hidden items-center py-2 bg-base-200 shadow-">
+                <form role="search" className="h-14 m-2 lg:hidden">
                     <div className="form-control">
-                        <input type="search" name="q" className="input input-bordered" placeholder="Search..." />
+                        <input type="search" name="q" className="input input-sm input-bordered" placeholder="Search..." />
                     </div>
-                    <button className="btn rounded-l-none absolute right-0 top-0">
-                        <Search size={20} />
-                    </button>
                 </form>
+
             </div>
+
         </>
     )
 }
@@ -167,18 +160,16 @@ const SidebarHeader = () => {
 
 const SidebarFooter = () => {
     return (
-        <div className="p-1 sticky bottom-0 bg-base-200">
-            <div className="grid grid-cols-3 gap-2">
-                <Link href="/feedback" className="btn btn-ghost rounded-sm">
-                    <MessageSquareHeart size={20} className="inline-block" />
-                </Link>
-                <Link href="/support" className="btn btn-ghost rounded-sm">
-                    <HelpCircle size={20} />
-                </Link>
-                <Link href="/subscribe" className="btn btn-ghost rounded-sm">
-                    <Rss size={20} className="inline-block" />
-                </Link>
-            </div>
+        <div className="flex flex-row justify-between p-1 sticky bottom-0 bg-base-200 h-12 items-center ">
+            <Link href="/feedback" className="btn btn-ghost rounded-sm">
+                <MessageSquareHeart size={20} className="inline-block" />
+            </Link>
+            <Link href="/support" className="btn btn-ghost rounded-sm">
+                <HelpCircle size={20} />
+            </Link>
+            <Link href="/subscribe" className="btn btn-ghost rounded-sm">
+                <Rss size={20} className="inline-block" />
+            </Link>
         </div>
     );
 }

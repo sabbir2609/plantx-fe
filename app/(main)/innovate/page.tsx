@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 interface Ideas {
     id: number;
@@ -24,16 +25,18 @@ export default async function Page() {
     return (
         <div className="container mx-auto px-4">
             <h1 className="text-3xl font-semibold mt-4 mb-4">Innovate</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {ideas.map((idea) => (
-                    <div key={idea.id} className="shadow-md rounded-lg overflow-hidden mb-6">
-                        <div className="h-56 relative">
+                    <Link
+                        href={`/innovate/${idea.id}`}
+                        key={idea.id} className="shadow-md rounded-lg overflow-hidden mb-6">
+                        <div className="h-96 relative">
                             <Image
                                 src={idea.image && idea.image.length > 0 ? idea.image : "/static/no-img.png"}
                                 alt={idea.title}
-                                layout="fill"
-                                objectFit="cover"
-                                className="h-56 w-full"
+                                height={400}
+                                width={400}
+                                className="object-cover h-96 w-full hover:scale-105 transition duration-300 rounded-b-lg"
                             />
                         </div>
                         <div className="p-4">
@@ -49,7 +52,7 @@ export default async function Page() {
                                 ))}
                             </div>
                         </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
         </div>

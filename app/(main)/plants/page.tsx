@@ -24,6 +24,7 @@ interface Plant {
     size: string;
     description: string;
     care_instructions: string;
+    features: { id: number; name: string }[];
     tags: Tag[];
     created_at: string;
     images: { id: number; image: string }[];

@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -22,6 +21,7 @@ interface Plant {
     size: string;
     description: string;
     care_instructions: string;
+    features: { id: number, name: string }[];
     tags: Tag[];
     created_at: string;
     images: { id: number; image: string }[];
@@ -32,40 +32,29 @@ type PlantCardProps = {
 };
 
 export default function PlantCard({ plant }: PlantCardProps) {
-
     return (
-        <div key={plant.id} className="bg-base-200 shadow-lg rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 ease-in-out">
+        <div className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 lg:hover:scale-105">
             <Link href={`/plants/${plant.id}`}>
                 <div className="relative">
-                    {plant.images && plant.images.length > 0 ? (
-                        <Image
-                            src={plant.images[0].image}
-                            alt={plant.title}
-                            height={227}
-                            width={384}
-                            className='h-56 object-cover'
-                        />
-                    ) : (
-                        <Image
-                            src="/static/no-img.png"
-                            alt={plant.title}
-                            height={227}
-                            width={384}
-                            className='h-56 object-cover'
-                        />
-                    )}
-                    <div className="absolute top-0 left-0 py-1 px-2 rounded-br-md backdrop-blur-md bg-base-200 bg-opacity-50">
-                        {plant.tags.map(tag => (
-                            <p key={tag.id} className="text-sm flex flex-col lg:gap-2 lg:flex-row">
-                                {tag.name}
-                            </p>
+                    <Image
+                        src={plant.images && plant.images.length > 0 ? plant.images[0].image : "/static/no-img.png"}
+                        alt={plant.title}
+                        height={227}
+                        width={384}
+                        className="h-56 w-full object-cover"
+                    />
+                    <div className="absolute top-2 left-2 py-1 px-2 rounded-sm backdrop-blur-md bg-gray-800 bg-opacity-50 text-white">
+                        {plant.features.map(feature => (
+                            <span key={feature.id} className="text-xs font-medium mr-1">
+                                {feature.name}
+                            </span>
                         ))}
                     </div>
                 </div>
-                <div className="p-3">
-                    <h2 className="text-lg font-semibold">{plant.title}</h2>
-                    <p className="text-sm">{plant.category.name}</p>
-                    <p className="text-sm">{plant.indoor_or_outdoor}</p>
+                <div className="p-4">
+                    <h2 className="text-xl font-semibold text-gray-900 mb-2">{plant.title}</h2>
+                    <p className="text-sm text-gray-600 mb-1">{plant.category.name}</p>
+                    <p className="text-sm text-gray-600">{plant.indoor_or_outdoor}</p>
                 </div>
             </Link>
         </div>
