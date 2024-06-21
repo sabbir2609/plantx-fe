@@ -17,6 +17,9 @@ const config: Config = {
       "dark",
       "garden",
       "forest",
+      "wireframe",
+      "valentine",
+      "corporate",
     ],
   },
 };

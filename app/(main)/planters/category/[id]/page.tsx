@@ -15,6 +15,7 @@ interface Planter {
     category: PlanterCategory;
     size: string;
     color: string;
+    short_description: string;
     images: { id: number; image: string }[];
 }
 

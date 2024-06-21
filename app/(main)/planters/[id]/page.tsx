@@ -25,14 +25,18 @@ interface Planter {
     images: PlantImage[];
 }
 export default async function Plants({ params }: { params: { id: number } }) {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/planters/${params.id}`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/planters/${params.id}`,
+        {
+            cache: "no-cache",
+        }
+    );
     if (!response.ok) {
         throw new Error("Failed to fetch data");
     }
     const data = await response.json();
     const planter: Planter = data;
 
-
+    console.log(planter);
 
     return (
 

@@ -12,6 +12,7 @@ interface Planter {
     id: number;
     model: string;
     category: PlanterCategory;
+    short_description: string;
     size: string;
     color: string;
     images: { id: number; image: string }[];

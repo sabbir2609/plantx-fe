@@ -1,3 +1,4 @@
+import { HandHeart } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -9,7 +10,8 @@ interface Planter {
     id: number;
     model: string;
     category: PlanterCategory;
-    features: { id: number; name: string }[];
+    features?: { id: number; name: string }[];
+    short_description: string;
     size: string;
     color: string;
     images: { id: number; image: string }[];
@@ -27,17 +29,21 @@ export default function PlanterCard({ planter }: { planter: Planter }) {
                         width={384}
                         className='h-56 object-cover'
                     />
-                    {planter.features && planter.features.length > 1 && planter.features[1] ? (
-                        <div className="absolute top-2 left-2 py-1 px-2 rounded-sm backdrop-blur-md bg-gray-800 bg-opacity-50 text-white">
-                            <p className="text-xs font-medium mr-1">{planter.features[1].name}</p>
+                    {planter.features && planter.features.length > 0 ? (
+                        <div className="absolute top-2 left-2 flex flex-col">
+                            {planter.features.map((feature, index) => (
+                                <div key={index} className="py-1 px-2 rounded-sm backdrop-blur-md bg-gray-800 bg-opacity-50 text-white flex flex-row">
+                                    <p className="text-xs font-medium mr-1">{feature.name}</p>
+                                </div>
+                            ))}
                         </div>
                     ) : null}
                 </div>
-                <div className="p-3">
-                    <h2 className="text-lg font-semibold">{planter.model}</h2>
-                    {planter.features && planter.features.length > 0 && (
-                        <p className="text-sm italic">{planter.features[0].name}</p>
-                    )}
+                <div className="flex flex-col p-3">
+                    <h2 className='text-lg font-semibold' title={planter.model}>
+                        {planter.model}
+                    </h2>
+                    <p className="text-sm italic">{planter.short_description}</p>
                 </div>
             </Link>
         </div>

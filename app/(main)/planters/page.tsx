@@ -9,7 +9,8 @@ interface Planter {
     id: number;
     model: string;
     category: PlanterCategory;
-    features: { id: number; name: string }[];
+    short_description: string;
+    features?: { id: number; name: string }[];
     size: string;
     color: string;
     images: { id: number; image: string }[];

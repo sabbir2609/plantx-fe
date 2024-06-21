@@ -4,7 +4,14 @@ import { useEffect } from "react";
 import { themeChange } from "theme-change";
 
 export default function ThemeChange() {
-    const themes = ["light", "dark", "garden", "forest"];
+    const themes = ["light",
+        "dark",
+        "garden",
+        "forest",
+        "wireframe",
+        "valentine",
+        "corporate",
+    ];
 
     useEffect(() => {
         themeChange(false)

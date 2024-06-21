@@ -138,7 +138,7 @@ const SidebarHeader = () => {
         <>
             {/* Logo section */}
             <div className='sticky top-0 z-20 gap-2 h-14 px-4 py-2 lg:block shadow-sm bg-base-200 hidden'>
-                <Link href="/" className='btn btn-sm btn-ghost flex items-center justify-center px-2 text-xl font-semibold text-green-700 mt-1'>
+                <Link href="/" className='flex items-center justify-center px-2 text-2xl font-semibold mt-1'>
                     Viriditas
                 </Link>
             </div>
