@@ -22,6 +22,7 @@ export default function RootLayout({
       <body className={`${inter.className}`}>
         {children}
         <ChatFab />
+        <SpeedInsights />
       </body>
     </html>
   );
