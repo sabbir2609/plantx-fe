@@ -1,96 +1,109 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { CircleChevronRight } from 'lucide-react';
 
+interface Plants {
+    id: number;
+    title: string;
+    images: {
+        id: number;
+        image: string;
+        short_description: string;
+    }[];
+}
 
-export default function TopPicks() {
-    const topPicksData = [
+interface Planters {
+    id: number;
+    model: string;
+    images: {
+        id: number;
+        image: string;
+        short_description: string;
+    }[];
+}
+
+async function getPlants() {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/plants/featured/`,
         {
-            id: 1,
-            title: "Plant 1",
-            image: "/images/plants/plant1.jpg",
-            link: "#"
-        },
-        {
-            id: 2,
-            title: "Plant 2",
-            image: "/images/plants/plant2.jpg",
-            link: "#"
-        },
-        {
-            id: 3,
-            title: "Plant 3",
-            image: "/images/plants/plant3.jpg",
-            link: "#"
-        },
-        {
-            id: 4,
-            title: "Plant 4",
-            image: "/images/plants/plant4.jpg",
-            link: "#"
-        },
-        {
-            id: 5,
-            title: "Plant 5",
-            image: "/images/plants/plant5.jpg",
-            link: "#"
-        },
-        {
-            id: 6,
-            title: "Plant 6",
-            image: "/images/plants/plant6.jpg",
-            link: "#"
-        },
-        {
-            id: 7,
-            title: "Plant 7",
-            image: "/images/plants/plant7.jpg",
-            link: "#"
-        },
-        {
-            id: 8,
-            title: "Plant 8",
-            image: "/images/plants/plant8.jpg",
-            link: "#"
-        },
-        {
-            id: 9,
-            title: "Plant 9",
-            image: "/images/plants/plant9.jpg",
-            link: "#"
-        },
-        {
-            id: 10,
-            title: "Plant 10",
-            image: "/images/plants/plant10.jpg",
-            link: "#"
-        },
-        {
-            id: 11,
-            title: "Plant 11",
-            image: "/images/plants/plant11.jpg",
-            link: "#"
-        },
-        {
-            id: 12,
-            title: "Plant 12",
-            image: "/images/plants/plant12.jpg",
-            link: "#"
+            cache: 'no-cache',
         }
-    ];
+    );
+    const data = await res.json();
+    return data.slice(0, 4);
+}
+
+async function getPlanters() {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/planters/featured/`,
+        {
+            cache: 'no-cache',
+        }
+    );
+    const data = await res.json();
+    return data.slice(0, 4);
+}
+
+
+export default async function TopPicks() {
+    const plants: Plants[] = await getPlants();
+    const planters: Planters[] = await getPlanters();
 
     return (
-        <div className="container mx-auto p-4">
-            <h2 className="text-2xl font-bold mb-4">Top Picks</h2>
+        <div className="flex flex-col p-2 mt-2">
+            <h2 className="text-5xl font-bold mb-4 justify-center">Top Picks</h2>
+            <div className="flex flex-row justify-between">
+                <h3 className="text-2xl font-semibold mb-2">Featured Plants</h3>
+                <Link href="/plants" className="btn btn-square btn-ghost">
+                    <CircleChevronRight />
+                </Link>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-2">
+                {plants.map((plant) => (
+                    <Link href={`/plants/${plant.id}`} key={plant.id} className="flex flex-col items-center justify-center p-2 mb-2  rounded-md shadow-md">
+                        {
+                            plant.images.length > 0 ? (
+                                <Image src={plant.images[0].image} alt={plant.title} className="w-full h-48 object-cover rounded-md" width={300} height={200} />
+                            ) : (
+                                <Image
+                                    src="/static/no-img.png"
+                                    alt={plant.title}
+                                    width={300}
+                                    height={200}
+                                    className="w-full h-48 object-cover rounded-md"
+                                />
+                            )
+                        }
+                        <p className="text-center text-lg font-bold">
+                            {plant.title}
+                        </p>
+                    </Link>
+                ))}
+            </div>
+            <div className="flex flex-row justify-between">
+                <h3 className="text-2xl font-semibold mb-2">Featured Planters</h3>
+                <Link href="/planters" className="btn btn-square btn-ghost">
+                    <CircleChevronRight />
+                </Link>
+            </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {topPicksData.map((item) => (
-                    <div key={item.id} className="rounded-lg shadow-md overflow-hidden">
-                        <Link href={item.link}>
-                            <Image height={200} width={200} src={item.image} alt={item.title} className="w-full h-40 object-cover transition duration-300 ease-in-out hover:scale-110" />
-                            <div className="p-4">
-                                <h3 className="text-lg font-semibold">{item.title}</h3>
-                            </div>
-                        </Link>
-                    </div>
+                {planters.map((planter) => (
+                    <Link href={`/planters/${planter.id}`} key={planter.id} className="flex flex-col items-center justify-center p-2 mb-2 rounded-md shadow-md">
+                        {
+                            planter.images.length > 0 ? (
+                                <Image src={planter.images[0].image} alt={planter.model} className="w-full h-48 object-cover rounded-md" width={300} height={200} />
+                            ) : (
+                                <Image
+                                    src="/static/no-img.png"
+                                    alt={planter.model}
+                                    width={300}
+                                    height={200}
+                                    className="w-full h-48 object-cover rounded-md"
+                                />
+                            )
+                        }
+                        <p className="text-center text-lg font-semibold">
+                            {planter.model}
+                        </p>
+                    </Link>
                 ))}
             </div>
         </div>
