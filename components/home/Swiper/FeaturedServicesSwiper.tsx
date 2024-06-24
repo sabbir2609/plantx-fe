@@ -63,7 +63,7 @@ export default function FeaturedServicesSwiper(
                                 className="w-full h-48 object-cover rounded-lg shadow-md transition duration-300 ease-in-out hover:scale-110"
                             />
                         )}
-                        <h3 className="mt-2 text-lg font-semibold text-center">{service.title}</h3>
+                        <h3 className="font-semibold p-2 truncate">{service.title}</h3>
                     </div>
                 </SwiperSlide>
             ))}
