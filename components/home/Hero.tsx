@@ -7,19 +7,17 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import Slogan from './Slogan';
 
 export default function Hero() {
     const slides = [
-        '/images/hero/slide1.jpg',
-        '/images/hero/slide2.jpg',
-        '/images/hero/slide3.jpg',
-        '/images/hero/slide4.jpg',
-        '/images/hero/slide5.jpg',
+        '/images/hero/slide (1).jpg',
+        '/images/hero/slide (2).jpg',
+        '/images/hero/slide (3).jpg',
+        '/images/hero/slide (4).jpg',
     ];
 
     return (
-        <div className="flex flex-wrap pb-3">
+        <div className="flex flex-wrap pb-3 pt-2">
 
             <div className="w-full lg:w-3/5 px-2">
                 <Swiper
@@ -38,7 +36,7 @@ export default function Hero() {
                 >
                     {slides.map((slide, index) => (
                         <SwiperSlide key={index}>
-                            <Image width={800} height={800} src={slide} alt={`Slide ${index + 1}`} className="object-cover w-full h-full" />
+                            <Image width={600} height={600} src={slide} alt={`Slide ${index + 1}`} className="object-cover w-full h-full" />
                         </SwiperSlide>
                     ))}
                 </Swiper>

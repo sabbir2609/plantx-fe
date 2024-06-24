@@ -6,3 +6,4 @@ export { default as FeaturedServices } from "./FeaturedServices";
 export { default as ContactUs } from "./ContactUs";
 export { default as TopPicks } from "./TopPicks";
 export { default as OurWorks } from "./OurWorks";
+export { default as VerticalGardeningSection } from "./VerticalGardeningSection";

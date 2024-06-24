@@ -10,7 +10,7 @@ export default function ChatPlugin() {
     };
 
     return (
-        <div className='fixed bottom-14 right-0 p-4'>
+        <div className='fixed bottom-14 right-0 p-4 z-40'>
             <button onClick={handleChatFabClick} className='bg-blue-500 hover:bg-blue-700 text-white font-bold p-4 rounded-full shadow-lg'>
                 {/* <img src="/static/messenger_logo.svg" alt="Chat Icon" className='h-10 w-10' /> */}
                 <MessageSquareDot />

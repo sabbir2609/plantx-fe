@@ -1,39 +1,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { CircleChevronRight } from 'lucide-react';
 
-interface Plants {
+interface Ideas {
     id: number;
     title: string;
-    images: {
-        id: number;
-        image: string;
-        short_description: string;
-    }[];
+    image: string;
 }
-
-interface Planters {
-    id: number;
-    model: string;
-    images: {
-        id: number;
-        image: string;
-        short_description: string;
-    }[];
-}
-
-async function getPlants() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/plants/featured/`,
-        {
-            cache: 'no-cache',
-        }
-    );
-    const data = await res.json();
-    return data.slice(0, 4);
-}
-
-async function getPlanters() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/planters/featured/`,
+async function getIdeas() {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/ideas/featured/`,
         {
             cache: 'no-cache',
         }
@@ -44,64 +18,44 @@ async function getPlanters() {
 
 
 export default async function TopPicks() {
-    const plants: Plants[] = await getPlants();
-    const planters: Planters[] = await getPlanters();
-
+    const ideas: Ideas[] = await getIdeas();
     return (
-        <div className="flex flex-col p-2 mt-2">
-            <h2 className="text-5xl font-bold mb-4 justify-center">Top Picks</h2>
+        <div className="flex flex-col p-2 mt-2 bg-green-100">
+            <div className="text-center font-extrabold">
+                <span className="text-4xl bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
+                    Top Picks
+                </span>
+            </div>
+
             <div className="flex flex-row justify-between">
-                <h3 className="text-2xl font-semibold mb-2">Featured Plants</h3>
-                <Link href="/plants" className="btn btn-square btn-ghost">
-                    <CircleChevronRight />
+                <h3 className="text-2xl font-semibold mb-2">
+                    Ideas
+                </h3>
+                <Link
+                    href="/ideas"
+                    className="text-nowrap font-bold hover:text-green-500 transition-colors duration-300"
+                >
+                    View All
                 </Link>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-2">
-                {plants.map((plant) => (
-                    <Link href={`/plants/${plant.id}`} key={plant.id} className="flex flex-col items-center justify-center p-2 mb-2  rounded-md shadow-md">
-                        {
-                            plant.images.length > 0 ? (
-                                <Image src={plant.images[0].image} alt={plant.title} className="w-full h-48 object-cover rounded-md" width={300} height={200} />
-                            ) : (
-                                <Image
-                                    src="/static/no-img.png"
-                                    alt={plant.title}
-                                    width={300}
-                                    height={200}
-                                    className="w-full h-48 object-cover rounded-md"
-                                />
-                            )
-                        }
-                        <p className="text-center text-lg font-bold">
-                            {plant.title}
-                        </p>
-                    </Link>
-                ))}
-            </div>
-            <div className="flex flex-row justify-between">
-                <h3 className="text-2xl font-semibold mb-2">Featured Planters</h3>
-                <Link href="/planters" className="btn btn-square btn-ghost">
-                    <CircleChevronRight />
-                </Link>
-            </div>
+
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {planters.map((planter) => (
-                    <Link href={`/planters/${planter.id}`} key={planter.id} className="flex flex-col items-center justify-center p-2 mb-2 rounded-md shadow-md">
-                        {
-                            planter.images.length > 0 ? (
-                                <Image src={planter.images[0].image} alt={planter.model} className="w-full h-48 object-cover rounded-md" width={300} height={200} />
-                            ) : (
-                                <Image
-                                    src="/static/no-img.png"
-                                    alt={planter.model}
-                                    width={300}
-                                    height={200}
-                                    className="w-full h-48 object-cover rounded-md"
-                                />
-                            )
-                        }
-                        <p className="text-center text-lg font-semibold">
-                            {planter.model}
+                {ideas.map((idea) => (
+                    <Link href={`/ideas/${idea.id}`} key={idea.id} className="rounded-md shadow-md bg-green-50">
+                        {idea.image ? (
+                            <Image src={idea.image} alt={idea.title} className="w-full h-48 object-cover rounded-t-md" width={300} height={200} />
+                        ) : (
+                            <Image
+                                src="/static/no-img.png"
+                                alt={idea.title}
+                                width={300}
+                                height={200}
+                                className="w-full h-48 object-cover rounded-t-md"
+                            />
+                        )}
+
+                        <p className="text-center font-semibold p-2 truncate" title={idea.title}>
+                            {idea.title}
                         </p>
                     </Link>
                 ))}
