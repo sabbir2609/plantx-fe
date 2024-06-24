@@ -54,7 +54,7 @@ export default async function TopPicks() {
                             />
                         )}
 
-                        <p className="text-center font-semibold p-2 truncate" title={idea.title}>
+                        <p className="font-semibold p-2 truncate" title={idea.title}>
                             {idea.title}
                         </p>
                     </Link>
