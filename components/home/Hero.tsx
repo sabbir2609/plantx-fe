@@ -46,7 +46,7 @@ export default function Hero() {
                 <div className="container mx-auto h-full">
                     <header className="container px-4 lg:flex mt-10 items-center h-full lg:mt-0">
                         <div className="w-full">
-                            <h1 className="text-4xl lg:text-6xl font-bold">Transform Your Home: Elegant Designs with Plants</h1>
+                            <h1 className="text-4xl lg:text-6xl font-bold">Transform Your Home: Elegant Designs with Greenery stuff</h1>
                             <div className="w-20 h-2 bg-green-700 my-4"></div>
                             <p className="text-xl">
                                 At Viriditas, our vision is to revolutionize urban landscapes through sustainable and innovative plant-based solutions. We aim to create green spaces that enhance well-being and foster environmental stewardship. Committed to excellence, we strive to make cities greener, healthier, and more vibrant for everyone.
