@@ -49,7 +49,7 @@ export default function Hero() {
                             <h1 className="text-4xl lg:text-6xl font-bold">Find your <span className="text-green-700">greeny</span> stuff for your surrounding</h1>
                             <div className="w-20 h-2 bg-green-700 my-4"></div>
                             <p className="text-xl">
-                                At Viriditas, our vision is to revolutionize urban landscapes through sustainable and innovative plant-based solutions. We aim to create green spaces that enhance well-being and foster environmental stewardship. Committed to excellence, we strive to make cities greener, healthier, and more vibrant for everyone.
+                                At Viriditas, we create sustainable, plant-based urban landscapes to enhance well-being and promote environmental care. We committed to combat climate change, improve air quality, and make cities greener, healthier, and more vibrant for everyone.
                             </p>
                         </div>
                     </header>
