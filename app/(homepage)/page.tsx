@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <div className="p-2 mx-1 shadow-sm">
+      <div className="p-2 my-1 shadow-sm bg-green-100">
         <Slogan />
       </div>
       <VerticalGardeningSection />

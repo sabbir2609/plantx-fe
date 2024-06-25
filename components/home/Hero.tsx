@@ -1,5 +1,6 @@
 "use client";
 
+import { Libre_Baskerville } from 'next/font/google';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -7,6 +8,12 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+
+const title_font = Libre_Baskerville({
+    weight: '700',
+    subsets: ['latin'],
+    display: 'swap',
+});
 
 export default function Hero() {
     const slides = [
@@ -24,7 +31,7 @@ export default function Hero() {
                     spaceBetween={30}
                     centeredSlides={true}
                     autoplay={{
-                        delay: 5000,
+                        delay: 2000,
                         disableOnInteraction: false,
                     }}
                     pagination={{
@@ -46,9 +53,12 @@ export default function Hero() {
                 <div className="container mx-auto h-full">
                     <header className="container px-4 lg:flex mt-10 items-center h-full lg:mt-0">
                         <div className="w-full">
-                            <h1 className="text-4xl lg:text-6xl font-bold">Transform Your Home: Elegant Designs with Greenery stuff</h1>
+                            <h1
+                                className={`text-2xl lg:text-6xl font-bold ${title_font.className}`}
+                            > <span className='text-3xl'>Transform Your Home: </span><span className="text-2xl mb-4">Elegant Designs with <span className=" text-green-500">Greenery</span> stuff!</span> </h1>
                             <div className="w-20 h-2 bg-green-700 my-4"></div>
-                            <p className="text-xl">
+                            <p className={`text-lg lg:text-2xl font-semibold ${title_font.className}`}
+                            >
                                 At Viriditas, we create sustainable, plant-based urban landscapes to enhance well-being and promote environmental care. We committed to combat climate change, improve air quality, and make cities greener, healthier, and more vibrant for everyone.
                             </p>
                         </div>

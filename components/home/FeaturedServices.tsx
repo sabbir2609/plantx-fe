@@ -19,7 +19,7 @@ export default async function FeaturedServices() {
     const services: Services[] = data.slice(0, 10);
 
     return (
-        <div className="w-full">
+        <div className="w-full px-2">
 
             <FeaturedServicesSwiper services={services} />
 

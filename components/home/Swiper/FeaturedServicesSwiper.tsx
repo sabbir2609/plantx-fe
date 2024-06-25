@@ -6,6 +6,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Autoplay, Navigation } from 'swiper/modules';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface Service {
     id: number;
@@ -22,7 +23,7 @@ export default function FeaturedServicesSwiper(
 ) {
     return (
         <Swiper
-            slidesPerView={2}
+            slidesPerView={1}
             spaceBetween={10}
             navigation={true}
             modules={[Autoplay, Navigation]}
@@ -45,26 +46,28 @@ export default function FeaturedServicesSwiper(
         >
             {services.map((service) => (
                 <SwiperSlide key={service.id}>
-                    <div className="flex flex-col items-center justify-center p-2 mb-2 rounded-lg shadow-md">
-                        {service.image ? (
-                            <Image
-                                src={service.image}
-                                alt={service.title}
-                                className="w-full h-48 object-cover rounded-lg shadow-md transition duration-300 ease-in-out hover:scale-110"
-                                width={300}
-                                height={200}
-                            />
-                        ) : (
-                            <Image
-                                src="/static/no-img.png"
-                                alt={service.title}
-                                width={300}
-                                height={200}
-                                className="w-full h-48 object-cover rounded-lg shadow-md transition duration-300 ease-in-out hover:scale-110"
-                            />
-                        )}
-                        <h3 className="font-semibold p-2 truncate">{service.title}</h3>
-                    </div>
+                    <Link href={`/services/${service.id}`} >
+                        <div className="flex flex-col items-center justify-center p-2 mb-2 rounded-lg shadow-md bg-green-50">
+                            {service.image ? (
+                                <Image
+                                    src={service.image}
+                                    alt={service.title}
+                                    className="w-full h-48 object-cover rounded-lg shadow-md transition duration-300 ease-in-out hover:scale-110"
+                                    width={300}
+                                    height={200}
+                                />
+                            ) : (
+                                <Image
+                                    src="/static/no-img.png"
+                                    alt={service.title}
+                                    width={300}
+                                    height={200}
+                                    className="w-full h-48 object-cover rounded-lg shadow-md transition duration-300 ease-in-out hover:scale-110"
+                                />
+                            )}
+                            <h3 className="font-semibold p-2 truncate">{service.title}</h3>
+                        </div>
+                    </Link>
                 </SwiperSlide>
             ))}
         </Swiper>
