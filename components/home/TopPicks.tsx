@@ -32,7 +32,7 @@ export default async function TopPicks() {
                     Ideas
                 </h3>
                 <Link
-                    href="/ideas"
+                    href="/innovate"
                     className="text-nowrap font-bold hover:text-green-500 transition-colors duration-300"
                 >
                     View All
@@ -41,7 +41,7 @@ export default async function TopPicks() {
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {ideas.map((idea) => (
-                    <Link href={`/ideas/${idea.id}`} key={idea.id} className="rounded-md shadow-md bg-green-50">
+                    <Link href={`/innovate/${idea.id}`} key={idea.id} className="rounded-md shadow-md bg-green-50">
                         {idea.image ? (
                             <Image src={idea.image} alt={idea.title} className="w-full h-48 object-cover rounded-t-md" width={300} height={200} />
                         ) : (
@@ -54,7 +54,7 @@ export default async function TopPicks() {
                             />
                         )}
 
-                        <p className="text-center font-semibold p-2 truncate" title={idea.title}>
+                        <p className="font-semibold p-2 truncate" title={idea.title}>
                             {idea.title}
                         </p>
                     </Link>
