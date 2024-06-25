@@ -1,4 +1,4 @@
-import { Album, ChevronRight, Cylinder, HandPlatter, HelpCircle, Leaf, Lightbulb, MessageSquareHeart, MessageSquareText, PaintRoller, Rss, Search, Sprout } from "lucide-react";
+import { Flower, Album, ChevronRight, Cylinder, HandPlatter, HelpCircle, Leaf, Lightbulb, MessageSquareHeart, MessageSquareText, PaintRoller, Rss, Search, Sprout } from "lucide-react";
 import Link from "next/link";
 
 interface MenuItemProps {
@@ -53,6 +53,11 @@ export default function Sidebar() {
             title: "Innovate Your Space",
             icon: <Lightbulb size={20} className="inline-block" />,
             link: "/innovate"
+        },
+{
+            "title": "Service Plan",
+            "icon": <Flower size={20} className="inline-block" />,
+            "link": "/services/plan"
         },
     ];
 
