@@ -57,7 +57,7 @@ export default function Hero() {
                                 className={`text-2xl lg:text-6xl font-bold ${title_font.className}`}
                             > <span className='text-3xl'>Transform Your Home: </span><span className="text-2xl mb-4">Elegant Designs with <span className=" text-green-500">Greenery</span> stuff!</span> </h1>
                             <div className="w-20 h-2 bg-green-700 my-4"></div>
-                            <p className={`text-lg lg:text-2xl font-semibold ${title_font.className}`}
+                            <p className={`text-lg lg:text-2xl font-normal ${title_font.className}`}
                             >
                                 At Viriditas, we create sustainable, plant-based urban landscapes to enhance well-being and promote environmental care. We committed to combat climate change, improve air quality, and make cities greener, healthier, and more vibrant for everyone.
                             </p>
