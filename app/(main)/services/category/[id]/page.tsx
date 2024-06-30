@@ -9,11 +9,6 @@ interface Category {
     image: string;
 }
 
-interface Type {
-    id: number;
-    title: string;
-}
-
 interface Service {
     id: number;
     title: string;
@@ -21,7 +16,7 @@ interface Service {
     image: string | null;
     budget_range: string;
     category: Category;
-    type: Type;
+    type: string;
 }
 
 async function fetchCategory(id: number) {

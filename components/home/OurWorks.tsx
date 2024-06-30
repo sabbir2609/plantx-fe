@@ -61,10 +61,7 @@ export default function OurWorks() {
                 }
             >
                 <div className="text-center font-extrabold">
-                    <span className="text-5xl bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
-                        Our Works
-                    </span>
-                    <p className="text-3xl text-white mb-12">A Selection of Signature Projects</p>
+                    <p className="text-3xl mb-5 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">A Selection of Signature Projects</p>
                 </div>
 
                 <Swiper

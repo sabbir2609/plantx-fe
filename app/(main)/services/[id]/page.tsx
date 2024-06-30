@@ -6,11 +6,6 @@ interface Category {
     title: string;
 }
 
-interface Type {
-    id: number;
-    title: string;
-}
-
 interface Service {
     id: number;
     title: string;
@@ -18,7 +13,7 @@ interface Service {
     image: string | null;
     budget_range: string;
     category: Category;
-    type: Type;
+    type: string;
 }
 
 export default async function Plants({ params }: { params: { id: number } }) {
@@ -76,7 +71,7 @@ export default async function Plants({ params }: { params: { id: number } }) {
                     </span>
 
                     <span className={`font-semibold p-1 rounded-sm text-accent`}>
-                        {service.type.title}
+                        {service.type}
                     </span>
 
                     <span className="font-semibold p-1 rounded-sm text-nowrap text-accent">

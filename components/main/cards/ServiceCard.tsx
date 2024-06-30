@@ -6,11 +6,6 @@ interface Category {
     title: string;
 }
 
-interface Type {
-    id: number;
-    title: string;
-}
-
 interface Service {
     id: number;
     title: string;
@@ -18,7 +13,7 @@ interface Service {
     image: string | null;
     budget_range: string;
     category: Category;
-    type: Type;
+    type: string;
 }
 
 export default function PlanterCard({ service }: { service: Service }) {
@@ -35,7 +30,7 @@ export default function PlanterCard({ service }: { service: Service }) {
                     />
                 </div>
                 <div className="p-3">
-                    <p className="text-sm p-1 font-serif text-emerald-900 rounded-sm">{service.type.title}</p>
+                    <p className="text-sm p-1 font-serif text-emerald-900 rounded-sm">{service.type}</p>
                     <h2 className="text-lg font-semibold">{service.title}</h2>
                     <p className="text-sm italic text-primary">{service.category.title}</p>
                 </div>

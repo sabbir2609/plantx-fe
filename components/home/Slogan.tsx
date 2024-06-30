@@ -1,18 +1,11 @@
 "use client";
 
-import { Libre_Baskerville } from 'next/font/google';
 import { TypeAnimation } from 'react-type-animation';
-
-const title_font = Libre_Baskerville({
-    weight: '700',
-    subsets: ['latin'],
-    display: 'swap',
-});
 
 export default function Slogan() {
     return (
         <div
-            className={`text-center text-4xl lg:text-6xl font-semibold p-4 text-black ${title_font.className}`}
+            className={`text-center text-4xl lg:text-6xl font-semibold p-4`}
         >
             <div className="md:inline block">We Design Your </div>
             <TypeAnimation

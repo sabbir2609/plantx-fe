@@ -6,11 +6,6 @@ interface Category {
     title: string;
 }
 
-interface Type {
-    id: number;
-    title: string;
-}
-
 interface Service {
     id: number;
     title: string;
@@ -18,7 +13,7 @@ interface Service {
     image: string | null;
     budget_range: string;
     category: Category;
-    type: Type;
+    type: string;
 }
 
 export default async function services(context: any) {
