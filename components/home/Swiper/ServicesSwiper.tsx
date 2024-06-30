@@ -53,7 +53,7 @@ export default function ServicesSwiper(
                             <Image
                                 src={item.image}
                                 alt={item.title}
-                                className="w-full h-[65vh] object-cover rounded-sm"
+                                className="w-full h-[65vh] object-cover rounded-sm shadow-sm"
                                 width={1000}
                                 height={700}
                             />
@@ -63,7 +63,7 @@ export default function ServicesSwiper(
                                 alt={item.title}
                                 width={1000}
                                 height={700}
-                                className="w-full h-[65vh] object-cover rounded-sm"
+                                className="w-full h-[65vh] object-cover rounded-sm shadow-sm"
                             />
                         )}
 
