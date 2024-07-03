@@ -61,7 +61,7 @@ export default function ServicesSwiper(
                     <div className="absolute inset-0 transition-opacity duration-300 rounded-lg bg-gradient-to-t from-gray-900 via-gray-900/40 group-hover:opacity-0"></div>
                     <div className="absolute z-20 bottom-12 left-8">
                         <h3 className="text-3xl font-bold text-white">{item.title}</h3>
-                        <Link href={`/services/${item.id}`} className="text-lg font-semibold text-green-600 hover:text-green-700">
+                        <Link href={`/services/category/${item.id}`} className="text-lg font-semibold text-green-600 hover:text-green-700">
                             See more
                         </Link>
                     </div>

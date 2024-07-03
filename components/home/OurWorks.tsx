@@ -48,20 +48,12 @@ const works = [
 
 export default function OurWorks() {
     return (
-        <section className="py-16 px-2">
+        <section className="px-2 py-10">
             <div
-                className="container mx-auto p-4 rounded-lg"
-                style={
-                    {
-                        backgroundImage: "url('/images/bg/bg_2.jpg')",
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                        backgroundRepeat: "no-repeat",
-                    }
-                }
+                className="rounded-lg"
             >
-                <div className="text-center font-extrabold">
-                    <p className="text-3xl mb-5 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">A Selection of Signature Projects</p>
+                <div className="font-extrabold text-center">
+                    <p className="mb-5 text-3xl">A Selection of Signature Projects</p>
                 </div>
 
                 <Swiper
@@ -92,19 +84,19 @@ export default function OurWorks() {
 
                     {works.map((work, index) => (
                         <SwiperSlide key={index}>
-                            <div className="shadow-lg rounded-lg overflow-hidden backdrop-blur-lg transition duration-300 ease-in-out hover:scale-110">
+                            <div className="rounded-lg shadow-lg backdrop-blur-lg">
                                 <Image
                                     src={work.image}
                                     alt={work.title}
                                     width={300}
                                     height={200}
-                                    className="w-full h-56 object-cover rounded-lg shadow-md"
+                                    className="object-cover w-full rounded-lg shadow-md h-60"
                                 />
                                 <div className="p-4">
-                                    <h3 className="text-white text-xl font-semibold">{work.title}</h3>
-                                    <p className="text-white">Client: {work.client}</p>
-                                    <p className="text-white">Categories: {work.categories.join(", ")}</p>
-                                    <p className="text-white">Year: {work.year}</p>
+                                    <h3 className="text-xl font-semibold">{work.title}</h3>
+                                    <p className="">Client: {work.client}</p>
+                                    <p className="">Categories: {work.categories.join(", ")}</p>
+                                    <p className="">Year: {work.year}</p>
                                 </div>
                             </div>
                         </SwiperSlide>

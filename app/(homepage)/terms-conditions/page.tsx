@@ -1,6 +1,6 @@
 export default function Page() {
     return (
-        <>
+        <div className="p-2 mx-auto prose">
             <h1>Terms and Conditions</h1>
             <p>Last updated: June 12, 2024</p>
             <p>Please read these terms and conditions carefully before using Our Service.</p>
@@ -83,6 +83,6 @@ export default function Page() {
             <ul>
                 <li>By visiting this page on our website: <a href="https://viriditas.vercel.app/contact" rel="external nofollow noopener" target="_blank">https://viriditas.vercel.app/contact</a></li>
             </ul>
-        </>
+        </div>
     );
 }

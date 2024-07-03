@@ -8,3 +8,6 @@ export { default as OurWorks } from "./OurWorks";
 export { default as InnovativeGardeningSection } from "./InnovativeGardeningSection";
 export { default as About } from "./About";
 export { default as GetInTouch } from "./GetInTouch";
+export { default as WhyUs } from "./WhyUs";
+export { default as OurClients } from "./OurClients";
+export { default as Testimonial } from "./Testimonial";

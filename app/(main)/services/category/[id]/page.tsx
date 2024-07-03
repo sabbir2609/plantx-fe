@@ -5,6 +5,7 @@ import Image from "next/image";
 interface Category {
     id: number;
     title: string;
+    type: string;
     description: string;
     image: string;
 }
@@ -26,7 +27,7 @@ async function fetchCategory(id: number) {
 }
 
 async function fetchPlants(id: number) {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/service_categories/${id}/service`, { cache: 'no-cache' });
+    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/service_categories/${id}/services`, { cache: 'no-cache' });
     const data = await res.json();
     return data.results;
 }
@@ -41,7 +42,7 @@ export default async function Page({ params }: { params: { id: number } }) {
 
     return (
         <div className="mx-auto">
-            <div className="bg-base-200 h-auto lg:h-80 shadow-lg rounded-lg overflow-hidden mb-4 relative">
+            <div className="relative h-auto mb-4 overflow-hidden rounded-lg shadow-lg bg-base-200 lg:h-80">
                 {category.image ? (
                     <Image
                         src={category.image}
@@ -59,16 +60,24 @@ export default async function Page({ params }: { params: { id: number } }) {
                         className="object-cover"
                     />
                 )}
-                <div className="p-4 absolute bottom-0 left-0 h-full md:w-1/2 content-center bg-opacity-50 bg-black text-white">
+                <div className="absolute bottom-0 left-0 content-center h-full p-4 text-white bg-black bg-opacity-50 md:w-1/2">
                     <h1 className="text-3xl font-semibold">{category.title}</h1>
+                    <h2 className="text-xl">{category.type}</h2>
                     <p className="mt-2">{category.description}</p>
                 </div>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 lg:gap-5 p-2">
-                {services.map((service) => (
-                    <ServiceCard service={service} key={service.id} />
-                ))}
-            </div>
+            <h2 className="text-2xl font-semibold">Services</h2>
+            {services.length === 0 ? (
+                <div className="p-4 text-center">
+                    Oops! No service found in this category yet :(
+                </div>
+            ) : (
+                <div className="grid grid-cols-2 gap-2 p-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-5">
+                    {services.map((service) => (
+                        <ServiceCard service={service} key={service.id} />
+                    ))}
+                </div>
+            )}
         </div>
     );
 }

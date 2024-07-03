@@ -20,20 +20,15 @@ async function getIdeas() {
 export default async function TopPicks() {
     const ideas: Ideas[] = await getIdeas();
     return (
-        <div className="flex flex-col p-2 mt-2 bg-green-100">
-            <div className="font-extrabold text-center">
-                <span className="text-4xl text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500">
-                    Top Picks
-                </span>
+        <div className="flex flex-col p-2 mt-2">
+            <div className="text-4xl font-extrabold text-center">
+                Innovate your Space!
             </div>
 
-            <div className="flex flex-row justify-between">
-                <h3 className="mb-2 text-2xl font-semibold">
-                    Ideas
-                </h3>
+            <div className="text-right">
                 <Link
                     href="/innovate"
-                    className="font-bold transition-colors duration-300 text-nowrap hover:text-green-500"
+                    className="font-bold transition-colors duration-300 text-nowrap hover:text-blue-500"
                 >
                     View All
                 </Link>
@@ -41,7 +36,7 @@ export default async function TopPicks() {
 
             <div className="grid grid-cols-2 gap-4 md:grid-cols-2 lg:grid-cols-4">
                 {ideas.map((idea) => (
-                    <Link href={`/innovate/${idea.id}`} key={idea.id} className="rounded-md shadow-md bg-green-50">
+                    <Link href={`/innovate/${idea.id}`} key={idea.id} className="rounded-md shadow-md">
                         {idea.image ? (
                             <Image src={idea.image} alt={idea.title} className="object-cover w-full h-48 rounded-t-md" width={300} height={200} />
                         ) : (
