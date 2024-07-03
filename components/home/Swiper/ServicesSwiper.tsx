@@ -67,16 +67,14 @@ export default function ServicesSwiper(
                             />
                         )}
 
-                        <div className="absolute inset-0 lg:bg-gray-700 opacity-70 rounded-md hover:opacity-0 transition duration-500 group-hover:opacity-0"></div>
-
                         <div className="absolute bottom-12 left-8">
-                            <h3 className="text-3xl lg:text-5xl text-white font-medium font-serif">
+                            <h3 className="text-3xl lg:text-5xl font-medium">
                                 {item.title}
                             </h3>
                             <div className='h-1 w-auto bg-orange-500 mt-2 mb-4'></div>
                             <Link
                                 href={`/services/category/${item.id}`}
-                                className='text-white underline uppercase text-lg hover:bg-orange-500 font-light'
+                                className='underline uppercase text-lg hover:bg-orange-500 font-light'
                             >
                                 See Services
                             </Link>

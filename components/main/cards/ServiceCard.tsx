@@ -18,7 +18,7 @@ interface Service {
 
 export default function PlanterCard({ service }: { service: Service }) {
     return (
-        <div key={service.id} className="bg-base-200 shadow-lg rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 ease-in-out">
+        <div key={service.id} className="bg-base-200 shadow-lg rounded-lg overflow-hidden">
             <Link href={`/services/${service.id}`}>
                 <div className="relative">
                     <Image

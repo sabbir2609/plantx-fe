@@ -59,32 +59,35 @@ export default function InnovativeGardeningSection() {
 
             <div className="text-center">
                 <p className="mt-3 text-3xl font-extrabold tracking-tight text-green-600">Innovative Gardening</p>
-                <p className="mt-2 max-w-3xl text-xl text-gray-500 lg:mx-auto">Discover our range of innovative gardening techniques.</p>
             </div>
 
-            <div className="flex justify-center mt-5">
-                <button
-                    className={`px-4 py-2 text-sm font-medium ${activeTab === 'commercial' ? 'text-white bg-green-600' : 'text-green-600 bg-white'} rounded-sm shadow-sm`}
-                    onClick={() => setActiveTab('commercial')}
-                >
-                    Commercial
-                </button>
-                <button
-                    className={`ml-2 px-4 py-2 text-sm font-medium ${activeTab === 'residential' ? 'text-white bg-green-600' : 'text-green-600 bg-white'} rounded-sm shadow-sm`}
-                    onClick={() => setActiveTab('residential')}
-                >
-                    Residential
-                </button>
-            </div>
+            <div className="flex flex-col lg:flex-row mt-5">
 
-            <div className="mt-4">
-                {activeTab === 'commercial' && commercialData && (
-                    <ServicesSwiper services={commercialData} />
-                )}
+                <div className="flex flex-row gap-2 justify-center lg:-rotate-90 lg:text-xl font-semibold lg:w-10 lg:m-2 lg:border-r">
+                    <button
+                        className={`px-4 py-2 ${activeTab === 'commercial' ? 'text-white bg-green-600' : 'text-green-600 bg-white'} rounded-sm shadow-sm`}
+                        onClick={() => setActiveTab('commercial')}
+                    >
+                        Commercial
+                    </button>
+                    <button
+                        className={`px-4 py-2 ${activeTab === 'residential' ? 'text-white bg-green-600' : 'text-green-600 bg-white'} rounded-sm shadow-sm`}
+                        onClick={() => setActiveTab('residential')}
+                    >
+                        Residential
+                    </button>
+                </div>
 
-                {activeTab === 'residential' && residentialData && (
-                    <ServicesSwiper services={residentialData} />
-                )}
+                <div className="mt-4 lg:mt-0 lg:w-11/12">
+                    {activeTab === 'commercial' && commercialData && (
+                        <ServicesSwiper services={commercialData} />
+                    )}
+
+                    {activeTab === 'residential' && residentialData && (
+                        <ServicesSwiper services={residentialData} />
+                    )}
+                </div>
+
             </div>
 
         </div>

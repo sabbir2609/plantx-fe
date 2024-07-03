@@ -1,5 +1,5 @@
 import { Navbar } from "@/components/common";
-import { Sidebar } from "@/components/main";
+import { Footer, Sidebar } from "@/components/main";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -22,6 +22,7 @@ export default function DashboardLayout({
                 <div className="p-2">
                     {children}
                 </div>
+                <Footer />
             </div>
             <div className="drawer-side z-40" style={{ scrollBehavior: "smooth", scrollPaddingTop: "5rem" }}>
                 <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>

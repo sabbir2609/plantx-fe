@@ -48,7 +48,7 @@ export default async function services(context: any) {
                     <ServiceCard service={service} key={service.id} />
                 ))}
             </div>
-            <div className="fixed bottom-4 right-4">
+            <div className="fixed bottom-14 right-4">
                 <Pagination baseURL={baseURL} totalPages={totalPages} />
             </div>
         </>

@@ -1,3 +1,4 @@
+import { ChatFab } from "@/components/common";
 import { Navbar } from "@/components/home";
 import { Sidebar } from "@/components/main";
 import type { Metadata } from "next";
@@ -15,7 +16,7 @@ export default function RootLayout({
     return (
         <div className="bg-base-100 drawer">
             <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content">
+            <div className="drawer-content min-h-max">
                 <Navbar />
                 {children}
             </div>
@@ -23,6 +24,7 @@ export default function RootLayout({
                 <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
                 <Sidebar />
             </div>
+            <ChatFab />
         </div>
     );
 }

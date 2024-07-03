@@ -54,11 +54,6 @@ export default function Sidebar() {
             icon: <Lightbulb size={20} className="inline-block" />,
             link: "/innovate"
         },
-{
-            "title": "Service Plan",
-            "icon": <Flower size={20} className="inline-block" />,
-            "link": "/services/plan"
-        },
     ];
 
     const menuItemsTwo = {
