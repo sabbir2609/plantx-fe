@@ -51,45 +51,49 @@ export default function InnovativeGardeningSection() {
     }, []);
 
     if (loading) {
-        return <Loading />;
+        return (
+            <div className="p-2">
+                <Loading />
+            </div>
+        )
     }
 
     return (
-        <div className="p-2">
-
+        <div>
             <div className="text-center">
                 <p className="mt-3 text-3xl font-extrabold tracking-tight text-green-600">Innovative Gardening</p>
+                <p className="mt-3 text-lg font-semibold text-gray-600">We provide a wide range of services for both commercial and residential properties.</p>
             </div>
 
-            <div className="flex flex-col lg:flex-row mt-5">
-
-                <div className="flex flex-row gap-2 justify-center lg:-rotate-90 lg:text-xl font-semibold lg:w-10 lg:m-2 lg:border-r">
+            <div className="flex flex-col items-center p-2 mt-2 lg:p-0 lg:flex-row ">
+                <div className="flex flex-row justify-center gap-2 font-semibold lg:-rotate-90 lg:text-xl lg:w-10 lg:h-10 lg:m-4">
                     <button
-                        className={`px-4 py-2 ${activeTab === 'commercial' ? 'text-white bg-green-600' : 'text-green-600 bg-white'} rounded-sm shadow-sm`}
+                        className={`px-4 py-2 relative ${activeTab === 'commercial' ? 'text-white bg-green-600 hover:bg-green-700' : 'text-green-600 bg-white hover:bg-green-100'} rounded-sm shadow-sm transition-all duration-300`}
                         onClick={() => setActiveTab('commercial')}
                     >
                         Commercial
+                        <span className="absolute top-0 left-0 w-full h-0.5 bg-green-600 transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
                     </button>
                     <button
-                        className={`px-4 py-2 ${activeTab === 'residential' ? 'text-white bg-green-600' : 'text-green-600 bg-white'} rounded-sm shadow-sm`}
+                        className={`px-4 py-2 relative ${activeTab === 'residential' ? 'text-white bg-green-600 hover:bg-green-700' : 'text-green-600 bg-white hover:bg-green-100'} rounded-sm shadow-sm transition-all duration-300`}
                         onClick={() => setActiveTab('residential')}
                     >
                         Residential
+                        <span className="absolute top-0 left-0 w-full h-0.5 bg-green-600 transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
                     </button>
                 </div>
 
-                <div className="mt-4 lg:mt-0 lg:w-11/12">
+                <div className='w-full h-full mt-5 overflow-auto rounded-lg max-w-max lg:me-2'>
                     {activeTab === 'commercial' && commercialData && (
                         <ServicesSwiper services={commercialData} />
                     )}
-
                     {activeTab === 'residential' && residentialData && (
                         <ServicesSwiper services={residentialData} />
                     )}
                 </div>
-
             </div>
 
         </div>
+
     );
 }

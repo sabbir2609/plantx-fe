@@ -1,12 +1,15 @@
 "use client";
 
 import React from 'react';
+
+import Image from 'next/image';
+import Link from 'next/link';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { Autoplay, Navigation } from 'swiper/modules';
-import Image from 'next/image';
-import Link from 'next/link';
+import { Autoplay, Navigation, Pagination, Scrollbar } from 'swiper/modules';
+
 
 interface Service {
     id: number;
@@ -26,15 +29,17 @@ export default function ServicesSwiper(
             slidesPerView={1}
             spaceBetween={10}
             navigation={false}
-            modules={[Autoplay, Navigation]}
+            modules={[Autoplay, Navigation, Pagination, Scrollbar]}
+            pagination={{
+                clickable: true,
+            }}
+            scrollbar={{
+                hide: false,
+            }}
             autoplay={{ delay: 2000 }}
             breakpoints={{
                 640: {
-                    slidesPerView: 2,
-                    spaceBetween: 10,
-                },
-                768: {
-                    slidesPerView: 3,
+                    slidesPerView: 1,
                     spaceBetween: 10,
                 },
                 1024: {
@@ -42,44 +47,23 @@ export default function ServicesSwiper(
                     spaceBetween: 10,
                 },
             }}
-            className="mySwiper rounded-sm"
+            className="mySwiper h-[60vh] w-full"
         >
             {services.map((item) => (
-                <SwiperSlide key={item.id}>
-
-
-                    <div className="relative group">
-                        {item.image ? (
-                            <Image
-                                src={item.image}
-                                alt={item.title}
-                                className="w-full h-[65vh] object-cover rounded-sm shadow-sm"
-                                width={1000}
-                                height={700}
-                            />
-                        ) : (
-                            <Image
-                                src="/static/no-img.png"
-                                alt={item.title}
-                                width={1000}
-                                height={700}
-                                className="w-full h-[65vh] object-cover rounded-sm shadow-sm"
-                            />
-                        )}
-
-                        <div className="absolute bottom-12 left-8">
-                            <h3 className="text-3xl lg:text-5xl font-medium">
-                                {item.title}
-                            </h3>
-                            <div className='h-1 w-auto bg-orange-500 mt-2 mb-4'></div>
-                            <Link
-                                href={`/services/category/${item.id}`}
-                                className='underline uppercase text-lg hover:bg-orange-500 font-light'
-                            >
-                                See Services
-                            </Link>
-                        </div>
-
+                <SwiperSlide key={item.id} className="relative group">
+                    <Image
+                        src={item.image || "/static/no-img.png"}
+                        alt={item.title}
+                        height={800}
+                        width={800}
+                        className='object-cover w-full h-full'
+                    />
+                    <div className="absolute inset-0 transition-opacity duration-300 bg-gradient-to-t from-gray-900 via-gray-900/40 group-hover:opacity-0"></div>
+                    <div className="absolute z-20 bottom-12 left-8">
+                        <h3 className="text-3xl font-bold text-white">{item.title}</h3>
+                        <Link href={`/services/${item.id}`} className="text-lg font-semibold text-green-600 hover:text-green-700">
+                            See more
+                        </Link>
                     </div>
                 </SwiperSlide>
             ))}
