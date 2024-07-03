@@ -62,7 +62,7 @@ export default function InnovativeGardeningSection() {
         <div>
             <div className="text-center">
                 <p className="mt-3 text-3xl font-extrabold tracking-tight text-green-600">Innovative Gardening</p>
-                <p className="mt-3 text-lg font-semibold text-gray-600">We provide a wide range of services for both commercial and residential properties.</p>
+                <p className="mt-3 text-lg font-semibold text-gray-600">Get wide range of services for both commercial and residential.</p>
             </div>
 
             <div className="flex flex-col items-center p-2 mt-2 lg:p-0 lg:flex-row ">

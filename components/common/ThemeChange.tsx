@@ -9,11 +9,11 @@ export default function ThemeChange() {
 
     useEffect(() => {
         themeChange(false); // Initialize themeChange without auto-detection
-        document.documentElement.setAttribute('data-theme', theme); // Apply initial theme
+        document.documentElement.setAttribute('data-set-theme', theme); // Apply initial theme
     }, []);
 
     useEffect(() => {
-        document.documentElement.setAttribute('data-theme', theme); // Apply theme on change
+        document.documentElement.setAttribute('data-set-theme', theme); // Apply theme on change
         localStorage.setItem('theme', theme); // Optional: Save theme preference
     }, [theme]);
 
@@ -22,7 +22,7 @@ export default function ThemeChange() {
     };
 
     return (
-        <div className="theme-change flex items-center justify-center btn btn-ghost btn-circle">
+        <div className="flex items-center justify-center theme-change btn btn-ghost btn-circle">
             <button onClick={toggleTheme} className={`transition-transform duration-500 ease-in-out transform ${theme === 'dark' ? 'rotate-180' : 'rotate-0'}`}>
                 {theme === 'light' ? <Moon /> : <Sun />}
             </button>
