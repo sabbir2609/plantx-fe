@@ -43,7 +43,7 @@ export default function GetInTouch() {
 
     return (
         <div className="container px-5 py-10 mx-auto">
-            <h1 className="text-4xl font-bold text-center text-gray-800 sm:text-5xl md:text-6xl">Let's Get Started</h1>
+            <h1 className="text-4xl font-bold text-center text-gray-800 sm:text-5xl md:text-6xl">Let&apos;s Get Started</h1>
             <div className="grid grid-cols-1 gap-10 mt-10 md:grid-cols-2 lg:grid-cols-3">
                 {sections.map((section, index) => (
                     <div key={index} className="flex flex-col items-center p-6 space-y-5 transition duration-500 transform bg-white rounded-lg shadow-lg hover:scale-105">
