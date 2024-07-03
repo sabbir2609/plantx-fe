@@ -29,7 +29,7 @@ export default function GetInTouch() {
         },
         {
             title: "5. Completion and Handover:",
-            description: "Upon finishing the project, we'll walk through it with you to ensure everything meets your expectations. We'll also provide necessary documents, warranties, and maintenance instructions.",
+            description: "Upon finishing the project, we&apos;ll walk through it with you to ensure everything meets your expectations. We'll also provide necessary documents, warranties, and maintenance instructions.",
             imgSrc: "/images/contact/4.jpg",
             imgAlt: "Completion and Handover",
         },
