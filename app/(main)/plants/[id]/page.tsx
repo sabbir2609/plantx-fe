@@ -95,7 +95,7 @@ export default async function Plants({ params }: { params: { id: number } }) {
                         </div>
                         <div className="collapse-content">
                             <div
-                                className="prose mx-auto max-w-none overflow-x-auto max-h-[60vh]"
+                                className="prose mx-auto max-w-none overflow-auto max-h-[60vh]"
                                 dangerouslySetInnerHTML={{ __html: plant.description }}></div>
                         </div>
                     </div>
