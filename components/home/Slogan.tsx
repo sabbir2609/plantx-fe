@@ -15,7 +15,7 @@ export default function Slogan() {
     }, [words.length]);
 
     return (
-        <div className="p-4 text-4xl font-semibold text-center lg:text-6xl">
+        <div className="p-4 h-28 text-4xl font-semibold text-center lg:text-6xl place-self-center">
             <div className="block md:inline">We Design Your </div>
             <AnimatePresence mode='wait'>
                 <motion.div

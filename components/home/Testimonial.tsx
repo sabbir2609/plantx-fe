@@ -48,12 +48,21 @@ export default function Testimonial() {
 
 
     return (
-        <div className="p-3 mx-auto mb-4">
-            <header className="mb-4 text-center">
+        <section className="p-3 mx-auto mb-4 bg-base-300 mt-2"
+            style={
+                {
+                    backgroundImage: "url('/images/bg/bg_4.jpg')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                }
+            }
+        >
+            <header className="mb-4 text-center text-white">
                 <h2 className={`${dancing_script.className} text-4xl font-bold`}>
                     Customer
                 </h2>
-                <h1 className="text-3xl font-bold">Testimonials</h1>
+                <h1 className="text-3xl font-bold tracking-wide">Testimonials</h1>
             </header>
 
             <Swiper
@@ -64,7 +73,7 @@ export default function Testimonial() {
                 pagination={{
                     clickable: true,
                 }}
-                autoplay={{ delay: 4000 }}
+                // autoplay={{ delay: 4000 }}
                 breakpoints={{
                     640: {
                         slidesPerView: 2,
@@ -80,11 +89,12 @@ export default function Testimonial() {
             >
                 {testimonials.map((testimonial, index) => (
                     <SwiperSlide key={index}>
+
                         <div
-                            className="flex flex-col items-center justify-center mt-4 pt-10 bg-emerald-200 rounded-lg relative"
+                            className="flex flex-col items-center justify-center mt-4 pt-4 rounded-lg relative h-max"
                         >
-                            <div className="flex flex-row gap-3 mb-[-56px] items-center z-10">
-                                <Quote className="rotate-180 fill-white" size={40} />
+                            <div className="flex flex-row gap-2 mb-[-56px] items-center z-10">
+                                <Quote className="rotate-180 fill-white text-white" size={40} />
                                 <Image
                                     src={testimonial.image}
                                     alt={testimonial.name}
@@ -92,22 +102,24 @@ export default function Testimonial() {
                                     height={200}
                                     className="w-28 h-28 rounded-full object-cover border-2 border-green-400 shadow-lg"
                                 />
-                                <Quote className="fill-white" size={40} />
+                                <Quote className="fill-white text-white" size={40} />
                             </div>
 
-                            <div className="rounded-b-lg text-center bg-green-50 px-6 pt-16 pb-10">
+                            <div className="rounded-xl text-center bg-green-200 px-6 pt-16 pb-10">
                                 <h2 className="text-lg font-bold">
                                     {testimonial.name}
                                 </h2>
-                                <p className={`${pacifico.className} font-bold text-center tracking-tight`}>
+                                <p className={`${pacifico.className} text-center tracking-tight lg:text-lg`}>
                                     {testimonial.testimonial}
                                 </p>
                             </div>
                         </div>
+
                     </SwiperSlide>
                 ))}
+
             </Swiper>
 
-        </div>
+        </section>
     );
 }

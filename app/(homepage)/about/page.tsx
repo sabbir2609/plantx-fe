@@ -29,7 +29,7 @@ export default function AboutUs() {
                     <div className="mt-10 lg:mt-0 lg:col-start-1 lg:row-start-1">
                         <Image
                             className="object-cover object-center rounded-lg shadow-lg"
-                            src="/images/greenery.jpg"
+                            src="/images/about/greenery.jpg"
                             alt="Greenery"
                             width={1200}
                             height={800}
@@ -58,7 +58,7 @@ export default function AboutUs() {
                     <div>
                         <Image
                             className="object-cover object-center rounded-lg shadow-lg"
-                            src="/images/urban-landscape.jpg"
+                            src="/images/about/urban-landscape.jpg"
                             alt="Urban Landscape"
                             width={1200}
                             height={800}

@@ -1,4 +1,4 @@
-import { About, ContactUs, Footer, Hero, OurWorks, Slogan, TopPicks, InnovativeGardeningSection, GetInTouch, WhyUs, OurClients, Testimonial } from "@/components/home";
+import { About, ContactUs, Footer, Hero, OurWorks, Slogan, InnovativeGardeningSection, GetInTouch, WhyUs, OurClients, Testimonial, InnovateYourSpace } from "@/components/home";
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
       <InnovativeGardeningSection />
       <OurWorks />
       <GetInTouch />
-      <TopPicks />
+      <InnovateYourSpace />
       <WhyUs />
       <OurClients />
       <Testimonial />

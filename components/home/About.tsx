@@ -9,7 +9,7 @@ const title_font = Libre_Baskerville({
 
 export default function About() {
     return (
-        <div className="relative bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/images/greenery.jpg')" }}>
+        <div className="relative bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/images/bg/bg_5.jpg')" }}>
             <div className="w-full bg-opacity-50 bg-black p-10">
                 <h1 className={`text-2xl lg:text-6xl font-bold text-white ${title_font.className}`}>
                     Elevate your space with <span className='italic font-serif'>Nature</span>
