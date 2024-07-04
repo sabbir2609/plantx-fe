@@ -1,11 +1,20 @@
-import { Flower, Album, ChevronRight, Cylinder, HandPlatter, HelpCircle, Leaf, Lightbulb, MessageSquareHeart, MessageSquareText, PaintRoller, Rss, Search, Sprout } from "lucide-react";
+import { Flower, Album, ChevronRight, Cylinder, HandPlatter, HelpCircle, Leaf, Lightbulb, MessageSquareHeart, MessageSquareText, PaintRoller, Rss, Search, Sprout, UsersRound } from "lucide-react";
 import Link from "next/link";
+import { title } from "process";
 
 interface MenuItemProps {
     id: string;
     title: string;
     link: string;
 }
+
+interface MenuGroupProps {
+    title: string;
+    icon: JSX.Element;
+    items: Record<string, { title: string; link: string; }>;
+    open?: boolean;
+}
+
 
 const MenuItem: React.FC<MenuItemProps> = ({ id, title, link }) => (
     <li key={id}>
@@ -15,15 +24,9 @@ const MenuItem: React.FC<MenuItemProps> = ({ id, title, link }) => (
     </li>
 );
 
-interface MenuGroupProps {
-    title: string;
-    icon: JSX.Element;
-    items: Record<string, { title: string; link: string; }>;
-}
-
-const MenuGroup: React.FC<MenuGroupProps> = ({ title, icon, items }) => (
+const MenuGroup: React.FC<MenuGroupProps> = ({ title, icon, items, open }) => (
     <li key={title}>
-        <details>
+        <details open={open}>
             <summary className="font-semibold">
                 {icon}
                 {title}
@@ -38,23 +41,23 @@ const MenuGroup: React.FC<MenuGroupProps> = ({ title, icon, items }) => (
 );
 
 export default function Sidebar() {
-    const menuItemsOne = [
-        {
-            "title": "Service Categories",
-            "icon": <Album size={20} className="inline-block" />,
-            "link": "/services/category"
-        },
-        {
-            title: "Services",
-            icon: <PaintRoller size={20} className="inline-block" />,
-            link: "/services"
-        },
-        {
-            title: "Innovate Your Space",
-            icon: <Lightbulb size={20} className="inline-block" />,
-            link: "/innovate"
-        },
-    ];
+    const menuItemsOne = {
+        "Services": {
+            "icon": <HandPlatter size={20} className="inline-block" />,
+            "all": {
+                "title": "All Services",
+                "link": "/services"
+            },
+            "commercial": {
+                "title": "Commercial",
+                "link": "/services/commercial"
+            },
+            "residential": {
+                "title": "Residential",
+                "link": "/services/residential"
+            },
+        }
+    };
 
     const menuItemsTwo = {
         "Plants": {
@@ -62,6 +65,10 @@ export default function Sidebar() {
             "all": {
                 "title": "All Plants",
                 "link": "/plants"
+            },
+            "categories": {
+                "title": "Plant Categories",
+                "link": "/plants/category"
             },
             "indoor": {
                 "title": "Indoor",
@@ -95,6 +102,16 @@ export default function Sidebar() {
 
     const menuItemsThree = [
         {
+            title: "Innovate",
+            icon: <Lightbulb size={20} className="inline-block" />,
+            link: "/innovate"
+        },
+        {
+            title: "Our Team",
+            icon: <UsersRound size={20} className="inline-block" />,
+            link: "/team"
+        },
+        {
             title: "Contact Us",
             icon: <MessageSquareText size={20} className="inline-block" />,
             link: "/contact"
@@ -113,17 +130,11 @@ export default function Sidebar() {
 
                 {/* Menu section */}
                 <ul className="menu gap-2">
-                    {/* Main menu items */}
-                    {menuItemsOne.map(({ title, icon, link }) => (
-                        <li key={title}>
-                            <Link href={link} className="font-semibold">
-                                {icon}
-                                {title}
-                            </Link>
-                        </li>
-                    ))}
 
-                    <div className="divider h-2"></div>
+                    {/* Non Collapsible Menu items */}
+                    {Object.entries(menuItemsOne).map(([title, { icon, ...items }]) => (
+                        <MenuGroup key={title} title={title} icon={icon} items={items} open={true} />
+                    ))}
 
                     {/* Collapsible Menu items */}
                     {Object.entries(menuItemsTwo).map(([title, { icon, ...items }]) => (

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Loading from '@/app/loading';
 import { SwiperSlideComponent } from '@/components/common';
+import { Fetch } from '@/app/lib';
 
 interface PlantCategory {
     id: number;
@@ -32,15 +33,7 @@ interface Plant {
     images: PlantImage[];
 }
 export default async function Plants({ params }: { params: { id: number } }) {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/plants/${params.id}`,
-        {
-            cache: "no-cache",
-        }
-    );
-    if (!response.ok) {
-        throw new Error("Failed to fetch data");
-    }
-    const data = await response.json();
+    const data = await Fetch({ endpoint: `plants/${params.id}` });
     const plant: Plant = data;
 
     if (!plant) {

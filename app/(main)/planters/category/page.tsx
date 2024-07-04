@@ -1,3 +1,4 @@
+import { Fetch } from "@/app/lib";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,16 +9,8 @@ interface PlantersCategory {
 }
 
 export default async function PlantersCategoryPage() {
-    const response = await fetch(
-        `${process.env.NEXT_PUBLIC_HOST}/planter_categories`,
-        { cache: 'no-cache' }
-    );
-
-    if (!response.ok) {
-        throw new Error("Failed to fetch Planters categories");
-    }
-
-    const PlantersCategories: PlantersCategory[] = await response.json();
+    const data = await Fetch({ endpoint: "planter_categories" });
+    const PlantersCategories: PlantersCategory[] = data;
 
     return (
         <div className="container mx-auto">

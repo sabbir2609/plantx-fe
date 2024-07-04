@@ -28,6 +28,10 @@ export default withPWA({
         protocol: "https",
         hostname: "sorsauth.sirv.com",
       },
+      {
+        protocol: "https",
+        hostname: "pagedone.io",
+      },
     ],
   },
 });

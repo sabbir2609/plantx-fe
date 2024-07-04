@@ -1,3 +1,4 @@
+import { Fetch } from "@/app/lib";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,16 +9,8 @@ interface PlantCategory {
 }
 
 export default async function PlantsCategoryPage() {
-    const response = await fetch(
-        `${process.env.NEXT_PUBLIC_HOST}/plant_categories`,
-        { cache: 'no-cache' }
-    );
-
-    if (!response.ok) {
-        throw new Error("Failed to fetch plant categories");
-    }
-
-    const PlantCategories: PlantCategory[] = await response.json();
+    const data = await Fetch({ endpoint: "plant_categories" });
+    const PlantCategories: PlantCategory[] = data;
 
     return (
         <div className="container mx-auto">

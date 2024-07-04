@@ -1,3 +1,4 @@
+import { Fetch } from "@/app/lib";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,17 +11,8 @@ interface Ideas {
 }
 
 export default async function Page() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/ideas`,
-        {
-            cache: "no-cache",
-        }
-    );
-
-    if (!res.ok) {
-        throw new Error("Failed to fetch data");
-    }
-
-    const ideas: Ideas[] = await res.json();
+    const data = await Fetch({ endpoint: "ideas" });
+    const ideas: Ideas[] = data;
 
     return (
         <div className="container mx-auto px-4">

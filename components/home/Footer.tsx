@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Footer() {
     return (
-        <footer className="bg-base-200 text-base-content py-10 px-3 lg:px-10 mt-2">
+        <footer className="bg-base-200 text-base-content pt-10 pb-2 px-3 lg:px-10 mt-2">
 
             <div className="pb-5">
                 <Flower2 size={50} />
@@ -25,8 +25,8 @@ export default function Footer() {
                 <nav>
                     <h6 className="footer-title text-lg font-bold mb-2">Company</h6>
                     <div className="flex flex-col space-y-2">
-                        <Link href="#" className="link-hover">About us</Link>
-                        <Link href="#" className="link-hover">Contact</Link>
+                        <Link href="/about" className="link-hover">About us</Link>
+                        <Link href="/contact" className="link-hover">Contact</Link>
                     </div>
                 </nav>
 
@@ -54,7 +54,7 @@ export default function Footer() {
                     </div>
                 </nav>
             </div>
-            <div className="text-center lg:text-right mt-5">
+            <div className="text-center lg:text-right mt-2">
                 <p>© 2024 Viriditas. All rights reserved.</p>
             </div>
         </footer>

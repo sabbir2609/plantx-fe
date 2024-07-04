@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { Fetch } from '@/app/lib';
 
 interface Ideas {
     id: number;
@@ -7,12 +8,7 @@ interface Ideas {
     image: string;
 }
 async function getIdeas() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/ideas/featured/`,
-        {
-            cache: 'no-cache',
-        }
-    );
-    const data = await res.json();
+    const data = await Fetch({ endpoint: 'ideas/featured/' });
     return data.slice(0, 4);
 }
 

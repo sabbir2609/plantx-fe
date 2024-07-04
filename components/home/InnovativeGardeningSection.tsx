@@ -1,3 +1,4 @@
+import { Fetch } from "@/app/lib";
 import InnovativeGardeningTab from "./Swiper/InnovativeGardeningTab";
 
 interface ServiceCategory {
@@ -7,20 +8,12 @@ interface ServiceCategory {
 }
 
 async function getCommercialData() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/service_categories/commercial/`);
-    if (!res.ok) {
-        throw new Error("Failed to fetch data");
-    }
-    const data = await res.json();
+    const data = await Fetch({ endpoint: 'service_categories/commercial/' });
     return data;
 }
 
 async function getResidentialData() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/service_categories/residential/`);
-    if (!res.ok) {
-        throw new Error("Failed to fetch data");
-    }
-    const data = await res.json();
+    const data = await Fetch({ endpoint: 'service_categories/residential/' });
     return data;
 }
 

@@ -46,7 +46,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#FFFFFF",
+  themeColor: "#ffffff",
 };
 
 const inter = Inter({ subsets: ["latin"] });
@@ -57,7 +57,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth select-none">
       <body className={`${inter.className}`}>
         {children}
         <SpeedInsights />

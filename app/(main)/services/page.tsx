@@ -1,3 +1,4 @@
+import { Fetch } from "@/app/lib";
 import Loading from "@/app/loading";
 import { Pagination, ServiceCard } from "@/components/main";
 
@@ -18,15 +19,7 @@ interface Service {
 
 export default async function services(context: any) {
     const page = context.searchParams.page ? context.searchParams.page : 1;
-    const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/services/?page=${page}`, {
-        cache: "no-cache",
-    });
-
-    if (!response.ok) {
-        throw new Error("Failed to fetch data");
-    }
-
-    const data = await response.json();
+    const data = await Fetch({ endpoint: `services/?page=${page}` });
     const services: Service[] = data['results'];
 
     const totalPages = Math.ceil(data['count'] / 12);

@@ -1,3 +1,4 @@
+import { Fetch } from '@/app/lib';
 import Loading from '@/app/loading';
 import { Pagination, PlanterCard } from '@/components/main';
 
@@ -18,15 +19,9 @@ interface Planter {
 
 export default async function Plants(context: any) {
     const page = context.searchParams.page ? context.searchParams.page : 1;
-    const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/planters/?page=${page}`, {
-        cache: "no-cache",
-    });
 
-    if (!response.ok) {
-        throw new Error("Failed to fetch data");
-    }
+    const data = await Fetch({ endpoint: `planters/?page=${page}` });
 
-    const data = await response.json();
     const planters: Planter[] = data['results'];
 
     const totalPages = Math.ceil(data['count'] / 12);

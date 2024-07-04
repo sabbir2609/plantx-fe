@@ -1,3 +1,4 @@
+import { Fetch } from "@/app/lib";
 import Loading from "@/app/loading";
 import { PlantCard, PlanterCard } from "@/components/main";
 import Image from "next/image";
@@ -20,14 +21,12 @@ interface Planter {
 }
 
 async function fetchCategory(id: number) {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/planter_categories/${id}`, { cache: 'no-cache' });
-    return res.json();
-
+    const data = await Fetch({ endpoint: `planter_categories/${id}` });
+    return data;
 }
 
 async function fetchPlants(id: number) {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/planter_categories/${id}/planters`, { cache: 'no-cache' });
-    const data = await res.json();
+    const data = await Fetch({ endpoint: `planters/?category=${id}` });
     return data.results;
 }
 

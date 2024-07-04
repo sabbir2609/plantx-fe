@@ -1,3 +1,4 @@
+import { Fetch } from "@/app/lib";
 import Loading from "@/app/loading";
 import { Pagination, PlantCard } from "@/components/main"
 import Image from "next/image";
@@ -30,25 +31,13 @@ interface Plant {
 
 export default async function Page(context: any) {
     const page = context.searchParams.page ? context.searchParams.page : 1;
-    const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/plants/indoor/?page=${page}`, {
-        cache: "no-cache",
-    });
 
-    if (!response.ok) {
-        throw new Error("Failed to fetch data");
-    }
-
-    const data = await response.json();
+    const data = await Fetch({ endpoint: `plants/indoor/?page=${page}` });
     const plants: Plant[] = data['results'];
 
     const totalPages = Math.ceil(data['count'] / 12);
     const baseURL = 'plants/';
 
-    if (!plants.length) {
-        return <div>
-            <Loading />
-        </div>;
-    }
     return (
         <>
             <h1 className="text-3xl font-bold mb-6">

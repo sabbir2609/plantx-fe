@@ -1,3 +1,4 @@
+import { Fetch } from "@/app/lib";
 import Loading from "@/app/loading";
 import { ServiceCard } from "@/components/main";
 import Image from "next/image";
@@ -21,24 +22,18 @@ interface Service {
 }
 
 async function fetchCategory(id: number) {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/service_categories/${id}`, { cache: 'no-cache' });
-    return res.json();
-
+    const data = await Fetch({ endpoint: `service_categories/${id}` });
+    return data;
 }
 
 async function fetchPlants(id: number) {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/service_categories/${id}/services`, { cache: 'no-cache' });
-    const data = await res.json();
+    const data = await Fetch({ endpoint: `service_categories/${id}/services` });
     return data.results;
 }
 
 export default async function Page({ params }: { params: { id: number } }) {
     const category: Category = await fetchCategory(params.id);
     const services: Service[] = await fetchPlants(params.id);
-
-    if (!category || !services) {
-        return <Loading />;
-    }
 
     return (
         <div className="mx-auto">

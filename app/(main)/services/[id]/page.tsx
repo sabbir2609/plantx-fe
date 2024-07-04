@@ -1,4 +1,4 @@
-import Loading from '@/app/loading';
+import { Fetch } from '@/app/lib';
 import Image from 'next/image';
 
 interface Category {
@@ -18,23 +18,8 @@ interface Service {
 
 export default async function Plants({ params }: { params: { id: number } }) {
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/services/${params.id}/`, {
-        cache: "no-cache",
-    });
-
-    if (!res.ok) {
-        throw new Error("Failed to fetch data");
-    }
-
-    const service: Service = await res.json();
-
-    if (!service) {
-        return (
-            <div>
-                <Loading />
-            </div>
-        );
-    }
+    const data = await Fetch({ endpoint: `services/${params.id}` });
+    const service: Service = data;
 
     return (
         <div className="p-4 lg:px-16 rounded-lg shadow-xl lg:my-4 lg:py-6">

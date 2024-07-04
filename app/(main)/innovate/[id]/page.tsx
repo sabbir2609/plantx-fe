@@ -1,4 +1,4 @@
-import Loading from '@/app/loading';
+import { Fetch } from '@/app/lib';
 import Image from 'next/image';
 
 interface Idea {
@@ -11,23 +11,8 @@ interface Idea {
 
 export default async function Plants({ params }: { params: { id: number } }) {
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/ideas/${params.id}/`, {
-        cache: "no-cache",
-    });
-
-    if (!res.ok) {
-        throw new Error("Failed to fetch data");
-    }
-
-    const idea: Idea = await res.json();
-
-    if (!idea) {
-        return (
-            <div>
-                <Loading />
-            </div>
-        );
-    }
+    const data = await Fetch({ endpoint: `ideas/${params.id}` });
+    const idea: Idea = data;
 
     return (
         <div className="p-4 lg:px-16 rounded-lg shadow-xl lg:my-4 lg:py-6">

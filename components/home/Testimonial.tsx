@@ -35,7 +35,7 @@ export default function Testimonial() {
             testimonial: "A wonderful experience from start to finish. The quality of work was outstanding and the customer service was excellent."
         },
         {
-            name: "Fairoose Khan",
+            name: "Sabila Noor",
             image: "/images/testimonial/testimonial (4).jpg",
             testimonial: "I couldn't be happier with the service provided. The team was professional, efficient, and delivered great results."
         },

@@ -29,7 +29,7 @@ export default function Navbar() {
                 </div>
             </div>
             <div className="navbar-end">
-                {/* <ThemeChange />  */}
+                <ThemeChange />
                 {/* <button className="btn btn-ghost btn-circle">
                     <Search />
                 </button> */}

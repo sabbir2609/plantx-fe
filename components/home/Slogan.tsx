@@ -15,14 +15,14 @@ export default function Slogan() {
     }, [words.length]);
 
     return (
-        <div className="p-4 h-28 text-4xl font-semibold text-center lg:text-6xl place-self-center">
+        <div className="p-4 text-4xl font-semibold text-center lg:text-6xl">
             <div className="block md:inline">We Design Your </div>
             <AnimatePresence mode='wait'>
                 <motion.div
                     key={index}
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: -20, opacity: 0 }}
+                    initial={{ x: 20, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    exit={{ x: -20, opacity: 0 }}
                     transition={{ duration: 0.5 }}
                     className="inline-block"
                 >
