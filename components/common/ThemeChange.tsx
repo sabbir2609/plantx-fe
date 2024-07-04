@@ -19,7 +19,7 @@ export default function ThemeChange() {
     }, [])
 
     return (
-        <div title="theme-change" className="dropdown dropdown-end ">
+        <div title="theme-change" className="dropdown dropdown-end">
 
             <div tabIndex={0} className="btn gap-1 normal-case btn-ghost">
                 <svg
@@ -49,10 +49,10 @@ export default function ThemeChange() {
                 </svg>
             </div>
 
-            <div className='dropdown-content bg-base-200 text-base-content rounded-t-box rounded-b-box top-px max-h-[275px] h-auto w-52 overflow-y-auto shadow-2xl mt-16'>
+            <div className='dropdown-content bg-base-200 text-base-content rounded-t-box rounded-b-box top-px max-h-[275px] h-auto w-52 overflow-y-auto shadow-2xl mt-16 z-20'>
                 {themes.map((value) => (
 
-                    <div key={value} className='grid grid-cols-1 gap-3 p-3' tabIndex={0}>
+                    <div key={value} className='grid grid-cols-1 gap-3 p-3 z-20' tabIndex={0}>
                         <div className='outline-base-content overflow-hidden rounded-lg outline outline-2 outline-offset-2' data-set-theme={value} data-act-class='outline'>
                             <div data-theme={value} className='bg-base-100 text-base-content w-full cursor-pointer font-sans'>
                                 <div className='grid grid-cols-5 grid-rows-3'>
