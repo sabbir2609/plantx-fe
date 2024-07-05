@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from 'react';
-import ServicesSwiper from './ServicesSwiper';
+import ComServicesSwiper from './ComServicesSwiper';
+import ResServicesSwiper from './ResServicesSwiper';
 
 interface ServiceCategory {
     id: number;
@@ -40,10 +41,10 @@ export default function InnovativeGardeningTab(
 
             <div className='w-full h-full mt-5 overflow-auto rounded-lg max-w-max lg:me-2'>
                 {activeTab === 'commercial' && commercialData && (
-                    <ServicesSwiper services={commercialData} />
+                    <ComServicesSwiper services={commercialData} />
                 )}
                 {activeTab === 'residential' && residentialData && (
-                    <ServicesSwiper services={residentialData} />
+                    <ResServicesSwiper services={residentialData} />
                 )}
             </div>
         </div>

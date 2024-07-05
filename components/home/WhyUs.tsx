@@ -1,10 +1,16 @@
+import Image from 'next/image';
+
 export default function WhyUs() {
+
     return (
-        <div className="p-3 mx-auto bg-orange-600 h-36">
-            <h1 className="text-3xl font-bold text-center">Why Choose Us?</h1>
-            <div className="text-center">
-                Coming Soon...
-            </div>
+        <div className="p-2 mx-auto">
+            <Image
+                src="/images/why-choose-us/why-us.png"
+                alt="Why Choose Us?"
+                width={960}
+                height={1200}
+                className='mx-auto object-contain w-full lg:h-[100vh]'
+            />
         </div>
     );
 }

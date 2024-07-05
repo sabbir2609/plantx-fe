@@ -47,7 +47,7 @@ export default function OurClients() {
 
     ]
     return (
-        <section className="py-7 bg-gray-300 mt-2">
+        <section className="py-7 bg-[#F1EFED] mt-2">
             <div className="flex flex-col lg:flex-row justify-center align-middle mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 gap-4">
 
                 <div className="mb-4 lg:mb-0 lg:text-right text-center place-content-center">

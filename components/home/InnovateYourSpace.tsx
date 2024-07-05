@@ -17,8 +17,9 @@ export default async function InnovateYourSpace() {
     const ideas: Ideas[] = await getIdeas();
     return (
 
-        <div className="flex flex-col p-2 mt-2">
-            <Link href="/innovate" className="text-3xl font-extrabold text-center mb-3 hover:text-green-600 underline">
+        <div className="flex flex-col p-4 mt-2">
+
+            <Link href="/innovate" className="text-3xl font-extrabold text-center mb-3 hover:text-green-600 underline py-4 uppercase">
                 Innovate your Space!
             </Link>
 
@@ -30,9 +31,9 @@ export default async function InnovateYourSpace() {
                             alt={idea.title}
                             height={800}
                             width={800}
-                            className='object-cover w-full h-[40vh] hover:scale-105 transform transition-transform duration-300 ease-in-out rounded-md'
+                            className='object-cover w-full h-[30vh] md:h-[50vh] lg:h-[60vh] hover:scale-105 transform transition-transform duration-300 ease-in-out rounded-md'
                         />
-                        <p className="p-2 font-semibold truncate" title={idea.title}>
+                        <p className="p-2 px-4 font-normal tracking-tighter truncate" title={idea.title}>
                             {idea.title}
                         </p>
                     </Link>

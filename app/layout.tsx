@@ -57,7 +57,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth select-none">
+    <html lang="en" className="scroll-smooth">
       <body className={`${inter.className}`}>
         {children}
         <SpeedInsights />

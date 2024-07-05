@@ -1,4 +1,4 @@
-import { AlignLeft, Menu, Phone, Search } from "lucide-react";
+import { AlignLeft, Menu, Phone, Search, Instagram } from "lucide-react";
 import { ThemeChange } from "@/components/common";
 import Link from "next/link";
 
@@ -34,10 +34,17 @@ export default function Navbar() {
                     <Search />
                 </button> */}
                 <button className="btn btn-ghost btn-circle">
+                    <Link href="https://www.instagram.com/viriditas_2024/" target="_blank"
+                        rel="noopener noreferrer">
+                        <Instagram />
+                    </Link>
+                </button>
+
+                <button className="btn btn-ghost btn-circle">
                     <div className="indicator">
-                        <a href="tel:+2348123456789">
+                        <Link href="tel:+2348123456789">
                             <Phone />
-                        </a>
+                        </Link>
                     </div>
                 </button>
             </div>

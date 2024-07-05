@@ -42,13 +42,16 @@ export default function Footer() {
                 <nav>
                     <h6 className="footer-title text-lg font-bold mb-2">Social</h6>
                     <div className="flex space-x-4">
-                        <Link href="#">
+                        <Link href="https://www.instagram.com/viriditas_2024/" target="_blank"
+                            rel="noopener noreferrer">
                             <Instagram size={24} />
                         </Link>
-                        <Link href="https://www.facebook.com/theviriditas">
+                        <Link href="https://fb.me/theviriditas" target="_blank"
+                            rel="noopener noreferrer">
                             <Facebook size={24} />
                         </Link>
-                        <Link href="#">
+                        <Link href="#" target="_blank"
+                            rel="noopener noreferrer">
                             <Youtube size={24} />
                         </Link>
                     </div>
