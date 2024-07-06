@@ -105,7 +105,7 @@ export default function Testimonial() {
                                 <Quote className="fill-white text-white" size={40} />
                             </div>
 
-                            <div className="rounded-xl text-center bg-green-200 px-6 pt-16 pb-10">
+                            <div className="rounded-xl text-center text-black bg-green-200 px-6 pt-16 pb-10">
                                 <h2 className="text-lg font-bold">
                                     {testimonial.name}
                                 </h2>

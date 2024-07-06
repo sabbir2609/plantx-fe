@@ -30,9 +30,9 @@ export default function PlanterCard({ service }: { service: Service }) {
                     />
                 </div>
                 <div className="p-3">
-                    <p className="text-sm p-1 font-serif text-emerald-900 rounded-sm">{service.type}</p>
+                    <p className="text-sm p-1 font-serif rounded-sm">{service.type}</p>
                     <h2 className="text-lg font-semibold">{service.title}</h2>
-                    <p className="text-sm italic text-primary">{service.category.title}</p>
+                    <p className="text-sm italic">{service.category.title}</p>
                 </div>
             </Link>
         </div>

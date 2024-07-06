@@ -41,7 +41,7 @@ export default function GetInTouch() {
     ];
 
     return (
-        <div className="p-3 mx-auto bg-green-100">
+        <div className="p-3 mx-auto">
             <h1 className="text-3xl font-bold text-center">Let&apos;s Get Started</h1>
             <div
                 className="grid grid-cols-1 gap-2 mt-4 lg:grid-cols-3 md:grid-cols-2 lg:gap-2"

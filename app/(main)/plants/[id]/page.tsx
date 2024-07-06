@@ -87,18 +87,20 @@ export default async function Plants({ params }: { params: { id: number } }) {
                     </div>
                 </div>
 
-                <div className="join join-vertical lg:w-1/2 w-full lg:px-4">
-                    <div className="collapse collapse-arrow join-item border border-base-300 rounded-sm shadow-lg">
+                <div className="join join-vertical lg:w-1/2 w-full lg:ps-4">
+
+                    <div className="collapse collapse-arrow join-item border border-base-300">
                         <input type="radio" name="my-accordion" />
                         <div className="collapse-title text-xl font-medium bg-base-200">
                             Description
                         </div>
                         <div className="collapse-content">
                             <div
-                                className="prose max-w-none max-h-[60vh]"
+                                className="prose max-h-[60vh]"
                                 dangerouslySetInnerHTML={{ __html: plant.description }}></div>
                         </div>
                     </div>
+
                     <div className="collapse collapse-arrow join-item border border-base-300">
                         <input type="radio" name="my-accordion" />
                         <div className="collapse-title text-xl font-medium bg-base-200">
@@ -106,10 +108,11 @@ export default async function Plants({ params }: { params: { id: number } }) {
                         </div>
                         <div className="collapse-content">
                             <div
-                                className="prose max-w-none max-h-[60vh]"
+                                className="prose max-h-[60vh]"
                                 dangerouslySetInnerHTML={{ __html: plant.care_instructions }}></div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

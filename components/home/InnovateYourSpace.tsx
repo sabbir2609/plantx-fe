@@ -33,7 +33,7 @@ export default async function InnovateYourSpace() {
                             width={800}
                             className='object-cover w-full h-[30vh] md:h-[50vh] lg:h-[60vh] hover:scale-105 transform transition-transform duration-300 ease-in-out rounded-md'
                         />
-                        <p className="p-2 px-4 font-normal tracking-tighter truncate" title={idea.title}>
+                        <p className="p-2 px-4 font-normal lg:text-xl lg:font-semibold tracking-tighter truncate" title={idea.title}>
                             {idea.title}
                         </p>
                     </Link>

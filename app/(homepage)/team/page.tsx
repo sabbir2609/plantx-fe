@@ -19,7 +19,7 @@ export default async function Page() {
     const data = await Fetch({ endpoint: 'team' });
     const teamMembers: TeamMember[] = data;
     return (
-        <section className="py-2 bg-[#F1EFED]">
+        <section className="py-2">
             <div className="mx-auto max-w-7xl px-2 lg:px-8">
 
                 <div className="mb-5 mt-4">
@@ -29,7 +29,7 @@ export default async function Page() {
 
                 <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
                     {teamMembers.map((member, index) => (
-                        <div key={index} className="text-center bg-white p-4 ">
+                        <div key={index} className="text-center bg-base-200 p-4">
                             <div className="relative mb-5">
                                 <Image
                                     src={member.image}
