@@ -24,7 +24,9 @@ export default async function InnovateYourSpace() {
             </Link>
 
             <div className="grid grid-cols-2 gap-4 md:grid-cols-2 lg:grid-cols-4">
+
                 {ideas.map((idea) => (
+
                     <Link href={`/innovate/${idea.id}`} key={idea.id} className="rounded-md shadow-md">
                         <Image
                             src={idea.image || "/static/no-img.png"}
@@ -33,11 +35,10 @@ export default async function InnovateYourSpace() {
                             width={800}
                             className='object-cover w-full h-[30vh] md:h-[50vh] lg:h-[60vh] hover:scale-105 transform transition-transform duration-300 ease-in-out rounded-md'
                         />
-                        <p className="p-2 px-4 font-normal lg:text-xl lg:font-semibold tracking-tighter truncate" title={idea.title}>
-                            {idea.title}
-                        </p>
                     </Link>
+
                 ))}
+
             </div>
         </div>
 

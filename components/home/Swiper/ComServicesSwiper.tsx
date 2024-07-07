@@ -27,7 +27,7 @@ export default function ServicesSwiper(
     return (
         <Swiper
             slidesPerView={1}
-            spaceBetween={10}
+            spaceBetween={20}
             navigation={false}
             modules={[Autoplay, Navigation, Pagination, Scrollbar]}
             pagination={{
@@ -39,7 +39,7 @@ export default function ServicesSwiper(
             autoplay={{ delay: 4000 }}
             breakpoints={{
                 640: {
-                    slidesPerView: 1,
+                    slidesPerView: 2,
                     spaceBetween: 10,
                 },
                 1024: {
@@ -47,7 +47,7 @@ export default function ServicesSwiper(
                     spaceBetween: 10,
                 },
             }}
-            className="mySwiper h-[60vh] w-full"
+            className="mySwiper h-[50vh] w-full"
         >
             {services.map((item) => (
                 <SwiperSlide key={item.id} className="relative group">
@@ -58,13 +58,16 @@ export default function ServicesSwiper(
                         width={800}
                         className='object-cover w-full h-full rounded-lg'
                     />
-                    <div className="absolute inset-0 transition-opacity duration-300 rounded-lg bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
-                    <div className="absolute z-20 bottom-12 left-8">
-                        <h3 className="text-3xl font-bold text-white">{item.title}</h3>
+
+                    <div className="absolute inset-0 transition-opacity ease-in-out duration-700 rounded-lg bg-gradient-to-t from-gray-900 via-gray-900/40 hover:from-gray-900/60 group-hover:from-gray-900/60"></div>
+
+                    <div className="absolute z-20 bottom-10 left-8">
+                        <h3 className="text-2xl font-bold text-white">{item.title}</h3>
                         <Link href={`/services/commercial/${item.id}`} className="text-lg font-semibold text-green-600 hover:text-green-700">
                             See more
                         </Link>
                     </div>
+
                 </SwiperSlide>
             ))}
         </Swiper>

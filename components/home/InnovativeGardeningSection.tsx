@@ -25,8 +25,10 @@ export default async function InnovativeGardeningSection() {
     return (
         <div>
             <div className="text-center">
-                <p className="mt-3 text-3xl font-extrabold tracking-tight text-green-600">Innovative Gardening</p>
-                <p className="mt-3 text-lg font-semibold text-gray-600">Get wide range of services for both commercial and residential.</p>
+                <p className="mt-3 text-3xl font-extrabold tracking-tight">Innovative Gardening</p>
+                <p className="mt-3 text-lg font-semibold">
+                    Get wide range of services for both commercial and residential.
+                </p>
             </div>
 
             <InnovativeGardeningTab commercialData={commercialData} residentialData={residentialData} />
