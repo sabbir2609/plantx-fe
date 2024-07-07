@@ -19,11 +19,11 @@ export default async function InnovateYourSpace() {
 
         <div className="flex flex-col p-4 mt-2">
 
-            <Link href="/innovate" className="text-3xl font-extrabold text-center mb-3 hover:text-green-600 underline py-4 uppercase">
+            <Link href="/innovate" className="text-2xl lg:text-3xl font-extrabold text-center mb-3 hover:text-green-600 py-4 uppercase">
                 Innovate your Space!
             </Link>
 
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-2 gap-2 lg:gap-4 md:grid-cols-2 lg:grid-cols-4">
 
                 {ideas.map((idea) => (
 
