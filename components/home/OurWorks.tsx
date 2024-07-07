@@ -50,7 +50,7 @@ export default function OurWorks() {
     return (
         <section className="px-2 py-10">
             <div
-                className="rounded-lg"
+                className=""
             >
                 <div className="font-extrabold text-center">
                     <p className="mb-5 text-3xl">A Selection of Signature Projects</p>
@@ -84,7 +84,7 @@ export default function OurWorks() {
 
                     {works.map((work, index) => (
                         <SwiperSlide key={index}>
-                            <div className="rounded-lg shadow-lg backdrop-blur-lg">
+                            <div className="shadow-lg backdrop-blur-lg bg-base-200">
                                 <Image
                                     src={work.image}
                                     alt={work.title}
