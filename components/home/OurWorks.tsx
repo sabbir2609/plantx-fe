@@ -81,7 +81,7 @@ export default function OurWorks() {
 
                     {works.map((work, index) => (
                         <SwiperSlide key={index}>
-                            <div className="shadow-lg backdrop-blur-lg bg-base-200">
+                            <div className="shadow-lg backdrop-blur-lg bg-base-200 rounded-lg">
                                 <Image
                                     src={work.image}
                                     alt={work.title}
