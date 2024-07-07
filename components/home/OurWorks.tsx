@@ -49,9 +49,6 @@ const works = [
 export default function OurWorks() {
     return (
         <section className="px-2 py-10">
-            <div
-                className=""
-            >
                 <div className="font-extrabold text-center">
                     <p className="mb-5 text-3xl">A Selection of Signature Projects</p>
                 </div>
@@ -103,7 +100,6 @@ export default function OurWorks() {
                     ))}
 
                 </Swiper>
-            </div>
         </section>
     );
 };
