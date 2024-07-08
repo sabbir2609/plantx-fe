@@ -59,7 +59,7 @@ export default function ServicesSwiper(
                         className='object-cover w-full h-full rounded-lg'
                     />
 
-                    <div className="absolute inset-0 transition-opacity ease-in-out duration-700 rounded-lg bg-gradient-to-t from-gray-900 via-gray-900/40 hover:from-gray-900/60 group-hover:from-gray-900/60"></div>
+                    <div className="absolute inset-0 transition duration-300 rounded-lg bg-gradient-to-t from-gray-900 via-gray-900/40 hover:opacity-0 "></div>
 
                     <div className="absolute z-20 bottom-10 left-8">
                         <h3 className="text-2xl font-bold text-white">{item.title}</h3>
