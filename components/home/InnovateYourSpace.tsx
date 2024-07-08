@@ -39,7 +39,7 @@ export default async function InnovateYourSpace() {
                             className="w-full h-[40vh] object-cover rounded-lg transition duration-500 ease-in-out hover:scale-105 hover:shadow-lg hover:rounded-lg"
                         />
                         <div
-                            className="absolute top-0 bottom-0 left-0 right-0 transition duration-300 bg-gray-900 opacity-40 hover:bg-transparent">
+                            className="absolute top-0 bottom-0 left-0 right-0 transition duration-300 bg-gray-900 opacity-40 hover:bg-transparent rounded-lg">
                         </div>
                         <div
                             className="absolute top-0 right-0 px-4 py-2 mt-3 mr-3 text-xs text-black transition duration-500 ease-in-out bg-green-100 hover:bg-white hover:text-indigo-600 rounded-badge">
