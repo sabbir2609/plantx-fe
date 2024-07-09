@@ -48,7 +48,7 @@ export default function Testimonial() {
 
 
     return (
-        <section className="p-3 mx-auto mb-4 bg-base-300 mt-2"
+        <section className="p-3 mx-auto mt-2 mb-4 bg-base-300"
             style={
                 {
                     backgroundImage: "url('/images/bg/bg_4.jpg')",
@@ -84,28 +84,28 @@ export default function Testimonial() {
                         spaceBetween: 10,
                     },
                 }}
-                className="mySwiper rounded-sm"
+                className="rounded-sm mySwiper"
 
             >
                 {testimonials.map((testimonial, index) => (
                     <SwiperSlide key={index}>
 
                         <div
-                            className="flex flex-col items-center justify-center mt-4 pt-4 rounded-lg relative h-max"
+                            className="relative flex flex-col items-center justify-center pt-4 mt-4 rounded-lg h-max"
                         >
                             <div className="flex flex-row gap-2 mb-[-56px] items-center z-10">
-                                <Quote className="rotate-180 fill-white text-white" size={40} />
+                                <Quote className="text-black rotate-180 fill-black" size={40} />
                                 <Image
                                     src={testimonial.image}
                                     alt={testimonial.name}
                                     width={200}
                                     height={200}
-                                    className="w-28 h-28 rounded-full object-cover border-2 border-green-400 shadow-lg"
+                                    className="object-cover border-2 border-green-400 rounded-full shadow-lg w-28 h-28"
                                 />
-                                <Quote className="fill-white text-white" size={40} />
+                                <Quote className="text-black fill-black" size={40} />
                             </div>
 
-                            <div className="rounded-xl text-center text-black bg-green-200 px-6 pt-16 pb-10">
+                            <div className="px-6 pt-16 pb-10 text-center text-black bg-white rounded-xl ">
                                 <h2 className="text-lg font-bold">
                                     {testimonial.name}
                                 </h2>

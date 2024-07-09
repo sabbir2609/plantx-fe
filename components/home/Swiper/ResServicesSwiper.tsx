@@ -50,7 +50,7 @@ export default function ServicesSwiper(
             className="mySwiper h-[50vh] w-full"
         >
             {services.map((item) => (
-                <SwiperSlide key={item.id} className="relative group">
+                <SwiperSlide key={item.id} className="relative shadow-lg group backdrop-blur-lg">
                     <Image
                         src={item.image || "/static/no-img.png"}
                         alt={item.title}
@@ -67,7 +67,6 @@ export default function ServicesSwiper(
                             See more
                         </Link>
                     </div>
-
                 </SwiperSlide>
             ))}
         </Swiper>

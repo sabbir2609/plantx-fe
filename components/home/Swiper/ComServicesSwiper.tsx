@@ -50,7 +50,7 @@ export default function ServicesSwiper(
             className="mySwiper h-[50vh] w-full"
         >
             {services.map((item) => (
-                <SwiperSlide key={item.id} className="relative group">
+                <SwiperSlide key={item.id} className="relative shadow-lg group backdrop-blur-lg">
                     <Image
                         src={item.image || "/static/no-img.png"}
                         alt={item.title}
@@ -59,7 +59,7 @@ export default function ServicesSwiper(
                         className='object-cover w-full h-full rounded-lg'
                     />
 
-                    <div className="absolute inset-0 ease-in-out rounded-lg bg-gradient-to-t from-gray-900 via-gray-900/40 hover:opacity-0 transition duration-300 "></div>
+                    <div className="absolute inset-0 transition duration-300 ease-in-out rounded-lg bg-gradient-to-t from-gray-900 via-gray-900/40 hover:opacity-0 "></div>
 
                     <div className="absolute z-20 bottom-10 left-8">
                         <h3 className="text-2xl font-bold text-white">{item.title}</h3>
@@ -67,7 +67,6 @@ export default function ServicesSwiper(
                             See more
                         </Link>
                     </div>
-
                 </SwiperSlide>
             ))}
         </Swiper>

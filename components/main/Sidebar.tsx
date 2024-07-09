@@ -94,7 +94,7 @@ export default function Sidebar() {
                 "link": "/planters/custom"
             },
             "Upload Your Design": {
-                "title": "Upload Your Design",
+                "title": "Send us your design",
                 "link": "/planters/customize"
             }
         }
@@ -102,19 +102,9 @@ export default function Sidebar() {
 
     const menuItemsThree = [
         {
-            title: "Innovate",
-            icon: <Lightbulb size={20} className="inline-block" />,
-            link: "/innovate"
-        },
-        {
             title: "Our Team",
             icon: <UsersRound size={20} className="inline-block" />,
             link: "/team"
-        },
-        {
-            title: "Contact Us",
-            icon: <MessageSquareText size={20} className="inline-block" />,
-            link: "/contact"
         },
         {
             title: "About Us",
@@ -124,12 +114,12 @@ export default function Sidebar() {
     ];
 
     return (
-        <aside className="min-h-screen w-72 flex flex-col bg-base-300">
+        <aside className="flex flex-col min-h-screen w-72 bg-base-300">
             <div className="flex-grow">
                 <SidebarHeader />
 
                 {/* Menu section */}
-                <ul className="menu gap-2">
+                <ul className="gap-2 menu">
 
                     {/* Non Collapsible Menu items */}
                     {Object.entries(menuItemsOne).map(([title, { icon, ...items }]) => (
@@ -141,7 +131,7 @@ export default function Sidebar() {
                         <MenuGroup key={title} title={title} icon={icon} items={items} />
                     ))}
 
-                    <div className="divider h-2"></div>
+                    <div className="h-2 divider"></div>
 
                     {/* Footer Menu items */}
                     {menuItemsThree.map(({ title, icon, link }) => (
@@ -155,7 +145,7 @@ export default function Sidebar() {
                 </ul>
             </div>
 
-            <SidebarFooter />
+            {/* <SidebarFooter /> */}
         </aside>
     );
 }
@@ -164,15 +154,15 @@ const SidebarHeader = () => {
     return (
         <>
             {/* Logo section */}
-            <div className='sticky top-0 z-20 gap-2 h-14 px-4 py-2 lg:block shadow-sm bg-base-200 hidden'>
-                <Link href="/" className='flex items-center justify-center px-2 text-2xl font-semibold mt-1'>
+            <div className='sticky top-0 z-20 hidden gap-2 px-4 py-2 shadow-sm h-14 lg:block bg-base-200'>
+                <Link href="/" className='flex items-center justify-center px-2 mt-1 text-2xl font-semibold'>
                     Viriditas
                 </Link>
             </div>
 
             {/* Search section */}
-            <div className="sticky h-14 top-0 z-20 lg:hidden items-center py-2 bg-base-200 shadow-">
-                <form role="search" className="h-14 m-2 lg:hidden">
+            <div className="sticky top-0 z-20 items-center py-2 h-14 lg:hidden bg-base-200 shadow-">
+                <form role="search" className="m-2 h-14 lg:hidden">
                     <div className="form-control">
                         <input type="search" name="q" className="input input-sm input-bordered" placeholder="Search..." />
                     </div>
@@ -184,14 +174,14 @@ const SidebarHeader = () => {
 
 const SidebarFooter = () => {
     return (
-        <div className="flex flex-row justify-between p-1 sticky bottom-0 bg-base-200 h-12 items-center ">
-            <Link href="/feedback" className="btn btn-ghost rounded-sm">
+        <div className="sticky bottom-0 flex flex-row items-center justify-between h-12 p-1 bg-base-200 ">
+            <Link href="/feedback" className="rounded-sm btn btn-ghost">
                 <MessageSquareHeart size={20} className="inline-block" />
             </Link>
-            <Link href="/support" className="btn btn-ghost rounded-sm">
+            <Link href="/support" className="rounded-sm btn btn-ghost">
                 <HelpCircle size={20} />
             </Link>
-            <Link href="/subscribe" className="btn btn-ghost rounded-sm">
+            <Link href="/subscribe" className="rounded-sm btn btn-ghost">
                 <Rss size={20} className="inline-block" />
             </Link>
         </div>

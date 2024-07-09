@@ -6,16 +6,17 @@ export default function Home() {
       <Hero />
       <Slogan />
       <About />
-      <InnovativeGardeningSection />
-      <OurWorks />
-      <GetInTouch />
-      <InnovateYourSpace />
-      <WhyUs />
+      <div className="lg:px-8">
+        <InnovativeGardeningSection />
+        <OurWorks />
+        <GetInTouch />
+        <InnovateYourSpace />
+        <WhyUs />
+      </div>
       <OurClients />
       <Testimonial />
       <ContactUs />
       <Footer />
-
     </>
   );
 }

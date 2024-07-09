@@ -23,18 +23,11 @@ export default async function InnovativeGardeningSection() {
     const residentialData: ServiceCategory[] = await getResidentialData();
 
     return (
-        <div>
-            <div className="text-center">
-                <p className="mt-3 text-3xl font-extrabold tracking-tight">Innovative Gardening</p>
-                <p className="mt-3 text-lg font-semibold">
-                    Get wide range of services for both commercial and residential.
-                </p>
-            </div>
-
+        <div className="p-2 mx-auto">
+            <h1 className="mt-3 text-3xl font-normal tracking-tight text-center lg:font-bold">
+                Explore Our Services
+            </h1>
             <InnovativeGardeningTab commercialData={commercialData} residentialData={residentialData} />
-
-
         </div>
-
     );
 }

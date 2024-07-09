@@ -48,9 +48,10 @@ export default function OurClients() {
     ]
     return (
         <section className="py-7 bg-[#F1EFED] mt-2">
-            <div className="flex flex-col lg:flex-row justify-center align-middle mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 gap-4">
 
-                <div className="mb-4 lg:mb-0 lg:text-right text-center place-content-center text-black">
+            <div className="flex flex-col justify-center gap-4 px-4 mx-auto align-middle lg:flex-row max-w-7xl sm:px-6 lg:px-8">
+
+                <div className="mb-4 text-center text-black lg:mb-0 lg:text-right place-content-center">
                     <h2 className={`${dancing_script.className} text-4xl font-bold text-nowrap`}>
                         Our Clients
                     </h2>
@@ -59,12 +60,10 @@ export default function OurClients() {
                     </h4>
                 </div>
 
-                <div className="grid grid-cols-2 lg:grid-cols-3 justify-center  items-center  gap-4 lg:gap-6 px-4">
-
+                <div className="grid items-center justify-center grid-cols-2 gap-4 px-4 lg:grid-cols-3 lg:gap-6">
                     {data.map((client, index) => (
-
                         <Link key={index} href={client.url}
-                            className="flex items-center justify-center hover:scale-105 transform transition-transform duration-300 ease-in-out"
+                            className="flex items-center justify-center transition-transform duration-300 ease-in-out transform hover:scale-105"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -77,11 +76,9 @@ export default function OurClients() {
                             />
                         </Link>
                     ))}
-
                 </div>
 
             </div>
         </section>
-
     );
 }

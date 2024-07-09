@@ -1,14 +1,13 @@
 export default function ContactUs() {
     return (
-        <div className="flex flex-col justify-between lg:flex-row md:flex-row w-full p-5" style={{
+        <div className="flex flex-col justify-between w-full p-5 lg:flex-row md:flex-row" style={{
             backgroundImage: "url('/images/bg/bg_3.jpg')",
         }}>
-            {/* Contact Information */}
-            <div className="flex flex-col text-white justify-center rounded-lg p-5">
-                <h2 className="text-3xl font-bold mb-4">Contact Us</h2>
-                <p className="mb-2"><strong>Address:</strong> 123 Plant Street, Green City, GA 12345</p>
-                <p className="mb-2"><strong>Email:</strong> contact@plantdecor.com</p>
-                <p className="mb-2"><strong>Phone:</strong> (123) 456-7890</p>
+            <div className="flex flex-col justify-center p-5 text-white rounded-lg select-text">
+                <h2 className="mb-4 text-3xl font-bold">Contact Us</h2>
+                <p className="mb-2"><span className="font-semibold">Address:</span> 123 Plant Street, Green City, GA 12345</p>
+                <p className="mb-2"><span className="font-semibold">Email:</span> <a href="mailto:contact@plantdecor.com" className="underline">contact@plantdecor.com</a></p>
+                <p className="mb-2"><span className="font-semibold">Phone:</span> <a href="tel:+11234567890" className="underline">(123) 456-7890</a></p>
             </div>
         </div>
     )

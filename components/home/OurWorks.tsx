@@ -89,7 +89,7 @@ export default function OurWorks() {
             >
 
                 {works.map((work, index) => (
-                    <SwiperSlide key={index} className='p-4'>
+                    <SwiperSlide key={index} className='p-2'>
                         <div className="rounded-lg shadow-lg backdrop-blur-lg bg-base-200">
                             <Image
                                 src={work.image}
@@ -108,11 +108,11 @@ export default function OurWorks() {
                     </SwiperSlide>
                 ))}
             </Swiper>
-            <div className="flex items-center justify-center h-full">
+            {/* <div className="flex items-center justify-center h-full">
                 <span className="font-thin text-center">
                     Slide to see more
                 </span>
-            </div>
+            </div> */}
         </section>
     );
 };

@@ -1,10 +1,17 @@
+// @ts-check
+import withPlaiceholder from "@plaiceholder/next";
+
 import withPWAInit from "@ducanh2912/next-pwa";
 
 const withPWA = withPWAInit({
   dest: "public",
 });
 
-export default withPWA({
+/**
+ * @type {import('next').NextConfig}
+ */
+
+const nextConfig = {
   // Your Next.js config
   images: {
     remotePatterns: [
@@ -34,4 +41,6 @@ export default withPWA({
       },
     ],
   },
-});
+};
+
+export default withPlaiceholder(withPWA(nextConfig));

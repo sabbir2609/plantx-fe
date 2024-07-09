@@ -10,11 +10,13 @@
   },
   "dependencies": {
     "@ducanh2912/next-pwa": "^10.2.7",
+    "@plaiceholder/next": "^3.0.0",
     "@tailwindcss/typography": "^0.5.13",
     "@vercel/speed-insights": "^1.0.12",
     "framer-motion": "^11.2.11",
     "lucide-react": "^0.381.0",
     "next": "14.2.3",
+    "plaiceholder": "^3.0.0",
     "react": "^18",
     "react-dom": "^18",
     "react-image-magnify": "^2.7.4",
