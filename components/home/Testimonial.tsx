@@ -51,9 +51,9 @@ export default function Testimonial() {
         <section className="p-3 mx-auto mt-2 mb-4 bg-base-300"
             style={
                 {
-                    backgroundImage: "url('/images/bg/bg_4.jpg')",
+                    backgroundImage: "url('/images/bg/bg_8.jpg')",
                     backgroundSize: "cover",
-                    backgroundPosition: "center",
+                    backgroundPosition: "bottom center",
                     backgroundRepeat: "no-repeat",
                 }
             }

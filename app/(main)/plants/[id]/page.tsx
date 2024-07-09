@@ -46,8 +46,8 @@ export default async function Plants({ params }: { params: { id: number } }) {
 
     return (
         <div className='p-2'>
-            <div className="mx-auto flex flex-wrap">
-                <div className="w-full lg:w-1/2 mb-6 lg:mb-0">
+            <div className="flex flex-wrap mx-auto">
+                <div className="w-full mb-6 lg:w-1/2 lg:mb-0">
 
                     {plant.images.length > 0 ? (
                         <SwiperSlideComponent images={plant.images} />
@@ -62,21 +62,23 @@ export default async function Plants({ params }: { params: { id: number } }) {
                         </div>
                     )}
 
-                    <div className="rounded-lg px-4 mt-3 pb-2 lg:pb-2 shadow-md">
-                        <div className="py-2 flex flex-row gap-2">
+                    <div className="px-4 pb-2 mt-3 rounded-lg shadow-md lg:pb-2">
+
+                        <div className="flex flex-row gap-2 py-2">
                             {plant.features.map(feature => (
-                                <p key={feature.id} className="text-sm p-1 inline-block rounded-sm bg-green-100 text-green-700">
+                                <p key={feature.id} className="inline-block p-1 text-sm text-green-700 bg-green-100 rounded-sm">
                                     {feature.name}
                                 </p>
                             ))}
-                            <p className="text-sm p-1 inline-block rounded-sm bg-amber-200 text-green-700">
+                            <p className="inline-block p-1 text-sm text-green-700 rounded-sm bg-amber-200">
                                 {plant.indoor_or_outdoor}
                             </p>
-                            <p className="text-sm p-1 inline-block rounded-sm bg-lime-200 text-lime-700">
+                            <p className="inline-block p-1 text-sm rounded-sm bg-lime-200 text-lime-700">
                                 {plant.size}
                             </p>
 
                         </div>
+
                         <h1 className="text-2xl font-bold">{plant.title}</h1>
                         <p className="text-xl">{plant.category.name}</p>
 
@@ -87,29 +89,30 @@ export default async function Plants({ params }: { params: { id: number } }) {
                     </div>
                 </div>
 
-                <div className="join join-vertical lg:w-1/2 w-full lg:ps-4">
+                <div className="w-full join join-vertical lg:w-1/2 lg:ps-4">
 
-                    <div className="collapse collapse-arrow join-item border border-base-300">
+                    <div className="border collapse collapse-arrow join-item border-base-300">
                         <input type="radio" name="my-accordion" />
-                        <div className="collapse-title text-xl font-medium bg-base-200">
+                        <div className="text-xl font-medium collapse-title bg-base-200">
                             Description
                         </div>
                         <div className="collapse-content">
                             <div
-                                className="prose max-h-[60vh]"
-                                dangerouslySetInnerHTML={{ __html: plant.description }}></div>
+                                className="prose max-h-[60vh] overflow-x-hidden"
+                                dangerouslySetInnerHTML={{ __html: plant.description }} />
                         </div>
                     </div>
 
-                    <div className="collapse collapse-arrow join-item border border-base-300">
+                    <div className="border collapse collapse-arrow join-item border-base-300">
                         <input type="radio" name="my-accordion" />
-                        <div className="collapse-title text-xl font-medium bg-base-200">
+                        <div className="text-xl font-medium collapse-title bg-base-200">
                             Care Instructions
                         </div>
                         <div className="collapse-content">
                             <div
                                 className="prose max-h-[60vh]"
-                                dangerouslySetInnerHTML={{ __html: plant.care_instructions }}></div>
+                                dangerouslySetInnerHTML={{ __html: plant.care_instructions }}>
+                            </div>
                         </div>
                     </div>
 

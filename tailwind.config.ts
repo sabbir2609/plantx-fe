@@ -38,29 +38,35 @@ const config: Config = {
 
           'base-content': '#1f2937',
 
-          'info': '#2094f3',
-          'success': '#009485',
-          'warning': '#ff9900',
-          'error': '#ff5724',
+          'info': '#2094f3',             // Blue
+          'success': '#009485',          // Green
+          'warning': '#ff9900',          // Orange
+          'error': '#ff5724',            // Red
 
         },
+
         'dark': {
-          'primary': '#2F6540',          // Dark Green
+          'primary': '#ced4da',
           'primary-focus': '#1C3425',    // Very Dark Green
           'primary-content': '#ffffff',  // White
-          'secondary': '#E5DBBD',        // Light Beige
+
+          'secondary': '#adb5bd',
           'secondary-focus': '#D6CCB8',  // Lighter Beige
           'secondary-content': '#1C3425', // Very Dark Green
-          'accent': '#FEEFCD',           // Light Yellow
+
+          'accent': '#31572c',
           'accent-focus': '#D6CCB8',     // Lighter Beige
           'accent-content': '#1C3425',   // Very Dark Green
+
           'neutral': '#3d4451',          // Neutral Gray
           'neutral-focus': '#2a2e37',    // Darker Gray
           'neutral-content': '#ffffff',  // White
-          'base-100': '#1C3425',         // Very Dark Green
-          'base-200': '#2F6540',         // Dark Green
-          'base-300': '#3d4451',         // Neutral Gray
-          'base-content': '#ffffff',     // White
+
+          'base-100': '#121212',
+          'base-200': '#212529',
+          'base-300': '#1c1c1c',
+          'base-content': '#ffffff',
+
           'info': '#2094f3',             // Blue
           'success': '#009485',          // Green
           'warning': '#ff9900',          // Orange
