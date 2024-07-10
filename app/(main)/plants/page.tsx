@@ -49,7 +49,7 @@ export default async function Pages(context: any) {
                     <PlantCard key={plant.id} plant={plant} />
                 ))}
             </div>
-            <div className="fixed bottom-4 right-4">
+            <div className="fixed bottom-14 right-4">
                 <Pagination baseURL={baseURL} totalPages={totalPages} />
             </div>
         </>

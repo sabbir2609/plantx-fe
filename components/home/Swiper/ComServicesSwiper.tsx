@@ -36,7 +36,7 @@ export default function ServicesSwiper(
             scrollbar={{
                 hide: false,
             }}
-            autoplay={{ delay: 4000 }}
+            autoplay={{ delay: 3000 }}
             breakpoints={{
                 640: {
                     slidesPerView: 2,
@@ -50,7 +50,7 @@ export default function ServicesSwiper(
             className="mySwiper h-[50vh] w-full"
         >
             {services.map((item) => (
-                <SwiperSlide key={item.id} className="relative shadow-lg group backdrop-blur-lg">
+                <SwiperSlide key={item.id} className="relative">
                     <Image
                         src={item.image || "/static/no-img.png"}
                         alt={item.title}

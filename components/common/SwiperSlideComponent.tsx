@@ -22,7 +22,7 @@ export default function Carousel({ images }: CarouselProps) {
                 dynamicBullets: true,
             }}
             modules={[Pagination]}
-            className="mySwiper h-[480px] lg:h-[65vh] rounded-lg"
+            className="mySwiper lg:h-[60vh] w-full rounded-lg"
         >
             {images.map(image => (
                 <SwiperSlide key={image.id}>
@@ -31,7 +31,7 @@ export default function Carousel({ images }: CarouselProps) {
                         width={1000}
                         src={image.image}
                         alt={image.short_description}
-                        className="object-cover rounded-lg"
+                        className="object-cover rounded-lg h-96 lg:h-[60vh]"
                     />
                 </SwiperSlide>
             ))}
