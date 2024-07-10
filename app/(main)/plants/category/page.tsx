@@ -9,7 +9,7 @@ interface PlantCategory {
 }
 
 export default async function PlantsCategoryPage() {
-    const data = await Fetch({ endpoint: "plant_categories" });
+    const data = await Fetch({ endpoint: "main/plant_categories" });
     const PlantCategories: PlantCategory[] = data;
 
     return (

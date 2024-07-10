@@ -18,7 +18,7 @@ interface Service {
 
 export default async function Plants({ params }: { params: { id: number } }) {
 
-    const data = await Fetch({ endpoint: `services/${params.id}` });
+    const data = await Fetch({ endpoint: `main/services/${params.id}` });
     const service: Service = data;
 
     return (

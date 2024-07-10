@@ -29,12 +29,12 @@ interface Plant {
 }
 
 async function fetchCategory(id: number) {
-    const data = await Fetch({ endpoint: `plant_categories/${id}` });
+    const data = await Fetch({ endpoint: `main/plant_categories/${id}` });
     return data;
 }
 
 async function fetchPlants(id: number) {
-    const data = await Fetch({ endpoint: `plant_categories/${id}/plants` });
+    const data = await Fetch({ endpoint: `main/plant_categories/${id}/plants` });
     return data.results;
 }
 

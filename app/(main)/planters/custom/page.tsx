@@ -20,7 +20,7 @@ interface Planter {
 
 export default async function Plants(context: any) {
     const page = context.searchParams.page ? context.searchParams.page : 1;
-    const data = await Fetch({ endpoint: `planters/custom?page=${page}` });
+    const data = await Fetch({ endpoint: `main/planters/custom?page=${page}` });
     const planter: Planter[] = data['results'];
 
     const totalPages = Math.ceil(data['count'] / 12);

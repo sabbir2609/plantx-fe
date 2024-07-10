@@ -11,7 +11,7 @@ interface Idea {
 
 export default async function Plants({ params }: { params: { id: number } }) {
 
-    const data = await Fetch({ endpoint: `ideas/${params.id}` });
+    const data = await Fetch({ endpoint: `main/ideas/${params.id}` });
     const idea: Idea = data;
 
     return (

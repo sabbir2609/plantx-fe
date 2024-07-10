@@ -11,7 +11,7 @@ interface Category {
 }
 
 async function getResidentialCategories() {
-    const data = await Fetch({ endpoint: 'service_categories/residential/' });
+    const data = await Fetch({ endpoint: 'main/service_categories/residential/' });
     return data;
 }
 

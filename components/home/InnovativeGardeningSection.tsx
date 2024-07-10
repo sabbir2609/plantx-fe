@@ -8,12 +8,12 @@ interface ServiceCategory {
 }
 
 async function getCommercialData() {
-    const data = await Fetch({ endpoint: 'service_categories/commercial/' });
+    const data = await Fetch({ endpoint: 'main/service_categories/commercial/' });
     return data;
 }
 
 async function getResidentialData() {
-    const data = await Fetch({ endpoint: 'service_categories/residential/' });
+    const data = await Fetch({ endpoint: 'main/service_categories/residential/' });
     return data;
 }
 

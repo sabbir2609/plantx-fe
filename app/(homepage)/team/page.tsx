@@ -16,7 +16,7 @@ interface TeamMember {
 }
 
 export default async function Page() {
-    const data = await Fetch({ endpoint: 'team' });
+    const data = await Fetch({ endpoint: 'main/team' });
     const teamMembers: TeamMember[] = data;
     return (
         <section className="py-2">

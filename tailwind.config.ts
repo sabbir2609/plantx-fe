@@ -50,7 +50,7 @@ const config: Config = {
           'primary-focus': '#1C3425',    // Very Dark Green
           'primary-content': '#ffffff',  // White
 
-          'secondary': '#adb5bd',
+          'secondary': '#dad4ce',
           'secondary-focus': '#D6CCB8',  // Lighter Beige
           'secondary-content': '#1C3425', // Very Dark Green
 

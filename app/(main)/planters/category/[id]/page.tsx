@@ -21,12 +21,12 @@ interface Planter {
 }
 
 async function fetchCategory(id: number) {
-    const data = await Fetch({ endpoint: `planter_categories/${id}` });
+    const data = await Fetch({ endpoint: `main/planter_categories/${id}` });
     return data;
 }
 
 async function fetchPlants(id: number) {
-    const data = await Fetch({ endpoint: `planters/?category=${id}` });
+    const data = await Fetch({ endpoint: `main/planters/?category=${id}` });
     return data.results;
 }
 

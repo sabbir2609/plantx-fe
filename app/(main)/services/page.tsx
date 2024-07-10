@@ -19,7 +19,7 @@ interface Service {
 
 export default async function services(context: any) {
     const page = context.searchParams.page ? context.searchParams.page : 1;
-    const data = await Fetch({ endpoint: `services/?page=${page}` });
+    const data = await Fetch({ endpoint: `main/services/?page=${page}` });
     const services: Service[] = data['results'];
 
     const totalPages = Math.ceil(data['count'] / 12);

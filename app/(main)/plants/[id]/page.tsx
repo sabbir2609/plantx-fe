@@ -33,7 +33,7 @@ interface Plant {
     images: PlantImage[];
 }
 export default async function Plants({ params }: { params: { id: number } }) {
-    const data = await Fetch({ endpoint: `plants/${params.id}` });
+    const data = await Fetch({ endpoint: `main/plants/${params.id}` });
     const plant: Plant = data;
 
     if (!plant) {

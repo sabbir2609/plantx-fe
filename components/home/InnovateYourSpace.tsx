@@ -9,7 +9,7 @@ interface Ideas {
     tags: string[];
 }
 async function getIdeas() {
-    const data = await Fetch({ endpoint: 'ideas/featured/' });
+    const data = await Fetch({ endpoint: 'main/ideas/featured/' });
     return data;
 }
 

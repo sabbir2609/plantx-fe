@@ -22,12 +22,12 @@ interface Service {
 }
 
 async function fetchCategory(id: number) {
-    const data = await Fetch({ endpoint: `service_categories/${id}` });
+    const data = await Fetch({ endpoint: `main/service_categories/${id}` });
     return data;
 }
 
 async function fetchPlants(id: number) {
-    const data = await Fetch({ endpoint: `service_categories/${id}/services` });
+    const data = await Fetch({ endpoint: `main/service_categories/${id}/services` });
     return data.results;
 }
 

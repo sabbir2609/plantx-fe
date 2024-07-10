@@ -31,7 +31,7 @@ interface Plant {
 
 export default async function Pages(context: any) {
     const page = context.searchParams.page ? context.searchParams.page : 1;
-    const data = await Fetch({ endpoint: `plants/?page=${page}` });
+    const data = await Fetch({ endpoint: `main/plants/?page=${page}` });
     const plants: Plant[] = data['results'];
 
     const totalPages = Math.ceil(data['count'] / 12);
