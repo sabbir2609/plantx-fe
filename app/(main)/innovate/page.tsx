@@ -11,7 +11,7 @@ interface Ideas {
 }
 
 export default async function Page() {
-    const data = await Fetch({ endpoint: "ideas" });
+    const data = await Fetch({ endpoint: "main/ideas" });
     const ideas: Ideas[] = data;
 
     return (
