@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
+import NextTopLoader from 'nextjs-toploader';
+
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const APP_NAME = "Viriditas";
@@ -59,6 +61,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="select-none scroll-smooth">
       <body className={`${inter.className}`}>
+        <NextTopLoader />
         {children}
         <SpeedInsights />
       </body>

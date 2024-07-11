@@ -3,7 +3,7 @@ import Loading from "@/app/loading";
 import { ServiceCard } from "@/components/main";
 import Image from "next/image";
 
-interface Category {
+interface MainCategory {
     id: number;
     title: string;
     type: string;
@@ -11,14 +11,24 @@ interface Category {
     image: string;
 }
 
+interface Category {
+    id: number;
+    type: string;
+    title: string;
+}
+
+interface Image {
+    id: number;
+    image: string;
+    short_description: string;
+}
+
 interface Service {
     id: number;
     title: string;
-    description: string;
-    image: string | null;
-    budget_range: string;
-    category: Category;
-    type: string;
+    images: Image[];
+    categories: Category[];
+    tags: string[];
 }
 
 async function fetchCategory(id: number) {
@@ -32,7 +42,7 @@ async function fetchPlants(id: number) {
 }
 
 export default async function Page({ params }: { params: { id: number } }) {
-    const category: Category = await fetchCategory(params.id);
+    const category: MainCategory = await fetchCategory(params.id);
     const services: Service[] = await fetchPlants(params.id);
 
     return (

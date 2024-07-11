@@ -18,7 +18,7 @@ interface MenuGroupProps {
 
 const MenuItem: React.FC<MenuItemProps> = ({ id, title, link }) => (
     <li key={id}>
-        <Link href={link} className="font-medium bg-base-200">
+        <Link href={link} className="font-medium bg-base-300">
             <ChevronRight size={20} /> {title}
         </Link>
     </li>

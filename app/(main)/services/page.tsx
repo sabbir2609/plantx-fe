@@ -1,20 +1,24 @@
 import { Fetch } from "@/app/lib";
-import Loading from "@/app/loading";
 import { Pagination, ServiceCard } from "@/components/main";
 
 interface Category {
     id: number;
+    type: string;
     title: string;
+}
+
+interface Image {
+    id: number;
+    image: string;
+    short_description: string;
 }
 
 interface Service {
     id: number;
     title: string;
-    description: string;
-    image: string | null;
-    budget_range: string;
-    category: Category;
-    type: string;
+    images: Image[];
+    categories: Category[];
+    tags: string[];
 }
 
 export default async function services(context: any) {
@@ -24,12 +28,6 @@ export default async function services(context: any) {
 
     const totalPages = Math.ceil(data['count'] / 12);
     const baseURL = 'services/';
-
-    if (!services.length) {
-        return <div>
-            <Loading />
-        </div>;
-    }
 
     return (
         <>

@@ -1,19 +1,29 @@
 import { Fetch } from '@/app/lib';
 import Image from 'next/image';
+import { ServiceBlogImageSwiper } from '@/components/main';
+import Link from 'next/link';
 
 interface Category {
     id: number;
     title: string;
+    type: string;
+}
+
+interface Image {
+    id: number;
+    image: string;
+    short_description: string;
 }
 
 interface Service {
     id: number;
     title: string;
     description: string;
-    image: string | null;
+    images: Image[];
+    client: string;
     budget_range: string;
-    category: Category;
-    type: string;
+    categories: Category[];
+    tags: string[];
 }
 
 export default async function Plants({ params }: { params: { id: number } }) {
@@ -22,55 +32,62 @@ export default async function Plants({ params }: { params: { id: number } }) {
     const service: Service = data;
 
     return (
-        <div className="p-4 lg:px-16 rounded-lg shadow-xl lg:my-4 lg:py-6">
+        <div className="mx-auto p-2">
+            <h1 className="text-3xl font-bold mb-4">{service.title}</h1>
 
-            <h1 className="text-3xl font-semibold text-accent mb-4">
-                {service.title}
-            </h1>
-
-            <div className="flex items-center justify-center">
-                {service.image ? (
-                    <Image
-                        src={service.image}
-                        height={1200}
-                        width={1200}
-                        alt={service.title}
-                        className="object-cover shadow-sm max-h-[50vh] w-full rounded-lg"
-                    />
+            <div className="rounded-sm mb-4">
+                {service.images.length > 0 ? (
+                    <ServiceBlogImageSwiper images={service.images} />
                 ) : (
                     <Image
                         src="/static/no-img.png"
-                        alt="No Image"
-                        height={1200}
-                        width={1200}
-                        className="object-cover shadow-sm max-h-[50vh] w-full rounded-lg"
+                        width={600}
+                        height={400}
+                        alt='No Image Available'
+                        className='object-cover'
                     />
                 )}
             </div>
 
-            <div className="p-2">
-
-                <div className="flex flex-col lg:flex-row lg:gap-2">
-                    <span className="font-semibold p-1 rounded-sm text-nowrap text-accent">
-                        {service.category.title}
-                    </span>
-
-                    <span className={`font-semibold p-1 rounded-sm text-accent`}>
-                        {service.type}
-                    </span>
-
-                    <span className="font-semibold p-1 rounded-sm text-nowrap text-accent">
-                        {service.budget_range}
-                    </span>
+            <div className="mb-4 flex items-center">
+                <strong>Categories: </strong>
+                <div className="flex gap-1 items-center overflow-auto text-nowrap whitespace-nowrap ml-2">
+                    {service.categories.map((category) => (
+                        <Link
+                            href={`/services/${category.type.toLowerCase()}/${category.id}`}
+                            key={category.id}
+                            className="bg-primary rounded-sm p-1 cursor-pointer"
+                        >
+                            {category.title}
+                        </Link>
+                    ))}
                 </div>
-
-                <hr className="my-4" />
             </div>
 
-            <div className="prose max-w-none"
-                dangerouslySetInnerHTML={{ __html: service.description }}>
+            {service.client && (
+                <div className="mb-4">
+                    <strong>Client: </strong>
+                    {service.client}
+                </div>
+            )}
+
+            <div className="mb-4">
+                <strong>Budget Range: </strong>
+                {service.budget_range}
             </div>
 
+            <div className="mb-4 w-full">
+                <div className='prose overflow-x-hidden lg:max-w-none' dangerouslySetInnerHTML={{ __html: service.description }} />
+            </div>
+
+            <div className='flex gap-1 items-center'>
+                <strong>Tags: </strong>
+                {service.tags.map((tag) => (
+                    <div key={tag} className="bg-accent badge inline-block text-xs">
+                        {tag}
+                    </div>
+                ))}
+            </div>
 
         </div>
     );
