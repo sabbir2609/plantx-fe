@@ -82,7 +82,7 @@ export default function Sidebar() {
         "Planters": {
             "icon": <Cylinder size={20} className="inline-block" />,
             "Category": {
-                "title": "Planter Categories.",
+                "title": "Planter Categories",
                 "link": "/planters/category"
             },
             "Planters": {
