@@ -1,6 +1,4 @@
-
 import Image from 'next/image';
-import Loading from '@/app/loading';
 import { SwiperSlideComponent } from '@/components/common';
 import { Fetch } from '@/app/lib';
 
@@ -25,49 +23,68 @@ interface Planter {
     tags: [];
     images: PlantImage[];
 }
+
 export default async function Plants({ params }: { params: { id: number } }) {
     const data = await Fetch({ endpoint: `main/planters/${params.id}` });
     const planter: Planter = data;
 
-    return (
-
-        <div className='p-2'>
-            <h1 className="text-3xl font-bold mb-4">Planter Details</h1><div className="mx-auto flex flex-wrap">
-                <div className="w-full lg:w-1/2 mb-6 lg:mb-0">
-                    {planter.images.length > 0 ? (
-                        <SwiperSlideComponent images={planter.images} />
-                    ) : (
-                        <div className="">
-                            <Image
-                                src="/static/no-img.png"
-                                height={800}
-                                width={800}
-                                className="object-cover rounded-lg"
-                                alt="Placeholder" />
-                        </div>
-                    )}
-                    <div className="p-4 shadow-md rounded-lg">
-                        <h1 className="text-2xl font-bold">{planter.model}</h1>
-                        <p className="text-xl">{planter.category.name}</p>
-                        <p className="text-xl">{planter.size}</p>
-                        <p className="text-xl">{planter.color}</p>
-                    </div>
+    return (<div className="flex flex-wrap mx-auto p-2 gap-4 lg:gap-0">
+        <div className="w-full lg:w-1/2">
+            {planter.images.length > 0 ? (
+                <SwiperSlideComponent images={planter.images} />
+            ) : (
+                <div className="">
+                    <Image
+                        src="/static/no-img.png"
+                        height={800}
+                        width={800}
+                        className="object-cover rounded-lg"
+                        alt="Placeholder"
+                    />
                 </div>
-
-                <div className="w-full lg:w-1/2 lg:pl-4">
-                    <div className="collapse collapse-arrow join-item border rounded-lg shadow-lg">
-                        <input type="radio" name="my-accordion" />
-                        <div className="collapse-title text-xl font-medium bg-base-200">
-                            Description
+            )}
+            <div className="p-2 rounded-lg shadow-md tracking-tight">
+                <h1 className="text-xl">
+                    <span className="font-semibold">Model: </span>
+                    {planter.model}
+                </h1>
+                <p className="text-normal">
+                    <span className="font-semibold">Category: </span>
+                    {planter.category.name}
+                </p>
+                <p className="text-sm">
+                    <span className="font-semibold">Size: </span>
+                    {planter.size}
+                </p>
+                <p className="text-sm">
+                    <span className="font-semibold">Color: </span>
+                    {planter.color}
+                </p>
+                <div className="flex flex-row gap-2 py-2">
+                    {planter.tags.map((tag, index) => (
+                        <div key={index} className="py-1 px-2 rounded-sm backdrop-blur-md bg-gray-800 bg-opacity-50 text-white flex flex-row">
+                            <p className="text-xs font-medium mr-1">{tag}</p>
                         </div>
-                        <div className="collapse-content">
-                            <div
-                                className="prose max-w-none overflow-auto max-h-[60vh]"
-                                dangerouslySetInnerHTML={{ __html: planter.description }}></div>
-                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+        <div className="lg:ps-2 w-full lg:w-1/2 space-y-2">
+            <div className="join join-vertical w-full">
+                <div className="collapse collapse-arrow join-item border-base-300 bg-base-200 border">
+                    <input type="radio" name="my-accordion-4" defaultChecked />
+                    <div className="collapse-title text-xl font-medium">
+                        Description
+                    </div>
+                    <div className="collapse-content overflow-x-hidden bg-base-100">
+                        <div
+                            className="prose max-h-[57vh]"
+                            dangerouslySetInnerHTML={{ __html: planter.description }}
+                        />
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     );
 }

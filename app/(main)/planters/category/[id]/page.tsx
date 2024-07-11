@@ -26,7 +26,7 @@ async function fetchCategory(id: number) {
 }
 
 async function fetchPlants(id: number) {
-    const data = await Fetch({ endpoint: `main/planters/?category=${id}` });
+    const data = await Fetch({ endpoint: `main/planter_categories/${id}/planters` });
     return data.results;
 }
 

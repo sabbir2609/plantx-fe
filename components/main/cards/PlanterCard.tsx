@@ -1,4 +1,3 @@
-import { HandHeart } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -40,10 +39,10 @@ export default function PlanterCard({ planter }: { planter: Planter }) {
                     ) : null}
                 </div>
                 <div className="flex flex-col p-3">
-                    <h2 className='text-lg font-semibold' title={planter.model}>
+                    <h2 className='tracking-tight font-normal lg:font-semibold' title={planter.model}>
                         {planter.model}
                     </h2>
-                    <p className="text-sm italic">{planter.short_description}</p>
+                    <p className="text-xs">{planter.short_description}</p>
                 </div>
             </Link>
         </div>
