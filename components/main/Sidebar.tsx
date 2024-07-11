@@ -62,13 +62,13 @@ export default function Sidebar() {
     const menuItemsTwo = {
         "Plants": {
             "icon": <Sprout size={20} className="inline-block" />,
-            "all": {
-                "title": "All Plants",
-                "link": "/plants"
-            },
             "categories": {
                 "title": "Plant Categories",
                 "link": "/plants/category"
+            },
+            "all": {
+                "title": "All Plants",
+                "link": "/plants"
             },
             "indoor": {
                 "title": "Indoor",
