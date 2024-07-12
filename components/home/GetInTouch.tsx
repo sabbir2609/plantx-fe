@@ -1,51 +1,50 @@
-import getLocalBase64 from "@/app/lib/getLocalBase64";
 import Image from "next/image";
 
-
+import getInTouchImg1 from "@/public/images/get-in-touch/1.svg";
+import getInTouchImg2 from "@/public/images/get-in-touch/2.svg";
+import getInTouchImg3 from "@/public/images/get-in-touch/3.svg";
+import getInTouchImg4 from "@/public/images/get-in-touch/4.svg";
+import getInTouchImg5 from "@/public/images/get-in-touch/5.svg";
+import getInTouchImg6 from "@/public/images/get-in-touch/6.svg";
 
 
 export default async function GetInTouch() {
+
     const sections = [
         {
             title: "1. Free Consultation:",
             description: "Schedule a complimentary consultation & our team will visit your space to discuss your vision for creating a greener environment.",
-            imgSrc: "/images/contact/1.svg",
-            // blurDataURL: await getLocalBase64("/images/contact/1.svg"),
+            imgSrc: getInTouchImg1,
             imgAlt: "Contact Us",
         },
         {
             title: "2. Meeting with Our Team:",
             description: "Our team will collaborate with you to understand your requirements, propose designs and plants, and tailor them to fit your budget.",
-            imgSrc: "/images/contact/2.svg",
-            // blurDataURL: await getLocalBase64("/images/contact/2.svg"),
+            imgSrc: getInTouchImg2,
             imgAlt: "Meeting with Our Team",
         },
         {
             title: "3. Approval to Proceed:",
             description: "After getting your final approval, we'll initiate the execution phase of the project.",
-            imgSrc: "/images/contact/3.svg",
-            // blurDataURL: await getLocalBase64("/images/contact/3.svg"),
+            imgSrc: getInTouchImg3,
             imgAlt: "Approval to Proceed",
         },
         {
             title: "4. Regular Updates & Feedback:",
             description: "Throughout the execution process, our multidisciplinary team will provide regular updates and seek your feedback to ensure the project aligns with your vision.",
-            imgSrc: "/images/contact/4.svg",
-            // blurDataURL: await getLocalBase64("/images/contact/4.svg"),
+            imgSrc: getInTouchImg4,
             imgAlt: "Regular Updates and Feedback",
         },
         {
             title: "5. Completion & Handover:",
             description: "Upon finishing the project, we'll walk through it with you to ensure everything meets your expectations. We'll also provide necessary documents, warranties, and maintenance instructions.",
-            imgSrc: "/images/contact/5.svg",
-            // blurDataURL: await getLocalBase64("/images/contact/5.svg"),
+            imgSrc: getInTouchImg5,
             imgAlt: "Completion and Handover",
         },
         {
             title: "6. Post-Project Services:",
             description: "We offer post-project support to address any issues or adjustments covered under warranty after completion.",
-            imgSrc: "/images/contact/6.svg",
-            // blurDataURL: await getLocalBase64("/images/contact/6.svg"),
+            imgSrc: getInTouchImg6,
             imgAlt: "Post-Project Services",
         },
     ];
@@ -61,10 +60,8 @@ export default async function GetInTouch() {
                         <Image
                             src={section.imgSrc}
                             alt={section.imgAlt}
-                            // placeholder="blur"
-                            // blurDataURL={section.blurDataURL}
-                            width={800}
-                            height={800}
+                            width={400}
+                            height={400}
                             className="h-52"
                         />
                         <div className="p-1 pt-2 text-center">

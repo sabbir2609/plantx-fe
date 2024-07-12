@@ -172,18 +172,18 @@ const SidebarHeader = () => {
     )
 }
 
-const SidebarFooter = () => {
-    return (
-        <div className="sticky bottom-0 flex flex-row items-center justify-between h-12 p-1 bg-base-200 ">
-            <Link href="/feedback" className="rounded-sm btn btn-ghost">
-                <MessageSquareHeart size={20} className="inline-block" />
-            </Link>
-            <Link href="/support" className="rounded-sm btn btn-ghost">
-                <HelpCircle size={20} />
-            </Link>
-            <Link href="/subscribe" className="rounded-sm btn btn-ghost">
-                <Rss size={20} className="inline-block" />
-            </Link>
-        </div>
-    );
-}
+// const SidebarFooter = () => {
+//     return (
+//         <div className="sticky bottom-0 flex flex-row items-center justify-between h-12 p-1 bg-base-200 ">
+//             <Link href="/feedback" className="rounded-sm btn btn-ghost">
+//                 <MessageSquareHeart size={20} className="inline-block" />
+//             </Link>
+//             <Link href="/support" className="rounded-sm btn btn-ghost">
+//                 <HelpCircle size={20} />
+//             </Link>
+//             <Link href="/subscribe" className="rounded-sm btn btn-ghost">
+//                 <Rss size={20} className="inline-block" />
+//             </Link>
+//         </div>
+//     );
+// }

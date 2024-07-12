@@ -16,7 +16,8 @@ export default function About() {
                     backgroundImage: "url('/images/bg/bg_5.jpg')",
                     filter: "blur(4px)"
                 }}
-            ></div>
+            >
+            </div>
             <div className="relative">
                 <div className="w-full p-10 bg-black bg-opacity-50">
                     <h1 className={`text-2xl lg:text-6xl font-bold text-white ${title_font.className}`}>

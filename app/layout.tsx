@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Assistant, Jost } from "next/font/google";
 import "./globals.css";
 
 import NextTopLoader from 'nextjs-toploader';
@@ -53,6 +53,16 @@ export const viewport: Viewport = {
 
 const inter = Inter({ subsets: ["latin"] });
 
+const assistant = Assistant(
+  {
+    subsets: ["latin"],
+  },
+);
+
+const jost = Jost({
+  subsets: ["latin"],
+});
+
 export default function RootLayout({
   children,
 }: {
@@ -60,7 +70,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="select-none scroll-smooth">
-      <body className={`${inter.className}`}>
+      <body className={`${jost.className}`}>
         <NextTopLoader />
         {children}
         <SpeedInsights />

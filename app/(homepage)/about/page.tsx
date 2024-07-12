@@ -5,10 +5,10 @@ export default function AboutUs() {
         <div className="p-4 mx-auto lg:max-w-7xl lg:px-8">
             <div className="text-center">
                 <h2 className="text-base font-semibold tracking-wide uppercase">About Us</h2>
-                <p className="mt-2 text-3xl font-extrabold leading-8 tracking-tight">
+                <p className="mt-2 text-3xl font-normal leading-8 tracking-tight">
                     Transform Your Home: Elegant Designs with Greenery
                 </p>
-                <p className="max-w-2xl mt-4 text-xl lg:mx-auto">
+                <p className="max-w-2xl mt-4 text-lg font-normal lg:mx-auto">
                     At Viriditas, we create sustainable, plant-based urban landscapes to enhance well-being and promote environmental care. We are committed to combating climate change, improving air quality, and making cities greener, healthier, and more vibrant for everyone.
                 </p>
             </div>
@@ -16,7 +16,7 @@ export default function AboutUs() {
             <div className="mt-10">
                 <div className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
                     <div>
-                        <h3 className="text-2xl font-extrabold leading-8 sm:text-3xl">
+                        <h3 className="text-2xl font-normal leading-8 sm:text-3xl">
                             Our Vision
                         </h3>
                         <p className="mt-4 text-lg">
@@ -39,7 +39,7 @@ export default function AboutUs() {
             </div>
 
             <div className="mt-10">
-                <h3 className="text-2xl font-extrabold leading-8 sm:text-3xl">
+                <h3 className="text-2xl font-normal leading-8 sm:text-3xl">
                     Our Commitment
                 </h3>
                 <p className="mt-4 text-lg">
@@ -65,7 +65,7 @@ export default function AboutUs() {
                         />
                     </div>
                     <div className="mt-10 lg:mt-0">
-                        <h3 className="text-2xl font-extrabold leading-8 sm:text-3xl">
+                        <h3 className="text-2xl font-normal leading-8 sm:text-3xl">
                             Join Us in Our Mission
                         </h3>
                         <p className="mt-4 text-lg">
