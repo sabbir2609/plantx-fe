@@ -24,7 +24,7 @@ export default async function InnovateYourSpace() {
                         Innovate Your Space
                     </h1>
                 </div>
-                <Link className="font-semibold hover:text-blue-600 place-content-end" href="/innovate">
+                <Link className="font-semibold hover:text-blue-600 place-content-end text-nowrap" href="/innovate">
                     View All
                 </Link>
             </div>
