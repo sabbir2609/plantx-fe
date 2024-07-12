@@ -7,16 +7,10 @@ interface Category {
     title: string;
 }
 
-interface Image {
-    id: number;
-    image: string;
-    short_description: string;
-}
-
 interface Service {
     id: number;
     title: string;
-    images: Image[];
+    image: string;
     categories: Category[];
     tags: string[];
 }
@@ -25,7 +19,6 @@ export default async function services(context: any) {
     const page = context.searchParams.page ? context.searchParams.page : 1;
     const data = await Fetch({ endpoint: `main/services/?page=${page}` });
     const services: Service[] = data['results'];
-
     const totalPages = Math.ceil(data['count'] / 12);
     const baseURL = 'services/';
 

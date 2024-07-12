@@ -9,18 +9,12 @@ import { Navigation, Autoplay } from 'swiper/modules';
 import Link from 'next/link';
 import React from 'react';
 
-interface Category {
-    id: number;
-    title: string;
-    type: string;
-}
-
 interface Works {
     id: number;
     title: string;
     image: string;
     client: string;
-    categories: Category[];
+    categories: string;
     year: number;
 }
 
@@ -74,17 +68,7 @@ export default function OurWorksSwiper({ works }: OurWorksSwiperProps) {
                                 }
                                 <div className="mb-4">
                                     <strong>Categories: </strong>
-                                    {work.categories.map((category, index, array) => (
-                                        <React.Fragment key={category.id}>
-                                            <Link
-                                                href={`/services/${category.type.toLowerCase()}/${category.id}`}
-                                                className="cursor-pointer text-blue-600"
-                                            >
-                                                {category.title}
-                                            </Link>
-                                            {index < array.length - 1 ? ', ' : ''}
-                                        </React.Fragment>
-                                    ))}
+                                    <span>{work.categories}</span>
                                 </div>
                                 {
                                     work.client && <p className="">Client: {work.client}</p>

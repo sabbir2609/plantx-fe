@@ -10,17 +10,7 @@ export default function Footer() {
                 <p className="mt-2 font-bold">Viriditas.<br />Providing reliable service since 2024</p>
             </div>
 
-            <div className="mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
-
-                <nav>
-                    <h6 className="footer-title text-lg font-bold mb-2">Services</h6>
-                    <div className="flex flex-col space-y-2">
-                        <Link href="#" className="link-hover">Branding</Link>
-                        <Link href="#" className="link-hover">Design</Link>
-                        <Link href="#" className="link-hover">Marketing</Link>
-                        <Link href="#" className="link-hover">Advertisement</Link>
-                    </div>
-                </nav>
+            <div className="mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-10">
 
                 <nav>
                     <h6 className="footer-title text-lg font-bold mb-2">Company</h6>
@@ -35,12 +25,11 @@ export default function Footer() {
                     <div className="flex flex-col space-y-2">
                         <Link href="/terms-conditions" className="link-hover">Terms of use</Link>
                         <Link href="/privacy-policy" className="link-hover">Privacy policy</Link>
-                        <Link href="#" className="link-hover">Cookie policy</Link>
                     </div>
                 </nav>
 
                 <nav>
-                    <h6 className="footer-title text-lg font-bold mb-2">Social</h6>
+                    {/* <h6 className="footer-title text-lg font-bold mb-2">Social</h6> */}
                     <div className="flex space-x-4">
                         <Link href="https://www.instagram.com/viriditas_2024/" target="_blank"
                             rel="noopener noreferrer">

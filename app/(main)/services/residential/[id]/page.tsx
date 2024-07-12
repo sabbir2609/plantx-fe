@@ -17,16 +17,10 @@ interface Category {
     title: string;
 }
 
-interface Image {
-    id: number;
-    image: string;
-    short_description: string;
-}
-
 interface Service {
     id: number;
     title: string;
-    images: Image[];
+    image: string;
     categories: Category[];
     tags: string[];
 }
@@ -44,6 +38,7 @@ async function fetchPlants(id: number) {
 export default async function Page({ params }: { params: { id: number } }) {
     const category: MainCategory = await fetchCategory(params.id);
     const services: Service[] = await fetchPlants(params.id);
+    console.log(services);
 
     return (
         <div className="mx-auto">

@@ -16,16 +16,10 @@ interface Category {
     title: string;
 }
 
-interface Image {
-    id: number;
-    image: string;
-    short_description: string;
-}
-
 interface Service {
     id: number;
     title: string;
-    images: Image[];
+    image: string;
     categories: Category[];
     tags: string[];
 }

@@ -17,14 +17,14 @@ async function getIdeas() {
 export default async function InnovateYourSpace() {
     const ideas: Ideas[] = await getIdeas();
     return (
-        <div className="p-2 mx-auto">
+        <div className="p-2 mx-auto mt-8 lg:mt-14">
             <div className="flex justify-between mb-5 border-b text-normal">
                 <div className="flex items-center pb-1 pr-2 uppercase border-b-2">
-                    <h1 className="inline-block font-semibold">
+                    <h1 className="text-3xl lg:text-4xl font-normal tracking-tight uppercase">
                         Innovate Your Space
                     </h1>
                 </div>
-                <Link className="font-semibold hover:text-blue-600" href="/innovate">
+                <Link className="font-semibold hover:text-blue-600 place-content-end" href="/innovate">
                     View All
                 </Link>
             </div>

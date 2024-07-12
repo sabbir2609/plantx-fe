@@ -14,9 +14,9 @@ export default async function OurClients() {
     const data = await Fetch({ endpoint: 'home/our-clients/' });
     const clients: Client[] = data;
     return (
-        <section className="py-7 bg-[#F1EFED] mt-2">
+        <section className="py-7 bg-base-200 mt-2">
             <div className="flex flex-col justify-center gap-4 px-4 mx-auto align-middle lg:flex-row max-w-7xl sm:px-6 lg:px-8">
-                <div className="mb-4 text-center text-black lg:mb-0 lg:text-right place-content-center">
+                <div className="mb-4 text-center lg:mb-0 lg:text-right place-content-center">
                     <h2 className={`${dancing_script.className} text-4xl font-bold text-nowrap`}>
                         Our Clients
                     </h2>

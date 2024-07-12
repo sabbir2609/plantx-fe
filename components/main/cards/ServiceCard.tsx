@@ -7,16 +7,10 @@ interface Category {
     title: string;
 }
 
-interface Image {
-    id: number;
-    image: string;
-    short_description: string;
-}
-
 interface Service {
     id: number;
     title: string;
-    images: Image[];
+    image: string;
     categories: Category[];
     tags: string[];
 }
@@ -27,7 +21,7 @@ export default function PlanterCard({ service }: { service: Service }) {
             <Link href={`/services/${service.id}`}>
                 <div className="relative">
                     <Image
-                        src={service.images && service.images.length > 0 && service.images[0].image ? service.images[0].image : "/static/no-img.png"}
+                        src={service.image || '/static/viriditas.png'}
                         alt={service.title}
                         height={227}
                         width={384}

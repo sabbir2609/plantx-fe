@@ -20,8 +20,6 @@ interface Service {
     title: string;
     description: string;
     images: Image[];
-    client: string;
-    budget_range: string;
     categories: Category[];
     tags: string[];
 }
@@ -62,18 +60,6 @@ export default async function Plants({ params }: { params: { id: number } }) {
                         </Link>
                     ))}
                 </div>
-            </div>
-
-            {service.client && (
-                <div className="mb-4">
-                    <strong>Client: </strong>
-                    {service.client}
-                </div>
-            )}
-
-            <div className="mb-4">
-                <strong>Budget Range: </strong>
-                {service.budget_range}
             </div>
 
             <div className="mb-4 w-full">

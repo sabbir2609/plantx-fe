@@ -1,7 +1,7 @@
 "use server";
 
 export default async function Fetch({ endpoint }: { endpoint: string }) {
-    console.log(`Fetching data from ${process.env.NEXT_PUBLIC_HOST}/${endpoint}`);
+    // console.log(`Fetching data from ${process.env.NEXT_PUBLIC_HOST}/${endpoint}`);
     const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/${endpoint}`, {
         cache: "no-cache",
     });

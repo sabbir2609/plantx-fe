@@ -18,7 +18,7 @@ interface MenuGroupProps {
 
 const MenuItem: React.FC<MenuItemProps> = ({ id, title, link }) => (
     <li key={id}>
-        <Link href={link} className="font-medium bg-base-300">
+        <Link href={link} className="font-medium bg-base-100">
             <ChevronRight size={20} /> {title}
         </Link>
     </li>
@@ -114,7 +114,7 @@ export default function Sidebar() {
     ];
 
     return (
-        <aside className="flex flex-col min-h-screen w-72 bg-base-300">
+        <aside className="flex flex-col min-h-screen w-72 bg-base-200">
             <div className="flex-grow">
                 <SidebarHeader />
 

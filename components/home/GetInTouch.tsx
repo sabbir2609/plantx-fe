@@ -51,7 +51,7 @@ export default async function GetInTouch() {
 
     return (
         <div className="px-10 mx-auto">
-            <h1 className="text-3xl font-bold text-center">Let&apos;s Get Started</h1>
+            <h1 className="mt-3 text-3xl lg:text-4xl font-normal tracking-tight text-center uppercase">Let&apos;s Get Started</h1>
             <div
                 className="grid grid-cols-1 gap-2 mt-4 lg:grid-cols-3 md:grid-cols-2 lg:gap-2"
             >

@@ -24,7 +24,7 @@ export default async function InnovativeGardeningSection() {
 
     return (
         <div className="p-2 mx-auto">
-            <h1 className="mt-3 text-3xl font-normal tracking-tight text-center lg:font-bold">
+            <h1 className="mt-5 text-3xl lg:text-4xl font-normal tracking-tight text-center">
                 Explore Our Services
             </h1>
             <InnovativeGardeningTab commercialData={commercialData} residentialData={residentialData} />
