@@ -44,7 +44,7 @@ export default async function Page({ params }: { params: { id: number } }) {
             <div className="relative h-auto mb-4 overflow-hidden rounded-lg shadow-lg bg-base-200 lg:h-80">
 
                 <Image
-                    src={category.image || '/static/no-img.png'}
+                    src={category.image || '/static/viriditas.png'}
                     alt={category.title}
                     width={800}
                     height={800}

@@ -9,20 +9,26 @@ import { Navigation, Autoplay } from 'swiper/modules';
 import Link from 'next/link';
 import React from 'react';
 
-interface Works {
+interface ProjectImages {
+    id: number;
+    image: string;
+    short_description: string;
+}
+
+interface Projects {
     id: number;
     title: string;
-    image: string;
+    images: ProjectImages[];
     client: string;
     categories: string;
     year: number;
 }
 
-interface OurWorksSwiperProps {
-    works: Works[];
+interface ProjectsSwiperProps {
+    projects: Projects[];
 }
 
-export default function OurWorksSwiper({ works }: OurWorksSwiperProps) {
+export default function ProjectSwiper({ projects }: ProjectsSwiperProps) {
     return (
         <>
             <Swiper
@@ -50,31 +56,26 @@ export default function OurWorksSwiper({ works }: OurWorksSwiperProps) {
                 }}
                 className="mySwiper"
             >
-
-                {works.map((work, index) => (
-                    <SwiperSlide key={index} className='p-2'>
+                {projects.map((project) => (
+                    <SwiperSlide key={project.id} className='p-2'>
                         <div className="rounded-lg shadow-sm backdrop-blur-sm bg-base-200">
                             <Image
-                                src={work.image || '/static/viriditas.png'}
-                                alt={work.title}
-                                width={300}
-                                height={200}
-                                className="object-cover w-full transition duration-500 ease-in-out rounded-t-lg shadow-md h-60 hover:scale-105 hover:shadow-lg hover:rounded-lg"
+                                src={project.images.length > 0 ? project.images[0].image : '/static/viriditas.png'}
+                                alt={project.images.length > 0 ? project.images[0].short_description : 'Default Image'}
+                                width={1000}
+                                height={1000}
+                                className="object-cover w-full h-52 transition duration-500 ease-in-out rounded-t-lg shadow-md hover:scale-105 hover:shadow-lg hover:rounded-lg"
                             />
-                            <div className="p-4 tracking-tight">
-                                <h3 className="text-lg font-semibold">{work.title}</h3>
+                            <div className="p-4">
+                                <h3 className="text-lg font-semibold">{project.title}</h3>
+                                <p>
+                                    <strong>Categories: </strong><span>{project.categories}</span>
+                                </p>
                                 {
-                                    work.client && <p className="">Client: {work.client}</p>
-                                }
-                                <div className="mb-4">
-                                    <strong>Categories: </strong>
-                                    <span>{work.categories}</span>
-                                </div>
-                                {
-                                    work.client && <p className="">Client: {work.client}</p>
+                                    project.year && <p className="">Year: {project.year}</p>
                                 }
                                 {
-                                    work.year && <p className="">Year: {work.year}</p>
+                                    project.client && <p className="">Client: {project.client}</p>
                                 }
                             </div>
                         </div>

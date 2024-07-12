@@ -15,7 +15,7 @@ interface Service {
     tags: string[];
 }
 
-export default function PlanterCard({ service }: { service: Service }) {
+export default function ServiceCard({ service }: { service: Service }) {
     return (
         <div key={service.id} className="bg-base-200 shadow-lg rounded-lg overflow-hidden">
             <Link href={`/services/${service.id}`}>

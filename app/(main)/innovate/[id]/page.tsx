@@ -32,7 +32,7 @@ export default async function Plants({ params }: { params: { id: number } }) {
                     />
                 ) : (
                     <Image
-                        src="/static/no-img.png"
+                        src="/static/viriditas.png"
                         alt="No Image"
                         height={1200}
                         width={1200}

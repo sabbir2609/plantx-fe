@@ -1,19 +1,10 @@
 import Link from 'next/link';
-import OurWorksSwiper from './Swiper/OurWorksSwiper';
+import OurWorksSwiper from './Swiper/ProjectsSwiper';
 import { Fetch } from '@/app/lib';
 
-interface Works {
-    id: number;
-    title: string;
-    image: string;
-    client: string;
-    categories: string;
-    year: number;
-}
-
-export default async function OurWorks() {
+export default async function Projects() {
     const data = await Fetch({ endpoint: 'main/projects/' });
-    const works: Works[] = data;
+    const projects = data.results;
 
     return (
         <section className="px-2 py-10 lg:px-4">
@@ -23,11 +14,11 @@ export default async function OurWorks() {
                         Our Projects
                     </h1>
                 </div>
-                <Link className="font-semibold hover:text-blue-600 place-content-end" href="#">
+                <Link className="font-semibold hover:text-blue-600 place-content-end" href="/projects">
                     View All
                 </Link>
             </div>
-            <OurWorksSwiper works={works} />
+            <OurWorksSwiper projects={projects} />
         </section>
     );
 };

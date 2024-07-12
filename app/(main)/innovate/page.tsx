@@ -24,7 +24,7 @@ export default async function Page() {
                         key={idea.id} className="shadow-md rounded-lg overflow-hidden mb-6">
                         <div className="h-96 relative">
                             <Image
-                                src={idea.image && idea.image.length > 0 ? idea.image : "/static/no-img.png"}
+                                src={idea.image && idea.image.length > 0 ? idea.image : "/static/viriditas.png"}
                                 alt={idea.title}
                                 height={400}
                                 width={400}

@@ -22,7 +22,7 @@ export default function PlanterCard({ planter }: { planter: Planter }) {
             <Link href={`/planters/${planter.id}`}>
                 <div className="relative">
                     <Image
-                        src={planter.images && planter.images.length > 0 ? planter.images[0].image : "/static/no-img.png"}
+                        src={planter.images && planter.images.length > 0 ? planter.images[0].image : "/static/viriditas.png"}
                         alt={planter.model}
                         height={227}
                         width={384}

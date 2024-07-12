@@ -32,7 +32,7 @@ export default async function InnovateYourSpace() {
                 {ideas.map((idea) => (
                     <div key={idea.id} className="relative">
                         <Image
-                            src={idea.image || "/static/no-img.png"}
+                            src={idea.image || "/static/viriditas.png"}
                             alt="Idea Image"
                             width={500}
                             height={300}

@@ -52,7 +52,7 @@ export default function ServicesSwiper(
             {services.map((item) => (
                 <SwiperSlide key={item.id} className="relative">
                     <Image
-                        src={item.image || "/static/no-img.png"}
+                        src={item.image || "/static/viriditas.png"}
                         alt={item.title}
                         height={800}
                         width={800}

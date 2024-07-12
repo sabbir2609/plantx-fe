@@ -35,7 +35,7 @@ export default async function Plants({ params }: { params: { id: number } }) {
             ) : (
                 <div className="">
                     <Image
-                        src="/static/no-img.png"
+                        src="/static/viriditas.png"
                         height={800}
                         width={800}
                         className="object-cover rounded-lg"

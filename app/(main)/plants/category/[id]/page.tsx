@@ -55,7 +55,7 @@ export default async function Page({ params }: { params: { id: number } }) {
                     />
                 ) : (
                     <Image
-                        src="/static/no-img.png"
+                        src="/static/viriditas.png"
                         height={1200}
                         width={1200}
                         alt={category.name}

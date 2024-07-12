@@ -69,7 +69,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="select-none scroll-smooth">
+    <html lang="en" className="scroll-smooth">
       <body className={`${jost.className}`}>
         <NextTopLoader />
         {children}

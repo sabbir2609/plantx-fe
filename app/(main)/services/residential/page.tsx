@@ -34,7 +34,7 @@ export default async function Page() {
                         className="group relative block h-48 overflow-hidden rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
                     >
                         <Image
-                            src={category.image || '/static/no-img.png'}
+                            src={category.image || '/static/viriditas.png'}
                             alt={category.title}
                             layout="fill"
                             objectFit="cover"

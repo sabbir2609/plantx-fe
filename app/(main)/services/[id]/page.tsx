@@ -38,7 +38,7 @@ export default async function Plants({ params }: { params: { id: number } }) {
                     <ServiceBlogImageSwiper images={service.images} />
                 ) : (
                     <Image
-                        src="/static/no-img.png"
+                        src="/static/viriditas.png"
                         width={600}
                         height={400}
                         alt='No Image Available'
@@ -46,35 +46,35 @@ export default async function Plants({ params }: { params: { id: number } }) {
                     />
                 )}
             </div>
+            <div className="p-4">
+                <div className="mb-4 flex items-center">
+                    <strong>Categories: </strong>
+                    <div className="flex gap-1 items-center overflow-auto text-nowrap whitespace-nowrap ml-2">
+                        {service.categories.map((category) => (
+                            <Link
+                                href={`/services/${category.type.toLowerCase()}/${category.id}`}
+                                key={category.id}
+                                className="bg-primary rounded-sm p-1 cursor-pointer"
+                            >
+                                {category.title}
+                            </Link>
+                        ))}
+                    </div>
+                </div>
 
-            <div className="mb-4 flex items-center">
-                <strong>Categories: </strong>
-                <div className="flex gap-1 items-center overflow-auto text-nowrap whitespace-nowrap ml-2">
-                    {service.categories.map((category) => (
-                        <Link
-                            href={`/services/${category.type.toLowerCase()}/${category.id}`}
-                            key={category.id}
-                            className="bg-primary rounded-sm p-1 cursor-pointer"
-                        >
-                            {category.title}
-                        </Link>
+                <div className="mb-4 w-full">
+                    <div className='prose overflow-x-hidden lg:max-w-none' dangerouslySetInnerHTML={{ __html: service.description }} />
+                </div>
+
+                <div className='flex gap-1 items-center'>
+                    <strong>Tags: </strong>
+                    {service.tags.map((tag) => (
+                        <div key={tag} className="bg-accent badge inline-block text-xs">
+                            {tag}
+                        </div>
                     ))}
                 </div>
             </div>
-
-            <div className="mb-4 w-full">
-                <div className='prose overflow-x-hidden lg:max-w-none' dangerouslySetInnerHTML={{ __html: service.description }} />
-            </div>
-
-            <div className='flex gap-1 items-center'>
-                <strong>Tags: </strong>
-                {service.tags.map((tag) => (
-                    <div key={tag} className="bg-accent badge inline-block text-xs">
-                        {tag}
-                    </div>
-                ))}
-            </div>
-
         </div>
     );
 }

@@ -36,7 +36,7 @@ export default async function PlantersCategoryPage() {
                             <Image
                                 height={200}
                                 width={300}
-                                src="/static/no-img.png"
+                                src="/static/viriditas.png"
                                 alt={category.name}
                                 className="w-full h-48 object-cover absolute z-0"
                             />

@@ -34,7 +34,7 @@ export default function PlantCard(
             <Link href={`/plants/${plant.id}`}>
                 <div className="relative">
                     <Image
-                        src={plant.images.length > 0 ? plant.images[0].image : "/static/no-img.png"}
+                        src={plant.images.length > 0 ? plant.images[0].image : "/static/viriditas.png"}
                         alt={plant.title}
                         height={227}
                         width={384}
