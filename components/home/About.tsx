@@ -13,7 +13,7 @@ export default function About() {
             <div className="relative">
                 <div className="w-full p-8 bg-opacity-50">
                     <h1 className={`text-3xl lg:text-5xl text-white italic`}>
-                        "Elevate your space with Nature"
+                        &quot;Elevate your space with Nature&quot;
                     </h1>
                     <div className="w-20 h-2 my-4 bg-green-800"></div>
                     <p className={`text-lg lg:text-2xl font-normal text-white`}>

@@ -9,7 +9,6 @@ interface Category {
     image: string;
 }
 
-
 async function getCommercialCategories() {
     const data = await Fetch({ endpoint: 'main/service_categories/commercial/' });
     return data;
