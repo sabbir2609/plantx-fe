@@ -42,7 +42,7 @@ export default async function Plants({ params }: { params: { id: number } }) {
                 )}
             </div>
 
-            <div className="p-4 gap-2">
+            <div className="p-2 gap-2">
                 <div className="flex items-center gap-2">
                     <strong>Categories: </strong>
                     {project.categories}
@@ -58,9 +58,13 @@ export default async function Plants({ params }: { params: { id: number } }) {
                     {project.year}
                 </div>
 
+                <hr className='my-4' />
+
                 <div className="w-full">
-                    <div className='prose overflow-x-hidden lg:max-w-none' dangerouslySetInnerHTML={{ __html: project.description }} />
+                    <div className='prose overflow-x-hidden lg:max-w-none bg-base-200 p-4 lg:p-8 rounded-lg' dangerouslySetInnerHTML={{ __html: project.description }} />
                 </div>
+
+                <hr className='my-4' />
 
                 <div className='flex gap-1 items-center'>
                     <strong>Tags: </strong>

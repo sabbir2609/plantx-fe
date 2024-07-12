@@ -31,7 +31,7 @@ export default function ServiceBlogImageSwiper({ images }: ServiceBlogImageSwipe
                             alt={image.short_description}
                             width={600}
                             height={400}
-                            className='object-cover h-[40vh] w-full'
+                            className='object-cover h-[70vh] w-full'
                         />
                     </SwiperSlide>
                 ))}
