@@ -37,10 +37,6 @@ export default async function Pages(context: any) {
     const totalPages = Math.ceil(data['count'] / 12);
     const baseURL = 'plants/';
 
-    if (!plants.length) {
-        return <Loading />;
-    }
-
     return (
         <>
             <h1 className="text-3xl font-bold mb-6">Browse all Plants</h1>
