@@ -27,12 +27,6 @@ export default async function Plants(context: any) {
     const totalPages = Math.ceil(data['count'] / 12);
     const baseURL = 'planters/';
 
-    if (!planters.length) {
-        return <div>
-            <Loading />
-        </div>;
-    }
-
     return (
         <>
             <h1 className="text-3xl font-bold mb-6">
