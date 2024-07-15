@@ -18,6 +18,8 @@ export const metadata: Metadata = {
     template: APP_TITLE_TEMPLATE,
   },
   description: APP_DESCRIPTION,
+  generator: "Next.js",
+  keywords: ["Nature", "Plants", "Decor"],
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
@@ -29,13 +31,28 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    type: "website",
-    siteName: APP_NAME,
     title: {
       default: APP_DEFAULT_TITLE,
       template: APP_TITLE_TEMPLATE,
     },
     description: APP_DESCRIPTION,
+    url: "https://viriditas.vercel.app",
+    siteName: APP_NAME,
+    images: [
+      {
+        url: `https://viriditas.vercel.app/static/viriditas.png`,
+        width: 800,
+        height: 600,
+      },
+      {
+        url: `https://viriditas.vercel.app/static/viriditas.png`,
+        width: 1800,
+        height: 1600,
+        alt: "Viriditas",
+      },
+    ],
+    locale: 'en_US',
+    type: "website",
   },
   twitter: {
     card: "summary",
@@ -50,14 +67,6 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   themeColor: "#ffffff",
 };
-
-const inter = Inter({ subsets: ["latin"] });
-
-const assistant = Assistant(
-  {
-    subsets: ["latin"],
-  },
-);
 
 const jost = Jost({
   subsets: ["latin"],

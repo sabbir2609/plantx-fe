@@ -40,13 +40,17 @@ export default function PlantCard(
                         width={384}
                         className="h-56 w-full object-cover"
                     />
-                    <div className="absolute top-2 left-2 py-1 px-2 rounded-sm backdrop-blur-md bg-gray-800 bg-opacity-50 text-white">
-                        {plant.features?.map(feature => (
-                            <span key={feature.id} className="text-xs font-medium mr-1">
-                                {feature.name}
-                            </span>
-                        ))}
-                    </div>
+
+                    {plant.features && plant.features.length > 0 && (
+                        <div className="absolute top-2 right-2 py-1 px-2 rounded-sm backdrop-blur-md bg-gray-800 bg-opacity-50 text-white">
+                            {plant.features.map(feature => (
+                                <span key={feature.id} className="text-xs font-medium mr-1">
+                                    {feature.name}
+                                </span>
+                            ))}
+                        </div>
+                    )}
+
                 </div>
                 <div className="p-4">
                     <h2 className="text-xl font-semibold mb-2">{plant.title}</h2>

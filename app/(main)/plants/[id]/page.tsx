@@ -2,6 +2,34 @@ import Image from 'next/image';
 import { SwiperSlideComponent } from '@/components/common';
 import { Fetch } from '@/app/lib';
 
+import type { Metadata, ResolvingMetadata } from 'next'
+
+type Props = {
+    params: { id: string }
+    searchParams: { [key: string]: string | string[] | undefined }
+}
+
+export async function generateMetadata(
+    { params, searchParams }: Props,
+    parent: ResolvingMetadata
+): Promise<Metadata> {
+    // read route params
+    const id = params.id
+
+    // fetch data
+    const product = await Fetch({ endpoint: `main/plants/${id}` })
+
+    // optionally access and extend (rather than replace) parent metadata
+    const previousImages = (await parent).openGraph?.images || []
+
+    return {
+        title: product.title,
+        openGraph: {
+            images: ["/static/viriditas.png", ...previousImages],
+        },
+    }
+}
+
 interface PlantCategory {
     id: number;
     name: string;
@@ -31,7 +59,9 @@ interface Plant {
     created_at: string;
     images: PlantImage[];
 }
-export default async function Plants({ params }: { params: { id: number } }) {
+export default async function Plants(
+    { params, searchParams }: Props
+) {
     const data = await Fetch({ endpoint: `main/plants/${params.id}` });
     const plant: Plant = data;
 
