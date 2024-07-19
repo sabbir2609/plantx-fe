@@ -36,7 +36,7 @@ export default function HeroSwiper(
                 }}
                 navigation={false}
                 modules={[Autoplay, Pagination, Navigation]}
-                className="mySwiper h-[60vh] lg:h-[80vh] w-full shadow-md"
+                className="mySwiper h-[60vh] lg:h-[80vh] shadow-md"
             >
                 {Banners.map((slide, index) => (
                     <SwiperSlide key={index}>
