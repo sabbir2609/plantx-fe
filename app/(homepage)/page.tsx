@@ -1,4 +1,4 @@
-import { About, ContactUs, Footer, Hero, OurWorks, Slogan, InnovativeGardeningSection, GetInTouch, WhyUs, OurClients, Testimonial, InnovateYourSpace } from "@/components/home";
+import { About, ContactUs, Footer, Hero, Projects, Slogan, Services, GetInTouch, WhyUs, OurClients, Testimonial, Ideas } from "@/components/home";
 
 export default function Home() {
   return (
@@ -7,10 +7,10 @@ export default function Home() {
       <Slogan />
       <About />
       <div className="lg:px-8">
-        <InnovativeGardeningSection />
-        <OurWorks />
+        <Services />
+        <Projects />
         <GetInTouch />
-        <InnovateYourSpace />
+        <Ideas />
         <WhyUs />
       </div>
       <OurClients />

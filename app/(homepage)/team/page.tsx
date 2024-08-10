@@ -10,7 +10,10 @@ const anton_font = Anton({
 });
 
 interface TeamMember {
-    name: string;
+    id: number;
+    serial: number;
+    user: string;
+    slug: string;
     position: string;
     image: string;
 }
@@ -33,14 +36,14 @@ export default async function Page() {
                             <div className="relative mb-5">
                                 <Image
                                     src={member.image}
-                                    alt={`${member.name} image`}
+                                    alt={`${member.user} image`}
                                     width={500}
                                     height={500}
                                     className=""
                                 />
                             </div>
                             <h4 className="text-lg lg:text-xl font-semibold text-center mb-1">
-                                {member.name}
+                                {member.user}
                             </h4>
                             <span className="text-center block">
                                 {member.position}

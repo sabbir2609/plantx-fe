@@ -6,6 +6,7 @@ import Link from 'next/link';
 interface Category {
     id: number;
     title: string;
+    slug: string;
     type: string;
 }
 
@@ -15,18 +16,23 @@ interface Image {
     short_description: string;
 }
 
+interface Tags {
+    id: number;
+    tag: string;
+}
+
 interface Service {
     id: number;
     title: string;
     description: string;
     images: Image[];
     categories: Category[];
-    tags: string[];
+    tags: Tags[];
 }
 
-export default async function Plants({ params }: { params: { id: number } }) {
+export default async function Plants({ params }: { params: { slug: string } }) {
 
-    const data = await Fetch({ endpoint: `main/services/${params.id}` });
+    const data = await Fetch({ endpoint: `main/services/${params.slug}` });
     const service: Service = data;
 
     return (
@@ -52,11 +58,11 @@ export default async function Plants({ params }: { params: { id: number } }) {
                     <div className="flex gap-1 items-center overflow-auto text-nowrap whitespace-nowrap ml-2">
                         {service.categories.map((category) => (
                             <Link
-                                href={`/services/${category.type.toLowerCase()}/${category.id}`}
+                                href={`/services/${category.type.toLowerCase()}/${category.slug}`}
                                 key={category.id}
                                 className="bg-primary rounded-sm p-1 cursor-pointer"
                             >
-                                {category.title}
+                                {category.type} {category.title}
                             </Link>
                         ))}
                     </div>
@@ -68,11 +74,16 @@ export default async function Plants({ params }: { params: { id: number } }) {
 
                 <div className='flex gap-1 items-center'>
                     <strong>Tags: </strong>
-                    {service.tags.map((tag) => (
-                        <div key={tag} className="bg-accent badge inline-block text-xs">
-                            {tag}
-                        </div>
-                    ))}
+                    <div className="flex gap-1 items-center overflow-auto text-nowrap whitespace-nowrap ml-2">
+                        {service.tags.map((tag) => (
+                            <div
+                                key={tag.id}
+                                className="bg-primary rounded-sm p-1 cursor-pointer"
+                            >
+                                {tag.tag}
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

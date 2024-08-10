@@ -1,21 +1,24 @@
 import { Fetch } from '@/app/lib';
-import Loading from '@/app/loading';
 import { Pagination, PlanterCard } from '@/components/main';
 
-interface PlanterCategory {
+interface PlanterFeature {
+    id: number;
     name: string;
 }
 
 interface Planter {
     id: number;
-    model: string;
-    category: PlanterCategory;
-    short_description: string;
-    features?: { id: number; name: string }[];
+    name: string;
+    slug: string;
+    sku: string;
+    category: string;
     size: string;
     color: string;
-    images: { id: number; image: string }[];
+    is_custom: boolean;
+    image: string;
+    features: PlanterFeature[];
 }
+
 
 export default async function Plants(context: any) {
     const page = context.searchParams.page ? context.searchParams.page : 1;

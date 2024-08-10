@@ -5,6 +5,7 @@ import Link from 'next/link';
 interface Category {
     id: number;
     title: string;
+    slug: string;
     type: string;
     image: string;
 }
@@ -28,7 +29,7 @@ export default async function Page() {
                 {commercialCategories.map((category) => (
                     <Link
                         key={category.id}
-                        href={`/services/commercial/${category.id}`}
+                        href={`/services/commercial/${category.slug}`}
                         className="group relative block h-48 overflow-hidden rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
                     >
                         <Image

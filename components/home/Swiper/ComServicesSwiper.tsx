@@ -47,7 +47,7 @@ export default function ServicesSwiper(
                     spaceBetween: 10,
                 },
             }}
-            className="mySwiper h-[50vh] w-full"
+            className="mySwiper h-[50vh] w-full rounded-lg"
         >
             {services.map((item) => (
                 <SwiperSlide key={item.id} className="relative">
@@ -59,7 +59,7 @@ export default function ServicesSwiper(
                         className='object-cover w-full h-full'
                     />
 
-                    <div className="absolute inset-0 transition duration-300 ease-in-out bg-gradient-to-t from-gray-900 via-gray-900/40 hover:opacity-0 "></div>
+                    <div className="absolute inset-0 transition duration-300 ease-in-out bg-gradient-to-t from-gray-900 via-gray-900/40 hover:opacity-0 w-full"></div>
 
                     <div className="absolute z-20 bottom-10 left-8">
                         <h3 className="text-2xl font-bold text-white">{item.title}</h3>

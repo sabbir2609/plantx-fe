@@ -1,43 +1,17 @@
 import Image from 'next/image';
 import { SwiperSlideComponent } from '@/components/common';
 import { Fetch } from '@/app/lib';
-
 import type { Metadata, ResolvingMetadata } from 'next'
 
-type Props = {
-    params: { id: string }
-    searchParams: { [key: string]: string | string[] | undefined }
-}
-
-export async function generateMetadata(
-    { params, searchParams }: Props,
-    parent: ResolvingMetadata
-): Promise<Metadata> {
-    // read route params
-    const id = params.id
-
-    // fetch data
-    const product = await Fetch({ endpoint: `main/plants/${id}` })
-
-    // optionally access and extend (rather than replace) parent metadata
-    const previousImages = (await parent).openGraph?.images || []
-
-    return {
-        title: product.title,
-        openGraph: {
-            images: ["/static/viriditas.png", ...previousImages],
-        },
-    }
-}
-
-interface PlantCategory {
+interface PlantFeature {
     id: number;
     name: string;
 }
 
-interface Tag {
+interface PlantPromotion {
     id: number;
-    name: string;
+    description: string;
+    discount: number | null;
 }
 
 interface PlantImage {
@@ -46,23 +20,66 @@ interface PlantImage {
     short_description: string;
 }
 
+interface PlantZone {
+    id: number;
+    zone: string;
+    available: boolean;
+    unit: string;
+    unit_price: string;
+}
+
+interface PlantTag {
+    id: number;
+    tag: string;
+}
+
 interface Plant {
     id: number;
-    title: string;
-    category: PlantCategory;
-    indoor_or_outdoor: string;
+    name: string;
+    sku: string;
+    category: string;
+    location_type: string;
     size: string;
+    images: PlantImage[];
     description: string;
     care_instructions: string;
-    features: { id: number, name: string }[];
-    tags: Tag[];
-    created_at: string;
-    images: PlantImage[];
+    promotion: number[];
+    features: PlantFeature[];
+    zone: PlantZone[];
+    tags: PlantTag[];
 }
+
+
+type Props = {
+    params: { slug: string }
+}
+
+export async function generateMetadata(
+    { params }: Props,
+    parent: ResolvingMetadata
+): Promise<Metadata> {
+    // read route params
+    const slug = params.slug
+
+    // fetch data
+    const product = await Fetch({ endpoint: `main/plants/${slug}` })
+
+    // optionally access and extend (rather than replace) parent metadata
+    const previousImages = (await parent).openGraph?.images || []
+
+    return {
+        title: product.name,
+        openGraph: {
+            images: ["/static/viriditas.png", ...previousImages],
+        },
+    }
+}
+
+
 export default async function Plants(
-    { params, searchParams }: Props
+    { params }: Props
 ) {
-    const data = await Fetch({ endpoint: `main/plants/${params.id}` });
+    const data = await Fetch({ endpoint: `main/plants/${params.slug}` });
     const plant: Plant = data;
 
     return (
@@ -89,16 +106,21 @@ export default async function Plants(
                             </p>
                         ))}
                         <p className="inline-block p-1 text-sm text-green-700 rounded-sm bg-amber-200">
-                            {plant.indoor_or_outdoor}
+                            {plant.location_type}
                         </p>
                         <p className="inline-block p-1 text-sm rounded-sm bg-lime-200 text-lime-700">
                             {plant.size}
                         </p>
                     </div>
-                    <h1 className="text-2xl font-bold">{plant.title}</h1>
-                    <p className="text-xl">{plant.category.name}</p>
-                    <div className="">
-                        <p className="text-sm"><span className="text-lg font-semibold"></span>{plant.tags.map(tag => tag.name).join(', ')}</p>
+                    <h1 className="text-2xl font-bold">{plant.name}</h1>
+                    <p className="text-xl">{plant.category}</p>
+                    <p className="text-xl">{plant.sku}</p>
+                    <div className="flex flex-row gap-2 py-2">
+                        {plant.tags.map(tag => (
+                            <p key={tag.id} className="inline-block p-1 text-sm text-blue-700 bg-blue-100 rounded-sm">
+                                {tag.tag}
+                            </p>
+                        ))}
                     </div>
                 </div>
             </div>

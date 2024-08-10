@@ -1,29 +1,33 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-interface PlanterCategory {
+interface PlanterFeature {
+    id: number;
     name: string;
 }
 
 interface Planter {
     id: number;
-    model: string;
-    category: PlanterCategory;
-    features?: { id: number; name: string }[];
-    short_description: string;
+    name: string;
+    slug: string;
+    sku: string;
+    category: string;
     size: string;
     color: string;
-    images: { id: number; image: string }[];
+    is_custom: boolean;
+    image: string;
+    features: PlanterFeature[];
 }
+
 
 export default function PlanterCard({ planter }: { planter: Planter }) {
     return (
         <div key={planter.id} className="bg-base-200 shadow-lg rounded-lg overflow-hidden lg:hover:scale-105 transition-transform duration-300 ease-in-out">
-            <Link href={`/planters/${planter.id}`}>
+            <Link href={`/planters/${planter.slug}`}>
                 <div className="relative">
                     <Image
-                        src={planter.images && planter.images.length > 0 ? planter.images[0].image : "/static/viriditas.png"}
-                        alt={planter.model}
+                        src={planter.image ? planter.image : '/static/viriditas.png'}
+                        alt={planter.name}
                         height={227}
                         width={384}
                         className='h-56 object-cover'
@@ -39,10 +43,12 @@ export default function PlanterCard({ planter }: { planter: Planter }) {
                     ) : null}
                 </div>
                 <div className="flex flex-col p-3">
-                    <h2 className='tracking-tight font-normal lg:font-semibold' title={planter.model}>
-                        {planter.model}
+                    <h2 className='tracking-tight font-normal lg:font-semibold' title={planter.name}>
+                        {planter.name}
                     </h2>
-                    <p className="text-xs">{planter.short_description}</p>
+                    <p className='text-sm '>{planter.category}</p>
+                    <p className='text-sm '>{planter.size}</p>
+                    <p className='text-sm '>{planter.color}</p>
                 </div>
             </Link>
         </div>

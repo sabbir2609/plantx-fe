@@ -1,11 +1,11 @@
 import Image from "next/image";
 
-import getInTouchImg1 from "@/public/images/get-in-touch/1.svg";
-import getInTouchImg2 from "@/public/images/get-in-touch/2.svg";
-import getInTouchImg3 from "@/public/images/get-in-touch/3.svg";
-import getInTouchImg4 from "@/public/images/get-in-touch/4.svg";
-import getInTouchImg5 from "@/public/images/get-in-touch/5.svg";
-import getInTouchImg6 from "@/public/images/get-in-touch/6.svg";
+import getInTouchImg1 from "@/public/images/get-in-touch/1.png";
+import getInTouchImg2 from "@/public/images/get-in-touch/2.png";
+import getInTouchImg3 from "@/public/images/get-in-touch/3.png";
+import getInTouchImg4 from "@/public/images/get-in-touch/4.png";
+import getInTouchImg5 from "@/public/images/get-in-touch/5.png";
+import getInTouchImg6 from "@/public/images/get-in-touch/6.png";
 
 
 export default async function GetInTouch() {
@@ -62,7 +62,7 @@ export default async function GetInTouch() {
                             alt={section.imgAlt}
                             width={400}
                             height={400}
-                            className="h-52"
+                            className="h-52 w-full object-contain"
                         />
                         <div className="p-1 pt-2 text-center">
                             <h2 className="text-xl font-bold lg:text-2xl">{section.title}</h2>

@@ -1,6 +1,5 @@
 import { Fetch } from "@/app/lib";
-import Loading from "@/app/loading";
-import { PlantCard, PlanterCard } from "@/components/main";
+import { PlanterCard } from "@/components/main";
 import Image from "next/image";
 
 interface PlanterCategory {
@@ -10,33 +9,38 @@ interface PlanterCategory {
     image: string;
 }
 
-interface Planter {
+interface PlanterFeature {
     id: number;
-    model: string;
-    category: PlanterCategory;
-    size: string;
-    color: string;
-    short_description: string;
-    images: { id: number; image: string }[];
+    name: string;
 }
 
-async function fetchCategory(id: number) {
-    const data = await Fetch({ endpoint: `main/planter_categories/${id}` });
+interface Planter {
+    id: number;
+    name: string;
+    slug: string;
+    sku: string;
+    category: string;
+    size: string;
+    color: string;
+    is_custom: boolean;
+    image: string;
+    features: PlanterFeature[];
+}
+
+
+async function fetchCategory(slug: string) {
+    const data = await Fetch({ endpoint: `main/planter_categories/${slug}` });
     return data;
 }
 
-async function fetchPlants(id: number) {
-    const data = await Fetch({ endpoint: `main/planter_categories/${id}/planters` });
+async function fetchPlants(slug: string) {
+    const data = await Fetch({ endpoint: `main/planter_categories/${slug}/planters` });
     return data.results;
 }
 
-export default async function Page({ params }: { params: { id: number } }) {
-    const category: PlanterCategory = await fetchCategory(params.id);
-    const plants: Planter[] = await fetchPlants(params.id);
-
-    if (!category || !plants) {
-        return <Loading />;
-    }
+export default async function Page({ params }: { params: { slug: string } }) {
+    const category: PlanterCategory = await fetchCategory(params.slug);
+    const plants: Planter[] = await fetchPlants(params.slug);
 
     return (
         <div className="mx-auto">

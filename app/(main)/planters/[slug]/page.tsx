@@ -2,30 +2,48 @@ import Image from 'next/image';
 import { SwiperSlideComponent } from '@/components/common';
 import { Fetch } from '@/app/lib';
 
-interface PlantImage {
+interface PlanterImage {
     id: number;
     image: string;
     short_description: string;
 }
 
-interface PlanterCategory {
+interface PlanterFeature {
     id: number;
     name: string;
 }
 
-interface Planter {
+interface PlanterZone {
     id: number;
-    model: string;
-    category: PlanterCategory;
-    size: string;
-    color: string;
-    description: string;
-    tags: [];
-    images: PlantImage[];
+    zone: string;
+    available: boolean;
+    unit: string;
+    unit_price: string;
 }
 
-export default async function Plants({ params }: { params: { id: number } }) {
-    const data = await Fetch({ endpoint: `main/planters/${params.id}` });
+interface PlanterTag {
+    id: number;
+    tag: string;
+}
+
+interface Planter {
+    id: number;
+    name: string;
+    sku: string;
+    category: string;
+    size: string;
+    color: string;
+    is_custom: boolean;
+    images: PlanterImage[];
+    description: string;
+    features: PlanterFeature[];
+    zone: PlanterZone[];
+    tags: PlanterTag[];
+}
+
+
+export default async function Plants({ params }: { params: { slug: string } }) {
+    const data = await Fetch({ endpoint: `main/planters/${params.slug}` });
     const planter: Planter = data;
 
     return (<div className="flex flex-wrap mx-auto p-2 gap-4 lg:gap-0">
@@ -43,14 +61,22 @@ export default async function Plants({ params }: { params: { id: number } }) {
                     />
                 </div>
             )}
+
             <div className="p-2 rounded-lg shadow-md tracking-tight">
+                <div className="flex flex-row gap-2 py-2">
+                    {planter.features.map((feature) => (
+                        <span key={feature.id} className="text-xs px-2 py-1 bg-base-200 rounded-lg">
+                            {feature.name}
+                        </span>
+                    ))}
+                </div>
                 <h1 className="text-xl">
                     <span className="font-semibold">Model: </span>
-                    {planter.model}
+                    {planter.name}
                 </h1>
                 <p className="text-normal">
                     <span className="font-semibold">Category: </span>
-                    {planter.category.name}
+                    {planter.category}
                 </p>
                 <p className="text-sm">
                     <span className="font-semibold">Size: </span>
@@ -61,10 +87,10 @@ export default async function Plants({ params }: { params: { id: number } }) {
                     {planter.color}
                 </p>
                 <div className="flex flex-row gap-2 py-2">
-                    {planter.tags.map((tag, index) => (
-                        <div key={index} className="py-1 px-2 rounded-sm backdrop-blur-md bg-gray-800 bg-opacity-50 text-white flex flex-row">
-                            <p className="text-xs font-medium mr-1">{tag}</p>
-                        </div>
+                    {planter.tags.map((tag) => (
+                        <span key={tag.id} className="text-xs px-2 py-1 bg-base-200 rounded-lg">
+                            {tag.tag}
+                        </span>
                     ))}
                 </div>
             </div>

@@ -1,25 +1,19 @@
 import { Fetch } from "@/app/lib";
 import { Pagination, ProjectCard } from "@/components/main";
 
-interface ProjectImages {
-    id: number;
-    image: string;
-    short_description: string;
-}
-
-interface Projects {
+interface Project {
     id: number;
     title: string;
-    images: ProjectImages[];
+    slug: string;
     client: string;
-    categories: string;
     year: number;
+    image: string;
 }
 
 export default async function Projects(context: any) {
     const page = context.searchParams.page ? context.searchParams.page : 1;
     const data = await Fetch({ endpoint: `main/projects/?page=${page}` });
-    const projects: Projects[] = data['results'];
+    const projects: Project[] = data.results;
     const totalPages = Math.ceil(data['count'] / 12);
     const baseURL = 'projects/';
 

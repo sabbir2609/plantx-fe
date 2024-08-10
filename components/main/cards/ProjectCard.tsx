@@ -1,31 +1,25 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-interface ProjectImages {
-    id: number;
-    image: string;
-    short_description: string;
-}
-
-interface Projects {
+interface Project {
     id: number;
     title: string;
-    images: ProjectImages[];
+    slug: string;
     client: string;
-    categories: string;
     year: number;
+    image: string;
 }
 
 export default function ProjectCard(
-    { project }: { project: Projects }
+    { project }: { project: Project }
 ) {
     return (
         <div key={project.id} className="bg-base-200 shadow-lg rounded-lg overflow-hidden">
-            <Link href={`/projects/${project.id}`}>
+            <Link href={`/projects/${project.slug}`}>
                 <div className="relative">
                     <Image
-                        src={project.images.length > 0 ? project.images[0].image : '/static/viriditas.png'}
-                        alt={project.images.length > 0 ? project.images[0].short_description : 'Default Image'}
+                        src={project.image ? project.image : '/static/viriditas.png'}
+                        alt={project.image ? project.title : 'Default Image'}
                         height={227}
                         width={384}
                         className='h-56 object-cover'
@@ -38,9 +32,6 @@ export default function ProjectCard(
                     </p>
                     <p className="text-sm">
                         {project.year}
-                    </p>
-                    <p className="text-sm">
-                        {project.categories}
                     </p>
                 </div>
 

@@ -1,32 +1,28 @@
 import { Fetch } from "@/app/lib";
-import Loading from "@/app/loading";
 import { Pagination, PlantCard } from "@/components/main"
-import Image from "next/image";
-import Link from "next/link";
 
-interface PlantCategory {
+interface PlantFeature {
     id: number;
     name: string;
-    description: string;
-    image: string;
 }
 
-interface Tag {
+interface PlantPromotion {
     id: number;
-    name: string;
+    description: string;
+    discount: number | null;
 }
 
 interface Plant {
     id: number;
-    title: string;
-    category: PlantCategory;
-    indoor_or_outdoor: string;
+    name: string;
+    slug: string;
+    sku: string;
+    image: string;
+    category: string;
+    features: PlantFeature[];
+    promotion: PlantPromotion[];
+    location_type: string;
     size: string;
-    description: string;
-    care_instructions: string;
-    tags: Tag[];
-    created_at: string;
-    images: { id: number; image: string }[];
 }
 
 export default async function Page(context: any) {
@@ -37,6 +33,14 @@ export default async function Page(context: any) {
 
     const totalPages = Math.ceil(data['count'] / 12);
     const baseURL = 'plants/';
+
+    if (plants.length === 0) {
+        return (
+            <div className="text-center mt-16">
+                <h1 className="text-3xl font-bold mb-6">No plants found</h1>
+            </div>
+        );
+    }
 
     return (
         <>

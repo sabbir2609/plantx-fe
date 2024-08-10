@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 interface PlantCategory {
     id: number;
     name: string;
+    slug: string;
     image: string;
 }
 
@@ -30,7 +31,7 @@ export default async function PlantsCategoryPage() {
                 {PlantCategories.map((category) => (
                     <Link
                         key={category.id}
-                        href={`/plants/category/${category.id}`}
+                        href={`/plants/category/${category.slug}`}
                         className="block shadow-md rounded-lg overflow-hidden relative h-32 hover:scale-105 transition-transform duration-300 ease-in-out"
                     >
                         {category.image ? (

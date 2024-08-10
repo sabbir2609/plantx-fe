@@ -1,8 +1,18 @@
 import { AlignLeft, Menu, Phone, Search, Instagram } from "lucide-react";
 import { ThemeChange } from "@/components/common";
 import Link from "next/link";
+import { Fetch } from "@/app/lib";
 
-export default function Navbar() {
+interface Contact {
+    phone: string;
+    email: string;
+    instagram: string;
+}
+
+export default async function Navbar() {
+    const data = await Fetch({ endpoint: "home/contact-info" });
+    const contact: Contact[] = data;
+
     return (
         <div className="navbar sticky min-h-0 h-14 top-0 bg-base-300 backdrop-filter backdrop-blur-lg bg-opacity-30 z-40">
             <div className="navbar-start">
@@ -34,7 +44,7 @@ export default function Navbar() {
                     <Search />
                 </button> */}
                 <button className="btn btn-ghost btn-circle">
-                    <Link href="https://www.instagram.com/viriditas_2024/" target="_blank"
+                    <Link href={`${contact[0].instagram}`} target="_blank"
                         rel="noopener noreferrer">
                         <Instagram />
                     </Link>
@@ -42,7 +52,7 @@ export default function Navbar() {
 
                 <button className="btn btn-ghost btn-circle">
                     <div className="indicator">
-                        <Link href="tel:+2348123456789">
+                        <Link href={`https://wa.me/${contact[0].phone}`} target="_blank">
                             <Phone />
                         </Link>
                     </div>

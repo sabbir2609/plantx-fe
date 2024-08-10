@@ -2,27 +2,34 @@ import { Fetch } from '@/app/lib';
 import Image from 'next/image';
 import { ServiceBlogImageSwiper } from '@/components/main';
 
-interface ProjectImages {
+interface ProjectCategory {
+    id: number;
+    type: string;
+    title: string;
+}
+
+interface ProjectImage {
     id: number;
     image: string;
     short_description: string;
 }
 
-interface Projects {
+interface Project {
     id: number;
     title: string;
-    description: string;
-    images: ProjectImages[];
+    slug: string;
+    categories: ProjectCategory[];
     client: string;
-    categories: string;
     year: number;
-    tags: string[];
+    description: string;
+    images: ProjectImage[];
 }
 
-export default async function Plants({ params }: { params: { id: number } }) {
 
-    const data = await Fetch({ endpoint: `main/projects/${params.id}` });
-    const project: Projects = data;
+export default async function Plants({ params }: { params: { slug: string } }) {
+
+    const data = await Fetch({ endpoint: `main/projects/${params.slug}` });
+    const project: Project = data;
 
     return (
         <div className="mx-auto p-2">
@@ -45,7 +52,11 @@ export default async function Plants({ params }: { params: { id: number } }) {
             <div className="p-2 gap-2">
                 <div className="flex items-center gap-2">
                     <strong>Categories: </strong>
-                    {project.categories}
+                    {project.categories.map((category) => (
+                        <div key={category.id} className="bg-accent badge inline-block text-xs">
+                            {category.type}-{category.title}
+                        </div>
+                    ))}
                 </div>
 
                 <div className="flex items-center gap-2">
@@ -62,17 +73,6 @@ export default async function Plants({ params }: { params: { id: number } }) {
 
                 <div className="w-full">
                     <div className='prose overflow-x-hidden lg:max-w-none bg-base-200 p-4 lg:p-8 rounded-lg' dangerouslySetInnerHTML={{ __html: project.description }} />
-                </div>
-
-                <hr className='my-4' />
-
-                <div className='flex gap-1 items-center'>
-                    <strong>Tags: </strong>
-                    {project.tags.map((tag) => (
-                        <div key={tag} className="bg-accent badge inline-block text-xs">
-                            {tag}
-                        </div>
-                    ))}
                 </div>
             </div>
 

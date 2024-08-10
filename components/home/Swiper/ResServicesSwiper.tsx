@@ -39,7 +39,7 @@ export default function ServicesSwiper(
             autoplay={{ delay: 3000 }}
             breakpoints={{
                 640: {
-                    slidesPerView: 1,
+                    slidesPerView: 2,
                     spaceBetween: 10,
                 },
                 1024: {
@@ -47,7 +47,7 @@ export default function ServicesSwiper(
                     spaceBetween: 10,
                 },
             }}
-            className="mySwiper h-[50vh] w-full"
+            className="mySwiper h-[50vh] w-full rounded-lg"
         >
             {services.map((item) => (
                 <SwiperSlide key={item.id} className="relative">

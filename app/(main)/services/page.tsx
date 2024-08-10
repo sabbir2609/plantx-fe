@@ -10,6 +10,7 @@ interface Category {
 interface Service {
     id: number;
     title: string;
+    slug: string;
     image: string;
     categories: Category[];
     tags: string[];

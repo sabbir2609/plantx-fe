@@ -1,5 +1,5 @@
 import { Fetch } from "@/app/lib";
-import InnovativeGardeningTab from "./Swiper/InnovativeGardeningTab";
+import ServicesTab from "./Swiper/ServicesTab";
 
 interface ServiceCategory {
     id: number;
@@ -17,7 +17,7 @@ async function getResidentialData() {
     return data;
 }
 
-export default async function InnovativeGardeningSection() {
+export default async function Services() {
 
     const commercialData: ServiceCategory[] = await getCommercialData();
     const residentialData: ServiceCategory[] = await getResidentialData();
@@ -27,7 +27,7 @@ export default async function InnovativeGardeningSection() {
             <h1 className="mt-5 text-3xl lg:text-4xl font-normal tracking-tight text-center">
                 Explore Our Services
             </h1>
-            <InnovativeGardeningTab commercialData={commercialData} residentialData={residentialData} />
+            <ServicesTab commercialData={commercialData} residentialData={residentialData} />
         </div>
     );
 }

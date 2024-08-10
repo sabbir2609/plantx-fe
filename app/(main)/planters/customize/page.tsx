@@ -1,6 +1,15 @@
+import { Fetch } from "@/app/lib";
 import Image from "next/image";
+import Link from "next/link";
 
-export default function page() {
+interface Contact {
+    phone: string;
+    email: string;
+}
+
+export default async function page() {
+    const data = await Fetch({ endpoint: "home/contact-info" });
+    const contact: Contact[] = data;
     return (
         <div className="hero">
             <div className="flex-col hero-content lg:flex-row">
@@ -18,6 +27,18 @@ export default function page() {
                         Send us your design on Whatsapp or Email and
                         we will make it for you!
                     </p>
+                    <div className="flex flex-row mt-4">
+                        <Link
+                            href={`https://wa.me/${contact[0].phone}`}
+                            className="mr-4 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+                            WhatsApp
+                        </Link>
+                        <Link
+                            href={`mailto:${contact[0].email}`}
+                            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+                            Email
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>

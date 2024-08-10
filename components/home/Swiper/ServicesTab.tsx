@@ -10,13 +10,13 @@ interface ServiceCategory {
     image: string;
 }
 
-interface InnovativeGardeningTabProps {
+interface ServicesTabProps {
     commercialData: ServiceCategory[];
     residentialData: ServiceCategory[];
 }
 
-export default function InnovativeGardeningTab(
-    { commercialData, residentialData }: InnovativeGardeningTabProps
+export default function ServicesTab(
+    { commercialData, residentialData }: ServicesTabProps
 ) {
     const [activeTab, setActiveTab] = useState<'commercial' | 'residential'>('residential');
 
@@ -37,7 +37,7 @@ export default function InnovativeGardeningTab(
 
             </div>
 
-            <div className='w-full h-full mt-5 overflow-auto rounded-lg max-w-max lg:me-2'>
+            <div className='w-full h-full mt-5 rounded-lg lg:me-2'>
                 {activeTab === 'commercial' && commercialData && (
                     <ComServicesSwiper services={commercialData} />
                 )}

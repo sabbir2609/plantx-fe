@@ -5,9 +5,9 @@ import Link from "next/link";
 interface Ideas {
     id: number;
     title: string;
+    slug: string;
     description: string;
     image: string;
-    tags: string[];
 }
 
 export default async function Page() {
@@ -20,11 +20,11 @@ export default async function Page() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {ideas.map((idea) => (
                     <Link
-                        href={`/innovate/${idea.id}`}
+                        href={`/innovate/${idea.slug}`}
                         key={idea.id} className="shadow-md rounded-lg overflow-hidden mb-6">
                         <div className="h-96 relative">
                             <Image
-                                src={idea.image && idea.image.length > 0 ? idea.image : "/static/viriditas.png"}
+                                src={idea.image ? idea.image : "/static/viriditas.png"}
                                 alt={idea.title}
                                 height={400}
                                 width={400}
@@ -33,16 +33,6 @@ export default async function Page() {
                         </div>
                         <div className="p-4">
                             <h1 className="text-2xl font-semibold mb-2">{idea.title}</h1>
-                            <div className="flex flex-wrap">
-                                {idea.tags.map((tag) => (
-                                    <span
-                                        key={tag}
-                                        className="bg-green-100 text-green-800 text-sm font-semibold mr-2 mb-2 px-2.5 py-0.5 rounded"
-                                    >
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
                         </div>
                     </Link>
                 ))}

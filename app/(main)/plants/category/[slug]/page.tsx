@@ -1,46 +1,53 @@
 import { Fetch } from "@/app/lib";
-import Loading from "@/app/loading";
 import { PlantCard } from "@/components/main";
 import Image from "next/image";
 
 interface PlantCategory {
     id: number;
     name: string;
+    slug: string;
     description: string;
     image: string;
 }
 
-interface Tag {
+interface PlantFeature {
     id: number;
     name: string;
 }
 
-interface Plant {
+interface PlantPromotion {
     id: number;
-    title: string;
-    category: PlantCategory;
-    indoor_or_outdoor: string;
-    size: string;
     description: string;
-    care_instructions: string;
-    tags: Tag[];
-    created_at: string;
-    images: { id: number; image: string }[];
+    discount: number | null;
 }
 
-async function fetchCategory(id: number) {
-    const data = await Fetch({ endpoint: `main/plant_categories/${id}` });
+interface Plant {
+    id: number;
+    name: string;
+    slug: string;
+    sku: string;
+    image: string;
+    category: string;
+    features: PlantFeature[];
+    promotion: PlantPromotion[];
+    location_type: string;
+    size: string;
+}
+
+
+async function fetchCategory(slug: string) {
+    const data = await Fetch({ endpoint: `main/plant_categories/${slug}` });
     return data;
 }
 
-async function fetchPlants(id: number) {
-    const data = await Fetch({ endpoint: `main/plant_categories/${id}/plants` });
+async function fetchPlants(slug: string) {
+    const data = await Fetch({ endpoint: `main/plant_categories/${slug}/plants` });
     return data.results;
 }
 
-export default async function Page({ params }: { params: { id: number } }) {
-    const category: PlantCategory = await fetchCategory(params.id);
-    const plants: Plant[] = await fetchPlants(params.id);
+export default async function Page({ params }: { params: { slug: string } }) {
+    const category: PlantCategory = await fetchCategory(params.slug);
+    const plants: Plant[] = await fetchPlants(params.slug);
 
     return (
         <div className="mx-auto">
