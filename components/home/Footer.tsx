@@ -20,6 +20,7 @@ interface Contact {
 export default async function Footer() {
     const data = await Fetch({ endpoint: "home/contact-info" });
     const contact: Contact[] = data;
+
     return (
         <footer className="bg-base-200 text-base-content pt-10 pb-2 px-3 lg:px-10 mt-2">
 
@@ -46,29 +47,31 @@ export default async function Footer() {
                     </div>
                 </nav>
 
-                <nav>
-                    {/* <h6 className="footer-title text-lg font-bold mb-2">Social</h6> */}
-                    <div className="flex space-x-4">
-                        <Link
-                            href={contact[0].instagram ? contact[0].instagram : "#"}
-                            target="_blank"
-                            rel="noopener noreferrer">
-                            <Instagram size={24} />
-                        </Link>
-                        <Link
-                            href={contact[0].facebook ? contact[0].facebook : "#"}
-                            target="_blank"
-                            rel="noopener noreferrer">
-                            <Facebook size={24} />
-                        </Link>
-                        <Link
-                            href={contact[0].youtube ? contact[0].youtube : "#"}
-                            target="_blank"
-                            rel="noopener noreferrer">
-                            <Youtube size={24} />
-                        </Link>
-                    </div>
-                </nav>
+                {contact && contact.length > 0 && (
+                    <nav>
+                        {/* <h6 className="footer-title text-lg font-bold mb-2">Social</h6> */}
+                        <div className="flex space-x-4">
+                            <Link
+                                href={contact[0].instagram ? contact[0].instagram : "#"}
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                <Instagram size={24} />
+                            </Link>
+                            <Link
+                                href={contact[0].facebook ? contact[0].facebook : "#"}
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                <Facebook size={24} />
+                            </Link>
+                            <Link
+                                href={contact[0].youtube ? contact[0].youtube : "#"}
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                <Youtube size={24} />
+                            </Link>
+                        </div>
+                    </nav>
+                )}
             </div>
             <div className="text-center lg:text-right mt-2">
                 <p>© 2024 Viriditas. All rights reserved.</p>
