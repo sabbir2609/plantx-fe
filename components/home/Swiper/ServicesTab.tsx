@@ -7,6 +7,7 @@ import ResServicesSwiper from './ResServicesSwiper';
 interface ServiceCategory {
     id: number;
     title: string;
+    slug: string;
     image: string;
 }
 

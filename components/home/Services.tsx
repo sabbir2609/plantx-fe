@@ -4,6 +4,7 @@ import ServicesTab from "./Swiper/ServicesTab";
 interface ServiceCategory {
     id: number;
     title: string;
+    slug: string;
     image: string;
 }
 
