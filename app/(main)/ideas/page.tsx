@@ -20,7 +20,7 @@ export default async function Page() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {ideas.map((idea) => (
                     <Link
-                        href={`/innovate/${idea.slug}`}
+                        href={`/ideas/${idea.slug}`}
                         key={idea.id} className="shadow-md rounded-lg overflow-hidden mb-6">
                         <div className="h-96 relative">
                             <Image
