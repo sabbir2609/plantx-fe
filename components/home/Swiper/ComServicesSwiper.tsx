@@ -14,6 +14,7 @@ import { Autoplay, Navigation, Pagination, Scrollbar } from 'swiper/modules';
 interface Service {
     id: number;
     title: string;
+    slug: string;
     image?: string;
 }
 
@@ -63,7 +64,7 @@ export default function ServicesSwiper(
 
                     <div className="absolute z-20 bottom-10 left-8">
                         <h3 className="text-2xl font-bold text-white">{item.title}</h3>
-                        <Link href={`/services/commercial/${item.id}`} className="text-lg font-semibold text-green-600 hover:text-green-700">
+                        <Link href={`/services/commercial/${item.slug}`} className="text-lg font-semibold text-green-600 hover:text-green-700">
                             See more
                         </Link>
                     </div>
