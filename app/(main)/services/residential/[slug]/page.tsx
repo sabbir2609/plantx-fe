@@ -44,23 +44,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
     return (
         <div className="mx-auto">
             <div className="relative h-auto mb-4 overflow-hidden rounded-lg shadow-lg bg-base-200 lg:h-80">
-                {category.image ? (
-                    <Image
-                        src={category.image}
-                        height={1200}
-                        width={1200}
-                        alt={category.title}
-                        className="object-cover"
-                    />
-                ) : (
-                    <Image
-                        src="/static/viriditas.png"
-                        height={1200}
-                        width={1200}
-                        alt={category.title}
-                        className="object-cover"
-                    />
-                )}
+                <Image
+                    src={category.image || '/static/viriditas.png'}
+                    height={800}
+                    width={800}
+                    alt={category.title}
+                    className="object-cover w-full h-full"
+                />
                 <div className="absolute bottom-0 left-0 content-center h-full p-4 text-white bg-black bg-opacity-50 md:w-1/2">
                     <h1 className="text-3xl font-semibold">{category.title}</h1>
                     <h2 className="text-xl">{category.type}</h2>
