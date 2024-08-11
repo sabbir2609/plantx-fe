@@ -1,6 +1,12 @@
 import { Fetch } from '@/app/lib';
 import Image from 'next/image';
 import Link from 'next/link';
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+    title: 'Residential Services',
+    description: 'Residential services offered by Viriditas',
+}
 
 interface Category {
     id: number;
@@ -21,7 +27,7 @@ export default async function Page() {
     const residentialCategories: Category[] = await getResidentialCategories();
 
     return (
-        <div className="min-h-full bg-base-100">
+        <div className="p-2 min-h-full bg-base-100">
 
             <h2 className="mb-2 text-2xl font-semibold">
                 Residential Services

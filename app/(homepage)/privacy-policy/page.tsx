@@ -1,3 +1,10 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+    title: 'Privacy Policy',
+    description: 'Privacy Policy of Viriditas',
+}
+
 export default function Page() {
     return (
         <div className="p-2 mx-auto prose">

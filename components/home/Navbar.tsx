@@ -52,7 +52,9 @@ export default async function Navbar() {
 
                 <button className="btn btn-ghost btn-circle">
                     <div className="indicator">
-                        <Link href={`https://wa.me/${contact[0].phone}`} target="_blank">
+                        <Link
+                            href={`tel:${contact[0].phone}`}
+                            target="_blank">
                             <Phone />
                         </Link>
                     </div>

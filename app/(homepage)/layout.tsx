@@ -1,12 +1,6 @@
 import { ChatFab } from "@/components/common";
 import { Navbar } from "@/components/home";
 import { Sidebar } from "@/components/main";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-    title: "Viriditas",
-    description: "We design your home, indoor, outdoor, office, and hotel.",
-};
 
 export default function RootLayout({
     children,

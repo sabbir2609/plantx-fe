@@ -1,5 +1,11 @@
 import { Fetch } from '@/app/lib';
 import { Pagination, PlanterCard } from '@/components/main';
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+    title: 'Customized Planters',
+    description: 'Browse all custom planters offered by Viriditas',
+}
 
 interface PlanterFeature {
     id: number;
@@ -28,8 +34,16 @@ export default async function Plants(context: any) {
     const totalPages = Math.ceil(data['count'] / 12);
     const baseURL = 'planters/';
 
+    if (planter.length === 0) {
+        return (
+            <div className="text-center mt-16">
+                <h1 className="text-3xl font-bold mb-6">No planters found</h1>
+            </div>
+        );
+    }
+
     return (
-        <>
+        <div className="mx-auto px-2">
             <h1 className="text-3xl font-bold mb-6">
                 Our Custom Planters
             </h1>
@@ -43,6 +57,6 @@ export default async function Plants(context: any) {
             <div className="fixed bottom-4 right-4">
                 <Pagination baseURL={baseURL} totalPages={totalPages} />
             </div>
-        </>
+        </div>
     );
 }

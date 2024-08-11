@@ -7,8 +7,8 @@ import NextTopLoader from 'nextjs-toploader';
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const APP_NAME = "Viriditas";
-const APP_DEFAULT_TITLE = "Elevate your space with Nature";
-const APP_TITLE_TEMPLATE = "%s - Viriditas";
+const APP_DEFAULT_TITLE = "Viriditas - Elevate your space with Nature";
+const APP_TITLE_TEMPLATE = "Viriditas - %s";
 const APP_DESCRIPTION = "Elevate your space with Nature";
 
 export const metadata: Metadata = {

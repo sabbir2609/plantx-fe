@@ -22,8 +22,16 @@ export default async function PlantsCategoryPage() {
     const data = await Fetch({ endpoint: "main/plant_categories" });
     const PlantCategories: PlantCategory[] = data;
 
+    if (PlantCategories.length === 0) {
+        return (
+            <div className="text-center mt-16">
+                <h1 className="text-3xl font-bold mb-6">No plant categories found</h1>
+            </div>
+        );
+    }
+
     return (
-        <div className="container mx-auto">
+        <div className="p-2 mx-auto">
 
             <h1 className="text-3xl font-bold mb-6">Plant Categories</h1>
 

@@ -1,5 +1,11 @@
 import { Fetch } from "@/app/lib";
 import { Pagination, PlantCard } from "@/components/main"
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+    title: "Indoor Plants",
+    description: "Browse all indoor plants offered by Viriditas",
+}
 
 interface PlantFeature {
     id: number;

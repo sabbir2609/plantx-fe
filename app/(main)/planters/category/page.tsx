@@ -1,6 +1,13 @@
 import { Fetch } from "@/app/lib";
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+    title: 'Planters Categories',
+    description: 'Browse all planters categories offered by Viriditas',
+}
+
 
 interface PlantersCategory {
     id: number;
@@ -13,8 +20,16 @@ export default async function PlantersCategoryPage() {
     const data = await Fetch({ endpoint: "main/planter_categories" });
     const PlantersCategories: PlantersCategory[] = data;
 
+    if (PlantersCategories.length === 0) {
+        return (
+            <div className="text-center mt-16">
+                <h1 className="text-3xl font-bold mb-6">No planters categories found</h1>
+            </div>
+        );
+    }
+
     return (
-        <div className="container mx-auto">
+        <div className="p-2 mx-auto">
 
             <h1 className="text-3xl font-bold mb-6">Planters Categories</h1>
 

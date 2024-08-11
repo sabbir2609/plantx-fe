@@ -2,6 +2,12 @@ import Image from 'next/image';
 
 import { Anton } from "next/font/google";
 import { Fetch } from '@/app/lib';
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+    title: 'Team',
+    description: 'Meet the brains behind Viriditas',
+}
 
 
 const anton_font = Anton({

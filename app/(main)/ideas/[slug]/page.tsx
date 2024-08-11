@@ -9,17 +9,14 @@ interface Idea {
 }
 
 export default async function Plants({ params }: { params: { slug: string } }) {
-
     const data = await Fetch({ endpoint: `main/ideas/${params.slug}` });
     const idea: Idea = data;
 
     return (
-        <div className="p-4 lg:px-16 rounded-lg shadow-xl lg:my-4 lg:py-6">
-
-            <h1 className="text-3xl font-semibold text-accent mb-4">
+        <div className="p-2 mx-auto">
+            <h1 className="text-3xl font-semibold text-primary text-center mb-4">
                 {idea.title}
             </h1>
-
             <div className="flex items-center justify-center">
                 <Image
                     src={idea.image ? idea.image : "/static/viriditas.png"}
@@ -29,11 +26,9 @@ export default async function Plants({ params }: { params: { slug: string } }) {
                     className="object-cover shadow-sm max-h-[50vh] w-full rounded-lg"
                 />
             </div>
-
-            <div className="prose max-w-none"
+            <div className="prose max-w-none pt-6 p-4 bg-base-100"
                 dangerouslySetInnerHTML={{ __html: idea.description }}>
             </div>
-
         </div>
     );
 }

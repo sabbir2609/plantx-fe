@@ -42,7 +42,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     const services: Service[] = await fetchPlants(params.slug);
 
     return (
-        <div className="mx-auto">
+        <div className="mx-auto p-2">
             <div className="relative h-auto mb-4 overflow-hidden rounded-lg shadow-lg bg-base-200 lg:h-80">
                 <Image
                     src={category.image || '/static/viriditas.png'}

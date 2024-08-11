@@ -1,6 +1,12 @@
 import { Fetch } from "@/app/lib";
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+    title: 'Customize Planters',
+    description: 'Customize planters offered by Viriditas',
+}
 
 interface Contact {
     phone: string;

@@ -1,6 +1,12 @@
 import { Fetch } from "@/app/lib";
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+    title: 'Innovate',
+    description: 'Innovate with Viriditas',
+}
 
 interface Ideas {
     id: number;
@@ -15,13 +21,13 @@ export default async function Page() {
     const ideas: Ideas[] = data;
 
     return (
-        <div className="container mx-auto px-4">
+        <div className="mx-auto px-2">
             <h1 className="text-3xl font-semibold mt-4 mb-4">Innovate</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {ideas.map((idea) => (
                     <Link
                         href={`/ideas/${idea.slug}`}
-                        key={idea.id} className="shadow-md rounded-lg overflow-hidden mb-6">
+                        key={idea.id} className="shadow-md rounded-lg overflow-hidden mb-6 bg-base-200">
                         <div className="h-96 relative">
                             <Image
                                 src={idea.image ? idea.image : "/static/viriditas.png"}
@@ -32,7 +38,7 @@ export default async function Page() {
                             />
                         </div>
                         <div className="p-4">
-                            <h1 className="text-2xl font-semibold mb-2">{idea.title}</h1>
+                            <h1 className="text-xl font-semibold mb-2">{idea.title}</h1>
                         </div>
                     </Link>
                 ))}

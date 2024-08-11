@@ -1,5 +1,11 @@
 import { Fetch } from "@/app/lib";
 import { Pagination, ServiceCard } from "@/components/main";
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+    title: 'Services',
+    description: 'Services offered by Viriditas',
+}
 
 interface Category {
     id: number;
@@ -23,8 +29,16 @@ export default async function services(context: any) {
     const totalPages = Math.ceil(data['count'] / 12);
     const baseURL = 'services/';
 
+    if (services.length === 0) {
+        return (
+            <div className="text-center mt-16">
+                <h1 className="text-3xl font-bold mb-6">No services found</h1>
+            </div>
+        );
+    }
+
     return (
-        <>
+        <div className="mx-auto px-2">
             <h1 className="text-3xl font-bold mb-6">
                 Browse all services
             </h1>
@@ -36,6 +50,6 @@ export default async function services(context: any) {
             <div className="fixed bottom-14 right-4">
                 <Pagination baseURL={baseURL} totalPages={totalPages} />
             </div>
-        </>
+        </div>
     );
 }
