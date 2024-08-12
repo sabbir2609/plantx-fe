@@ -9,7 +9,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 const APP_NAME = "Viriditas";
 const APP_DEFAULT_TITLE = "Viriditas - Elevate your space with Nature";
 const APP_TITLE_TEMPLATE = "Viriditas - %s";
-const APP_DESCRIPTION = "Elevate your space with Nature";
+const APP_DESCRIPTION = "Viriditas - Elevate your space with nature. Discover our plant-based decor solutions designed to reduce carbon emissions and bring the beauty of nature into your home. Transform your environment sustainably with our carefully curated collection of eco-friendly decor.";
 
 export const metadata: Metadata = {
   applicationName: APP_NAME,
@@ -36,19 +36,13 @@ export const metadata: Metadata = {
       template: APP_TITLE_TEMPLATE,
     },
     description: APP_DESCRIPTION,
-    url: "https://viriditas.vercel.app",
+    url: "https://theviriditas.com/",
     siteName: APP_NAME,
     images: [
       {
-        url: `https://viriditas.vercel.app/static/viriditas.png`,
-        width: 800,
-        height: 600,
-      },
-      {
-        url: `https://viriditas.vercel.app/static/viriditas.png`,
-        width: 1800,
-        height: 1600,
-        alt: "Viriditas",
+        url: `https://theviriditas.com/static/og-image.jpg`,
+        width: 1200,
+        height: 630,
       },
     ],
     locale: 'en_US',
@@ -65,7 +59,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
+  themeColor: "#",
 };
 
 const jost = Jost({

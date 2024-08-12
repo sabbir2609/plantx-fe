@@ -32,7 +32,7 @@ export default function Page() {
                     <p><strong>Third-party Social Media Service</strong> means any services or content (including data, information, products or services) provided by a third-party that may be displayed, included or made available by the Service.</p>
                 </li>
                 <li>
-                    <p><strong>Website</strong> refers to Viriditas, accessible from <a href="https://viriditas.vercel.app/" rel="external nofollow noopener" target="_blank">https://viriditas.vercel.app/</a></p>
+                    <p><strong>Website</strong> refers to Viriditas, accessible from <a href="https://theviriditas.com/" rel="external nofollow noopener" target="_blank">https://theviriditas.com/</a></p>
                 </li>
                 <li>
                     <p><strong>You</strong> means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.</p>
@@ -81,7 +81,7 @@ export default function Page() {
             <h2>Contact Us</h2>
             <p>If you have any questions about these Terms and Conditions, You can contact us:</p>
             <ul>
-                <li>By visiting this page on our website: <a href="https://viriditas.vercel.app/contact" rel="external nofollow noopener" target="_blank">https://viriditas.vercel.app/contact</a></li>
+                <li>By visiting this page on our website: <a href="https://theviriditas.com/contact" rel="external nofollow noopener" target="_blank">https://theviriditas.com/contact</a></li>
             </ul>
         </div>
     );
