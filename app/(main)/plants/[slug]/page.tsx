@@ -98,7 +98,10 @@ export default async function Plants(
                         />
                     </div>
                 )}
-                <div className="p-2 rounded-lg shadow-md">
+            </div>
+
+            <div className="lg:ps-2 w-full lg:w-1/2 space-y-2">
+                <div className="px-3 py-2 rounded-md shadow-md bg-base-200">
                     <div className="flex flex-row gap-2 py-2">
                         {plant.features.map(feature => (
                             <p key={feature.id} className="inline-block p-1 text-sm text-green-700 bg-green-100 rounded-sm">
@@ -112,20 +115,24 @@ export default async function Plants(
                             {plant.size}
                         </p>
                     </div>
-                    <h1 className="text-2xl font-bold">{plant.name}</h1>
-                    <p className="text-xl">{plant.category}</p>
-                    <p className="text-xl">{plant.sku}</p>
-                    <div className="flex flex-row gap-2 py-2">
+                    <h1 className="text-2xl font-bold">
+                        {plant.name}
+                    </h1>
+                    <p className="text-xl">
+                        <span className="text-accent">Category:</span> {plant.category}
+                    </p>
+                    <p className="text-sm">
+                        <span className="text-accent">SKU:</span> {plant.sku}
+                    </p>
+                    <div className="flex flex-row gap-2 py-2 items-center">
+                        <span className="text-accent">Tags:</span>
                         {plant.tags.map(tag => (
-                            <p key={tag.id} className="inline-block p-1 text-sm text-blue-700 bg-blue-100 rounded-sm">
+                            <p key={tag.id} className="text-sm text-blue-700 bg-blue-100 badge">
                                 {tag.tag}
                             </p>
                         ))}
                     </div>
                 </div>
-            </div>
-
-            <div className="lg:ps-2 w-full lg:w-1/2 space-y-2">
                 <div className="join join-vertical w-full">
                     <div className="collapse collapse-arrow join-item border-base-300 bg-base-200 border">
                         <input type="radio" name="my-accordion-4" defaultChecked />

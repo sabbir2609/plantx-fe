@@ -22,23 +22,28 @@ export default function ServicesTab(
     const [activeTab, setActiveTab] = useState<'commercial' | 'residential'>('residential');
 
     return (
-        <div className="flex flex-col items-center p-2 lg:p-0 lg:flex-row ">
-            <div className="flex flex-row justify-center gap-2 font-semibold lg:-rotate-90 lg:text-xl lg:w-10 lg:h-10 lg:m-4">
+        <>
+            <div className='flex flex-col lg:flex-row items-center lg:items-baseline p-2 lg:justify-between'>
+                <h1 className="mt-5 text-4xl lg:text-4xl font-normal tracking-tight text-center mb-4">
+                    Explore Our Services
+                </h1>
 
-                <button className={`btn border-2 rounded-none rounded-tr-2xl rounded-bl-2xl ${activeTab === 'commercial' ? 'btn-primary' : 'btn-secondary btn-outline'}`}
-                    onClick={() => setActiveTab('commercial')}
-                >
-                    Commercial
-                </button>
-                <button className={`btn border-2 rounded-none rounded-tr-2xl rounded-bl-2xl ${activeTab === 'residential' ? 'btn-primary' : 'btn-secondary btn-outline'}`}
-                    onClick={() => setActiveTab('residential')}
-                >
-                    Residential
-                </button>
+                <div className="flex flex-row justify-center gap-2 font-semibold">
+                    <button className={`btn border-2 rounded-none rounded-tr-2xl rounded-bl-2xl ${activeTab === 'commercial' ? 'btn-primary' : 'btn-secondary btn-outline'}`}
+                        onClick={() => setActiveTab('commercial')}
+                    >
+                        Commercial
+                    </button>
+                    <button className={`btn border-2 rounded-none rounded-tr-2xl rounded-bl-2xl ${activeTab === 'residential' ? 'btn-primary' : 'btn-secondary btn-outline'}`}
+                        onClick={() => setActiveTab('residential')}
+                    >
+                        Residential
+                    </button>
+                </div>
 
             </div>
 
-            <div className='w-full h-full mt-5 rounded-lg lg:me-2'>
+            <div className='w-full h-full pt-5 rounded-lg'>
                 {activeTab === 'commercial' && commercialData && (
                     <ComServicesSwiper services={commercialData} />
                 )}
@@ -46,6 +51,7 @@ export default function ServicesTab(
                     <ResServicesSwiper services={residentialData} />
                 )}
             </div>
-        </div>
+
+        </>
     );
 };

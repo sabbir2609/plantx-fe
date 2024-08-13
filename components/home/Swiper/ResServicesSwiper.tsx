@@ -48,7 +48,7 @@ export default function ServicesSwiper(
                     spaceBetween: 10,
                 },
             }}
-            className="mySwiper h-[50vh] w-full rounded-lg"
+            className="mySwiper h-1/2 rounded-lg"
         >
             {services.map((item) => (
                 <SwiperSlide key={item.id} className="relative">

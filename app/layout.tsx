@@ -21,6 +21,13 @@ export const metadata: Metadata = {
   generator: "Next.js",
   keywords: ["Nature", "Plants", "Decor"],
   manifest: "/manifest.json",
+  metadataBase: new URL('https://theviriditas.com'),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-US': '/en-US',
+    },
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",

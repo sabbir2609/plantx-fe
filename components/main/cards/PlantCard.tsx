@@ -33,11 +33,11 @@ export default function PlantCard(
             <Link href={`/plants/${plant.slug}`}>
                 <div className="relative">
                     <Image
-                        src={plant.image.length > 0 ? plant.image : "/static/viriditas.png"}
+                        src={plant.image ? plant.image : "/static/viriditas.png"}
                         alt={plant.name}
                         height={227}
                         width={384}
-                        className="h-56 w-full object-cover"
+                        className="h-56 w-full object-cover transform transition-transform duration-300 hover:scale-105"
                     />
 
                     {plant.features && plant.features.length > 0 && (
@@ -52,11 +52,21 @@ export default function PlantCard(
 
                 </div>
                 <div className="p-4">
-                    <h2 className="text-xl font-semibold mb-2">{plant.name}</h2>
-                    <p className="text-sm mb-1">{plant.category}</p>
-                    <p className="text-sm">{plant.location_type}</p>
-                    <p className="text-sm">{plant.size}</p>
-                    <p className="text-sm">{plant.sku}</p>
+                    <h2 className="text-lg font-semibold mb-2">
+                        {plant.name}
+                    </h2>
+                    <p className="text-sm">
+                        <span className="text-accent">Category: </span> {plant.category}
+                    </p>
+                    <p className="text-sm">
+                        <span className="text-accent">Location: </span> {plant.location_type}
+                    </p>
+                    <p className="text-sm">
+                        <span className="text-accent">Size: </span> {plant.size}
+                    </p>
+                    <p className="text-xs italic">
+                        <span className="text-accent">SKU: </span> {plant.sku}
+                    </p>
                 </div>
             </Link>
         </div>
