@@ -5,6 +5,7 @@ import "./globals.css";
 import NextTopLoader from 'nextjs-toploader';
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react"
 
 const APP_NAME = "Viriditas";
 const APP_DEFAULT_TITLE = "Viriditas - Elevate your space with Nature";
@@ -84,6 +85,7 @@ export default function RootLayout({
         <NextTopLoader />
         {children}
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
