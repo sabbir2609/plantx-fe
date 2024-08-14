@@ -52,20 +52,20 @@ export default function PlantCard(
 
                 </div>
                 <div className="p-4">
-                    <h2 className="text-lg font-semibold mb-2">
+                    <h2 className="text-lg font-semibold mb-2 leading-5 lg:leading-6">
                         {plant.name}
                     </h2>
                     <p className="text-sm">
-                        <span className="text-accent">Category: </span> {plant.category}
+                        <span className="text-accent">{plant.category}</span>
                     </p>
                     <p className="text-sm">
-                        <span className="text-accent">Location: </span> {plant.location_type}
+                        <span className="text-accent">{plant.location_type}</span>
                     </p>
                     <p className="text-sm">
-                        <span className="text-accent">Size: </span> {plant.size}
+                        <span className="text-accent">{plant.size}</span>
                     </p>
                     <p className="text-xs italic">
-                        <span className="text-accent">SKU: </span> {plant.sku}
+                        sku: <span className="text-accent lowercase">{plant.sku}</span>
                     </p>
                 </div>
             </Link>

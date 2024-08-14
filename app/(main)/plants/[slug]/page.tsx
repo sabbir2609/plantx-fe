@@ -124,14 +124,26 @@ export default async function Plants(
                     <p className="text-sm">
                         <span className="text-accent">SKU:</span> {plant.sku}
                     </p>
-                    <div className="flex flex-row gap-2 py-2 items-center">
-                        <span className="text-accent">Tags:</span>
-                        {plant.tags.map(tag => (
-                            <p key={tag.id} className="text-sm text-blue-700 bg-blue-100 badge">
-                                {tag.tag}
-                            </p>
-                        ))}
-                    </div>
+                    {plant.promotion.length > 0 && (
+                        <div className="flex flex-row gap-2 py-2 items-center">
+                            <span className="text-accent">Promotion:</span>
+                            {plant.promotion.map(promotion => (
+                                <p key={promotion} className="text-sm text-red-700 bg-red-100 badge">
+                                    {promotion}
+                                </p>
+                            ))}
+                        </div>
+                    )}
+                    {plant.tags.length > 0 && (
+                        <div className="flex flex-row gap-2 py-2 items-center">
+                            <span className="text-accent">Tags:</span>
+                            {plant.tags.map(tag => (
+                                <p key={tag.id} className="text-sm text-blue-700 bg-blue-100 badge">
+                                    {tag.tag}
+                                </p>
+                            ))}
+                        </div>
+                    )}
                 </div>
                 <div className="join join-vertical w-full">
                     <div className="collapse collapse-arrow join-item border-base-300 bg-base-200 border">
