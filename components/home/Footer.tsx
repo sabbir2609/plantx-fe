@@ -1,26 +1,8 @@
-import { Fetch } from "@/app/lib";
 import { Facebook, Flower2, Instagram, Youtube } from "lucide-react";
 import Link from "next/link";
 
-interface Contact {
-    id: number;
-    email: string;
-    phone: string;
-    whatsapp: string;
-    address: string;
-    facebook: string | null;
-    x: string | null;  // Assuming 'x' refers to X (formerly Twitter)
-    linkedin: string | null;
-    instagram: string | null;
-    youtube: string | null;
-    pinterest: string | null;
-}
-
 
 export default async function Footer() {
-    const data = await Fetch({ endpoint: "home/contact-info" });
-    const contact: Contact[] = data;
-
     return (
         <footer className="bg-base-200 text-base-content pt-10 pb-2 px-3 lg:px-10 mt-2">
 
@@ -46,32 +28,29 @@ export default async function Footer() {
                         <Link href="/privacy-policy" className="link-hover">Privacy policy</Link>
                     </div>
                 </nav>
-
-                {contact && contact.length > 0 && (
-                    <nav>
-                        {/* <h6 className="footer-title text-lg font-bold mb-2">Social</h6> */}
-                        <div className="flex space-x-4">
-                            <Link
-                                href={contact[0].instagram ? contact[0].instagram : "#"}
-                                target="_blank"
-                                rel="noopener noreferrer">
-                                <Instagram size={24} />
-                            </Link>
-                            <Link
-                                href={contact[0].facebook ? contact[0].facebook : "#"}
-                                target="_blank"
-                                rel="noopener noreferrer">
-                                <Facebook size={24} />
-                            </Link>
-                            <Link
-                                href={contact[0].youtube ? contact[0].youtube : "#"}
-                                target="_blank"
-                                rel="noopener noreferrer">
-                                <Youtube size={24} />
-                            </Link>
-                        </div>
-                    </nav>
-                )}
+                <nav>
+                    {/* <h6 className="footer-title text-lg font-bold mb-2">Social</h6> */}
+                    <div className="flex space-x-4">
+                        <Link
+                            href="https://www.instagram.com/viriditas_2024"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            <Instagram size={24} />
+                        </Link>
+                        <Link
+                            href="https://fb.me/theviriditas"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            <Facebook size={24} />
+                        </Link>
+                        <Link
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            <Youtube size={24} />
+                        </Link>
+                    </div>
+                </nav>
             </div>
             <div className="text-center lg:text-right mt-2">
                 <p>© 2024 Viriditas. All rights reserved.</p>

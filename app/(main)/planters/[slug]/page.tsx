@@ -37,7 +37,7 @@ interface Planter {
     images: PlanterImage[];
     description: string;
     features: PlanterFeature[];
-    zone: PlanterZone[];
+    zones: PlanterZone[];
     tags: PlanterTag[];
 }
 

@@ -13,6 +13,9 @@ interface Client {
 export default async function OurClients() {
     const data = await Fetch({ endpoint: 'home/our-clients/' });
     const clients: Client[] = data;
+
+    if (clients.length === 0) return null;
+
     return (
         <section className="py-7 bg-base-200 mt-2">
             <div className="flex flex-col justify-center gap-4 px-4 mx-auto align-middle lg:flex-row max-w-7xl sm:px-6 lg:px-8">
@@ -25,6 +28,7 @@ export default async function OurClients() {
                     </h4>
                 </div>
                 <div className="grid items-center justify-center grid-cols-2 gap-4 px-4 lg:grid-cols-3 lg:gap-6">
+
                     {clients.map((client, index) => (
                         <Link key={index} href={client.url}
                             className="flex items-center justify-center transition-transform duration-300 ease-in-out transform hover:scale-105"
@@ -40,6 +44,7 @@ export default async function OurClients() {
                             />
                         </Link>
                     ))}
+
                 </div>
             </div>
         </section>

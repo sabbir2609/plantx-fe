@@ -7,7 +7,7 @@ const dancing_script = Dancing_Script({ subsets: ["latin"] });
 
 export default async function Testimonial() {
     const data = await Fetch({ endpoint: 'main/testimonials/' });
-
+    if (data.length === 0) return null;
     return (
         <section className="p-3 mx-auto mt-2 mb-4 bg-base-300"
             style={
@@ -19,7 +19,7 @@ export default async function Testimonial() {
                 }
             }
         >
-            <header className="mb-4 text-center text-white">
+            <header className="mt-4 text-center text-white">
                 <h2 className={`${dancing_script.className} text-4xl font-bold`}>
                     Customer
                 </h2>

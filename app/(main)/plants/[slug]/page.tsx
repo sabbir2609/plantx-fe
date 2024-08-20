@@ -45,7 +45,7 @@ interface Plant {
     care_instructions: string;
     promotion: number[];
     features: PlantFeature[];
-    zone: PlantZone[];
+    zones: PlantZone[];
     tags: PlantTag[];
 }
 

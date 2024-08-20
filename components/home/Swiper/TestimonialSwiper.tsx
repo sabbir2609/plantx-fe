@@ -1,7 +1,5 @@
 "use client";
 
-import { Pacifico } from "next/font/google";
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -10,11 +8,6 @@ import Image from 'next/image';
 import { Quote } from 'lucide-react';
 
 import UserImage from '@/public/static/user.jpg';
-
-const pacifico = Pacifico({
-    subsets: ["latin"],
-    weight: "400"
-});
 
 interface Testimonial {
     id: number,
@@ -58,7 +51,7 @@ export default function TestimonialSwiper(
                     <SwiperSlide key={index}>
 
                         <div
-                            className="relative flex flex-col items-center justify-center pt-4 mt-4 rounded-lg h-max"
+                            className="relative flex flex-col items-center justify-center pt-4 rounded-lg h-max"
                         >
                             <div className="flex flex-row gap-2 mb-[-56px] items-center z-10">
                                 <Quote className="text-black rotate-180 fill-black" size={40} />
@@ -78,7 +71,7 @@ export default function TestimonialSwiper(
                                 <h2 className="text-lg font-bold">
                                     {testimonial.name}
                                 </h2>
-                                <p className={`${pacifico.className} text-center tracking-tight lg:text-lg`}>
+                                <p className={`text-center tracking-tight lg:text-lg`}>
                                     {testimonial.content}
                                 </p>
                             </div>
