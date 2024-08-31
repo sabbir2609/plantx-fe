@@ -18,7 +18,7 @@ export default function ProjectCard(
             <Link href={`/projects/${project.slug}`}>
                 <div className="relative">
                     <Image
-                        src={project.image ? project.image : '/static/viriditas.png'}
+                        src={project.image ? project.image : '/static/viriditas.webp'}
                         alt={project.image ? project.title : 'Default Image'}
                         height={227}
                         width={384}

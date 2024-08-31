@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     title: "Plant Categories",
     description: "Plant categories - Viriditas",
     openGraph: {
-        images: ["/static/viriditas.png"],
+        images: ["/static/viriditas.webp"],
     },
 };
 
@@ -54,7 +54,7 @@ export default async function PlantsCategoryPage() {
                             <Image
                                 height={200}
                                 width={300}
-                                src="/static/viriditas.png"
+                                src="/static/viriditas.webp"
                                 alt={category.name}
                                 className="w-full h-48 object-cover absolute z-0"
                             />

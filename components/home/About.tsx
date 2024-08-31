@@ -4,7 +4,7 @@ export default function About() {
             <div
                 className="absolute inset-0 bg-no-repeat bg-cover"
                 style={{
-                    backgroundImage: "url('/images/bg/bg_10.jpg')",
+                    backgroundImage: "url('/images/bg/bg_10.avif')",
                     backgroundPosition: 'right',
                     filter: 'blur(2px)',
                 }}

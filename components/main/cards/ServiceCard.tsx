@@ -21,7 +21,7 @@ export default function ServiceCard({ service }: { service: Service }) {
             <Link href={`/services/${service.slug}`}>
                 <div className="relative">
                     <Image
-                        src={service.image || '/static/viriditas.png'}
+                        src={service.image || '/static/viriditas.webp'}
                         alt={service.title}
                         height={227}
                         width={384}

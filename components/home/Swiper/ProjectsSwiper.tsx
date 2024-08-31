@@ -56,14 +56,14 @@ export default function ProjectSwiper({ projects }: ProjectsSwiperProps) {
                         <Link href={`/projects/${project.slug}`} className='cursor-pointer'>
                             <div className="rounded-lg shadow-sm backdrop-blur-sm bg-base-200">
                                 <Image
-                                    src={project.image ? project.image : '/static/viriditas.png'}
+                                    src={project.image ? project.image : '/static/viriditas.webp'}
                                     alt={project.title}
                                     width={1000}
                                     height={1000}
                                     className="object-cover w-full h-52 transition duration-500 ease-in-out rounded-t-lg shadow-md hover:scale-105 hover:shadow-lg hover:rounded-lg"
                                 />
                                 <div className="flex flex-col p-4">
-                                    <h3 className="text-lg font-semibold">{project.title}</h3>
+                                    <h1 className="text-lg font-semibold">{project.title}</h1>
                                     {
                                         project.year && <p className="">Year: {project.year}</p>
                                     }

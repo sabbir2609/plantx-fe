@@ -14,7 +14,7 @@ export default async function Footer() {
             <div className="mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-10">
 
                 <nav>
-                    <h6 className="footer-title text-lg font-bold mb-2">Company</h6>
+                    <h3 className="footer-title text-lg font-bold mb-2">Company</h3>
                     <div className="flex flex-col space-y-2">
                         <Link href="/about" className="link-hover">About us</Link>
                         <Link href="/contact" className="link-hover">Contact</Link>
@@ -22,7 +22,7 @@ export default async function Footer() {
                 </nav>
 
                 <nav>
-                    <h6 className="footer-title text-lg font-bold mb-2">Legal</h6>
+                    <h3 className="footer-title text-lg font-bold mb-2">Legal</h3>
                     <div className="flex flex-col space-y-2">
                         <Link href="/terms-conditions" className="link-hover">Terms of use</Link>
                         <Link href="/privacy-policy" className="link-hover">Privacy policy</Link>
@@ -32,18 +32,24 @@ export default async function Footer() {
                     {/* <h6 className="footer-title text-lg font-bold mb-2">Social</h6> */}
                     <div className="flex space-x-4">
                         <Link
+                            area-label="Instagram"
+                            title="Instagram"
                             href="https://www.instagram.com/viriditas_2024"
                             target="_blank"
                             rel="noopener noreferrer">
                             <Instagram size={24} />
                         </Link>
                         <Link
+                            area-label="Facebook"
+                            title="Facebook"
                             href="https://fb.me/theviriditas"
                             target="_blank"
                             rel="noopener noreferrer">
                             <Facebook size={24} />
                         </Link>
                         <Link
+                            area-label="Youtube"
+                            title="Youtube"
                             href="#"
                             target="_blank"
                             rel="noopener noreferrer">

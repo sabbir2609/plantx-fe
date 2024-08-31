@@ -33,13 +33,13 @@ export default function Navbar() {
                 {/* <button className="btn btn-ghost btn-circle">
                     <Search />
                 </button> */}
-                <button className="btn btn-ghost btn-circle">
+                <button className="btn btn-ghost btn-circle" area-label="Instagram" title="Instagram">
                     <Link href="https://www.instagram.com/viriditas_2024/" target="_blank"
                         rel="noopener noreferrer">
                         <Instagram />
                     </Link>
                 </button>
-                <button className="btn btn-ghost btn-circle">
+                <button className="btn btn-ghost btn-circle" area-label="Phone" title="Phone">
                     <div className="indicator">
                         <a href="tel:+2348123456789">
                             <Phone />

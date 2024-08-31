@@ -45,7 +45,7 @@ const config: Config = {
 
         },
         'dark': {
-          'primary': '#bb86fc',             // Google Material Design Dark Purple
+          'primary': '#4c376b',             // Google Material Design Dark Purple
           'primary-focus': '#3700b3',       // Google Material Design Dark Purple (Focus)
           'primary-content': '#ffffff',     // White
 

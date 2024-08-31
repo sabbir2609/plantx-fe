@@ -10,7 +10,7 @@ export default function AboutUs() {
     return (
         <div className="p-4 mx-auto lg:max-w-7xl lg:px-8">
             <div className="text-center">
-                <h2 className="text-base font-semibold tracking-wide uppercase">About Us</h2>
+                <h2 className="text-5xl font-semibold tracking-wide uppercase">About Us</h2>
                 <p className="mt-2 text-3xl font-normal leading-8 tracking-tight">
                     Transform Your Home: Elegant Designs with Greenery
                 </p>

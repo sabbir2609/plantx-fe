@@ -38,7 +38,7 @@ export default async function Page(context: any) {
     const plants: Plant[] = data['results'];
 
     const totalPages = Math.ceil(data['count'] / 12);
-    const baseURL = 'plants/';
+    const baseURL = 'indoor/';
 
     if (plants.length === 0) {
         return (

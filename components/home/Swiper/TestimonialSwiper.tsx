@@ -11,7 +11,8 @@ import UserImage from '@/public/static/user.jpg';
 
 interface Testimonial {
     id: number,
-    name: string,
+    customer: string,
+    slug: string,
     image: string,
     content: string
 }
@@ -57,7 +58,7 @@ export default function TestimonialSwiper(
                                 <Quote className="text-black rotate-180 fill-black" size={40} />
                                 <Image
                                     src={testimonial.image ? testimonial.image : UserImage}
-                                    alt={testimonial.name}
+                                    alt={testimonial.customer}
                                     width={200}
                                     height={200}
                                     blurDataURL="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fuser.4ac3d049.jpg&w=8&q=70"
@@ -68,11 +69,10 @@ export default function TestimonialSwiper(
                             </div>
 
                             <div className="px-6 pt-16 pb-10 text-center text-black bg-white rounded-xl ">
-                                <h2 className="text-lg font-bold">
-                                    {testimonial.name}
-                                </h2>
-                                <p className={`text-center tracking-tight lg:text-lg`}>
+                                <p className="text-center tracking-tight lg:text-lg">
                                     {testimonial.content}
+                                    <br />
+                                    - <span className="italic font-bold">{testimonial.customer}</span>
                                 </p>
                             </div>
                         </div>

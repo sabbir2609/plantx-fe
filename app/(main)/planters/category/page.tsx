@@ -41,7 +41,7 @@ export default async function PlantersCategoryPage() {
                         className="block shadow-md rounded-lg overflow-hidden relative h-32 hover:scale-105 transition-transform duration-300 ease-in-out"
                     >
                         <Image
-                            src={category.image ? category.image : "/static/viriditas.png"}
+                            src={category.image ? category.image : "/static/viriditas.webp"}
                             alt={category.name}
                             height={200}
                             width={200}

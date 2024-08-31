@@ -53,7 +53,7 @@ export default async function Plants({ params }: { params: { slug: string } }) {
             ) : (
                 <div className="">
                     <Image
-                        src="/static/viriditas.png"
+                        src="/static/viriditas.webp"
                         height={800}
                         width={800}
                         className="object-cover rounded-lg"

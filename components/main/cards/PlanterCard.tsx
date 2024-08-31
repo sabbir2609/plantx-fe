@@ -26,7 +26,7 @@ export default function PlanterCard({ planter }: { planter: Planter }) {
             <Link href={`/planters/${planter.slug}`}>
                 <div className="relative">
                     <Image
-                        src={planter.image ? planter.image : '/static/viriditas.png'}
+                        src={planter.image ? planter.image : '/static/viriditas.webp'}
                         alt={planter.name}
                         height={227}
                         width={384}

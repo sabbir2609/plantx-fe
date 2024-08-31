@@ -36,7 +36,7 @@ export default function HeroSwiper(
                 }}
                 navigation={false}
                 modules={[Autoplay, Pagination, Navigation]}
-                className="mySwiper h-[60vh] lg:h-[80vh] shadow-md"
+                className="mySwiper h-[60vh] lg:h-[90vh] shadow-md"
             >
                 {Banners.map((slide, index) => (
                     <SwiperSlide key={index}>
@@ -45,7 +45,8 @@ export default function HeroSwiper(
                             alt={slide.alt_text}
                             width={1920}
                             height={1080}
-                            sizes="100vw"
+                            priority={true}
+                            sizes="(min-width: 2040px) 1920px, calc(91.94vw + 63px)"
                             className='object-cover w-full h-full'
                         />
                     </SwiperSlide>

@@ -51,24 +51,23 @@ export default function ServicesSwiper(
             className="mySwiper h-1/2 rounded-lg"
         >
             {services.map((item) => (
-                <SwiperSlide key={item.id} className="relative">
-                    <Image
-                        src={item.image || "/static/viriditas.png"}
-                        alt={item.title}
-                        height={800}
-                        width={800}
-                        className='object-cover w-full h-full'
-                    />
+                <Link href={`/services/commercial/${item.slug}`} key={item.id}>
+                    <SwiperSlide className="relative">
+                        <Image
+                            src={item.image || "/static/viriditas.webp"}
+                            alt={item.title}
+                            height={800}
+                            width={800}
+                            className='object-cover w-full h-full'
+                        />
 
-                    <div className="absolute inset-0 transition duration-300 ease-in-out bg-gradient-to-t from-gray-900 via-gray-900/40 hover:opacity-0 w-full"></div>
+                        <div className="absolute inset-0 transition duration-300 ease-in-out bg-gradient-to-t from-gray-900 via-gray-900/40 hover:opacity-0 w-full"></div>
 
-                    <div className="absolute z-20 bottom-10 left-8">
-                        <h3 className="text-2xl font-bold text-white">{item.title}</h3>
-                        <Link href={`/services/commercial/${item.slug}`} className="text-lg font-semibold text-green-600 hover:text-green-700">
-                            See more
-                        </Link>
-                    </div>
-                </SwiperSlide>
+                        <div className="absolute z-20 bottom-10 left-8">
+                            <h1 className="text-2xl font-bold text-white">{item.title}</h1>
+                        </div>
+                    </SwiperSlide>
+                </Link>
             ))}
         </Swiper>
     );

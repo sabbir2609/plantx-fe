@@ -45,7 +45,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <div className="mx-auto p-2">
             <div className="relative h-auto mb-4 overflow-hidden rounded-lg shadow-lg bg-base-200 lg:h-80">
                 <Image
-                    src={category.image || '/static/viriditas.png'}
+                    src={category.image || '/static/viriditas.webp'}
                     height={800}
                     width={800}
                     alt={category.title}

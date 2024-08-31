@@ -20,6 +20,8 @@ export default function ThemeChange() {
 
     return (
         <button
+            area-label="Theme Change"
+            title="Theme Change"
             onClick={handleThemeChange}
             className="btn btn-ghost btn-circle transition duration-500 ease-in-out transform hover:scale-110 focus:outline-none"
         >

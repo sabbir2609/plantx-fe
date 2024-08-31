@@ -62,7 +62,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                     />
                 ) : (
                     <Image
-                        src="/static/viriditas.png"
+                        src="/static/viriditas.webp"
                         height={1200}
                         width={1200}
                         alt={category.name}

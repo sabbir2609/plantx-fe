@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Assistant, Jost } from "next/font/google";
+import { Jost } from "next/font/google";
 import "./globals.css";
 
 import NextTopLoader from 'nextjs-toploader';
@@ -20,20 +20,13 @@ export const metadata: Metadata = {
   },
   description: APP_DESCRIPTION,
   generator: "Next.js",
-  keywords: ["Nature", "Plants", "Decor"],
-  manifest: "/manifest.json",
+  keywords: ["Nature", "Plants", "Decor", "Eco-friendly", "Sustainable", "Home", "Garden", "Interior Design", "Plant-based", "Carbon Emissions", "Viriditas"],
   metadataBase: new URL('https://theviriditas.com'),
   alternates: {
     canonical: '/',
     languages: {
       'en-US': '/en-US',
     },
-  },
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: "default",
-    title: APP_DEFAULT_TITLE,
-    // startUpImage: [],
   },
   formatDetection: {
     telephone: false,

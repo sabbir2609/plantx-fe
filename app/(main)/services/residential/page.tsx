@@ -30,7 +30,7 @@ export default async function Page() {
         <div className="p-2 min-h-full bg-base-100">
 
             <h2 className="mb-2 text-2xl font-semibold">
-                Residential Services
+                Residential Service Categories
             </h2>
             <div className="grid grid-cols-2 gap-2 md:grid-cols-2 lg:grid-cols-4">
 
@@ -41,7 +41,7 @@ export default async function Page() {
                         className="group relative block h-48 overflow-hidden rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
                     >
                         <Image
-                            src={category.image || '/static/viriditas.png'}
+                            src={category.image || '/static/viriditas.webp'}
                             alt={category.title}
                             layout="fill"
                             objectFit="cover"

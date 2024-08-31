@@ -123,30 +123,34 @@ export default function Sidebar() {
                 <SidebarHeader />
 
                 {/* Menu section */}
-                <ul className="gap-2 menu">
+                <div className="gap-2 menu">
 
-                    {/* Non Collapsible Menu items */}
-                    {Object.entries(menuItemsOne).map(([title, { icon, ...items }]) => (
-                        <MenuGroup key={title} title={title} icon={icon} items={items} open={true} />
-                    ))}
-
-                    {/* Collapsible Menu items */}
-                    {Object.entries(menuItemsTwo).map(([title, { icon, ...items }]) => (
-                        <MenuGroup key={title} title={title} icon={icon} items={items} />
-                    ))}
-
+                    <ul>
+                        {/* Non Collapsible Menu items */}
+                        {Object.entries(menuItemsOne).map(([title, { icon, ...items }]) => (
+                            <MenuGroup key={title} title={title} icon={icon} items={items} open={true} />
+                        ))}
+                    </ul>
+                    <ul>
+                        {/* Collapsible Menu items */}
+                        {Object.entries(menuItemsTwo).map(([title, { icon, ...items }]) => (
+                            <MenuGroup key={title} title={title} icon={icon} items={items} />
+                        ))}
+                    </ul>
                     <div className="h-2 divider"></div>
+                    <ul>
 
-                    {/* Footer Menu items */}
-                    {menuItemsThree.map(({ title, icon, link }) => (
-                        <li key={title}>
-                            <Link href={link} className="font-semibold">
-                                {icon}
-                                {title}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
+                        {/* Footer Menu items */}
+                        {menuItemsThree.map(({ title, icon, link }) => (
+                            <li key={title}>
+                                <Link href={link} className="font-semibold">
+                                    {icon}
+                                    {title}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
 
             {/* <SidebarFooter /> */}

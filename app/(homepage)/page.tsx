@@ -12,7 +12,7 @@ export default function Home() {
       <Hero />
       <Slogan />
       <About />
-      <div className="lg:px-8">
+      {/* <div className="lg:px-8">
         <Services />
         <Projects />
         <GetInTouch />
@@ -22,7 +22,7 @@ export default function Home() {
       <OurClients />
       <Testimonial />
       <ContactUs />
-      <Footer />
+      <Footer /> */}
 
     </>
   );

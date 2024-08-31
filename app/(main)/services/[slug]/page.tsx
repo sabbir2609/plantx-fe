@@ -44,7 +44,7 @@ export default async function Plants({ params }: { params: { slug: string } }) {
                     <ServiceBlogImageSwiper images={service.images} />
                 ) : (
                     <Image
-                        src="/static/viriditas.png"
+                        src="/static/viriditas.webp"
                         width={600}
                         height={400}
                         alt='No Image Available'

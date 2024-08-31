@@ -19,7 +19,7 @@ export default async function Plants({ params }: { params: { slug: string } }) {
             </h1>
             <div className="flex items-center justify-center">
                 <Image
-                    src={idea.image ? idea.image : "/static/viriditas.png"}
+                    src={idea.image ? idea.image : "/static/viriditas.webp"}
                     height={1200}
                     width={1200}
                     alt={idea.title}

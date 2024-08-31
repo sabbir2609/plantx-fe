@@ -70,7 +70,7 @@ export async function generateMetadata(
     return {
         title: product.name,
         openGraph: {
-            images: ["/static/viriditas.png", ...previousImages],
+            images: ["/static/viriditas.webp", ...previousImages],
         },
     }
 }
@@ -90,7 +90,7 @@ export default async function Plants(
                 ) : (
                     <div className="">
                         <Image
-                            src="/static/viriditas.png"
+                            src="/static/viriditas.webp"
                             height={800}
                             width={800}
                             className="object-cover rounded-lg"

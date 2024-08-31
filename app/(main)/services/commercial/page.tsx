@@ -29,7 +29,7 @@ export default async function Page() {
         <div className="mx-auto p-2">
 
             <h2 className="mb-2 text-2xl font-semibold">
-                Commercial Services
+                Commercial Service Categories
             </h2>
             <div className="grid grid-cols-2 gap-4 mb-4 md:grid-cols-2 lg:grid-cols-4">
                 {commercialCategories.map((category) => (
@@ -39,7 +39,7 @@ export default async function Page() {
                         className="group relative block h-48 overflow-hidden rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
                     >
                         <Image
-                            src={category.image || '/static/viriditas.png'}
+                            src={category.image || '/static/viriditas.webp'}
                             alt={category.title}
                             layout="fill"
                             objectFit="cover"
