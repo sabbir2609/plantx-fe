@@ -13,10 +13,10 @@ interface Image {
     image: string;
     short_description: string;
 }
-interface ServiceBlogImageSwiperProps {
+interface MainImageSwiperProps {
     images: Image[];
 }
-export default function ServiceBlogImageSwiper({ images }: ServiceBlogImageSwiperProps) {
+export default function MainImageSwiper({ images }: MainImageSwiperProps) {
     return (
         <>
             <Swiper

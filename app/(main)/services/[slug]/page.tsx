@@ -1,6 +1,6 @@
 import { Fetch } from '@/app/lib';
 import Image from 'next/image';
-import { ServiceBlogImageSwiper } from '@/components/main';
+import { MainImageSwiper } from '@/components/main';
 import Link from 'next/link';
 
 interface Category {
@@ -41,7 +41,7 @@ export default async function Plants({ params }: { params: { slug: string } }) {
 
             <div className="rounded-sm mb-4">
                 {service.images.length > 0 ? (
-                    <ServiceBlogImageSwiper images={service.images} />
+                    <MainImageSwiper images={service.images} />
                 ) : (
                     <Image
                         src="/static/viriditas.webp"

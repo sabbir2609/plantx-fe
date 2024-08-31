@@ -37,7 +37,7 @@ export default function ServicesSwiper(
             scrollbar={{
                 hide: false,
             }}
-            autoplay={{ delay: 3000 }}
+            autoplay={{ delay: 4000 }}
             breakpoints={{
                 640: {
                     slidesPerView: 2,
@@ -51,24 +51,25 @@ export default function ServicesSwiper(
             className="mySwiper h-1/2 rounded-lg"
         >
             {services.map((item) => (
-                <Link href={`/services/commercial/${item.slug}`} key={item.id}>
-                    <SwiperSlide className="relative">
-                        <Image
-                            src={item.image || "/static/viriditas.webp"}
-                            alt={item.title}
-                            height={800}
-                            width={800}
-                            className='object-cover w-full h-full'
-                        />
 
-                        <div className="absolute inset-0 transition duration-300 bg-gradient-to-t from-gray-900 via-gray-900/40 hover:opacity-0"></div>
+                <SwiperSlide key={item.id} className="relative">
+                    <Image
+                        src={item.image || "/static/viriditas.webp"}
+                        alt={item.title}
+                        height={800}
+                        width={800}
+                        className='object-cover w-full h-full'
+                    />
 
-                        <div className="absolute z-20 bottom-10 left-8">
-                            <h1 className="text-2xl font-bold text-white">{item.title}</h1>
-                        </div>
+                    <div className="absolute inset-0 transition duration-300 bg-gradient-to-t from-gray-900 via-gray-900/40 hover:opacity-0"></div>
 
-                    </SwiperSlide>
-                </Link>
+                    <div className="absolute z-20 bottom-10 left-8">
+                        <h1 className="text-2xl font-bold text-white">{item.title}</h1>
+                        <Link href={`/services/residential/${item.slug}`} className='text-blue-500 font-semibold text-lg'>
+                            Browse Services
+                        </Link>
+                    </div>
+                </SwiperSlide>
             ))}
         </Swiper>
     );

@@ -12,14 +12,14 @@ export default function Home() {
       <Hero />
       <Slogan />
       <About />
-      {/* <div className="lg:px-8">
+      <div className="lg:px-8">
         <Services />
         <Projects />
         <GetInTouch />
         <Ideas />
-        <WhyUs />
+        {/* <WhyUs /> */}
       </div>
-      <OurClients />
+      {/* <OurClients />
       <Testimonial />
       <ContactUs />
       <Footer /> */}

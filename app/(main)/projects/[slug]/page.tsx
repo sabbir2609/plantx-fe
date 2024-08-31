@@ -1,6 +1,6 @@
 import { Fetch } from '@/app/lib';
 import Image from 'next/image';
-import { ServiceBlogImageSwiper } from '@/components/main';
+import { MainImageSwiper } from '@/components/main';
 
 interface ProjectCategory {
     id: number;
@@ -33,18 +33,18 @@ export default async function Plants({ params }: { params: { slug: string } }) {
 
     return (
         <div className="mx-auto p-2">
-            <h1 className="text-3xl font-bold mb-4">{project.title}</h1>
+            <h1 className="px-2 text-xl font-semibold mb-4 text-accent leading-6">{project.title}</h1>
 
             <div className="rounded-sm mb-4">
                 {project.images.length > 0 ? (
-                    <ServiceBlogImageSwiper images={project.images} />
+                    <MainImageSwiper images={project.images} />
                 ) : (
                     <Image
                         src="/static/viriditas.webp"
                         width={600}
                         height={400}
                         alt='No Image Available'
-                        className='object-cover w-full h-96'
+                        className='object-contain w-full lg:h-[60vh] rounded-md'
                     />
                 )}
             </div>
