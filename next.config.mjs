@@ -1,3 +1,5 @@
+/** @type {import('next').NextConfig} */
+
 import withPlaiceholder from "@plaiceholder/next";
 
 const nextConfig = {
@@ -32,6 +34,16 @@ const nextConfig = {
         hostname: "res.cloudinary.com",
       },
     ],
+  },
+  experimental: {
+    turbo: {
+      rules: {
+        "*.svg": {
+          loaders: ["@svgr/webpack"],
+          as: "*.js",
+        },
+      },
+    },
   },
 };
 
