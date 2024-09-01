@@ -57,11 +57,22 @@ export const metadata: Metadata = {
     },
     description: APP_DESCRIPTION,
   },
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
+    googleBot: "index, follow"
+  },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#",
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#00897b"
 };
+
 
 const jost = Jost({
   subsets: ["latin"],
