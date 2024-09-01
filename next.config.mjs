@@ -1,7 +1,5 @@
 /** @type {import('next').NextConfig} */
 
-import withPlaiceholder from "@plaiceholder/next";
-
 const nextConfig = {
   images: {
     remotePatterns: [
@@ -35,16 +33,6 @@ const nextConfig = {
       },
     ],
   },
-  experimental: {
-    turbo: {
-      rules: {
-        "*.svg": {
-          loaders: ["@svgr/webpack"],
-          as: "*.js",
-        },
-      },
-    },
-  },
 };
 
-export default withPlaiceholder(nextConfig);
+export default nextConfig;
