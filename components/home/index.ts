@@ -11,3 +11,5 @@ export { default as GetInTouch } from "./GetInTouch";
 export { default as WhyUs } from "./WhyUs";
 export { default as OurClients } from "./OurClients";
 export { default as Testimonial } from "./Testimonial";
+export { default as AnnouncementBanner } from "./AnnouncementBanner";
+export { default as Events } from "./Events";

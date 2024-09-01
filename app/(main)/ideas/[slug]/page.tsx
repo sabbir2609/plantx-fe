@@ -14,7 +14,7 @@ export default async function Plants({ params }: { params: { slug: string } }) {
 
     return (
         <div className="p-2 mx-auto">
-            <h1 className="text-3xl font-semibold text-primary text-center mb-4">
+            <h1 className="px-2 text-xl font-semibold mb-4 text-accent leading-6">
                 {idea.title}
             </h1>
             <div className="flex items-center justify-center">

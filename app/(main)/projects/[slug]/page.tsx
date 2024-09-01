@@ -33,7 +33,9 @@ export default async function Plants({ params }: { params: { slug: string } }) {
 
     return (
         <div className="mx-auto p-2">
-            <h1 className="px-2 text-xl font-semibold mb-4 text-accent leading-6">{project.title}</h1>
+            <h1 className="px-2 text-xl font-semibold mb-4 text-accent leading-6">
+                {project.title}
+            </h1>
 
             <div className="rounded-sm mb-4">
                 {project.images.length > 0 ? (

@@ -1,5 +1,5 @@
 import { ChatFab } from "@/components/common";
-import { Navbar } from "@/components/home";
+import { AnnouncementBanner, Navbar } from "@/components/home";
 import { Sidebar } from "@/components/main";
 
 export default function RootLayout({
@@ -11,6 +11,7 @@ export default function RootLayout({
         <div className="bg-base-100 drawer">
             <input id="my-drawer" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content min-h-max">
+                <AnnouncementBanner />
                 <Navbar />
                 {children}
             </div>

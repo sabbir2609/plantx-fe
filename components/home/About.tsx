@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Luckiest_Guy } from "next/font/google";
 
 const Heading_Font = Luckiest_Guy({
+    subsets: ['latin'],
     weight: '400',
 });
 

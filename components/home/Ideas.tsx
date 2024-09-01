@@ -10,7 +10,7 @@ interface Ideas {
 }
 async function getIdeas() {
     const data = await Fetch({ endpoint: 'main/ideas/featured/' });
-    return data;
+    return data.slice(0, 4);
 }
 
 
