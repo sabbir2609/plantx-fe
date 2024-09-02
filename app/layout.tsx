@@ -7,7 +7,7 @@ import NextTopLoader from 'nextjs-toploader';
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react"
 
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
 
 const APP_NAME = "Viriditas";
 const APP_DEFAULT_TITLE = "Viriditas - Elevate your space with Nature";
@@ -87,13 +87,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
+      <GoogleTagManager gtmId="GTM-K3V7TZWG" />
       <body className={`${jost.className}`}>
         <NextTopLoader />
         {children}
-        <SpeedInsights />
-        <Analytics />
-        <GoogleAnalytics gaId="G-MCG4LJRD3N" />
       </body>
+      <SpeedInsights />
+      <Analytics />
+      <GoogleAnalytics gaId="G-MCG4LJRD3N" />
     </html>
   );
 }
