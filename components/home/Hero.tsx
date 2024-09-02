@@ -54,7 +54,7 @@ export default async function Hero() {
                         placeholder='blur'
                         loading='lazy'
                         sizes="100vw"
-                        className='object-contain' />
+                        className='object-cover h-[70vh]' />
                 )}
             </section>
         </>

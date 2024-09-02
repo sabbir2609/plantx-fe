@@ -1,5 +1,6 @@
 'use client';
 
+import { CircleX } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 interface Announcement {
@@ -18,7 +19,6 @@ const AnnouncementBanner: React.FC = () => {
             try {
                 const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/home/announcements/`);
                 const data: Announcement[] = await response.json();
-                console.log(data);
 
                 const activeAnnouncement = data.find(item => item.is_active);
 
@@ -46,10 +46,10 @@ const AnnouncementBanner: React.FC = () => {
                 <strong>{announcement.title}</strong>: {announcement.body}
             </div>
             <button
-                className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded"
+                className="btn btn-sm btn-ghost btn-circle"
                 onClick={handleDismiss}
             >
-                Dismiss
+                <CircleX />
             </button>
         </div>
     );
