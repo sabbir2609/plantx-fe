@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/third-parties": "^14.2.7",
     "@plaiceholder/next": "^3.0.0",
     "@plaiceholder/tailwindcss": "^3.0.0",
     "@tailwindcss/typography": "^0.5.13",
