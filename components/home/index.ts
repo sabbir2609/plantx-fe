@@ -13,3 +13,5 @@ export { default as OurClients } from "./OurClients";
 export { default as Testimonial } from "./Testimonial";
 export { default as AnnouncementBanner } from "./AnnouncementBanner";
 export { default as Events } from "./Events";
+export { default as Faq } from "./Faq";
+export { default as ContactForm } from "./form/ContactForm";

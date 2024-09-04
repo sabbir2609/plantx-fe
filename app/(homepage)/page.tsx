@@ -1,4 +1,4 @@
-import { About, ContactUs, Footer, Hero, Projects, Slogan, Services, GetInTouch, WhyUs, OurClients, Testimonial, Ideas, Events } from "@/components/home";
+import { About, ContactUs, Footer, Hero, Projects, Slogan, Services, GetInTouch, WhyUs, OurClients, Testimonial, Ideas, Events, Faq } from "@/components/home";
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -22,9 +22,9 @@ export default function Home() {
       </div>
       <OurClients />
       <Testimonial />
+      <Faq />
       <ContactUs />
       <Footer />
-
     </>
   );
 }

@@ -7,7 +7,6 @@ import NextTopLoader from 'nextjs-toploader';
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-import { CookieConsent } from "@/components/utils/CookieConsent";
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 
 const APP_NAME = "Viriditas";
@@ -73,7 +72,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#00897b"
+  themeColor: "#00845a",
 };
 
 
@@ -95,7 +94,6 @@ export default function RootLayout({
         <SpeedInsights />
         <Analytics />
         <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`} />
-        <CookieConsent />
       </body>
     </html>
   );
