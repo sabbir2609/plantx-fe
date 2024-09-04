@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default async function Footer() {
     return (
-        <footer className="bg-base-200 text-base-content pt-10 pb-2 px-3 lg:px-10 mt-2">
+        <footer className="bg-base-200 rounded-t-xl text-base-content pt-10 pb-2 px-3 lg:px-10 mt-2">
 
             <div className="pb-5">
                 <Flower2 size={50} />

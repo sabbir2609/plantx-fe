@@ -19,7 +19,7 @@ const faqData = [
 
 export default function Faq() {
     return (
-        <div className="px-4 py-8 bg-base-200">
+        <div className="px-4 rounded-t-md py-8 bg-base-200">
             <h2 className="text-3xl font-bold text-center mb-8">Frequently Asked Questions (FAQ)</h2>
             <div className="max-w-3xl mx-auto space-y-4">
                 {faqData.map((faq, index) => (

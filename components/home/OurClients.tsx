@@ -17,7 +17,7 @@ export default async function OurClients() {
     if (clients.length === 0) return null;
 
     return (
-        <section className="py-7 bg-base-200 mt-2">
+        <section className="py-7 bg-base-200 mt-2 rounded-md">
             <div className="flex flex-col justify-center gap-4 px-4 mx-auto align-middle lg:flex-row max-w-7xl sm:px-6 lg:px-8">
                 <div className="mb-4 text-center lg:mb-0 lg:text-right place-content-center">
                     <h2 className={`${dancing_script.className} text-4xl font-bold text-nowrap`}>
@@ -28,23 +28,25 @@ export default async function OurClients() {
                     </h4>
                 </div>
                 <div className="grid items-center justify-center grid-cols-2 gap-4 px-4 lg:grid-cols-3 lg:gap-6">
-
                     {clients.map((client, index) => (
-                        <Link key={index} href={client.url}
+                        <Link
+                            key={index}
+                            href={client.url}
                             className="flex items-center justify-center transition-transform duration-300 ease-in-out transform hover:scale-105"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <Image
-                                src={client.logo}
-                                alt={client.name}
-                                width={200}
-                                height={200}
-                                className="object-contain h-full w-full"
-                            />
+                            <div className="flex items-center justify-center w-40 h-40 p-4 bg-base-300 rounded-md shadow-md">
+                                <Image
+                                    src={client.logo}
+                                    alt={client.name}
+                                    width={200}
+                                    height={200}
+                                    className="object-contain h-full w-full"
+                                />
+                            </div>
                         </Link>
                     ))}
-
                 </div>
             </div>
         </section>

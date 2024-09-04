@@ -13,7 +13,7 @@ export default async function ContactUs() {
     const contactInfo: ContactInfo[] = data
 
     return (
-        <div className="flex flex-col lg:flex-row w-full p-5 bg-gradient-to-r from-blue-500 to-purple-600">
+        <div className="flex flex-col lg:flex-row w-full p-4 rounded-md">
             <div className="flex flex-col justify-center p-8 text-white bg-opacity-75 bg-gray-900 rounded-lg lg:w-1/2 w-full select-text shadow-lg">
                 <h2 className="mb-6 text-4xl font-extrabold">Contact Us</h2>
                 {contactInfo && contactInfo.map((info, index) => (
