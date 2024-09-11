@@ -1,7 +1,6 @@
-import Image from 'next/image';
-import { SwiperSlideComponent } from '@/components/common';
 import { Fetch } from '@/app/lib';
 import type { Metadata, ResolvingMetadata } from 'next'
+import { ProductImageViewer } from '@/components/main';
 
 interface PlantFeature {
     id: number;
@@ -85,19 +84,9 @@ export default async function Plants(
     return (
         <div className="flex flex-wrap mx-auto p-2 gap-4 lg:gap-0">
             <div className="w-full lg:w-1/2">
-                {plant.images.length > 0 ? (
-                    <SwiperSlideComponent images={plant.images} />
-                ) : (
-                    <div className="">
-                        <Image
-                            src="/static/viriditas.webp"
-                            height={800}
-                            width={800}
-                            className="object-cover rounded-lg"
-                            alt="Placeholder"
-                        />
-                    </div>
-                )}
+
+                <ProductImageViewer images={plant.images} />
+
             </div>
 
             <div className="lg:ps-2 w-full lg:w-1/2 space-y-2">
