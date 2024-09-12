@@ -208,7 +208,7 @@ export default function ProductImageViewer({ images }: { images: PlantImage[] })
                     </div>
 
                     {/* Thumbnails in Modal */}
-                    <div className="absolute bottom-0 w-full lg:static lg:w-auto lg:h-full flex lg:flex-col space-x-2 lg:space-x-0 lg:space-y-2 overflow-x-auto lg:overflow-y-auto px-4 py-2 lg:py-0 bg-white bg-opacity-50 lg:bg-transparent">
+                    <div className="absolute bottom-0 w-full md:static md:w-auto md:h-full flex md:flex-col space-x-2 md:space-x-0 md:space-y-2 overflow-x-auto md:overflow-y-auto px-4 py-2 md:py-0 bg-white bg-opacity-50 md:bg-transparent">
                         {images.map((image, index) => (
                             <button
                                 key={index}
@@ -220,7 +220,7 @@ export default function ProductImageViewer({ images }: { images: PlantImage[] })
                                     height={64}
                                     width={64}
                                     alt={image.short_description}
-                                    className="object-cover rounded-md w-20 h-20"
+                                    className="object-cover rounded-md w-16 h-16 md:w-24 md:h-24"
                                 />
                             </button>
                         ))}
