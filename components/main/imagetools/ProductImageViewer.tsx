@@ -18,9 +18,7 @@ export default function ProductImageViewer({ images }: { images: PlantImage[] })
     const [startX, setStartX] = useState(0);
     const [translateX, setTranslateX] = useState(0);
     const [isModalOpen, setIsModalOpen] = useState(false);
-
     const containerRef = useRef<HTMLDivElement>(null);
-    const modalImageRef = useRef<HTMLImageElement>(null);
 
     const handleNext = () => {
         setSelectedImageIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -64,19 +62,6 @@ export default function ProductImageViewer({ images }: { images: PlantImage[] })
 
     const closeModal = () => {
         setIsModalOpen(false);
-    };
-
-    const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
-        e.preventDefault();
-
-        const container = modalImageRef.current;
-        if (!container) return;
-
-        const rect = container.getBoundingClientRect();
-        const offsetX = e.clientX - rect.left;
-        const offsetY = e.clientY - rect.top;
-        const originX = (offsetX / rect.width) * 100;
-        const originY = (offsetY / rect.height) * 100;
     };
 
     // Prevent page vertical scroll when modal is open but allow horizontal scroll
@@ -186,9 +171,7 @@ export default function ProductImageViewer({ images }: { images: PlantImage[] })
                     </button>
 
                     <div
-                        className="relative w-auto h-auto max-w-4xl overflow-hidden mb-4 lg:mb-0 touch-none flex justify-center items-center"
-                        onWheel={handleWheel}
-                        ref={modalImageRef}
+                        className="relative h-screen overflow-hidden mb-4 lg:mb-0 touch-none flex justify-center items-center"
                     >
 
                         {/* Previous button */}
@@ -203,16 +186,13 @@ export default function ProductImageViewer({ images }: { images: PlantImage[] })
 
                         {/* Image in Modal */}
                         <div className="relative w-full h-full flex justify-center items-center">
-
                             <ImageMagnifier
                                 src={images[modalImageIndex].image}
                                 alt={images[modalImageIndex].short_description}
-                                width={1024}
-                                height={768}
-                                className="object-contain transition-transform duration-300 cursor-zoom-in touch-auto"
-                                zoomLevel={2}
+                                width={1920}
+                                height={1080}
+                                className='object-contain w-full h-full'
                             />
-
                         </div>
 
                         {/* Next button */}
@@ -228,7 +208,7 @@ export default function ProductImageViewer({ images }: { images: PlantImage[] })
                     </div>
 
                     {/* Thumbnails in Modal */}
-                    <div className="absolute bottom-0 w-full lg:static lg:w-auto lg:h-full flex lg:flex-col justify-center space-x-2 lg:space-x-0 lg:space-y-2 overflow-x-auto lg:overflow-y-auto px-4 py-2 lg:py-0 bg-black bg-opacity-80 lg:bg-transparent">
+                    <div className="absolute bottom-0 w-full lg:static lg:w-auto lg:h-full flex lg:flex-col space-x-2 lg:space-x-0 lg:space-y-2 overflow-x-auto lg:overflow-y-auto px-4 py-2 lg:py-0 bg-white bg-opacity-50 lg:bg-transparent">
                         {images.map((image, index) => (
                             <button
                                 key={index}

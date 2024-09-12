@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface PlantFeature {
     id: number;
@@ -29,7 +29,7 @@ export default function PlantCard(
     { plant }: { plant: Plant }
 ) {
     return (
-        <div className="shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 lg:hover:scale-105 bg-base-200">
+        <div className="shadow-lg bg-base-200 rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-2xl">
             <Link href={`/plants/${plant.slug}`}>
                 <div className="relative">
                     <Image
@@ -43,7 +43,7 @@ export default function PlantCard(
                     {plant.features && plant.features.length > 0 && (
                         <div className="absolute top-2 right-2 space-y-1">
                             {plant.features.map((feature) => (
-                                <div key={feature.id} className="flex items-center px-1 py-1 rounded-lg backdrop-blur-md bg-gray-800 bg-opacity-50 text-white">
+                                <div key={feature.id} className="flex items-center px-2 py-1 rounded-lg backdrop-blur-md bg-gray-800 bg-opacity-50 text-white">
                                     <span className="text-xs">
                                         {feature.name}
                                     </span>
@@ -51,23 +51,22 @@ export default function PlantCard(
                             ))}
                         </div>
                     )}
-
                 </div>
                 <div className="p-4">
                     <h2 className="text-lg font-semibold mb-2 leading-5 lg:leading-6">
                         {plant.name}
                     </h2>
-                    <p className="text-sm">
-                        <span className="text-accent">{plant.category}</span>
+                    <p className="text-sm mb-1">
+                        <span className="font-medium">Category:</span> {plant.category}
                     </p>
-                    <p className="text-sm">
-                        <span className="text-accent">{plant.location_type}</span>
+                    <p className="text-sm mb-1">
+                        <span className="font-medium">Location:</span> {plant.location_type}
                     </p>
-                    <p className="text-sm">
-                        <span className="text-accent">{plant.size}</span>
+                    <p className="text-sm mb-1">
+                        <span className="font-medium">Size:</span> {plant.size}
                     </p>
-                    <p className="text-xs italic">
-                        sku: <span className="text-accent lowercase">{plant.sku}</span>
+                    <p className="text-xs italic text-gray-500">
+                        <span className="font-medium">SKU:</span> <span className="lowercase">{plant.sku}</span>
                     </p>
                 </div>
             </Link>

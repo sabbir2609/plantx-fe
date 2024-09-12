@@ -42,7 +42,7 @@ export default async function services(context: any) {
             <h1 className="text-3xl font-bold mb-6">
                 Browse all services
             </h1>
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 lg:gap-4 lg:p-2 mb-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-4 lg:p-2 mb-16">
                 {services.map((service) => (
                     <ServiceCard service={service} key={service.id} />
                 ))}

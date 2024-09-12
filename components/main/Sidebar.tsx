@@ -87,7 +87,7 @@ export default function Sidebar() {
 
         return (
             <li key={id}>
-                <Link href={link} className={`font-medium bg-base-100 hover:bg-blue-900 ${isActive ? 'bg-blue-500 text-white' : ''}`}>
+                <Link href={link} className={`font-medium bg-base-100 hover:bg-blue-300 hover:text-black ${isActive ? 'bg-blue-500 text-white' : ''}`}>
                     <ChevronRight size={20} /> {title}
                 </Link>
             </li>
@@ -139,7 +139,7 @@ export default function Sidebar() {
                             const isActive = router === link;
                             return (
                                 <li key={title}>
-                                    <Link href={link} className={`font-semibold ${isActive ? 'bg-blue-500 text-white' : ''}`}>
+                                    <Link href={link} className={`font-semibold ${isActive ? 'bg-blue-500 text-white dark:bg-blue-700 dark:text-gray-200' : 'dark:text-gray-400'} my-1`}>
                                         {icon}
                                         {title}
                                     </Link>

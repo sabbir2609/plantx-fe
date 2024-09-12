@@ -1,6 +1,6 @@
 "use client";
 
-import NextImage from 'next/image';
+import Image from 'next/image';
 import { MouseEvent, TouchEvent, useState, useRef, useEffect } from 'react';
 
 interface ImageMagnifierProps {
@@ -63,7 +63,7 @@ export default function ImageMagnifier({
     const touchEnd = () => {
         hideTimeout.current = setTimeout(() => {
             setShowMagnifier(false);
-        }, 2000); // Hide magnifier after 2 seconds
+        }, 5000);
     };
 
     const touchMove = (e: TouchEvent<HTMLImageElement>) => {
@@ -99,8 +99,8 @@ export default function ImageMagnifier({
     }, [showMagnifier, src]);
 
     return (
-        <div className="relative inline-block">
-            <NextImage
+        <div className="relative inline-block lg:h-screen md:h-screen p-2">
+            <Image
                 src={src}
                 className={className}
                 width={width}
@@ -112,7 +112,7 @@ export default function ImageMagnifier({
                 onTouchStart={touchStart}
                 onTouchEnd={touchEnd}
                 onTouchMove={touchMove}
-                onLoadingComplete={handleImageLoad}
+                onLoad={handleImageLoad}
             />
             {loading && (
                 <div className="absolute inset-0 flex justify-center items-center bg-zinc-800 bg-opacity-75">
