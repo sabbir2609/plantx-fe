@@ -1,7 +1,7 @@
 "use client";
 
-import Image from 'next/image';
-import { MouseEvent, TouchEvent, useState } from 'react';
+import NextImage from 'next/image';
+import { MouseEvent, TouchEvent, useState, useRef, useEffect } from 'react';
 
 interface ImageMagnifierProps {
     src: string;
@@ -26,8 +26,10 @@ export default function ImageMagnifier({
 }: ImageMagnifierProps) {
     const [showMagnifier, setShowMagnifier] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [bgLoading, setBgLoading] = useState(true);
     const [[imgWidth, imgHeight], setSize] = useState<[number, number]>([0, 0]);
     const [[x, y], setXY] = useState<[number, number]>([0, 0]);
+    const hideTimeout = useRef<NodeJS.Timeout | null>(null);
 
     const mouseEnter = (e: MouseEvent<HTMLImageElement>) => {
         const el = e.currentTarget;
@@ -49,6 +51,9 @@ export default function ImageMagnifier({
     };
 
     const touchStart = (e: TouchEvent<HTMLImageElement>) => {
+        if (hideTimeout.current) {
+            clearTimeout(hideTimeout.current);
+        }
         const el = e.currentTarget;
         const { width, height } = el.getBoundingClientRect();
         setSize([width, height]);
@@ -56,7 +61,9 @@ export default function ImageMagnifier({
     };
 
     const touchEnd = () => {
-        setShowMagnifier(false);
+        hideTimeout.current = setTimeout(() => {
+            setShowMagnifier(false);
+        }, 2000); // Hide magnifier after 2 seconds
     };
 
     const touchMove = (e: TouchEvent<HTMLImageElement>) => {
@@ -71,9 +78,29 @@ export default function ImageMagnifier({
         setLoading(false);
     };
 
+    const handleBgImageLoad = () => {
+        setBgLoading(false);
+    };
+
+    const getMagnifierPosition = () => {
+        const offsetX = Math.max(0, Math.min(x - magnifierWidth / 2, imgWidth - magnifierWidth));
+        const offsetY = Math.max(0, Math.min(y - magnifierHeight / 2, imgHeight - magnifierHeight));
+        return { top: offsetY, left: offsetX };
+    };
+
+    const { top, left } = getMagnifierPosition();
+
+    useEffect(() => {
+        if (showMagnifier) {
+            const img = new window.Image();
+            img.src = src;
+            img.onload = handleBgImageLoad;
+        }
+    }, [showMagnifier, src]);
+
     return (
         <div className="relative inline-block">
-            <Image
+            <NextImage
                 src={src}
                 className={className}
                 width={width}
@@ -88,8 +115,8 @@ export default function ImageMagnifier({
                 onLoadingComplete={handleImageLoad}
             />
             {loading && (
-                <div className="absolute inset-0 flex justify-center items-center bg-white bg-opacity-75">
-                    <div className="loader">Loading...</div>
+                <div className="absolute inset-0 flex justify-center items-center bg-zinc-800 bg-opacity-75">
+                    <span className="loading loading-dots loading-lg"></span>
                 </div>
             )}
             <div
@@ -102,16 +129,22 @@ export default function ImageMagnifier({
                     opacity: '1',
                     border: '1px solid lightgrey',
                     backgroundColor: 'white',
-                    borderRadius: '5px',
-                    backgroundImage: `url('${src}')`,
+                    borderRadius: '50%', // Make the magnifier circular
+                    backgroundImage: bgLoading ? 'none' : `url('${src}')`,
                     backgroundRepeat: 'no-repeat',
-                    top: `${y - magnifierHeight / 2}px`,
-                    left: `${x - magnifierWidth / 2}px`,
+                    top: `${top}px`,
+                    left: `${left}px`,
                     backgroundSize: `${imgWidth * zoomLevel}px ${imgHeight * zoomLevel}px`,
                     backgroundPositionX: `${-x * zoomLevel + magnifierWidth / 2}px`,
                     backgroundPositionY: `${-y * zoomLevel + magnifierHeight / 2}px`,
                 }}
-            />
+            >
+                {bgLoading && (
+                    <div className="absolute inset-0 flex justify-center items-center bg-purple-500 bg-opacity-75 rounded-full">
+                        <span className="loading loading-ring loading-lg"></span>
+                    </div>
+                )}
+            </div>
         </div>
     );
 }

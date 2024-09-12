@@ -43,9 +43,9 @@ export default async function Page() {
                         <Image
                             src={category.image || '/static/viriditas.webp'}
                             alt={category.title}
-                            layout="fill"
-                            objectFit="cover"
-                            className="transition duration-300 ease-in-out group-hover:opacity-75"
+                            height={200}
+                            width={200}
+                            className="transition duration-300 ease-in-out group-hover:opacity-75 h-full w-full object-cover"
                         />
                         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40">
                             <h2 className="text-xl font-bold text-white text-center">{category.title}</h2>

@@ -178,10 +178,10 @@ export default function ProductImageViewer({ images }: { images: PlantImage[] })
 
             {/* Modal for Image Magnification */}
             {isModalOpen && (
-                <div className="fixed inset-0 z-50 bg-black bg-opacity-90 flex justify-center items-center lg:justify-center lg:items-center">
+                <div className="fixed inset-0 z-50 bg-black bg-opacity-90 flex justify-center items-center lg:justify-center lg:items-center shadow-2xl">
 
                     {/* Close Button */}
-                    <button className="absolute top-6 right-6 text-white text-3xl" onClick={closeModal}>
+                    <button className="absolute top-6 right-6 text-white text-3xl z-50" onClick={closeModal}>
                         <X size={32} />
                     </button>
 
