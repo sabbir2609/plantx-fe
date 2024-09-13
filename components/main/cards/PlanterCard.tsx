@@ -48,28 +48,31 @@ export default function PlanterCard({ planter }: { planter: Planter }) {
             </div>
           ) : null}
         </div>
-                <div className="flex flex-col p-3">
-            <h2 className="font-normal tracking-tight lg:font-semibold" title={planter.name}>
-                {planter.name}
-            </h2>
-            {planter.category && (
-                <p className="flex items-center text-sm">
-                    <ChartBarStacked size={16} className="mr-2" />
-                    {planter.category}
-                </p>
-            )}
-            {planter.size && (
-                <p className="flex items-center text-sm">
-                    <Scale3D size={16} className="mr-2" />
-                    {planter.size} inches
-                </p>
-            )}
-            {planter.color && (
-                <p className="flex items-center text-sm">
-                    <Palette size={16} className="mr-2" />
-                    {planter.color}
-                </p>
-            )}
+        <div className="flex flex-col p-3">
+          <h2
+            className="font-normal tracking-tight lg:font-semibold"
+            title={planter.name}
+          >
+            {planter.name}
+          </h2>
+          {planter.category && (
+            <p className="flex items-center text-sm">
+              <ChartBarStacked size={16} className="mr-2" />
+              {planter.category}
+            </p>
+          )}
+          {planter.size && (
+            <p className="flex items-center text-sm">
+              <Scale3D size={16} className="mr-2" />
+              {planter.size} inches
+            </p>
+          )}
+          {planter.color && (
+            <p className="flex items-center text-sm">
+              <Palette size={16} className="mr-2" />
+              {planter.color}
+            </p>
+          )}
         </div>
       </Link>
     </div>
