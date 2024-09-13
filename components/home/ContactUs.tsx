@@ -1,45 +1,52 @@
-import { Fetch } from "@/app/lib"
-import { Mail, MapPin, PhoneCall } from "lucide-react"
-import { ContactForm } from "."
+import { Fetch } from "@/app/lib";
+import { Mail, MapPin, PhoneCall } from "lucide-react";
+import { ContactForm } from ".";
 
 interface ContactInfo {
-    address: string
-    email: string
-    phone: number
+  address: string;
+  email: string;
+  phone: number;
 }
 
 export default async function ContactUs() {
-    const data = await Fetch({ endpoint: "home/contact-info/" })
-    const contactInfo: ContactInfo[] = data
+  const data = await Fetch({ endpoint: "home/contact-info/" });
+  const contactInfo: ContactInfo[] = data;
 
-    return (
-        <div className="flex flex-col lg:flex-row w-full p-4 rounded-md">
-            <div className="flex flex-col justify-center p-8 text-white bg-opacity-75 bg-gray-900 rounded-lg lg:w-1/2 w-full select-text shadow-lg">
-                <h2 className="mb-6 text-4xl font-extrabold">Contact Us</h2>
-                {contactInfo && contactInfo.map((info, index) => (
-                    <div key={index} className="space-y-4 mb-4">
-                        <p className="flex items-center text-lg">
-                            <MapPin size={24} className="inline-block text-yellow-400" />
-                            <span className="ml-3">{info.address}</span>
-                        </p>
-                        <p className="flex items-center text-lg">
-                            <Mail size={24} className="inline-block text-yellow-400" />
-                            <a href={`mailto:${info.email}`} className="ml-3 underline hover:text-yellow-300">
-                                {info.email}
-                            </a>
-                        </p>
-                        <p className="flex items-center text-lg">
-                            <PhoneCall size={24} className="inline-block text-yellow-400" />
-                            <a href={`tel:${info.phone}`} className="ml-3 underline hover:text-yellow-300">
-                                {info.phone}
-                            </a>
-                        </p>
-                    </div>
-                ))}
+  return (
+    <div className="grid w-full grid-cols-1 gap-5 rounded-md p-4 md:grid-cols-2">
+      <div className="flex select-text flex-col justify-center rounded-lg bg-gray-900 bg-opacity-75 p-8 text-white shadow-lg">
+        <h2 className="mb-6 text-4xl font-extrabold">Contact Us</h2>
+        {contactInfo &&
+          contactInfo.map((info, index) => (
+            <div key={index} className="mb-4 space-y-4">
+              <p className="flex items-center text-lg">
+                <MapPin size={24} className="inline-block text-yellow-400" />
+                <span className="ml-3">{info.address}</span>
+              </p>
+              <p className="flex items-center text-lg">
+                <Mail size={24} className="inline-block text-yellow-400" />
+                <a
+                  href={`mailto:${info.email}`}
+                  className="ml-3 underline hover:text-yellow-300"
+                >
+                  {info.email}
+                </a>
+              </p>
+              <p className="flex items-center text-lg">
+                <PhoneCall size={24} className="inline-block text-yellow-400" />
+                <a
+                  href={`tel:${info.phone}`}
+                  className="ml-3 underline hover:text-yellow-300"
+                >
+                  {info.phone}
+                </a>
+              </p>
             </div>
-            <div className="flex-1 mt-5 lg:mt-0 lg:ml-5">
-                <ContactForm />
-            </div>
-        </div>
-    )
+          ))}
+      </div>
+      <div className="lg:mt-0">
+        <ContactForm />
+      </div>
+    </div>
+  );
 }

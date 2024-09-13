@@ -1,232 +1,140 @@
-'use client';
+"use client";
 
-import React, { useState, useRef, useEffect } from 'react';
-import Image from 'next/image';
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
-import ImageMagnifier from './ImageMagnifier';
+import React, { useState } from "react";
+import Image from "next/image";
+import { ChevronLeft, ChevronRight, CircleX } from "lucide-react";
+import ImageMagnifier from "./ImageMagnifier";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/pagination";
+
+import { Pagination } from "swiper/modules";
 
 interface PlantImage {
-    id: number;
-    image: string;
-    short_description: string;
+  id: number;
+  image: string;
+  short_description: string;
 }
 
-export default function ProductImageViewer({ images }: { images: PlantImage[] }) {
-    const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-    const [modalImageIndex, setModalImageIndex] = useState(0);
-    const [startX, setStartX] = useState(0);
-    const [translateX, setTranslateX] = useState(0);
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const containerRef = useRef<HTMLDivElement>(null);
+export default function ProductImageViewer({
+  images,
+}: {
+  images: PlantImage[];
+}) {
+  const [modalImageIndex, setModalImageIndex] = useState(0);
 
-    const handleNext = () => {
-        setSelectedImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    };
+  const handleModalNext = () => {
+    setModalImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
 
-    const handlePrev = () => {
-        setSelectedImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-    };
+  const handleModalPrev = () => {
+    setModalImageIndex(
+      (prevIndex) => (prevIndex - 1 + images.length) % images.length,
+    );
+  };
 
-    const handleModalNext = () => {
-        setModalImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    };
+  const openModal = (index: number) => {
+    setModalImageIndex(index);
+    (document.getElementById("modal") as HTMLDialogElement)?.showModal();
+  };
 
-    const handleModalPrev = () => {
-        setModalImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-    };
+  const closeModal = () => {
+    (document.getElementById("modal") as HTMLDialogElement)?.close();
+  };
 
-    const handleTouchStart = (e: React.TouchEvent) => {
-        setStartX(e.touches[0].clientX);
-    };
+  return (
+    <>
+      {/* Main Image Viewer */}
+      <div className="mx-auto w-full lg:flex lg:h-[80vh] lg:space-x-4">
+        <Swiper
+          pagination={true}
+          modules={[Pagination]}
+          className="mySwiper rounded-lg"
+        >
+          {images.map((image, index) => (
+            <SwiperSlide key={index}>
+              <Image
+                src={image.image}
+                alt="Product"
+                height={512}
+                width={768}
+                className="h-full w-full cursor-pointer select-none object-cover"
+                onClick={() => openModal(index)} // Open modal on image click
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
 
-    const handleTouchMove = (e: React.TouchEvent) => {
-        const currentX = e.touches[0].clientX;
-        const diffX = currentX - startX;
-        setTranslateX(diffX);
-    };
+      <dialog
+        id="modal"
+        className="modal fixed inset-0 flex h-full w-full items-center justify-center bg-black bg-opacity-90"
+      >
+        <div className="relative flex h-full w-full flex-col md:flex-row">
+          {/* Close Button */}
+          <button
+            className="absolute right-6 top-6 z-50 text-3xl text-white md:right-32"
+            onClick={closeModal}
+          >
+            <CircleX size={32} />
+          </button>
 
-    const handleTouchEnd = () => {
-        if (translateX > 50) {
-            handlePrev();
-        } else if (translateX < -50) {
-            handleNext();
-        }
-        setTranslateX(0);
-    };
+          {/* Image and Navigation */}
+          <div className="relative mb-4 flex h-full w-full items-center justify-center lg:mb-0">
+            {/* Previous button */}
+            {modalImageIndex > 0 && (
+              <button
+                onClick={handleModalPrev}
+                className="absolute left-4 top-1/2 z-10 -translate-y-1/2 transform rounded-full bg-white p-2 text-black opacity-80 hover:bg-black hover:text-white hover:opacity-100 hover:outline"
+              >
+                <ChevronLeft size={20} />
+              </button>
+            )}
 
-    const openModal = (index: number) => {
-        setModalImageIndex(index);
-        setIsModalOpen(true);
-    };
-
-    const closeModal = () => {
-        setIsModalOpen(false);
-    };
-
-    // Prevent page vertical scroll when modal is open but allow horizontal scroll
-    useEffect(() => {
-        if (isModalOpen) {
-            document.body.style.overflowY = 'hidden'; // Disable vertical scrolling
-        } else {
-            document.body.style.overflowY = ''; // Enable vertical scrolling
-        }
-        return () => {
-            document.body.style.overflowY = ''; // Reset when modal closes or component unmounts
-        };
-    }, [isModalOpen]);
-
-
-    return (
-        <>
-            {/* Main Image Viewer */}
-            <div className="w-full mx-auto lg:h-[80vh] lg:flex lg:space-x-4">
-                {/* Main Image */}
-                <div className="relative w-full h-96 lg:h-auto overflow-hidden rounded-lg bg-gray-900">
-                    {selectedImageIndex > 0 && (
-                        <button
-                            onClick={handlePrev}
-                            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black text-white opacity-80 p-2 rounded-full hover:bg-black hover:opacity-100 focus:outline-none z-10"
-                        >
-                            <ChevronLeft size={18} />
-                        </button>
-                    )}
-
-                    <div
-                        className="relative w-full h-full"
-                        ref={containerRef}
-                        onTouchStart={handleTouchStart}
-                        onTouchMove={handleTouchMove}
-                        onTouchEnd={handleTouchEnd}
-                    >
-                        <div
-                            className="absolute inset-0 flex transition-transform duration-500"
-                            style={{ transform: `translateX(calc(-${selectedImageIndex * 100}% + ${translateX}px))` }}
-                        >
-                            {images.map((image, index) => (
-                                <div key={index} className="w-full flex-shrink-0">
-                                    <Image
-                                        src={image.image}
-                                        alt="Product"
-                                        height={512}
-                                        width={768}
-                                        className="object-cover w-full h-full cursor-pointer"
-                                        onClick={() => openModal(index)}  // Open modal on image click
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {selectedImageIndex < images.length - 1 && (
-                        <button
-                            onClick={handleNext}
-                            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black text-white opacity-80 p-2 rounded-full hover:bg-black hover:opacity-100 focus:outline-none z-10"
-                        >
-                            <ChevronRight size={18} />
-                        </button>
-                    )}
-
-                    {/* Dot Navigation */}
-                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 bg-black opacity-70 rounded-full p-2">
-                        {images.map((_, index) => (
-                            <button
-                                key={index}
-                                onClick={() => setSelectedImageIndex(index)}
-                                className={`w-2 h-2 rounded-full ${selectedImageIndex === index ? 'bg-indigo-500' : 'bg-gray-300'} focus:outline-none`}
-                            />
-                        ))}
-                    </div>
-                </div>
-
-                {/* Thumbnails */}
-                <div className="w-full mt-4 lg:mt-0 lg:w-1/4 lg:h-auto lg:overflow-y-auto lg:space-y-4">
-                    <div className="grid grid-flow-col lg:grid-flow-row auto-cols-max lg:auto-rows-max justify-start space-x-4 lg:space-x-0 lg:space-y-4 overflow-x-auto lg:overflow-x-hidden">
-                        {images.map((image, index) => (
-                            <button
-                                key={index}
-                                onClick={() => setSelectedImageIndex(index)}  // Change main image from thumbnail click
-                                className={`border-2 rounded-lg ${selectedImageIndex === index ? 'border-indigo-500 border-3' : 'border-transparent'} focus:outline-none`}
-                            >
-                                <Image
-                                    src={image.image}
-                                    height={96}
-                                    width={96}
-                                    alt={image.short_description}
-                                    className="w-20 h-20 object-cover rounded-md"
-                                />
-                            </button>
-                        ))}
-                    </div>
-                </div>
+            {/* Image in Modal */}
+            <div className="relative flex h-full w-full items-center justify-center">
+              <ImageMagnifier
+                src={images[modalImageIndex].image}
+                alt={images[modalImageIndex].short_description}
+                width={1920}
+                height={1080}
+                className="h-full w-full object-contain rounded-sm"
+              />
             </div>
 
-            {/* Modal for Image Magnification */}
-            {isModalOpen && (
-                <div className="fixed inset-0 z-50 bg-black bg-opacity-90 flex justify-center items-center lg:justify-center lg:items-center shadow-2xl">
-
-                    {/* Close Button */}
-                    <button className="absolute top-6 right-6 text-white text-3xl z-50" onClick={closeModal}>
-                        <X size={32} />
-                    </button>
-
-                    <div
-                        className="relative h-screen overflow-hidden mb-4 lg:mb-0 touch-none flex justify-center items-center"
-                    >
-
-                        {/* Previous button */}
-                        {modalImageIndex > 0 && (
-                            <button
-                                onClick={handleModalPrev}
-                                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black text-white opacity-80 p-2 rounded-full hover:bg-black hover:opacity-100 focus:outline-none z-10"
-                            >
-                                <ChevronLeft size={20} />
-                            </button>
-                        )}
-
-                        {/* Image in Modal */}
-                        <div className="relative w-full h-full flex justify-center items-center">
-                            <ImageMagnifier
-                                src={images[modalImageIndex].image}
-                                alt={images[modalImageIndex].short_description}
-                                width={1920}
-                                height={1080}
-                                className='object-contain w-full h-full'
-                            />
-                        </div>
-
-                        {/* Next button */}
-                        {modalImageIndex < images.length - 1 && (
-                            <button
-                                onClick={handleModalNext}
-                                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black text-white opacity-80 p-2 rounded-full hover:bg-black hover:opacity-100 focus:outline-none z-10"
-                            >
-                                <ChevronRight size={20} />
-                            </button>
-                        )}
-
-                    </div>
-
-                    {/* Thumbnails in Modal */}
-                    <div className="absolute bottom-0 w-full md:static md:w-auto md:h-full flex md:flex-col space-x-2 md:space-x-0 md:space-y-2 overflow-x-auto md:overflow-y-auto px-4 py-2 md:py-0 bg-white bg-opacity-50 md:bg-transparent">
-                        {images.map((image, index) => (
-                            <button
-                                key={index}
-                                onClick={() => setModalImageIndex(index)}  // Change modal image from thumbnail click
-                                className={`border-2 p-1 rounded-lg ${modalImageIndex === index ? 'border-indigo-500' : 'border-transparent'} focus:outline-none flex-shrink-0`}
-                            >
-                                <Image
-                                    src={image.image}
-                                    height={64}
-                                    width={64}
-                                    alt={image.short_description}
-                                    className="object-cover rounded-md w-16 h-16 md:w-24 md:h-24"
-                                />
-                            </button>
-                        ))}
-                    </div>
-                </div>
+            {/* Next button */}
+            {modalImageIndex < images.length - 1 && (
+              <button
+                onClick={handleModalNext}
+                className="absolute right-4 top-1/2 z-10 -translate-y-1/2 transform rounded-full bg-white p-2 text-black opacity-80 hover:bg-black hover:text-white hover:opacity-100 hover:outline"
+              >
+                <ChevronRight size={20} />
+              </button>
             )}
-        </>
-    );
+          </div>
+
+          {/* Thumbnails in Modal */}
+          <div className="absolute bottom-0 flex w-full space-x-2 overflow-x-auto bg-white bg-opacity-50 px-4 py-2 md:static md:ml-4 md:h-full md:w-auto md:flex-col md:space-x-0 md:space-y-2 md:overflow-y-auto md:bg-transparent">
+            {images.map((image, index) => (
+              <button
+                key={index}
+                onClick={() => setModalImageIndex(index)} // Change modal image from thumbnail click
+                className={`rounded-lg border-2 p-1 ${modalImageIndex === index ? "border-indigo-500" : "border-transparent"} flex-shrink-0 focus:outline-none`}
+              >
+                <Image
+                  src={image.image}
+                  height={64}
+                  width={64}
+                  alt={image.short_description}
+                  className="h-16 w-16 rounded-md object-cover md:h-24 md:w-24"
+                />
+              </button>
+            ))}
+          </div>
+        </div>
+      </dialog>
+    </>
+  );
 }

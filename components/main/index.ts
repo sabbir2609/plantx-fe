@@ -7,4 +7,3 @@ export { default as Footer } from "./Footer";
 export { default as ProductImageViewer } from "./imagetools/ProductImageViewer";
 export { default as Pagination } from "./Pagination";
 export { default as Sidebar } from "./Sidebar";
-export { default as MainImageSwiper } from "./swiper/MainImageSwiper";

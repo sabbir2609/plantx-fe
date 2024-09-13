@@ -1,6 +1,6 @@
 import { Fetch } from '@/app/lib';
+import { ProductImageViewer } from '@/components/main';
 import Image from 'next/image';
-import { MainImageSwiper } from '@/components/main';
 
 interface ProjectCategory {
     id: number;
@@ -39,7 +39,7 @@ export default async function Plants({ params }: { params: { slug: string } }) {
 
             <div className="rounded-sm mb-4">
                 {project.images.length > 0 ? (
-                    <MainImageSwiper images={project.images} />
+                    <ProductImageViewer images={project.images} />
                 ) : (
                     <Image
                         src="/static/viriditas.webp"
