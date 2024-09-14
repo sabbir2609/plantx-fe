@@ -54,7 +54,7 @@ export default function Sidebar() {
                 "indoor": { title: "Indoor", link: "/plants/indoor" },
                 "outdoor": { title: "Outdoor", link: "/plants/outdoor" }
             },
-            open: true
+            open: false
         },
         "Planters": {
             title: "Planters",
@@ -112,13 +112,13 @@ export default function Sidebar() {
     return (
         <aside className="flex flex-col min-h-screen w-72 bg-base-200">
             <div className="flex-grow">
-                <div className='sticky top-0 z-20 hidden gap-2 px-4 py-2 shadow-sm h-14 lg:block bg-base-200'>
+                <div className='sticky top-0 z-20 hidden gap-2 px-4 py-2 shadow-sm h-14 lg:block bg-base-300'>
                     <Link href="/" className='flex items-center justify-center px-2 mt-1 text-2xl font-semibold'>
                         Viriditas
                     </Link>
                 </div>
 
-                <div className="sticky top-0 z-20 items-center py-2 h-14 lg:hidden bg-base-200 shadow-sm">
+                <div className="sticky top-0 z-20 items-center py-2 h-14 lg:hidden bg-base-300 shadow-sm">
                     <form role="search" className="m-2 h-14 lg:hidden">
                         <div className="form-control">
                             <input type="search" name="q" className="input input-sm input-bordered" placeholder="Search..." />
@@ -138,19 +138,21 @@ export default function Sidebar() {
                         {footerItems.map(({ title, icon, link }) => {
                             const isActive = router === link;
                             return (
-                                <li key={title}>
-                                    <Link href={link} className={`font-semibold ${isActive ? 'bg-blue-500 text-white dark:bg-blue-700 dark:text-gray-200' : 'dark:text-gray-400'} my-1`}>
-                                        {icon}
-                                        {title}
-                                    </Link>
-                                </li>
+                              <li key={title}>
+                                <Link
+                                  href={link}
+                                  className={`m-0.5 bg-base-100 font-medium hover:bg-blue-300 hover:text-black ${isActive ? "bg-blue-500 text-white" : ""}`}>
+                                  {icon}
+                                  {title}
+                                </Link>
+                              </li>
                             );
                         })}
                     </ul>
                 </div>
             </div>
 
-            <div className="sticky bottom-0 flex flex-row items-center justify-between h-12 p-1 bg-base-200">
+            <div className="sticky bottom-0 flex flex-row items-center justify-between h-12 p-1 bg-base-300">
                 <Link href="/feedback" className="rounded-sm btn btn-ghost">
                     <MessageSquareHeart size={20} className="inline-block" />
                 </Link>

@@ -26,51 +26,49 @@ export default function ServicesSwiper(
     { services }: ServiceSwiperProps
 ) {
     return (
-        <Swiper
-            slidesPerView={1}
-            spaceBetween={20}
-            navigation={false}
-            modules={[Autoplay, Navigation, Pagination, Scrollbar]}
-            pagination={{
-                clickable: true,
-            }}
-            scrollbar={{
-                hide: false,
-            }}
-            autoplay={{ delay: 4000 }}
-            breakpoints={{
-                640: {
-                    slidesPerView: 2,
-                    spaceBetween: 10,
-                },
-                1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 10,
-                },
-            }}
-            className="mySwiper h-1/2 rounded-lg"
-        >
-            {services.map((item) => (
+      <Swiper
+        slidesPerView={1}
+        spaceBetween={20}
+        navigation={false}
+        modules={[Autoplay, Navigation, Pagination, Scrollbar]}
+        pagination={{
+          clickable: true,
+        }}
+        scrollbar={{
+          hide: false,
+        }}
+        autoplay={{ delay: 4000 }}
+        breakpoints={{
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 10,
+          },
+        }}
+        className="mySwiper h-1/2 rounded-lg"
+      >
+        {services.map((item) => (
+          <SwiperSlide key={item.id} className="relative">
+            <Link href={`/services/commercial/${item.slug}`}>
+              <Image
+                src={item.image || "/static/viriditas.webp"}
+                alt={item.title}
+                height={800}
+                width={800}
+                className="h-full w-full object-cover"
+              />
 
-                <SwiperSlide key={item.id} className="relative">
-                    <Image
-                        src={item.image || "/static/viriditas.webp"}
-                        alt={item.title}
-                        height={800}
-                        width={800}
-                        className='object-cover w-full h-full'
-                    />
+              <div className="absolute inset-0 w-full bg-gradient-to-t from-gray-900 via-gray-900/40 transition duration-300 ease-in-out hover:opacity-0"></div>
 
-                    <div className="absolute inset-0 transition duration-300 ease-in-out bg-gradient-to-t from-gray-900 via-gray-900/40 hover:opacity-0 w-full"></div>
-
-                    <div className="absolute z-20 bottom-10 left-8">
-                        <h1 className="text-2xl font-bold text-white">{item.title}</h1>
-                        <Link href={`/services/commercial/${item.slug}`} className='text-blue-500 font-semibold text-lg'>
-                            Browse Services
-                        </Link>
-                    </div>
-                </SwiperSlide>
-            ))}
-        </Swiper>
+              <div className="absolute bottom-10 left-8 z-20">
+                <h1 className="text-2xl font-bold text-white">{item.title}</h1>
+              </div>
+            </Link>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     );
 };

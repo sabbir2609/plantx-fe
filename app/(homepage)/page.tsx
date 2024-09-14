@@ -1,5 +1,5 @@
 import { About, ContactUs, Footer, Hero, Projects, Slogan, Services, GetInTouch, WhyUs, OurClients, Testimonial, Ideas, Events, Faq } from "@/components/home";
-import AnimatedSection from "@/components/home/AnimatedSection";
+import AnimatedSection from "@/components/home/Wrapper/AnimatedSection";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -25,12 +25,8 @@ export default function Home() {
         <AnimatedSection delay={0.4}>
           <Projects />
         </AnimatedSection>
-        <AnimatedSection delay={0.3}>
           <GetInTouch />
-        </AnimatedSection>
-        <AnimatedSection delay={0.2}>
           <Ideas />
-        </AnimatedSection>
         <AnimatedSection delay={0.3}>
           <WhyUs />
         </AnimatedSection>
@@ -47,9 +43,7 @@ export default function Home() {
       <AnimatedSection delay={0.3}>
         <ContactUs />
       </AnimatedSection>
-      <AnimatedSection delay={0.2}>
         <Footer />
-      </AnimatedSection>
     </>
   );
 }

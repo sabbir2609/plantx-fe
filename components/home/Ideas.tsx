@@ -1,57 +1,59 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { Fetch } from '@/app/lib';
+import Link from "next/link";
+import Image from "next/image";
+import { Fetch } from "@/app/lib";
+import AnimatedSection from "./Wrapper/AnimatedSection";
 
 interface Ideas {
-    id: number;
-    title: string;
-    slug: string;
-    image: string;
+  id: number;
+  title: string;
+  slug: string;
+  image: string;
 }
 async function getIdeas() {
-    const data = await Fetch({ endpoint: 'main/ideas/featured/' });
-    return data.slice(0, 4);
+  const data = await Fetch({ endpoint: "main/ideas/featured/" });
+  return data.slice(0, 4);
 }
 
-
 export default async function Ideas() {
-    const ideas: Ideas[] = await getIdeas();
-    return (
-        <div className="p-2 mx-auto mt-8 lg:mt-14">
-            <div className="flex justify-between mb-5 border-b text-normal">
-                <div className="flex items-center pb-1 uppercase border-b-2">
-                    <h1 className="text-2xl lg:text-4xl font-normal tracking-tight uppercase">
-                        Innovate Your Space
-                    </h1>
-                </div>
-                <Link className="font-semibold hover:text-blue-600 place-content-end text-nowrap" href="/ideas">
-                    View All
-                </Link>
-            </div>
-            <div className="grid grid-cols-2 gap-2 md:gap-5 lg:grid-cols-4">
-                {ideas.map((idea) => (
-                    <Link href={`/ideas/${idea.slug}`} key={idea.id}>
-                        <div className="relative">
-                            <Image
-                                src={idea.image || "/static/viriditas.webp"}
-                                alt="Idea Image"
-                                width={500}
-                                height={300}
-                                className="w-full h-[40vh] object-cover rounded-lg transition duration-500 ease-in-out hover:scale-105 hover:shadow-lg hover:rounded-lg"
-                            />
-                            <div
-                                className="absolute top-0 bottom-0 left-0 right-0 transition duration-300 bg-gray-900 rounded-lg opacity-40 hover:bg-transparent">
-                            </div>
-                            <div className="absolute bottom-0 left-0 p-4">
-                                <div className="inline-block mb-2 text-xl font-semibold leading-5 text-white transition duration-500 ease-in-out">
-                                    {idea.title}
-                                </div>
-                            </div>
-                        </div>
-                    </Link>
-                ))}
-            </div>
+  const ideas: Ideas[] = await getIdeas();
+  return (
+    <div className="mx-auto p-2 lg:mt-14">
+      <div className="text-normal mb-5 flex justify-between border-b">
+        <div className="flex items-center border-b-2 pb-1 uppercase">
+          <h1 className="text-2xl font-normal uppercase tracking-tight lg:text-4xl">
+            Innovate Your Space
+          </h1>
         </div>
-
-    );
-};
+        <Link
+          className="place-content-end text-nowrap font-semibold hover:text-blue-600"
+          href="/ideas"
+        >
+          View All
+        </Link>
+      </div>
+      <div className="grid grid-cols-2 gap-2 md:gap-5 lg:grid-cols-4">
+        {ideas.map((idea) => (
+          <AnimatedSection delay={0.2} key={idea.id}>
+            <Link href={`/ideas/${idea.slug}`}>
+              <div className="relative">
+                <Image
+                  src={idea.image || "/static/viriditas.webp"}
+                  alt="Idea Image"
+                  width={500}
+                  height={300}
+                  className="h-[40vh] w-full rounded-lg object-cover transition duration-500 ease-in-out hover:scale-105 hover:rounded-lg hover:shadow-lg"
+                />
+                <div className="absolute bottom-0 left-0 right-0 top-0 rounded-lg bg-gray-900 opacity-40 transition duration-300 hover:bg-transparent"></div>
+                <div className="absolute bottom-0 left-0 p-4">
+                  <div className="mb-2 inline-block text-xl font-semibold leading-5 text-white transition duration-500 ease-in-out">
+                    {idea.title}
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </AnimatedSection>
+        ))}
+      </div>
+    </div>
+  );
+}

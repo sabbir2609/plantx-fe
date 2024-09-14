@@ -34,7 +34,7 @@ export default function Navbar() {
                     <Search />
                 </button> */}
                 <button className="btn btn-ghost btn-circle" area-label="Instagram" title="Instagram">
-                    <Link href="https://www.instagram.com/viriditas_2024/" target="_blank"
+                    <Link href="https://www.instagram.com/the_viriditas/" target="_blank"
                         rel="noopener noreferrer">
                         <Instagram />
                     </Link>

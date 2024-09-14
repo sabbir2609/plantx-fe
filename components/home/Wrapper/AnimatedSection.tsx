@@ -12,20 +12,23 @@ const fadeInUp = {
 interface AnimatedSectionProps {
     children: ReactNode;
     delay?: number;
+    direction?: 'up';
 }
 
-export default function AnimatedSection({ children, delay = 0 }: AnimatedSectionProps) {
+export default function AnimatedSection({ children, delay = 0, direction = 'up' }: AnimatedSectionProps) {
     const { ref, inView } = useInView({
         triggerOnce: true, // Trigger animation only once
         threshold: 0.1, // Trigger when 10% of the element is in view
     });
+
+    const variants = fadeInUp;
 
     return (
         <motion.div
             ref={ref}
             initial="hidden"
             animate={inView ? 'visible' : 'hidden'}
-            variants={fadeInUp}
+            variants={variants}
             transition={{ duration: 0.5, delay }}
         >
             {children}
