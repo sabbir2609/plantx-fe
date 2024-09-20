@@ -47,7 +47,7 @@ export default function HeroSwiper(
                             height={1200}
                             priority={true}
                             sizes="(min-width: 2040px) 1920px, calc(91.94vw + 63px)"
-                            className='object-cover w-full h-full'
+                            className='object-cover w-full h-[70vh]'
                         />
                     </SwiperSlide>
                 ))}
