@@ -1,4 +1,5 @@
 import { ThemeChange } from "@/components/common";
+import { Instagram, Phone } from "lucide-react";
 import Link from "next/link";
 
 export default async function Navbar() {

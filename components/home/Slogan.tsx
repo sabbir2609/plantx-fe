@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 export default function Slogan() {
-    const words = ['Home', 'Indoor', 'Outdoor', 'Office', 'Hotel'];
+    const words = useMemo(() => ['Home', 'Indoor', 'Outdoor', 'Office', 'Hotel'], []);
     const [index, setIndex] = useState(0);
     const [subIndex, setSubIndex] = useState(0);
     const [isDeleting, setIsDeleting] = useState(false);
