@@ -1,4 +1,4 @@
-import { Sidebar } from "@/components/admin";
+import { Sidebar } from "@/components/dashboard";
 import { Navbar } from "@/components/common";
 
 

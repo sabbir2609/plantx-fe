@@ -49,19 +49,16 @@ export default function ServicesSwiper({ services }: ServiceSwiperProps) {
     >
       {services.map((item) => (
         <SwiperSlide key={item.id} className="relative">
-          <Link href={`/services/residential/${item.slug}`}>
+          <Link href={`/services/residential/${item.slug}`} className="rounded-lg">
             <Image
               src={item.image || "/static/viriditas.webp"}
               alt={item.title}
               height={800}
               width={800}
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover rounded-lg"
             />
-
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 transition duration-300 hover:opacity-0"></div>
-            
             <div className="absolute bottom-10 left-8 z-20">
-              <h1 className="text-2xl font-bold text-white">{item.title}</h1>
+              <h1 className="text-4xl font-bold text-white">{item.title}</h1>
             </div>
           </Link>
         </SwiperSlide>

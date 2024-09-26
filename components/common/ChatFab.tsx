@@ -16,7 +16,7 @@ export default function ChatPlugin() {
         clearTimeout(timeoutId);
         timeoutId = setTimeout(() => {
             setIsVisible(false);
-        }, 5000);
+        }, 3000);
     };
 
     useEffect(() => {
@@ -25,7 +25,7 @@ export default function ChatPlugin() {
             window.removeEventListener('scroll', handleScroll);
             clearTimeout(timeoutId);
         };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

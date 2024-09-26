@@ -53,17 +53,17 @@ export default function manifest(): MetadataRoute.Manifest {
         screenshots: [
             {
                 src: '/screenshots/screenshot_1.png',
-                sizes: '640x480',
+                sizes: '720x1419',
                 type: 'image/png',
             },
             {
                 src: '/screenshots/screenshot_2.png',
-                sizes: '640x480',
+                sizes: '720x1419',
                 type: 'image/png',
             },
             {
                 src: '/screenshots/screenshot_3.png',
-                sizes: '640x480',
+                sizes: '720x1419',
                 type: 'image/png',
             },
         ],

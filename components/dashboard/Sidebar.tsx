@@ -38,7 +38,7 @@ export default function Sidebar() {
             title: "Dashboard",
             icon: <Cylinder size={20} className="inline-block" />,
             items: {
-                "Dashboard": { title: "Dashboard", link: "#" },
+                "Dashboard": { title: "Dashboard", link: "/dashboard" },
                 "Analytics": { title: "Analytics", link: "#" },
                 "Settings": { title: "Settings", link: "#" },
             },

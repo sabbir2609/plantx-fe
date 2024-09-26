@@ -3,29 +3,39 @@
 import { useState, useEffect } from 'react';
 
 export default function Slogan() {
-    const [index, setIndex] = useState(0);
     const words = ['Home', 'Indoor', 'Outdoor', 'Office', 'Hotel'];
-    const [fade, setFade] = useState(false);
+    const [index, setIndex] = useState(0);
+    const [subIndex, setSubIndex] = useState(0);
+    const [isDeleting, setIsDeleting] = useState(false);
+    const [blink, setBlink] = useState(true);
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            setFade(true);
-            setTimeout(() => {
-                setIndex((prevIndex) => (prevIndex + 1) % words.length);
-                setFade(false);
-            }, 500); // Matches the duration of the fade animation
-        }, 3000);
-        return () => clearInterval(interval);
-    }, [words.length]);
+        if (subIndex === words[index].length + 1 && !isDeleting) {
+            setTimeout(() => setIsDeleting(true), 1000);
+        } else if (subIndex === 0 && isDeleting) {
+            setIsDeleting(false);
+            setIndex((prevIndex) => (prevIndex + 1) % words.length);
+        }
+
+        const timeout = setTimeout(() => {
+            setSubIndex((prevSubIndex) =>
+                isDeleting ? prevSubIndex - 1 : prevSubIndex + 1
+            );
+        }, isDeleting ? 100 : 150);
+
+        return () => clearTimeout(timeout);
+    }, [subIndex, isDeleting, words, index]);
+
+    useEffect(() => {
+        const blinkTimeout = setTimeout(() => setBlink((prev) => !prev), 500);
+        return () => clearTimeout(blinkTimeout);
+    }, [blink]);
 
     return (
         <div className="p-4 lg:my-6 text-4xl font-semibold text-center lg:text-6xl">
             <div className="block md:inline">We Design Your </div>
-            <div
-                className={`inline-block transition-opacity duration-500 ${fade ? 'opacity-0' : 'opacity-100'
-                    }`}
-            >
-                {words[index]}
+            <div className="inline-block">
+                {`${words[index].substring(0, subIndex)}${blink ? '|' : ' '}`}
             </div>
         </div>
     );

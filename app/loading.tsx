@@ -1,16 +1,19 @@
+import Image from 'next/image';
+
 export default function Loading() {
     return (
-        <div className="flex flex-col items-center w-full gap-4 p-10 h-screen">
-            <div className="w-full h-1/2 skeleton flex flex-col items-center justify-center">
+        <div className="flex items-center justify-center w-full h-screen">
+            <div className="flex flex-col items-center gap-4">
+                <Image
+                    src="/icons/icon-512x512.png"
+                    alt="Logo"
+                    width={500}
+                    height={500}
+                    priority
+                    className="mb-4 h-40 w-40"
+                />
+                <span className="loading loading-spinner loading-lg h-14"></span>
             </div>
-            <div className="w-full h-4 skeleton"></div>
-            <div className="w-full h-4 skeleton"></div>
-            <div className="w-full h-4 mb-5 skeleton"></div>
-            <div className="w-full h-4 skeleton"></div>
-            <div className="w-full h-4 skeleton"></div>
-            <div className="w-full h-4 skeleton"></div>
-            <div className="w-full h-4 skeleton"></div>
-            <div className="w-full h-4 skeleton"></div>
         </div>
-    )
+    );
 }
