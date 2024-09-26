@@ -48,7 +48,6 @@ export default function WhyChooseUs() {
         <div className="relative py-16 overflow-hidden">
             {/* Background decoration */}
             <div className="absolute inset-0 bg-[url('/images/bg/leaf-pattern.webp')] opacity-20 pointer-events-none"></div>
-
             {/* Content container */}
             <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
                 <motion.h2
