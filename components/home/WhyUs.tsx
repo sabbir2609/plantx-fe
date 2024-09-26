@@ -67,7 +67,7 @@ export default function WhyChooseUs() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.2 }}
-                            className="p-6 rounded-lg shadow-lg transition-shadow duration-300 ease-in-out hover:shadow-xl backdrop-filter backdrop-blur-lg transform-gpu"
+                            className="p-6 rounded-lg shadow-lg transition-shadow duration-300 ease-in-out hover:shadow-xl backdrop-filter backdrop-blur-lg"
                         >
                             <div className="flex items-center mb-4">
                                 <item.icon className="w-8 h-8 text-green-700 dark:text-green-300" />
