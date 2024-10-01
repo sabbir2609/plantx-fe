@@ -67,7 +67,17 @@ export default function Sidebar() {
                 "divider2": { divider: true },
             },
             open: false
-        }
+        },
+        "Blog": {
+            title: "Blog",
+            icon: <Leaf size={20} className="inline-block" />,
+            items: {
+                "all": { title: "All Posts", link: "/blog" },
+                "categories": { title: "Categories", link: "/blog/category" },
+                "divider3": { divider: true },
+            },
+            open: false
+        },
     };
 
     const footerItems = [
@@ -138,14 +148,14 @@ export default function Sidebar() {
                         {footerItems.map(({ title, icon, link }) => {
                             const isActive = router === link;
                             return (
-                              <li key={title}>
-                                <Link
-                                  href={link}
-                                  className={`m-0.5 bg-base-100 font-medium hover:bg-blue-300 hover:text-black ${isActive ? "bg-blue-500 text-white" : ""}`}>
-                                  {icon}
-                                  {title}
-                                </Link>
-                              </li>
+                                <li key={title}>
+                                    <Link
+                                        href={link}
+                                        className={`m-0.5 bg-base-100 font-medium hover:bg-blue-300 hover:text-black ${isActive ? "bg-blue-500 text-white" : ""}`}>
+                                        {icon}
+                                        {title}
+                                    </Link>
+                                </li>
                             );
                         })}
                     </ul>

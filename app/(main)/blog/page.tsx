@@ -1,0 +1,53 @@
+import { Fetch } from "@/app/lib";
+import Link from "next/link";
+import Image from "next/image";
+
+interface BlogCategory {
+    id: number;
+    name: string;
+    slug: string;
+}
+
+interface BlogPost {
+    id: number;
+    title: string;
+    slug: string;
+    image: string;
+    content: string;
+    categories: BlogCategory[];
+}
+
+export default async function Page() {
+    const data = await Fetch({ endpoint: "blog/posts/" });
+    const posts: BlogPost[] = data;
+
+    return (
+        <div className="mx-auto p-4">
+            <h1 className="text-3xl font-semibold text-center mb-10">Blog Posts</h1>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {posts.map((post) => (
+                    <Link
+                        key={post.id}
+                        href={`/blog/post/${post.slug}`}
+                        className="relative flex flex-col rounded-lg shadow-lg overflow-hidden h-[50vh] transform transition-transform duration-300 hover:scale-105"
+                    >
+                        <div className="relative w-full h-full">
+                            <Image
+                                src={post.image || '/static/viriditas.webp'}
+                                alt={post.title}
+                                layout="fill"
+                                objectFit="cover"
+                                className="absolute inset-0 w-full h-full object-cover"
+                            />
+                        </div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-75"></div>
+                        <div className="absolute bottom-4 left-4 p-4 z-10 text-white">
+                            <h3 className="text-2xl lg:text-3xl font-semibold">{post.title}</h3>
+                            <p className="mt-2 text-sm lg:text-base line-clamp-3">{post.content}</p>
+                        </div>
+                    </Link>
+                ))}
+            </div>
+        </div>
+    );
+}

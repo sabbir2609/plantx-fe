@@ -1,6 +1,5 @@
-import { Navbar } from "@/components/common";
-import { Footer, Sidebar } from "@/components/main";
-
+import { Sidebar } from "@/components/common";
+import { Footer, Navbar } from "@/components/main";
 
 export default function DashboardLayout({
     children
