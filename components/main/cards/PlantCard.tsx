@@ -28,7 +28,7 @@ interface Plant {
 
 export default function PlantCard({ plant }: { plant: Plant }) {
   return (
-    <div className="transform overflow-hidden rounded-lg bg-base-200 shadow-lg transition-transform hover:scale-105 hover:shadow-2xl">
+    <div className="transform overflow-hidden rounded-lg bg-base-200 shadow-lg transition-transform hover:shadow-2xl">
       <Link href={`/plants/${plant.slug}`}>
         <div className="relative">
           <Image

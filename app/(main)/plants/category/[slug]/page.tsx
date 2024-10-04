@@ -52,29 +52,19 @@ export default async function Page({ params }: { params: { slug: string } }) {
     return (
         <div className="mx-auto">
             <div className="bg-base-200 h-auto lg:h-80 shadow-lg rounded-lg overflow-hidden mb-4 relative">
-                {category.image ? (
-                    <Image
-                        src={category.image}
-                        height={1200}
-                        width={1200}
-                        alt={category.name}
-                        className="object-cover"
-                    />
-                ) : (
-                    <Image
-                        src="/static/viriditas.webp"
-                        height={1200}
-                        width={1200}
-                        alt={category.name}
-                        className="object-cover"
-                    />
-                )}
+                <Image
+                    src={category.image || '/static/viriditas.webp'}
+                    height={1000}
+                    width={1000}
+                    alt={category.name}
+                    className="object-cover h-full w-full min-h-60"
+                />
                 <div className="p-4 absolute bottom-0 left-0 h-full md:w-1/2 content-center bg-opacity-50 bg-black text-white">
-                    <h1 className="text-3xl font-semibold">{category.name}</h1>
-                    <p className="mt-2">{category.description}</p>
+                    <h1 className="text-2xl lg:text-3xl font-semibold">{category.name}</h1>
+                    <p className="mt-2 tracking-tight lg:tracking-normal leading-6">{category.description}</p>
                 </div>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 lg:gap-5 p-2">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 lg:gap-5 p-2">
                 {plants.map((plant) => (
                     <PlantCard plant={plant} key={plant.id} />
                 ))}

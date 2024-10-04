@@ -1,6 +1,5 @@
-import { ChatFab } from "@/components/common";
+import { ChatFab, Sidebar } from "@/components/common";
 import { AnnouncementBanner, Navbar } from "@/components/home";
-import { Sidebar } from "@/components/main";
 
 export default function RootLayout({
     children,

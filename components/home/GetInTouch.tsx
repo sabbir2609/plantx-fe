@@ -55,7 +55,7 @@ const sections = [
 export default function GetInTouch() {
   return (
     <div className="mx-auto max-w-7xl px-4">
-      <h1 className="mb-6 text-center text-4xl font-bold uppercase transition-all duration-300 hover:scale-105 hover:text-green-500">
+      <h1 className="mb-6 text-center text-3xl font-bold uppercase transition-all duration-300 hover:scale-105 hover:text-green-500">
         Let&apos;s Get Started
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">

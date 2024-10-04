@@ -30,6 +30,7 @@ export default function AnimatedSection({ children, delay = 0, direction = 'up' 
             animate={inView ? 'visible' : 'hidden'}
             variants={variants}
             transition={{ duration: 0.5, delay }}
+            className="z-10"
         >
             {children}
         </motion.div>

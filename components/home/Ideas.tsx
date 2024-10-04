@@ -17,7 +17,7 @@ async function getIdeas() {
 export default async function Ideas() {
   const ideas: Ideas[] = await getIdeas();
   return (
-    <div className="mx-auto p-2 lg:mt-14">
+    <div className="mx-auto p-2 pb-8 lg:mt-14">
       <div className="text-normal mb-5 flex justify-between border-b">
         <div className="flex items-center border-b-2 pb-1 uppercase">
           <h1 className="text-2xl font-normal uppercase tracking-tight lg:text-4xl">

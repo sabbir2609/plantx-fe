@@ -9,7 +9,7 @@ import {
 import AnimatedSection from "./Wrapper/AnimatedSection";
 
 export default function WhyChooseUs() {
-    const whyUs = [
+    const WhyChooseUs = [
         {
             title: "Free Consultation",
             description: "Get a Free Consultation for Your Space from Our Experts.",
@@ -45,15 +45,16 @@ export default function WhyChooseUs() {
     return (
         <div className="relative py-14 overflow-hidden">
             {/* Background decoration */}
-            <div className="absolute inset-0 bg-[url('/images/bg/leaf-pattern.webp')] bg-cover opacity-50 blur-sm"></div>
+            <div className="absolute inset-0 bg-[url('/images/bg/plant-pattern.svg')] bg-no-repeat bg-cover z-0 rounded-lg"></div>
             {/* Content container */}
-            <div className="mx-auto p-4">
-                <h2 className="text-center text-4xl font-bold mb-10">Why Choose Us</h2>
+            <div className="relative z-10 mx-auto p-4 lg:p-8">
+                <h1 className="mb-6 text-center text-3xl font-bold uppercase transition-all duration-300 hover:scale-105 hover:text-green-500">
+                    Why Choose Us
+                </h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {whyUs.map((item, index) => (
+                    {WhyChooseUs.map((item, index) => (
                         <AnimatedSection key={index} delay={index * 0.2}>
-                            <div
-                                className="flex flex-col p-6 rounded-lg shadow-lg h-full bg-base-300">
+                            <div className="flex flex-col p-6 rounded-lg shadow-lg h-full bg-base-300">
                                 <div className="flex items-center mb-4">
                                     <item.icon className="w-8 h-8 text-green-700 dark:text-green-300" />
                                     <h3 className="ml-4 text-xl lg:text-2xl font-semibold">{item.title}</h3>

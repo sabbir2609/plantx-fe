@@ -1,5 +1,5 @@
 import { Sidebar } from "@/components/dashboard";
-import { Navbar } from "@/components/common";
+import { Navbar } from "@/components/main";
 
 
 

@@ -22,21 +22,21 @@ export default async function Page() {
     const posts: BlogPost[] = data;
 
     return (
-        <div className="mx-auto p-4">
-            <h1 className="text-3xl font-semibold text-center mb-10">Blog Posts</h1>
+        <div className="mx-auto p-2">
+            <h1 className="text-3xl font-semibold text-center p-8">Blog Posts</h1>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {posts.map((post) => (
                     <Link
                         key={post.id}
-                        href={`/blog/post/${post.slug}`}
+                        href={`/blog/${post.slug}`}
                         className="relative flex flex-col rounded-lg shadow-lg overflow-hidden h-[50vh] transform transition-transform duration-300 hover:scale-105"
                     >
                         <div className="relative w-full h-full">
                             <Image
                                 src={post.image || '/static/viriditas.webp'}
                                 alt={post.title}
-                                layout="fill"
-                                objectFit="cover"
+                                height={800}
+                                width={800}
                                 className="absolute inset-0 w-full h-full object-cover"
                             />
                         </div>

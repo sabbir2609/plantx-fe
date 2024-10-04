@@ -14,4 +14,4 @@ export { default as Services } from "./Services";
 export { default as Slogan } from "./Slogan";
 export { default as Testimonial } from "./Testimonial";
 export { default as Navbar } from "./ui/Navbar";
-export { default as WhyUs } from "./WhyUs";
+export { default as WhyChooseUs } from "./WhyChooseUs";

@@ -1,4 +1,5 @@
 export { default as EventCard } from "./cards/EventCard";
+export { default as BlogPostCard } from "./cards/BlogPostCard";
 export { default as PlantCard } from "./cards/PlantCard";
 export { default as PlanterCard } from "./cards/PlanterCard";
 export { default as ProjectCard } from "./cards/ProjectCard";
