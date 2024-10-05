@@ -1,10 +1,10 @@
 import {
+    CheckCircle,
+    DollarSign,
+    Heart,
+    Leaf,
     Lightbulb,
     Settings,
-    Leaf,
-    DollarSign,
-    CheckCircle,
-    Heart,
 } from "lucide-react";
 import AnimatedSection from "./Wrapper/AnimatedSection";
 
@@ -48,7 +48,7 @@ export default function WhyChooseUs() {
             <div className="absolute inset-0 bg-[url('/images/bg/plant-pattern.svg')] bg-no-repeat bg-cover z-0 rounded-lg"></div>
             {/* Content container */}
             <div className="relative z-10 mx-auto p-4 lg:p-8">
-                <h1 className="mb-6 text-center text-3xl font-bold uppercase transition-all duration-300 hover:scale-105 hover:text-green-500">
+                <h1 className="mb-6 text-center text-slate-800 text-3xl font-bold uppercase">
                     Why Choose Us
                 </h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
