@@ -47,7 +47,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                         ))}
                     </div>
                 </div>
-                <p className="mt-4 leading-relaxed">{post.content}</p>
+                <div className="mt-4 prose prose-img:mx-auto prose-img:rounded-sm" dangerouslySetInnerHTML={{ __html: post.content }} />
             </div>
         </div>
     );

@@ -15,6 +15,7 @@ interface BlogPost {
     id: number
     author_name: string
     title: string
+    slug: string
     image: string | null
     content: string
     categories: BlogCategory[]
@@ -28,7 +29,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
     return (
         <div className="mx-auto">
-            <div className="bg-base-200 h-auto lg:h-80 shadow-lg rounded-lg overflow-hidden mb-4 relative">
+            <div className="bg-base-200 h-auto lg:h-80 shadow-lg overflow-hidden mb-4 relative">
                 <Image
                     src={category.image || '/static/viriditas.webp'}
                     height={1000}
@@ -42,7 +43,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 </div>
             </div>
             {posts.length == 0 && <div className="text-center p-4">No posts found.</div>}
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 lg:gap-5 p-2">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 lg:gap-5 p-6 lg:p-8">
                 {posts.map((post) => (
                     <BlogPostCard key={post.id} post={post} />
                 ))}

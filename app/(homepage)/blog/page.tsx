@@ -22,7 +22,7 @@ export default async function Page() {
     const posts: BlogPost[] = data;
 
     return (
-        <div className="mx-auto p-2">
+        <div className="mx-auto p-2 px-4 lg:px-8">
             <h1 className="text-3xl font-semibold text-center p-8">Blog Posts</h1>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {posts.map((post) => (
@@ -41,9 +41,11 @@ export default async function Page() {
                             />
                         </div>
                         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-75"></div>
-                        <div className="absolute bottom-4 left-4 p-4 z-10 text-white">
-                            <h3 className="text-2xl lg:text-3xl font-semibold">{post.title}</h3>
-                            <p className="mt-2 text-sm lg:text-base line-clamp-3">{post.content}</p>
+                        <div className="absolute bottom-4 left-4 p-4 z-10">
+                            <h3 className="text-xl lg:text-xl font-semibold mix-blend-multiply">
+                                {post.title}
+                            </h3>
+                            <div className="prose mt-2 text-sm lg:text-base line-clamp-3" dangerouslySetInnerHTML={{ __html: post.content }} />
                         </div>
                     </Link>
                 ))}

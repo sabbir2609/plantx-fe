@@ -5,6 +5,7 @@ interface BlogPostProps {
     id: number;
     author_name: string;
     title: string;
+    slug: string;
     image: string | null;
     content: string;
     categories?: {
@@ -22,7 +23,7 @@ export default function BlogPostCard(
 ) {
     return (
         <div className="bg-base-200 shadow-lg rounded-lg overflow-hidden">
-            <Link href={`/blog/${post.id}`}>
+            <Link href={`/blog/${post.slug}`}>
                 <div className="relative">
                     <Image
                         src={post.image || '/static/viriditas.webp'}
