@@ -63,13 +63,13 @@ export default function EventSwiper(
                         <Link
                             href={`/events/${event.slug}`}
                             className="flex flex-col md:flex-row justify-center items-center bg-base-300 rounded-md shadow-sm">
-                            <div className="relative w-full md:w-1/2 h-48 shadow-md">
+                            <div className="relative w-full md:w-1/2 h-48">
                                 <Image
                                     src={event.image || '/static/viriditas.webp'}
                                     alt={event.title}
                                     width={300}
                                     height={300}
-                                    className="object-cover w-full h-full transition duration-500 ease-in-out hover:scale-105 hover:shadow-lg rounded-t-md"
+                                    className="object-cover lg:shadow-md w-full h-full transition duration-500 ease-in-out hover:scale-105 hover:rounded-md rounded-t-md"
                                 />
                             </div>
                             <div className="flex flex-col p-4 md:text-left w-full md:w-1/2">

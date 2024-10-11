@@ -46,7 +46,7 @@ export default function ContactForm() {
     const handleMessageChange = (e: ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value)
 
     return (
-        <div className="w-full rounded-md shadow-lg bg-base-200 p-4 md:p-8">
+        <div className="w-full rounded-md shadow-md bg-base-200 p-4 md:p-8">
             <form className="p-3" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
                     <div className="form-control">

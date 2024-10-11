@@ -61,7 +61,7 @@ export default function GetInTouch() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
         {sections.map((section, index) => (
           <AnimatedSection key={index} delay={index * 0.1}>
-            <div className="group relative m-4 overflow-hidden rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+            <div className="group relative p-2 overflow-hidden rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
               <span className="absolute top-0 z-0 h-20 w-20 rounded-full bg-gradient-to-bl from-lime-400 via-green-600 to-teal-700 opacity-0 transition-all duration-500 group-hover:scale-[10] group-hover:opacity-100"></span>
               <div className="relative z-10">
                 <Image
@@ -71,11 +71,11 @@ export default function GetInTouch() {
                   height={400}
                   className="h-52 w-full object-contain"
                 />
-                <div className="p-4 text-center">
-                  <h2 className="mb-2 text-2xl font-semibold tracking-tighter">
+                <div className="p-3 text-center">
+                  <h2 className="mb-2 text-xl font-semibold tracking-tighter">
                     {section.title}
                   </h2>
-                  <p className="text-base leading-6">{section.description}</p>
+                  <p className="text-base leading-5">{section.description}</p>
                 </div>
               </div>
             </div>

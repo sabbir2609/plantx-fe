@@ -63,7 +63,7 @@ export default function ProjectSwiper({ projects }: ProjectsSwiperProps) {
                                     alt={project.title}
                                     width={1000}
                                     height={1000}
-                                    className="object-cover w-full h-52 transition duration-500 ease-in-out rounded-t-lg shadow-md hover:scale-105 hover:shadow-lg hover:rounded-lg"
+                                    className="object-cover w-full h-52 transition duration-500 ease-in-out rounded-t-lg hover:scale-105 hover:shadow-lg hover:rounded-lg"
                                 />
                                 <div className="flex flex-col p-4">
                                     <h1 className="text-lg font-semibold leading-6 pb-2 tracking-tighter">{project.title}</h1>

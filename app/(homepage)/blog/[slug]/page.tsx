@@ -32,7 +32,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 className="w-full h-56 object-cover rounded-lg shadow-md"
             />
             <div className="p-4 rounded-lg mt-4">
-                <h1 className="text-3xl font-bold mt-2">{post.title}</h1>
+                <h1 className="text-xl font-bold mt-2">{post.title}</h1>
                 <p className="text-sm mt-1 font-semibold">By {post.author_name}</p>
                 <p className="text-sm">Published on {new Date(post.created_at).toLocaleDateString()}</p>
                 <div className="flex overflow-x-auto gap-2 mt-2">
@@ -47,7 +47,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                         ))}
                     </div>
                 </div>
-                <div className="mt-4 prose prose-img:mx-auto prose-img:rounded-sm" dangerouslySetInnerHTML={{ __html: post.content }} />
+                <div className="mt-4 prose prose-img:mx-auto prose-img:rounded-md" dangerouslySetInnerHTML={{ __html: post.content }} />
             </div>
         </div>
     );

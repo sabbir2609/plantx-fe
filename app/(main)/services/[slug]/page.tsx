@@ -39,7 +39,7 @@ export default async function Service({
   const service: Service = data;
 
   return (
-    <div className="mx-auto p-2">
+    <div className="mx-auto p-2 max-w-2xl">
       <div className="mb-4 rounded-sm">
         {service.images.length > 0 ? (
           <ProductImageViewer images={service.images} />
@@ -74,7 +74,7 @@ export default async function Service({
 
         <div className="mb-4 w-full rounded-xl bg-base-200 p-6">
           <div
-            className="prose overflow-x-hidden prose-img:rounded-xl lg:max-w-none"
+            className="prose prose-img:mx-auto prose-img:rounded-md"
             dangerouslySetInnerHTML={{ __html: service.description }}
           />
         </div>

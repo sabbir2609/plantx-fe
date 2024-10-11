@@ -41,12 +41,14 @@ export default async function Page() {
                             />
                         </div>
                         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-75"></div>
-                        <div className="absolute bottom-4 left-4 p-4 z-10">
-                            <h3 className="text-xl lg:text-xl font-semibold mix-blend-multiply">
+
+                        <div className="absolute bottom-4 left-4 p-4 z-10 text-slate-300">
+                            <h1 className="text-lg font-semibold leading-6">
                                 {post.title}
-                            </h3>
-                            <div className="prose mt-2 text-sm lg:text-base line-clamp-3" dangerouslySetInnerHTML={{ __html: post.content }} />
+                            </h1>
+                            <p className="prose mt-2 text-slate-300 text-sm line-clamp-3 landing-5" dangerouslySetInnerHTML={{ __html: post.content }} />
                         </div>
+
                     </Link>
                 ))}
             </div>
