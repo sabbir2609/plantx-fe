@@ -120,64 +120,59 @@ export default function Sidebar() {
     );
 
     return (
-        <div className="bg-base-100 drawer">
-            <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content min-h-max">
+        <aside className="flex flex-col min-h-screen w-72 bg-base-200">
+            <div className="flex-grow">
+                <div className='sticky top-0 z-20 hidden gap-2 px-4 py-2 shadow-sm h-14 lg:block bg-base-300'>
+                    <Link href="/" className='flex items-center justify-center px-2 mt-1 text-2xl font-semibold'>
+                        Viriditas
+                    </Link>
+                </div>
 
+                <div className="sticky top-0 z-20 items-center py-2 h-14 lg:hidden bg-base-300 shadow-sm">
+                    <form role="search" className="m-2 h-14 lg:hidden">
+                        <div className="form-control">
+                            <input type="search" name="q" className="input input-sm input-bordered" placeholder="Search..." />
+                        </div>
+                    </form>
+                </div>
+
+                {/* Menu section */}
+                <div className="gap-2 menu">
+                    <ul>
+                        {/* Non-Collapsible Menu items */}
+                        {Object.entries(menuItems).map(([title, { icon, items, open }]) => renderMenuGroup(title, icon, items, open))}
+                    </ul>
+                    <div className="h-2 divider"></div>
+                    <ul>
+                        {/* Footer Menu items */}
+                        {footerItems.map(({ title, icon, link }) => {
+                            const isActive = router === link;
+                            return (
+                                <li key={title}>
+                                    <Link
+                                        href={link}
+                                        className={`m-0.5 bg-base-100 font-medium hover:bg-blue-300 hover:text-black ${isActive ? "bg-blue-500 text-white" : ""}`}>
+                                        {icon}
+                                        {title}
+                                    </Link>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </div>
             </div>
-            <aside className="flex flex-col min-h-screen w-72 bg-base-200">
-                <div className="flex-grow">
-                    <div className='sticky top-0 z-20 hidden gap-2 px-4 py-2 shadow-sm h-14 lg:block bg-base-300'>
-                        <Link href="/" className='flex items-center justify-center px-2 mt-1 text-2xl font-semibold'>
-                            Viriditas
-                        </Link>
-                    </div>
 
-                    <div className="sticky top-0 z-20 items-center py-2 h-14 lg:hidden bg-base-300 shadow-sm">
-                        <form role="search" className="m-2 h-14 lg:hidden">
-                            <div className="form-control">
-                                <input type="search" name="q" className="input input-sm input-bordered" placeholder="Search..." />
-                            </div>
-                        </form>
-                    </div>
-
-                    {/* Menu section */}
-                    <div className="gap-2 menu">
-                        <ul>
-                            {/* Non-Collapsible Menu items */}
-                            {Object.entries(menuItems).map(([title, { icon, items, open }]) => renderMenuGroup(title, icon, items, open))}
-                        </ul>
-                        <div className="h-2 divider"></div>
-                        <ul>
-                            {/* Footer Menu items */}
-                            {footerItems.map(({ title, icon, link }) => {
-                                const isActive = router === link;
-                                return (
-                                    <li key={title}>
-                                        <Link
-                                            href={link}
-                                            className={`m-0.5 bg-base-100 font-medium hover:bg-blue-300 hover:text-black ${isActive ? "bg-blue-500 text-white" : ""}`}>
-                                            {icon}
-                                            {title}
-                                        </Link>
-                                    </li>
-                                );
-                            })}
-                        </ul>
-                    </div>
-                </div>
-
-                <div className="sticky bottom-0 flex flex-row items-center justify-between h-12 p-1 bg-base-300">
-                    <Link href="/feedback" className="rounded-sm btn btn-ghost">
-                        <MessageSquareHeart size={20} className="inline-block" />
-                    </Link>
-                    <Link href="/support" className="rounded-sm btn btn-ghost">
-                        <HelpCircle size={20} />
-                    </Link>
-                    <Link href="/subscribe" className="rounded-sm btn btn-ghost">
-                        <Rss size={20} className="inline-block" />
-                    </Link>
-                </div>
-            </aside>
-            );
+            <div className="sticky bottom-0 flex flex-row items-center justify-between h-12 p-1 bg-base-300">
+                <Link href="/feedback" className="rounded-sm btn btn-ghost">
+                    <MessageSquareHeart size={20} className="inline-block" />
+                </Link>
+                <Link href="/support" className="rounded-sm btn btn-ghost">
+                    <HelpCircle size={20} />
+                </Link>
+                <Link href="/subscribe" className="rounded-sm btn btn-ghost">
+                    <Rss size={20} className="inline-block" />
+                </Link>
+            </div>
+        </aside>
+    );
 }
