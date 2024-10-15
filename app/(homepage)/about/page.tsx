@@ -10,10 +10,7 @@ export default function AboutUs() {
     return (
         <div className="p-4 mx-auto lg:max-w-7xl lg:px-8">
             <div className="text-center">
-                <h2 className="text-5xl font-semibold tracking-wide uppercase">About Us</h2>
-                <p className="mt-2 text-3xl font-normal leading-8 tracking-tight">
-                    Transform Your Home: Elegant Designs with Greenery
-                </p>
+                <h1 className="text-5xl font-semibold tracking-wide uppercase">About Us</h1>
                 <p className="max-w-2xl mt-4 text-lg font-normal lg:mx-auto">
                     At Viriditas, we create sustainable, plant-based urban landscapes to enhance well-being and promote environmental care. We are committed to combating climate change, improving air quality, and making cities greener, healthier, and more vibrant for everyone.
                 </p>

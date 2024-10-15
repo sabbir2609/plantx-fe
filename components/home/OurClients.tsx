@@ -3,6 +3,7 @@ import { Dancing_Script } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 const dancing_script = Dancing_Script({ subsets: ["latin"] });
+import Marquee from "react-fast-marquee";
 
 interface Client {
     name: string;
@@ -18,8 +19,10 @@ export default async function OurClients() {
 
     return (
         <section className="py-7 bg-base-200 mt-2 rounded-md">
-            <div className="flex flex-col justify-center gap-4 px-4 mx-auto align-middle lg:flex-row max-w-7xl sm:px-6 lg:px-8">
-                <div className="mb-4 text-center lg:mb-0 lg:text-right place-content-center">
+
+            <div className="flex flex-col justify-center gap-4 mx-auto align-middle lg:flex-row max-w-7xl sm:px-6 lg:px-8">
+
+                <div className="mb-4 text-center lg:mb-0 lg:text-right lg:w-2/6 place-content-center">
                     <h2 className={`${dancing_script.className} text-4xl font-bold text-nowrap`}>
                         Our Clients
                     </h2>
@@ -27,27 +30,30 @@ export default async function OurClients() {
                         Trusted by the best
                     </h4>
                 </div>
-                <div className="grid items-center justify-center grid-cols-2 gap-4 px-4 lg:grid-cols-3 lg:gap-6">
+
+                <Marquee
+                    gradient={false}
+                    speed={40}
+                    pauseOnHover={true}
+                    className="lg:rounded-md"
+                >
                     {clients.map((client, index) => (
                         <Link
                             key={index}
                             href={client.url}
-                            className="flex items-center justify-center transition-transform duration-300 ease-in-out transform hover:scale-105"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <div className="flex items-center justify-center w-40 h-40 p-4 bg-base-300 rounded-md shadow-md">
-                                <Image
-                                    src={client.logo}
-                                    alt={client.name}
-                                    width={200}
-                                    height={200}
-                                    className="object-contain h-full w-full"
-                                />
-                            </div>
+                            <Image
+                                src={client.logo}
+                                alt={client.name}
+                                width={200}
+                                height={200}
+                                className="object-contain w-40 h-40 p-4 mx-2 bg-base-300 rounded-sm shadow-md"
+                            />
                         </Link>
                     ))}
-                </div>
+                </Marquee>
             </div>
         </section>
     );

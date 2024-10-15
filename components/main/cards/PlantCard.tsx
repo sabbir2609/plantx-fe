@@ -56,16 +56,7 @@ export default function PlantCard({ plant }: { plant: Plant }) {
             {plant.name}
           </h2>
           <p className="flex items-center text-sm">
-            <ChartBarStacked size={16} className="mr-2" />
-            {plant.category}
-          </p>
-          <p className="flex items-center text-sm">
-            <MapPinHouse size={16} className="mr-2" />
             {plant.location_type}
-          </p>
-          <p className="flex items-center text-sm">
-            <Scale3D size={16} className="mr-2" />
-            {plant.size}
           </p>
           <p className="text-xs text-gray-500">
             <span className="font-medium">SKU:</span>{" "}
