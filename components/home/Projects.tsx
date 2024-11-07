@@ -19,11 +19,11 @@ export default async function Projects() {
         <section className="px-2 py-4 lg:px-4">
             <div className="flex justify-between mb-5 border-b text-normal">
                 <div className="flex items-center pb-1 pr-2 border-b-2">
-                    <h1 className="text-3xl lg:text-4xl font-normal tracking-tight">
+                    <h1 className="text-3xl lg:text-4xl font-bold text-nowrap tracking-tight">
                         Our Projects
                     </h1>
                 </div>
-                <Link className="font-normal hover:text-blue-600 place-content-end" href="/projects">
+                <Link className="font-bold text-nowrap hover:text-blue-600 place-content-end" href="/projects">
                     View All
                 </Link>
             </div>

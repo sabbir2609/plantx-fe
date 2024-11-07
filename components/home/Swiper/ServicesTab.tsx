@@ -25,7 +25,7 @@ export default function ServicesTab(
     return (
         <>
             <div className='flex flex-col lg:flex-row items-center lg:items-baseline p-2 lg:justify-between'>
-                <h1 className="mt-5 text-3xl lg:text-4xl font-normal tracking-tight text-center mb-4">
+                <h1 className="mt-5 text-3xl lg:text-4xl tracking-tight text-center mb-4 font-bold text-nowrap">
                     Explore Our Services
                 </h1>
 
