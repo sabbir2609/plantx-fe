@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import ComServicesSwiper from './ComServicesSwiper';
 import ResServicesSwiper from './ResServicesSwiper';
+import Link from 'next/link';
 
 interface ServiceCategory {
     id: number;
@@ -24,7 +25,7 @@ export default function ServicesTab(
     return (
         <>
             <div className='flex flex-col lg:flex-row items-center lg:items-baseline p-2 lg:justify-between'>
-                <h1 className="mt-5 text-4xl lg:text-4xl font-normal tracking-tight text-center mb-4">
+                <h1 className="mt-5 text-3xl lg:text-4xl font-normal tracking-tight text-center mb-4">
                     Explore Our Services
                 </h1>
 
@@ -51,7 +52,12 @@ export default function ServicesTab(
                     <ResServicesSwiper services={residentialData} />
                 )}
             </div>
-
+            <div className='flex justify-end items-center m-2'>
+                <div className='w-full h-[2px] bg-base-200 mx-2 rounded-full'></div>
+                <Link href='/services' className='text-nowrap hover:text-blue-700 text-xl'>
+                    View all Services &rarr;
+                </Link>
+            </div>
         </>
     );
 };

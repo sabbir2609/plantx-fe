@@ -49,13 +49,11 @@ interface Plant {
 }
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
-export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata,
-): Promise<Metadata> {
+export async function generateMetadata(props: Props, parent: ResolvingMetadata): Promise<Metadata> {
+  const params = await props.params;
   // read route params
   const slug = params.slug;
 
@@ -73,7 +71,8 @@ export async function generateMetadata(
   };
 }
 
-export default async function Plants({ params }: Props) {
+export default async function Plants(props: Props) {
+  const params = await props.params;
   const data = await Fetch({ endpoint: `main/plants/${params.slug}` });
   const plant: Plant = data;
 

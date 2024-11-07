@@ -1,63 +1,46 @@
-import { Fetch } from '@/app/lib';
-import HeroSwiperLg from './Swiper/HeroSwiperLg';
-import PlaceholderImageLg from '@/public/static/banner/viriditas_lg.webp';
-import PlaceholderImageSm from '@/public/static/banner/viriditas_sm.webp';
+import HeroImageLg from '@/public/images/hero/hero_img_lg.jpg';
+import HeroImageSm from '@/public/images/hero/hero_img_sm.jpg';
 import Image from 'next/image';
-import HeroSwiperSm from './Swiper/HeroSwiperSm';
-
-interface Banner {
-    id: number;
-    image: string;
-    alt_text: string;
-}
-
+import Link from 'next/link';
 
 export default async function Hero() {
-
-    const data_lg = await Fetch({ endpoint: 'home/banners/large_screen/' });
-    const BannersLg: Banner[] = data_lg;
-
-    const data_sm = await Fetch({ endpoint: 'home/banners/small_screen/' });
-    const BannersSm: Banner[] = data_sm;
-
+    const title = "Elevate your space with nature";
     return (
-
         <>
-            <section className="w-full hidden lg:block md:block">
-                {BannersLg.length > 0 ? (
-                    <HeroSwiperLg Banners={BannersLg} />
-                ) : (
-                    <div className="w-full shadow-md">
-                        <Image
-                            src={PlaceholderImageLg}
-                            alt="Viriditas Banner"
-                            height={1080}
-                            width={1920}
-                            blurDataURL="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fviriditas.5d50e32c.png&w=8&q=70"
-                            placeholder='blur'
-                            sizes="100vw"
-                            loading='lazy'
-                            className='object-contain' />
+            <section className="relative w-full hidden md:block lg:block h-[90vh]">
+                <Image
+                    src={HeroImageLg}
+                    alt="Viriditas Banner"
+                    height={1080}
+                    width={1920}
+                    sizes="100vw"
+                    loading="lazy"
+                    className="object-cover w-full h-full"
+                />
+                <div className="absolute inset-0 flex items-center justify-start">
+                    <div className="ml-8 text-left">
+                        <h1 className="text-5xl font-bold text-white">{title}</h1>
+                        <Link href="#service-section" className="btn btn-primary mt-4">Explore Our Services</Link>
                     </div>
-                )}
+                </div>
             </section>
-            <section className="w-full lg:hidden md:hidden">
-                {BannersSm.length > 0 ? (
-                    <HeroSwiperSm Banners={BannersSm} />
-                ) : (
-                    <Image
-                        src={PlaceholderImageSm}
-                        alt="Viriditas Banner"
-                        height={1200}
-                        width={800}
-                        blurDataURL='/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fviriditas_sm.c39f66bb.png&w=8&q=70'
-                        placeholder='blur'
-                        loading='lazy'
-                        sizes="100vw"
-                        className='object-cover h-[70vh]' />
-                )}
+            <section className="relative w-full md:hidden lg:hidden h-[80vh]">
+                <Image
+                    src={HeroImageSm}
+                    alt="Viriditas Banner"
+                    height={1200}
+                    width={800}
+                    loading="lazy"
+                    sizes="100vw"
+                    className="object-cover w-full h-full"
+                />
+                <div className="absolute inset-0 flex items-center justify-start">
+                    <div className="ml-4 text-left">
+                        <h1 className="text-3xl font-bold text-white">{title}</h1>
+                        <Link href="#service-section" className="btn btn-primary mt-4">Explore Our Services</Link>
+                    </div>
+                </div>
             </section>
         </>
-
     );
-};
+}

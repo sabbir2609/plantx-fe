@@ -35,7 +35,7 @@ export default function Faq() {
 
     return (
         <div className="px-4 rounded-t-md py-8 bg-base-200">
-            <h2 className="text-3xl font-bold text-center mb-8">Frequently Asked Questions (FAQ)</h2>
+            <h2 className="text-3xl font-bold text-center mb-8">FAQ</h2>
             <div className="max-w-5xl mx-auto space-y-4">
                 {faqData.map((faq, index) => (
                     <div key={index} className="collapse collapse-plus bg-base-100 rounded-lg">
@@ -48,7 +48,7 @@ export default function Faq() {
                         <div className="collapse-title text-lg font-medium">
                             {faq.question}
                         </div>
-                        <div className="collapse-content">
+                        <div className="collapse-content bg-base-300">
                             <p>{faq.answer}</p>
                         </div>
                     </div>

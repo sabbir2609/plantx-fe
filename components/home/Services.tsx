@@ -24,7 +24,7 @@ export default async function Services() {
     const residentialData: ServiceCategory[] = await getResidentialData();
 
     return (
-        <div className="p-2 mx-auto">
+        <div className="p-2 mx-auto" id="service-section">
             <ServicesTab commercialData={commercialData} residentialData={residentialData} />
         </div>
     );

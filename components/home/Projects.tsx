@@ -16,14 +16,14 @@ export default async function Projects() {
     const projects: Project[] = data.results;
 
     return (
-        <section className="px-2 py-10 lg:px-4">
+        <section className="px-2 py-4 lg:px-4">
             <div className="flex justify-between mb-5 border-b text-normal">
-                <div className="flex items-center pb-1 pr-2 uppercase border-b-2">
+                <div className="flex items-center pb-1 pr-2 border-b-2">
                     <h1 className="text-3xl lg:text-4xl font-normal tracking-tight">
                         Our Projects
                     </h1>
                 </div>
-                <Link className="font-semibold hover:text-blue-600 place-content-end" href="/projects">
+                <Link className="font-normal hover:text-blue-600 place-content-end" href="/projects">
                     View All
                 </Link>
             </div>

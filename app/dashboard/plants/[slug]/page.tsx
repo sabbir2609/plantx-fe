@@ -1,6 +1,7 @@
 import Link from "next/link";
 
-export default function PlantDetailPage({ params }: { params: { slug: string } }) {
+export default async function PlantDetailPage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   return (
     <div>
       <h1 className="text-2xl font-bold"

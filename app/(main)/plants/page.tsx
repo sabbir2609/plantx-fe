@@ -33,7 +33,7 @@ interface Plant {
 
 
 export default async function Pages(context: any) {
-    const page = context.searchParams.page ? context.searchParams.page : 1;
+    const page = (await context.searchParams).page ? (await context.searchParams).page : 1;
     const data = await Fetch({ endpoint: `main/plants/?page=${page}` });
     const plants: Plant[] = data['results'];
 

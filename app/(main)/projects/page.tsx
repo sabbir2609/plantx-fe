@@ -11,7 +11,7 @@ interface Project {
 }
 
 export default async function Projects(context: any) {
-    const page = context.searchParams.page ? context.searchParams.page : 1;
+    const page = (await context.searchParams).page ? (await context.searchParams).page : 1;
     const data = await Fetch({ endpoint: `main/projects/?page=${page}` });
     const projects: Project[] = data.results;
     const totalPages = Math.ceil(data['count'] / 12);

@@ -19,14 +19,16 @@ export default function Home() {
         <AnimatedSection delay={0.4}>
           <Services />
         </AnimatedSection>
-        <AnimatedSection delay={0.3}>
+
+        {/* <AnimatedSection delay={0.3}>
           <Events />
-        </AnimatedSection>
+        </AnimatedSection> */}
+
         <AnimatedSection delay={0.4}>
           <Projects />
         </AnimatedSection>
-        <GetInTouch />
-        <Ideas />
+        {/* <GetInTouch /> */}
+        {/* <Ideas />  */}
       </div>
       <WhyChooseUs />
       <AnimatedSection delay={0.3}>

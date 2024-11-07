@@ -37,7 +37,7 @@ export default function ServicesSwiper(
       scrollbar={{
         hide: false,
       }}
-      autoplay={{ delay: 4000 }}
+      autoplay={{ delay: 4000, reverseDirection: true }}
       breakpoints={{
         640: {
           slidesPerView: 2,
@@ -48,17 +48,17 @@ export default function ServicesSwiper(
           spaceBetween: 10,
         },
       }}
-      className="mySwiper h-1/2 rounded-lg"
+      className="mySwiper rounded-lg"
     >
       {services.map((item) => (
-        <SwiperSlide key={item.id} className="relative">
-          <Link href={`/services/commercial/${item.slug}`} className='rounded-lg'>
+        <SwiperSlide key={item.id}>
+          <Link href={`/services/commercial/${item.slug}`} className='rounded-lg relative'>
             <Image
               src={item.image || "/static/viriditas.webp"}
               alt={item.title}
               height={800}
               width={800}
-              className="h-full w-full object-cover rounded-lg"
+              className="h-96 object-cover rounded-lg"
             />
             <div className="absolute bottom-10 left-8 z-20">
               <h1 className="text-4xl font-bold text-white">{item.title}</h1>

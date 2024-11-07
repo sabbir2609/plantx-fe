@@ -23,7 +23,8 @@ interface BlogPost {
 }
 
 
-export default async function Page({ params }: { params: { slug: string } }) {
+export default async function Page(props: { params: Promise<{ slug: string }> }) {
+    const params = await props.params;
     const category: BlogCategory = await Fetch({ endpoint: `blog/categories/${params.slug}` })
     const posts: BlogPost[] = await Fetch({ endpoint: `blog/categories/${params.slug}/posts` })
 

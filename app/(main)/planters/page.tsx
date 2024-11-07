@@ -27,7 +27,7 @@ interface Planter {
 
 
 export default async function Plants(context: any) {
-    const page = context.searchParams.page ? context.searchParams.page : 1;
+    const page = (await context.searchParams).page ? (await context.searchParams).page : 1;
 
     const data = await Fetch({ endpoint: `main/planters/?page=${page}` });
 

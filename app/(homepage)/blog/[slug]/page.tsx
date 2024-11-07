@@ -19,7 +19,8 @@ interface BlogPost {
     created_at: string;
 }
 
-export default async function Page({ params }: { params: { slug: string } }) {
+export default async function Page(props: { params: Promise<{ slug: string }> }) {
+    const params = await props.params;
     const data = await Fetch({ endpoint: `blog/posts/${params.slug}` });
     const post: BlogPost = data;
     return (

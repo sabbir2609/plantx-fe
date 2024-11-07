@@ -30,11 +30,12 @@ interface Service {
   tags: Tags[];
 }
 
-export default async function Service({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default async function Service(
+  props: {
+    params: Promise<{ slug: string }>;
+  }
+) {
+  const params = await props.params;
   const data = await Fetch({ endpoint: `main/services/${params.slug}` });
   const service: Service = data;
 

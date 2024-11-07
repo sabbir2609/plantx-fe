@@ -14,29 +14,29 @@ export default async function ContactUs() {
 
   return (
     <div className="grid w-full grid-cols-1 gap-5 rounded-md p-4 md:grid-cols-2">
-      <div className="flex select-text flex-col justify-center rounded-lg bg-gray-900 bg-opacity-75 p-8 text-white shadow-lg">
+      <div className="flex select-text flex-col justify-center rounded-lg bg-base-300 bg-opacity-75 p-8 shadow-sm">
         <h2 className="mb-6 text-4xl font-extrabold">Contact Us</h2>
         {contactInfo &&
           contactInfo.map((info, index) => (
             <div key={index} className="mb-4 space-y-4">
               <p className="flex items-center text-lg">
-                <MapPin size={24} className="inline-block text-yellow-400" />
+                <MapPin size={24} className="inline-block" />
                 <span className="ml-3">{info.address}</span>
               </p>
               <p className="flex items-center text-lg">
-                <Mail size={24} className="inline-block text-yellow-400" />
+                <Mail size={24} className="inline-block" />
                 <a
                   href={`mailto:${info.email}`}
-                  className="ml-3 underline hover:text-yellow-300"
+                  className="ml-3 underline hover:text-green-400"
                 >
                   {info.email}
                 </a>
               </p>
               <p className="flex items-center text-lg">
-                <PhoneCall size={24} className="inline-block text-yellow-400" />
+                <PhoneCall size={24} className="inline-block" />
                 <a
                   href={`tel:${info.phone}`}
-                  className="ml-3 underline hover:text-yellow-300"
+                  className="ml-3 underline hover:text-green-400"
                 >
                   {info.phone}
                 </a>

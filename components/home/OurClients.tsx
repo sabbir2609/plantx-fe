@@ -1,8 +1,8 @@
 import { Fetch } from "@/app/lib";
-import { Dancing_Script } from "next/font/google";
+// import { Dancing_Script } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
-const dancing_script = Dancing_Script({ subsets: ["latin"] });
+// const dancing_script = Dancing_Script({ subsets: ["latin"] });
 import Marquee from "react-fast-marquee";
 
 interface Client {
@@ -23,7 +23,7 @@ export default async function OurClients() {
             <div className="flex flex-col justify-center gap-4 mx-auto align-middle lg:flex-row max-w-7xl sm:px-6 lg:px-8">
 
                 <div className="mb-4 text-center lg:mb-0 lg:text-right lg:w-2/6 place-content-center">
-                    <h2 className={`${dancing_script.className} text-4xl font-bold text-nowrap`}>
+                    <h2 className={`text-3xl font-bold text-nowrap`}>
                         Our Clients
                     </h2>
                     <h4 className="text-2xl font-light">

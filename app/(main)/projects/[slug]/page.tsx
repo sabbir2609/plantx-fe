@@ -26,7 +26,8 @@ interface Project {
 }
 
 
-export default async function Plants({ params }: { params: { slug: string } }) {
+export default async function Plants(props: { params: Promise<{ slug: string }> }) {
+    const params = await props.params;
 
     const data = await Fetch({ endpoint: `main/projects/${params.slug}` });
     const project: Project = data;

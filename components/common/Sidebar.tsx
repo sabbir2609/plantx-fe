@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from 'next/navigation';
+import { JSX } from "react";
 
 // Define types for MenuItem and MenuGroup
 interface MenuItem {
@@ -56,18 +57,18 @@ export default function Sidebar() {
         //     },
         //     open: false
         // },
-        "Planters": {
-            title: "Planters",
-            icon: <Cylinder size={20} className="inline-block" />,
-            items: {
-                "Category": { title: "Planter Categories", link: "/planters/category" },
-                "Planters": { title: "All Planters", link: "/planters" },
-                "Our Custom Planters": { title: "Our Custom Planters", link: "/planters/custom" },
-                "Upload Your Design": { title: "Send us your design", link: "/planters/customize" },
-                "divider2": { divider: true },
-            },
-            open: false
-        },
+        // "Planters": {
+        //     title: "Planters",
+        //     icon: <Cylinder size={20} className="inline-block" />,
+        //     items: {
+        //         "Category": { title: "Planter Categories", link: "/planters/category" },
+        //         "Planters": { title: "All Planters", link: "/planters" },
+        //         "Our Custom Planters": { title: "Our Custom Planters", link: "/planters/custom" },
+        //         "Upload Your Design": { title: "Send us your design", link: "/planters/customize" },
+        //         "divider2": { divider: true },
+        //     },
+        //     open: false
+        // },
         "Blog": {
             title: "Blog",
             icon: <Leaf size={20} className="inline-block" />,

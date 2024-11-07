@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Jost } from "next/font/google";
+import { Poppins } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 import NextTopLoader from 'nextjs-toploader';
@@ -76,8 +77,16 @@ export const viewport: Viewport = {
 };
 
 
-const jost = Jost({
+const glacialIndifference = localFont({
+  src: "/lib/fonts/GlacialIndifference-Regular.otf",
+  display: "swap",
+})
+
+const poppins = Poppins({
+  display: "swap",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: '--font-poppins',
 });
 
 export default function RootLayout({
@@ -87,7 +96,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${jost.className}`}>
+      <body className={`${glacialIndifference.className} ${poppins.variable}`}>
         <GoogleTagManager gtmId={`${process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID}`} />
         <NextTopLoader />
         {children}

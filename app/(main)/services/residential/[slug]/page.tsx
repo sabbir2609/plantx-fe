@@ -37,7 +37,8 @@ async function fetchPlants(slug: string) {
     return data.results;
 }
 
-export default async function Page({ params }: { params: { slug: string } }) {
+export default async function Page(props: { params: Promise<{ slug: string }> }) {
+    const params = await props.params;
     const category: MainCategory = await fetchCategory(params.slug);
     const services: Service[] = await fetchPlants(params.slug);
 

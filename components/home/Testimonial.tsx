@@ -25,10 +25,10 @@ export default async function Testimonial() {
             />
             <div className="relative z-10">
                 <header className="mt-4 text-center text-white">
-                    <h2 className={`${dancing_script.className} text-4xl font-bold`}>
+                    <h2 className={`text-3xl font-bold`}>
                         Customer
                     </h2>
-                    <h1 className="text-3xl font-bold tracking-wide">Testimonials</h1>
+                    <h1 className="text-2xl font-bold tracking-wide">Testimonials</h1>
                 </header>
 
                 <TestimonialSwiper testimonials={data} />
