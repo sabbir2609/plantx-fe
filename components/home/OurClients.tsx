@@ -18,15 +18,15 @@ export default async function OurClients() {
     if (clients.length === 0) return null;
 
     return (
-        <section className="py-7 bg-base-200 mt-2 rounded-md">
+        <section className="py-7 mt-2 rounded-md">
 
-            <div className="flex flex-col justify-center gap-4 mx-auto align-middle lg:flex-row max-w-7xl sm:px-6 lg:px-8">
+            <div className="flex flex-col justify-center gap-4 mx-auto align-middle lg:flex-row max-w-7xl sm:px-6 lg:px-8 pb-12">
 
-                <div className="mb-4 text-center lg:mb-0 lg:text-right lg:w-2/6 place-content-center">
+                <div className="mb-4 text-center lg:mb-0 lg:text-right lg:w-2/6 place-content-center pb-8">
                     <h2 className={`text-3xl font-bold text-nowrap`}>
                         Our Clients
                     </h2>
-                    <h4 className="text-2xl font-light">
+                    <h4 className="text-lg">
                         Trusted by the best
                     </h4>
                 </div>
