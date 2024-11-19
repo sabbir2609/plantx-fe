@@ -16,18 +16,17 @@ export default async function Projects() {
     const projects: Project[] = data.results;
 
     return (
-        <section className="px-2 py-4 lg:px-4">
-            <div className="flex justify-between mb-5 border-b text-normal">
-                <div className="flex items-center pb-1 pr-2 border-b-2">
-                    <h1 className="text-3xl lg:text-4xl font-bold text-nowrap tracking-tight">
-                        Our Projects
-                    </h1>
-                </div>
-                <Link className="font-bold text-nowrap hover:text-blue-600 place-content-end" href="/projects">
-                    View All
+        <section className="px-2 py-6 lg:px-4">
+            <h1 className="text-center lg:text-left text-3xl lg:text-4xl font-bold text-nowrap tracking-tight pb-12">
+                Our Projects
+            </h1>
+            <ProjectSwiper projects={projects} />
+            <div className='flex justify-end items-center m-2'>
+                <div className='w-full h-[2px] bg-base-200 mx-2 rounded-full'></div>
+                <Link href='/projects' className='text-nowrap hover:text-blue-700 text-xl'>
+                    View all Projects &rarr;
                 </Link>
             </div>
-            <ProjectSwiper projects={projects} />
         </section>
     );
 };
