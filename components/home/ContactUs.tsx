@@ -14,8 +14,8 @@ export default async function ContactUs() {
 
   return (
     <div className="grid w-full grid-cols-1 gap-5 rounded-md p-4 md:grid-cols-2">
-      <div className="flex select-text flex-col justify-center rounded-lg bg-base-300 bg-opacity-75 p-8 shadow-sm">
-        <h2 className="mb-6 text-4xl font-extrabold text-center">Contact Us</h2>
+      <div className="flex select-text flex-col justify-center rounded-lg bg-opacity-75 p-8">
+        <h2 className="mb-6 text-4xl font-extrabold text-center pb-2">Contact Us</h2>
         {contactInfo &&
           contactInfo.map((info, index) => (
             <div key={index} className="mb-4 space-y-4">
