@@ -43,14 +43,14 @@ export default function WhyChooseUs() {
     ];
 
     return (
-        <div className="mx-auto p-4 lg:p-8">
-            <h1 className="mb-6 text-center lg:text-left text-3xl font-bold text-nowrap">
+        <div className="mx-auto p-4 py-12 lg:p-8">
+            <h1 className="mb-6 pb-8 text-center lg:text-left text-3xl font-bold text-nowrap">
                 Why Choose Us
             </h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-8">
                 {WhyChooseUs.map((item, index) => (
                     <AnimatedSection key={index} delay={index * 0.1}>
-                        <div className="flex flex-col p-6 rounded-lg shadow-sm h-full bg-base-200">
+                        <div className="flex flex-col p-6 rounded-md shadow-md h-full bg-base-200">
                             <div className="flex items-center">
                                 <item.icon className="w-8 h-8 text-green-700 dark:text-green-300" />
                                 <h3 className="ml-4 text-lg lg:text-2xl">{item.title}</h3>
