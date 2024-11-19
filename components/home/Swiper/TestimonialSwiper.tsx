@@ -55,7 +55,7 @@ export default function TestimonialSwiper(
                             className="relative flex flex-col items-center justify-center pt-4 rounded-lg h-max"
                         >
                             <div className="flex flex-row gap-2 mb-[-56px] items-center z-10">
-                                <Quote className="text-black rotate-180 fill-black" size={40} />
+                                <Quote className="rotate-180" size={40} />
                                 <Image
                                     src={testimonial.image ? testimonial.image : UserImage}
                                     alt={testimonial.customer}
@@ -65,10 +65,10 @@ export default function TestimonialSwiper(
                                     placeholder="blur"
                                     className="object-cover border-2 border-green-400 rounded-full shadow-lg w-28 h-28"
                                 />
-                                <Quote className="text-black fill-black" size={40} />
+                                <Quote className="" size={40} />
                             </div>
 
-                            <div className="px-6 pt-16 pb-10 text-center text-black bg-white rounded-xl ">
+                            <div className="px-6 pt-16 pb-10 text-center rounded-xl bg-base-200">
                                 <p className="text-center tracking-tight lg:text-lg">
                                     {testimonial.content}
                                     <br />
