@@ -49,7 +49,7 @@ export default async function OurClients() {
                                 alt={client.name}
                                 width={200}
                                 height={200}
-                                className="object-contain w-40 h-40 p-4 mx-2 bg-base-300 rounded-sm shadow-md"
+                                className="object-contain w-40 h-40 p-4 mx-2 bg-base-200 rounded-sm shadow-md"
                             />
                         </Link>
                     ))}
