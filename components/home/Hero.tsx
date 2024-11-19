@@ -34,7 +34,7 @@ export default async function Hero() {
                     sizes="100vw"
                     className="object-cover w-full h-full"
                 />
-                <div className="absolute inset-0 flex items-center justify-start">
+                <div className="absolute inset-0 flex items-end justify-start pb-12">
                     <div className="ml-4 text-left">
                         <h1 className="text-3xl font-bold text-white">{title}</h1>
                         <Link href="#service-section" className="btn btn-primary mt-4">Explore Our Services</Link>
