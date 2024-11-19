@@ -32,9 +32,9 @@ export default function Slogan() {
     }, [blink]);
 
     return (
-        <div className="p-4 lg:my-6 text-4xl font-semibold text-center lg:text-6xl flex justify-center">
+        <div className="p-4 px-16 lg:my-6 text-4xl font-semibold text-center lg:text-6xl flex justify-center">
             <div>
-                <span>Redesign Your</span>
+                <span>We Design Your</span>
                 <span className="inline-block w-[7ch]">
                     {`${words[index].substring(0, subIndex)}${blink ? '|' : ' '}`}
                 </span>
