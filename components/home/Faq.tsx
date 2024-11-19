@@ -34,11 +34,11 @@ export default function Faq() {
     ];
 
     return (
-        <div className="px-4 rounded-t-md py-8 bg-base-200">
-            <h2 className="text-3xl font-bold text-center mb-8">FAQ</h2>
+        <div className="px-4 rounded-t-md my-10">
+            <h2 className="text-3xl font-bold text-center mb-12">FAQ</h2>
             <div className="max-w-5xl mx-auto space-y-4">
                 {faqData.map((faq, index) => (
-                    <div key={index} className="collapse collapse-plus bg-base-100 rounded-lg">
+                    <div key={index} className="collapse collapse-plus bg-base-200 rounded-lg">
                         <input
                             type="checkbox"
                             className="peer"
