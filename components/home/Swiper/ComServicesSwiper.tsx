@@ -61,7 +61,7 @@ export default function ServicesSwiper(
               className="h-96 object-cover rounded-lg"
             />
             <div className="absolute bottom-10 left-8 z-20">
-              <h1 className="text-4xl font-bold text-white">{item.title}</h1>
+              <h1 className="text-3xl text-white">{item.title}</h1>
             </div>
           </Link>
         </SwiperSlide>
