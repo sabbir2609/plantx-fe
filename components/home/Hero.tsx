@@ -20,7 +20,7 @@ export default async function Hero() {
                 <div className="absolute inset-0 flex items-center justify-start">
                     <div className="ml-8 text-left">
                         <h1 className="text-5xl font-bold text-white">{title}</h1>
-                        <Link href="#service-section" className="btn btn-primary mt-4">Explore Our Services</Link>
+                        <Link href="#service-section" className="btn btn-primary mt-4">Get Started</Link>
                     </div>
                 </div>
             </section>
