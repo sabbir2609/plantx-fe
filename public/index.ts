@@ -1,1 +1,1 @@
-export { default as errorImage } from "./static/error.png";
+export { default as errorImage } from "./static/error.jpg";
