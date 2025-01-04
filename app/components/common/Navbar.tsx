@@ -21,11 +21,13 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import ThemeChange from "./ThemeChange";
 
 interface LinkItem {
   id: number;
   name: string;
-  link: string;
+  link?: string;
   icon?: JSX.Element;
   defaultOpen?: boolean;
   isDeviderAtEnd?: boolean;
@@ -44,7 +46,6 @@ const navLinks: LinkItem[] = [
   {
     id: 2,
     name: "Services",
-    link: "/services",
     icon: <HandPlatter size={20} className="inline-block" />,
     defaultOpen: true,
     sublinks: [
@@ -56,7 +57,6 @@ const navLinks: LinkItem[] = [
   {
     id: 3,
     name: "Blog",
-    link: "/blog",
     icon: <Leaf size={20} className="inline-block" />,
     defaultOpen: false,
     sublinks: [
@@ -106,12 +106,16 @@ const socialLinks: SocialLink[] = [
 ];
 
 export default function Navbar() {
+  const router = usePathname();
+
+  // State
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(() => {
     const index = navLinks.findIndex((link) => link.defaultOpen);
     return index === -1 ? null : index;
   });
 
+  // Effect
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
@@ -120,16 +124,18 @@ export default function Navbar() {
     }
   }, [open]);
 
+  // Functions
   const closeDrawer = () => setOpen(false);
-
   function toggleMenu(index: number): void {
     setActiveIndex(activeIndex === index ? null : index);
   }
 
   return (
-    <nav className="absolute left-0 top-0 z-40 w-full px-4 py-4">
+    <nav
+      className={`${router === "/" ? "absolute left-0 top-0" : "bg-base-300"} z-50 w-full px-4 py-1`}
+    >
       <div className="container mx-auto flex items-center justify-between">
-        <Link href="/" className="text-2xl font-bold tracking-wide text-white">
+        <Link href="/" className="text-2xl font-bold tracking-wide">
           Viriditas
         </Link>
 
@@ -139,15 +145,20 @@ export default function Navbar() {
               .filter((link) => !link.hideOnlargeScreen)
               .map((link) => (
                 <div key={link.id} className="group relative">
-                  <Link
-                    href={link.link}
-                    className="flex items-center space-x-4"
-                  >
-                    <span className="link-underline link-underline-black font-medium">
-                      {link.name}
-                    </span>
-                  </Link>
-
+                  {link.link ? (
+                    <Link
+                      href={link.link}
+                      className="flex items-center space-x-4"
+                    >
+                      <span className="link-underline link-underline-black font-medium">
+                        {link.name}
+                      </span>
+                    </Link>
+                  ) : (
+                    <div className="flex items-center space-x-4">
+                      <span className="font-medium">{link.name}</span>
+                    </div>
+                  )}
                   {link.sublinks && (
                     <div className="absolute left-0 top-full hidden rounded-sm bg-base-300 px-6 group-hover:block">
                       {link.sublinks.map((sublink, index) => (
@@ -166,21 +177,47 @@ export default function Navbar() {
           </div>
         </div>
 
-        <div className={`z-40 md:hidden ${open ? "z-40 text-white" : ""}`}>
-          <button
-            className={`menu-button focus:outline-none ${open ? "open" : ""}`}
-            onClick={() => setOpen(!open)}
-          >
-            <div className="line line1 text-white"></div>
-            <div className="line line2 text-white"></div>
-            <div className="line line3 text-white"></div>
-          </button>
+        <div className="hidden items-center space-x-10 text-white md:flex">
+          {socialLinks.map((link, index) => (
+            <Link
+              key={index}
+              href={link.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary"
+            >
+              {link.icon}
+            </Link>
+          ))}
+        </div>
+        <div className="flex items-center space-x-4">
+          {/* <Link
+              href="https://www.instagram.com/theviriditas/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary"
+            >
+              <Instagram />
+            </Link> */}
+
+          <ThemeChange />
+
+          <div className={`z-50 md:hidden ${open ? "z-50 text-white" : ""}`}>
+            <button
+              className={`menu-button focus:outline-none ${open ? "open" : ""}`}
+              onClick={() => setOpen(!open)}
+            >
+              <div className="line line1"></div>
+              <div className="line line2"></div>
+              <div className="line line3"></div>
+            </button>
+          </div>
         </div>
       </div>
 
       {open && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50"
+          className="fixed inset-0 z-40 bg-black bg-opacity-50"
           onClick={closeDrawer}
         ></div>
       )}
@@ -192,26 +229,44 @@ export default function Navbar() {
         style={{ width: "270px" }}
       >
         <div className="flex h-full flex-col bg-base-200">
-          <div className="border-b border-base-200 bg-base-300 p-3 text-center text-2xl font-bold tracking-wide">
+          <Link
+            href="/"
+            className="border-b border-base-200 bg-base-300 p-3 text-center text-2xl font-bold tracking-wide"
+          >
             Viriditas
-          </div>
+          </Link>
 
           {/* colapsibe manu  */}
-          <div className="h-full overflow-y-auto p-6">
+                    <div className="h-full overflow-y-auto p-6">
             {navLinks.map((link, index) => (
               <div key={link.id} className="mb-4">
                 <div
-                  className="flex cursor-pointer items-center justify-between"
+                  className={`flex cursor-pointer items-center justify-between`}
                   onClick={() => toggleMenu(index)}
                 >
-                  <span className="flex items-center text-nowrap font-semibold">
-                    {link.icon && (
-                      <span className="mr-2 flex items-center">
-                        {link.icon}
-                      </span>
-                    )}
-                    {link.name}
-                  </span>
+                  {link.link ? (
+                    <Link
+                      href={link.link}
+                      className="flex items-center text-nowrap font-semibold"
+                      onClick={closeDrawer}
+                    >
+                      {link.icon && (
+                        <span className="mr-2 flex items-center">
+                          {link.icon}
+                        </span>
+                      )}
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <span className="flex items-center text-nowrap font-semibold">
+                      {link.icon && (
+                        <span className="mr-2 flex items-center">
+                          {link.icon}
+                        </span>
+                      )}
+                      {link.name}
+                    </span>
+                  )}
                   {link.sublinks && (
                     <span
                       className={`transition-transform duration-500 ease-in-out ${
@@ -222,7 +277,7 @@ export default function Navbar() {
                     </span>
                   )}
                 </div>
-
+          
                 {link.sublinks && (
                   <div
                     className={`ml-4 mt-2 overflow-hidden transition-all duration-500 ease-in-out ${
@@ -236,13 +291,14 @@ export default function Navbar() {
                         key={subIndex}
                         href={sublink.link}
                         className="block text-nowrap p-2 font-medium hover:text-primary"
+                        onClick={closeDrawer}
                       >
                         {sublink.name}
                       </Link>
                     ))}
                   </div>
                 )}
-
+          
                 {link.isDeviderAtEnd && (
                   <div className="divider divider-primary"></div>
                 )}
@@ -250,8 +306,7 @@ export default function Navbar() {
             ))}
           </div>
 
-
-                      <div className="flex justify-around border-t border-base-200 bg-base-300 p-3">
+          <div className="flex justify-around border-t border-base-200 bg-base-300 p-3">
             {socialLinks.map((link, index) => (
               <Link
                 key={index}
@@ -263,7 +318,6 @@ export default function Navbar() {
                 {link.icon}
               </Link>
             ))}
-
           </div>
         </div>
       </div>

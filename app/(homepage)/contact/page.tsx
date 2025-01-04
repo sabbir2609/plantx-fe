@@ -19,7 +19,7 @@ export default async function Page() {
     const contact: Contact[] = data;
 
     return (
-        <div className="hero min-h-full bg-base-100">
+        <div className="hero min-h-full bg-base-100 my-10">
             <div className="hero-content p-0 flex-col lg:flex-row-reverse">
                 <div className="text-center">
                     <h1 className="text-5xl font-bold">Contact Us!</h1>

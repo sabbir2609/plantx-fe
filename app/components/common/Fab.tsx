@@ -28,11 +28,16 @@ export default function Fab() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    return (
-        <div className={`fixed bottom-4 right-0 px-4 z-40 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-            <button onClick={handleChatFabClick} className='bg-blue-500 hover:bg-blue-700 text-white font-bold p-2 rounded-full shadow-lg' aria-label="Chat" title="Chat">
-                <MessageSquareDot size={24} className="inline-block" /> Chat with us
-            </button>
-        </div>
-    );
+    return isVisible ? (
+      <div className="fixed bottom-4 right-0 z-40 px-4">
+        <button
+          onClick={handleChatFabClick}
+          className="rounded-full bg-blue-500 p-2 font-bold text-white shadow-lg hover:bg-blue-700"
+          aria-label="Chat"
+          title="Chat"
+        >
+          <MessageSquareDot size={24} className="inline-block" /> Chat with us
+        </button>
+      </div>
+    ) : null;
 }
