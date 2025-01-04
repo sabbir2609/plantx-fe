@@ -15,6 +15,9 @@ export default async function Projects() {
     const data = await Fetch({ endpoint: 'main/projects/' });
     const projects: Project[] = data.results;
 
+    // return null if no projects
+    if (!projects.length) return null;
+
     return (
         <section className="px-2 py-6 lg:px-4">
             <h1 className="text-center lg:text-left text-3xl lg:text-4xl font-bold text-nowrap tracking-tight pb-12">

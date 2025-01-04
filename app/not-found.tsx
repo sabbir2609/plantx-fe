@@ -3,7 +3,7 @@ import { Leaf } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-green-50 to-white">
+    <main className="min-h-screen bg-base-200">
       <div className="mx-auto flex min-h-screen flex-col items-center justify-center px-4 text-center">
         <div className="animate-float">
           <Leaf className="mx-auto h-24 w-24 text-green-500" />
@@ -19,7 +19,7 @@ export default function NotFound() {
           Oops! Looks like this plant hasn&apos;t sprouted yet
         </p>
         
-        <p className="mt-2 max-w-lg text-base text-gray-600">
+        <p className="mt-2 max-w-lg text-base">
           Just like plants need the right environment to grow, 
           it seems this page isn&apos;t ready to bloom. 
           Let&apos;s guide you back to our thriving garden of interior designs.
@@ -33,7 +33,7 @@ export default function NotFound() {
             <span className="absolute inset-0 flex h-full w-full -translate-x-full items-center justify-center bg-green-700 transition-all duration-300 group-hover:translate-x-0">
               <Leaf className="h-5 w-5" />
             </span>
-            <span className="relative transition-all duration-300 group-hover:translate-x-4">
+            <span className="relative transition-all duration-300 group-hover:translate-x-4 group-hover:opacity-0">
               Return Home
             </span>
           </Link>

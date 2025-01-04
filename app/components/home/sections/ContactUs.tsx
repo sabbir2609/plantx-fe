@@ -17,11 +17,11 @@ export default function ContactUs() {
     },
     {
       name: "Instagram",
-      url: "https://www.instagram.com/the_viriditas",
+      url: "https://www.instagram.com/theviriditas",
     },
     {
       name: "YouTube",
-      url: "https://www.youtube.com/ViriditasInterior",
+      url: "https://www.youtube.com/@ViriditasInterior",
     },
     {
       name: "TikTok",
