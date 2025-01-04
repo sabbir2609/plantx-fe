@@ -1,5 +1,5 @@
 import { Mail, MapPin, PhoneCall } from "lucide-react";
-import { ContactForm } from ".";
+import { ContactForm } from "..";
 import { SocialIcon } from 'react-social-icons'
 
 export default function ContactUs() {

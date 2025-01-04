@@ -6,7 +6,7 @@ import {
     Lightbulb,
     Settings,
 } from "lucide-react";
-import AnimatedSection from "./Wrapper/AnimatedSection";
+import AnimatedSection from "../Wrapper/AnimatedSection";
 
 export default function WhyChooseUs() {
     const WhyChooseUs = [

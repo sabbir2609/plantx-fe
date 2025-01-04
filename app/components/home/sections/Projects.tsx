@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import ProjectSwiper from './Swiper/ProjectsSwiper';
+import ProjectSwiper from '../Swiper/ProjectsSwiper';
 import { Fetch } from '@/app/lib';
 
 interface Project {

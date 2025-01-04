@@ -1,7 +1,7 @@
 import { Fetch } from "@/app/lib";
 import { EventCard } from "@/app/components/main";
 import Link from "next/link";
-import EventSwiper from "./Swiper/EventSwiper";
+import EventSwiper from "../Swiper/EventSwiper";
 
 interface Event {
     id: number;

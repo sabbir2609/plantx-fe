@@ -1,5 +1,5 @@
 import { Fetch } from '@/app/lib';
-import TestimonialSwiper from "./Swiper/TestimonialSwiper";
+import TestimonialSwiper from "../Swiper/TestimonialSwiper";
 
 export default async function Testimonial() {
     const data = await Fetch({ endpoint: 'main/testimonials/' });

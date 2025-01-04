@@ -9,6 +9,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
+import { Navbar } from "./components/common";
 
 const APP_NAME = "Viriditas";
 const APP_DEFAULT_TITLE = "Viriditas - Elevate your space with Nature";
@@ -99,6 +100,7 @@ export default function RootLayout({
       <body className={`${glacialIndifference.className} ${poppins.variable}`}>
         <GoogleTagManager gtmId={`${process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID}`} />
         <NextTopLoader />
+        <Navbar />
         {children}
         <SpeedInsights />
         <Analytics />

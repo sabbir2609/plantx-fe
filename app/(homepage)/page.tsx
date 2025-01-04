@@ -1,4 +1,4 @@
-import { About, ContactUs, Footer, Hero, Projects, Slogan, Services, GetInTouch, WhyChooseUs, OurClients, Testimonial, Ideas, Events, Faq } from "@/app/components/home";
+import { About, ContactUs, HomeFooter, Hero, Projects, Slogan, Services, GetInTouch, WhyChooseUs, OurClients, Testimonial, Ideas, Events, Faq } from "@/app/components/home";
 import AnimatedSection from "@/app/components/home/Wrapper/AnimatedSection";
 import type { Metadata } from 'next';
 
@@ -43,7 +43,7 @@ export default function Home() {
       <AnimatedSection delay={0.3}>
         <ContactUs />
       </AnimatedSection>
-      <Footer />
+      <HomeFooter />
     </>
   );
 }

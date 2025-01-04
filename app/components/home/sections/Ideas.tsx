@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Fetch } from "@/app/lib";
-import AnimatedSection from "./Wrapper/AnimatedSection";
+import AnimatedSection from "../Wrapper/AnimatedSection";
 
 interface Ideas {
   id: number;

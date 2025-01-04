@@ -7,4 +7,3 @@ export { default as ServiceCard } from "./cards/ServiceCard";
 export { default as Footer } from "./ui/Footer";
 export { default as ProductImageViewer } from "./imagetools/ProductImageViewer";
 export { default as Pagination } from "./ui/Pagination";
-export { default as Navbar } from "./ui/Navbar";

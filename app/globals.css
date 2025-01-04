@@ -33,3 +33,68 @@ h5,
 h6 {
   font-family: var(--font-poppins), sans-serif;
 }
+
+/* link underkine  */
+.link-underline {
+  @apply relative border-b-0;
+  background-image: linear-gradient(transparent, transparent),
+    linear-gradient(#fff, #fff);
+  @apply bg-[length:0_3px] bg-[position:0_100%] bg-no-repeat;
+  @apply transition-[background-size] duration-500 ease-in-out;
+}
+
+.link-underline-black {
+  background-image: linear-gradient(transparent, transparent),
+    linear-gradient(theme("colors.pink.400"), theme("colors.pink.400"));
+}
+
+.link-underline:hover {
+  @apply bg-[length:100%_3px] bg-[position:0_100%];
+}
+
+/* sub link hover  */
+.sublink-hover {
+  @apply relative inline-block transition-transform duration-300;
+}
+
+.sublink-hover::before {
+  @apply absolute -left-5 opacity-0 transition-all duration-300 -translate-x-2.5;
+  content: "—";
+}
+
+.sublink-hover:hover::before {
+  @apply opacity-100 translate-x-0;
+}
+
+.sublink-hover:hover {
+  @apply translate-x-2.5;
+}
+
+/* Menu Button Animation */
+.menu-button {
+  @apply relative w-6 h-6 flex items-center justify-center cursor-pointer;
+}
+
+.menu-button .line {
+  @apply absolute w-6 h-0.5 bg-current transition-all duration-300 ease-in-out;
+}
+
+.menu-button .line1 {
+  @apply -translate-y-1.5;
+}
+
+.menu-button .line3 {
+  @apply translate-y-1.5;
+}
+
+.menu-button.open .line1 {
+  @apply rotate-45 translate-y-0;
+}
+
+.menu-button.open .line2 {
+  @apply opacity-0;
+}
+
+.menu-button.open .line3 {
+  @apply -rotate-45 translate-y-0;
+}

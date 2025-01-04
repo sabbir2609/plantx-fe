@@ -5,7 +5,7 @@ import getInTouchImg4 from "@/public/images/get-in-touch/4.png";
 import getInTouchImg5 from "@/public/images/get-in-touch/5.png";
 import getInTouchImg6 from "@/public/images/get-in-touch/6.png";
 import Image from "next/image";
-import AnimatedSection from "./Wrapper/AnimatedSection";
+import AnimatedSection from "../Wrapper/AnimatedSection";
 
 const sections = [
   {
