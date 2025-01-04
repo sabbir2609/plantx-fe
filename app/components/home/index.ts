@@ -3,7 +3,7 @@ export { default as AnnouncementBanner } from "./AnnouncementBanner";
 export { default as ContactUs } from "./ContactUs";
 export { default as Events } from "./Events";
 export { default as Faq } from "./Faq";
-export { default as Footer } from "./Footer";
+export { default as HomeFooter } from "./HomeFooter";
 export { default as ContactForm } from "./form/ContactForm";
 export { default as GetInTouch } from "./GetInTouch";
 export { default as Hero } from "./Hero";

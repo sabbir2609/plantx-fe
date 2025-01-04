@@ -3,7 +3,7 @@
 import { MessageSquareDot } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
 
-export default function ChatPlugin() {
+export default function Fab() {
     const [isVisible, setIsVisible] = useState(false);
     let timeoutId: NodeJS.Timeout;
 

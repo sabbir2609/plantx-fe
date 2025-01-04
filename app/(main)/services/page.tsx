@@ -1,5 +1,5 @@
 import { Fetch } from "@/app/lib";
-import { Pagination, ServiceCard } from "@/components/main";
+import { Pagination, ServiceCard } from "@/app/components/main";
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {

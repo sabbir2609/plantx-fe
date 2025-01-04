@@ -1,6 +1,6 @@
 import { Fetch } from "@/app/lib";
 import Image from "next/image";
-import { ProductImageViewer } from "@/components/main";
+import { ProductImageViewer } from "@/app/components/main";
 import Link from "next/link";
 
 interface Category {

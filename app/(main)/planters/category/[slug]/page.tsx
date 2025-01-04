@@ -1,5 +1,5 @@
 import { Fetch } from "@/app/lib";
-import { PlanterCard } from "@/components/main";
+import { PlanterCard } from "@/app/components/main";
 import Image from "next/image";
 
 interface PlanterCategory {

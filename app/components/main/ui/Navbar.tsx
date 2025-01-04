@@ -1,4 +1,4 @@
-import { ThemeChange } from "@/components/common";
+import { ThemeChange } from "@/app/components/common";
 import { Instagram, Phone, Search } from "lucide-react";
 import Link from "next/link";
 

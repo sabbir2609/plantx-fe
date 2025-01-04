@@ -1,6 +1,6 @@
 import { Fetch } from "@/app/lib";
 import type { Metadata, ResolvingMetadata } from "next";
-import { ProductImageViewer } from "@/components/main";
+import { ProductImageViewer } from "@/app/components/main";
 
 interface PlantFeature {
   id: number;

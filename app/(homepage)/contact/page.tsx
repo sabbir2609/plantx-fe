@@ -1,4 +1,4 @@
-import { ContactForm } from '@/components/home';
+import { ContactForm } from '@/app/components/home';
 import Link from 'next/link';
 import { Fetch } from '@/app/lib';
 import type { Metadata } from 'next'

@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { Fetch } from "@/app/lib"
 import Link from "next/link"
-import { BlogPostCard } from "@/components/main"
+import { BlogPostCard } from "@/app/components/main"
 
 interface BlogCategory {
     id: number

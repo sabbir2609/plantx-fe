@@ -1,5 +1,5 @@
-import { ChatFab, Sidebar } from "@/components/common";
-import { AnnouncementBanner, Navbar } from "@/components/home";
+import { Fab } from "@/app/components/common";
+import { AnnouncementBanner } from "@/app/components/home";
 
 export default function RootLayout({
     children,
@@ -7,18 +7,10 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <div className="bg-base-100 drawer">
-            <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content min-h-max">
+        <div className="bg-base-100">
                 <AnnouncementBanner />
-                <Navbar />
                 {children}
-            </div>
-            <div className="drawer-side z-40" style={{ scrollBehavior: "smooth", scrollPaddingTop: "5rem" }}>
-                <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
-                <Sidebar />
-            </div>
-            <ChatFab />
+            <Fab />
         </div>
     );
 }

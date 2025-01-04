@@ -1,5 +1,5 @@
 import { Fetch } from '@/app/lib';
-import { ProductImageViewer } from '@/components/main';
+import { ProductImageViewer } from '@/app/components/main';
 import Image from 'next/image';
 
 interface ProjectCategory {

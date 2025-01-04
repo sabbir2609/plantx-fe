@@ -1,5 +1,5 @@
 import { Fetch } from "@/app/lib";
-import { EventCard } from "@/components/main";
+import { EventCard } from "@/app/components/main";
 import Link from "next/link";
 import EventSwiper from "./Swiper/EventSwiper";
 

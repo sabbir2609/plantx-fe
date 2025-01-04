@@ -2,7 +2,7 @@ import { Facebook, Flower2, Instagram, Youtube } from "lucide-react";
 import Link from "next/link";
 
 
-export default async function Footer() {
+export default async function HomeFooter() {
     return (
       <footer className="mt-2 rounded-t-xl bg-base-200 px-3 pb-2 pt-10 text-base-content lg:px-10">
         <div className="pb-5">

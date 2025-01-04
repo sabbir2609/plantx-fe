@@ -1,5 +1,5 @@
 import { AlignLeft, Menu, Phone, Search, Instagram } from "lucide-react";
-import { ThemeChange } from "@/components/common";
+import { ThemeChange } from "@/app/components/common";
 import Link from "next/link";
 
 export default async function Navbar() {

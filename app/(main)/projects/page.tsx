@@ -1,5 +1,5 @@
 import { Fetch } from "@/app/lib";
-import { Pagination, ProjectCard } from "@/components/main";
+import { Pagination, ProjectCard } from "@/app/components/main";
 
 interface Project {
     id: number;

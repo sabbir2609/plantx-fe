@@ -1,5 +1,5 @@
 import { Fetch } from "@/app/lib";
-import { ServiceCard } from "@/components/main";
+import { ServiceCard } from "@/app/components/main";
 import Image from "next/image";
 
 interface MainCategory {

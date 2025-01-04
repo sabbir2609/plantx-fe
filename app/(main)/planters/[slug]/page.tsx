@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { SwiperSlideComponent } from '@/components/common';
+import { SwiperSlideComponent } from '@/app/components/common';
 import { Fetch } from '@/app/lib';
 
 interface PlanterImage {
