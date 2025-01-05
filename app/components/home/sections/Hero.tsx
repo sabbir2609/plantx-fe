@@ -1,5 +1,5 @@
 import HeroImageLg from '@/public/images/hero/hero_img_lg.jpg';
-import HeroImageSm from '@/public/images/hero/hero_img_sm.jpg';
+import HeroImageSm from '@/public/images/hero/hero_img_sm_1.jpg';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -9,7 +9,7 @@ export default async function Hero() {
         <>
             <section className="relative w-full hidden md:block lg:block h-[90vh]">
                 <Image
-                    src={HeroImageLg}
+                    src={HeroImageLg ? HeroImageLg : '/static/viriditas.webp'}
                     alt="Viriditas Banner"
                     height={1080}
                     width={1920}
@@ -26,7 +26,7 @@ export default async function Hero() {
             </section>
             <section className="relative w-full md:hidden lg:hidden h-[80vh]">
                 <Image
-                    src={HeroImageSm}
+                    src={HeroImageSm ? HeroImageSm : '/static/viriditas.webp'}
                     alt="Viriditas Banner"
                     height={1200}
                     width={800}

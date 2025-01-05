@@ -1,7 +1,36 @@
 import Link from "next/link";
-import { Facebook, Instagram, Youtube } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 
 export default function Footer() {
+    const contactInfo = [
+      {
+        address: "H-36, R-2, Block-B, Aftabnagar, Dhaka, Bangladesh",
+        email: "hello@thviriditas.com",
+        phone: "(+880)1918-426908",
+      },
+    ];
+    const SocialLinks = [
+      {
+        name: "Facebook",
+        url: "https://facebook.com/theviriditas",
+        icon: <Facebook size={20} />,
+      },
+      {
+        name: "Instagram",
+        url: "https://instagram.com/theviriditas",
+        icon: <Instagram size={20} />,
+      },
+      {
+        name: "Youtube",
+        url: "https://youtube.com/@ViriditasInterior",
+        icon: <Youtube size={20} />,
+      },
+      {
+        name: "Linkedin",
+        url: "https://linkedin.com/company/theviriditas",
+        icon: <Linkedin size={20} />,
+      },
+    ];
   return (
     <footer className="bg-base-300 text-base-content mt-4">
       <div className="container mx-auto px-4 py-8">
@@ -10,7 +39,7 @@ export default function Footer() {
           <div>
             <h3 className="font-bold">Viriditas</h3>
             <p className="mt-2 text-sm">
-              Creating sustainable and beautiful interior landscapes since 2020
+              Creating sustainable and beautiful interior landscapes since 2024.
             </p>
           </div>
 
@@ -45,9 +74,13 @@ export default function Footer() {
           <div>
             <h3 className="font-bold">Contact</h3>
             <ul className="mt-2 space-y-2 text-sm">
-              <li>Email: hello@viriditas.com</li>
-              <li>Phone: (123) 456-7890</li>
-              <li>Address: 123 Green Street</li>
+              {contactInfo.map((info, index) => (
+                <li key={index} className="flex flex-col">
+                  <p>{info.address}</p>
+                  <Link href={`mailto:${info.email}`} className="text-accent">{info.email}</Link>
+                  <Link href={`tel:${info.phone}`} className="text-accent">{info.phone}</Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -55,24 +88,17 @@ export default function Footer() {
           <div>
             <h3 className="font-bold">Follow Us</h3>
             <div className="mt-2 flex space-x-4">
-              <Link
-                href="https://facebook.com/theviriditas"
-                className="hover:text-primary"
-              >
-                <Facebook size={20} />
-              </Link>
-              <Link
-                href="https://instagram.com/theviriditas"
-                className="hover:text-primary"
-              >
-                <Instagram size={20} />
-              </Link>
-              <Link
-                href="https://youtube.com/@ViriditasInterior"
-                className="hover:text-primary"
-              >
-                <Youtube size={20} />
-              </Link>
+              {SocialLinks.map((link, index) => (
+                <Link
+                  key={index}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent hover:text-primary"
+                >
+                  {link.icon}
+                </Link>
+              ))}
             </div>
           </div>
         </div>

@@ -1,8 +1,30 @@
-import { Facebook, Flower2, Instagram, Youtube } from "lucide-react";
+import { Facebook, Flower2, Instagram, Linkedin, Youtube } from "lucide-react";
 import Link from "next/link";
 
 
 export default async function HomeFooter() {
+  const SocialLinks = [
+    {
+      name: "Facebook",
+      url: "https://facebook.com/theviriditas",
+      icon: <Facebook size={20} />,
+    },
+    {
+      name: "Instagram",
+      url: "https://instagram.com/theviriditas",
+      icon: <Instagram size={20} />,
+    },
+    {
+      name: "Youtube",
+      url: "https://youtube.com/@ViriditasInterior",
+      icon: <Youtube size={20} />,
+    },
+    {
+      name: "Linkedin",
+      url: "https://linkedin.com/company/theviriditas",
+      icon: <Linkedin size={20} />,
+    },
+  ];
     return (
       <footer className="mt-2 rounded-t-xl bg-base-200 px-3 pb-2 pt-10 text-base-content lg:px-10">
         <div className="pb-5">
@@ -39,40 +61,26 @@ export default async function HomeFooter() {
             </div>
           </nav>
           <nav>
-            {/* <h6 className="footer-title text-lg font-bold mb-2">Social</h6> */}
+            <h6 className="footer-title mb-2 text-lg font-bold">Social</h6>
             <div className="flex space-x-4">
-              <Link
-                area-label="Instagram"
-                title="Instagram"
-                href="https://www.instagram.com/the_viriditas"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Instagram size={24} />
-              </Link>
-              <Link
-                area-label="Facebook"
-                title="Facebook"
-                href="https://fb.me/theviriditas"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Facebook size={24} />
-              </Link>
-              <Link
-                area-label="Youtube"
-                title="Youtube"
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Youtube size={24} />
-              </Link>
+              {SocialLinks.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="link-hover hover:text-accent"
+                >
+                  {social.icon}
+                </a>
+              ))}
             </div>
           </nav>
         </div>
         <div className="mt-2 text-center lg:text-right">
-          <p>© 2024 Viriditas. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Viriditas. All rights reserved.
+          </p>
         </div>
       </footer>
     );

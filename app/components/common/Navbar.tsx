@@ -139,8 +139,8 @@ export default function Navbar() {
           Viriditas
         </Link>
 
-        <div className="hidden space-x-10 text-white md:flex z-50">
-          <div className="hidden space-x-10 text-white md:flex">
+        <div className="z-50 hidden space-x-10 md:flex">
+          <div className="hidden space-x-10 md:flex">
             {navLinks
               .filter((link) => !link.hideOnlargeScreen)
               .map((link) => (
@@ -165,7 +165,7 @@ export default function Navbar() {
                         <Link
                           key={index}
                           href={sublink.link}
-                          className="sublink-hover block text-nowrap p-2 hover:text-primary"
+                          className="sublink-hover block text-nowrap p-2 hover:text-accent"
                         >
                           {sublink.name}
                         </Link>
@@ -177,14 +177,14 @@ export default function Navbar() {
           </div>
         </div>
 
-        <div className="hidden items-center space-x-10 text-white md:flex">
+        <div className="hidden items-center space-x-10 md:flex">
           {socialLinks.map((link, index) => (
             <Link
               key={index}
               href={link.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-primary"
+              className="hover:text-accent"
             >
               {link.icon}
             </Link>
@@ -237,7 +237,7 @@ export default function Navbar() {
           </Link>
 
           {/* colapsibe manu  */}
-                    <div className="h-full overflow-y-auto p-6">
+          <div className="h-full overflow-y-auto p-6">
             {navLinks.map((link, index) => (
               <div key={link.id} className="mb-4">
                 <div
@@ -277,7 +277,7 @@ export default function Navbar() {
                     </span>
                   )}
                 </div>
-          
+
                 {link.sublinks && (
                   <div
                     className={`ml-4 mt-2 overflow-hidden transition-all duration-500 ease-in-out ${
@@ -298,7 +298,7 @@ export default function Navbar() {
                     ))}
                   </div>
                 )}
-          
+
                 {link.isDeviderAtEnd && (
                   <div className="divider divider-primary"></div>
                 )}
