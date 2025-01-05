@@ -4,7 +4,7 @@ import React, { JSX } from "react";
 import {
   Home,
   ChevronRight,
-  Cylinder,
+  Search,
   HandPlatter,
   HelpCircle,
   Leaf,
@@ -12,12 +12,14 @@ import {
   MessageSquareText,
   Rss,
   Sprout,
+  CircleX,
   UsersRound,
   Youtube,
   Facebook,
   Instagram,
   Twitter,
   ChevronDownIcon,
+  Menu,
 } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -189,8 +191,10 @@ export default function Navbar() {
             </Link>
           ))}
         </div>
-        <div className="flex items-center space-x-4">
-          {/* <Link
+
+        <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-1">
+            {/* <Link
               href="https://www.instagram.com/theviriditas/"
               target="_blank"
               rel="noopener noreferrer"
@@ -199,16 +203,23 @@ export default function Navbar() {
               <Instagram />
             </Link> */}
 
-          <ThemeChange />
+            {/* theme change */}
+            <ThemeChange />
+
+            {/* search  */}
+            <Link href="/search" className="btn btn-circle btn-ghost hover:text-primary">
+              <Search />
+            </Link>
+          </div>
 
           <div className={`z-50 md:hidden ${open ? "z-50 text-white" : ""}`}>
             <button
-              className={`menu-button focus:outline-none ${open ? "open" : ""}`}
+              className={`btn btn-square btn-ghost ${open ? "open" : ""}`}
               onClick={() => setOpen(!open)}
             >
-              <div className="line line1"></div>
-              <div className="line line2"></div>
-              <div className="line line3"></div>
+
+              {open ? <CircleX /> : <Menu />}
+              
             </button>
           </div>
         </div>
