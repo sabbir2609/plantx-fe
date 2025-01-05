@@ -5,34 +5,30 @@ import Image from "next/image";
 import { ChevronLeft, ChevronRight, CircleX } from "lucide-react";
 import ImageMagnifier from "./ImageMagnifier";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-
-import "swiper/css";
-import "swiper/css/pagination";
-
-import { Pagination } from "swiper/modules";
-
-interface PlantImage {
+interface ProductImage {
   id: number;
   image: string;
   short_description: string;
 }
 
+interface ProductImageViewerProps {
+  images: ProductImage[];
+  className?: string; // to allow custom height or other styles
+}
+
 export default function ProductImageViewer({
   images,
-}: {
-  images: PlantImage[];
-}) {
+  className,
+}: ProductImageViewerProps) {
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [modalImageIndex, setModalImageIndex] = useState(0);
 
-  const handleModalNext = () => {
-    setModalImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % images.length);
   };
 
-  const handleModalPrev = () => {
-    setModalImageIndex(
-      (prevIndex) => (prevIndex - 1 + images.length) % images.length,
-    );
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
   const openModal = (index: number) => {
@@ -44,30 +40,59 @@ export default function ProductImageViewer({
     (document.getElementById("modal") as HTMLDialogElement)?.close();
   };
 
+  const handleModalNext = () => {
+    setModalImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const handleModalPrev = () => {
+    setModalImageIndex(
+      (prevIndex) => (prevIndex - 1 + images.length) % images.length
+    );
+  };
+
   return (
     <>
-      {/* Main Image Viewer */}
-      <div className="mx-auto w-full lg:flex lg:h-[80vh] lg:space-x-4">
-        <Swiper
-          pagination={true}
-          modules={[Pagination]}
-          className="mySwiper rounded-lg"
-        >
-          {images.map((image, index) => (
-            <SwiperSlide key={index}>
-              <Image
-                src={image.image}
-                alt="Product"
-                height={512}
-                width={768}
-                className="h-full w-full cursor-pointer select-none object-cover"
-                onClick={() => openModal(index)} // Open modal on image click
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+      {/* Main Viewer */}
+      <div
+        className={`mx-auto w-full rounded-lg shadow hover:shadow-lg transition-shadow relative overflow-hidden ${className}`}
+      >
+        {/* Click to Zoom Instruction */}
+        <span className="absolute bottom-4 right-4 z-10 rounded-full bg-black/50 px-3 py-1 text-xs text-white">
+          Click to Zoom
+        </span>
+
+        <div className="relative h-full w-full">
+          {/* Main Image */}
+          <Image
+            src={images[currentIndex].image}
+            alt={images[currentIndex].short_description}
+            height={512}
+            width={768}
+            className="h-full w-full rounded-lg object-cover cursor-pointer transition-opacity duration-300 ease-in-out hover:opacity-90"
+            onClick={() => openModal(currentIndex)}
+          />
+
+          {/* Navigation Buttons */}
+          {images.length > 1 && (
+            <>
+              <button
+                onClick={handlePrev}
+                className="absolute left-4 top-1/2 -translate-y-1/2 transform rounded-full bg-white p-2 text-black opacity-80 transition-colors hover:bg-black hover:text-white hover:opacity-100"
+              >
+                <ChevronLeft size={20} />
+              </button>
+              <button
+                onClick={handleNext}
+                className="absolute right-4 top-1/2 -translate-y-1/2 transform rounded-full bg-white p-2 text-black opacity-80 transition-colors hover:bg-black hover:text-white hover:opacity-100"
+              >
+                <ChevronRight size={20} />
+              </button>
+            </>
+          )}
+        </div>
       </div>
 
+      {/* Modal */}
       <dialog
         id="modal"
         className="modal fixed inset-0 flex h-full w-full items-center justify-center bg-black bg-opacity-90"
@@ -81,53 +106,57 @@ export default function ProductImageViewer({
             <CircleX size={32} />
           </button>
 
-          {/* Image and Navigation */}
+          {/* Modal Image Navigation */}
           <div className="relative mb-4 flex h-full w-full items-center justify-center lg:mb-0">
-            {/* Previous button */}
+            {/* Previous */}
             {modalImageIndex > 0 && (
               <button
                 onClick={handleModalPrev}
-                className="absolute left-4 top-1/2 z-10 -translate-y-1/2 transform rounded-full bg-white p-2 text-black opacity-80 hover:bg-black hover:text-white hover:opacity-100 hover:outline"
+                className="absolute left-4 top-1/2 -translate-y-1/2 transform rounded-full bg-white p-2 text-black opacity-80 transition-colors hover:bg-black hover:text-white hover:opacity-100"
               >
                 <ChevronLeft size={20} />
               </button>
             )}
 
-            {/* Image in Modal */}
+            {/* Magnified Image */}
             <div className="relative flex h-full w-full items-center justify-center">
               <ImageMagnifier
                 src={images[modalImageIndex].image}
                 alt={images[modalImageIndex].short_description}
                 width={1920}
                 height={1080}
-                className="h-full w-full object-contain rounded-sm"
+                className="h-full w-full rounded-sm object-contain"
               />
             </div>
 
-            {/* Next button */}
+            {/* Next */}
             {modalImageIndex < images.length - 1 && (
               <button
                 onClick={handleModalNext}
-                className="absolute right-4 top-1/2 z-10 -translate-y-1/2 transform rounded-full bg-white p-2 text-black opacity-80 hover:bg-black hover:text-white hover:opacity-100 hover:outline"
+                className="absolute right-4 top-1/2 -translate-y-1/2 transform rounded-full bg-white p-2 text-black opacity-80 transition-colors hover:bg-black hover:text-white hover:opacity-100"
               >
                 <ChevronRight size={20} />
               </button>
             )}
           </div>
 
-          {/* Thumbnails in Modal */}
+          {/* Thumbnails */}
           <div className="absolute bottom-0 flex w-full space-x-2 overflow-x-auto bg-white bg-opacity-50 px-4 py-2 md:static md:ml-4 md:h-full md:w-auto md:flex-col md:space-x-0 md:space-y-2 md:overflow-y-auto md:bg-transparent">
-            {images.map((image, index) => (
+            {images.map((img, idx) => (
               <button
-                key={index}
-                onClick={() => setModalImageIndex(index)} // Change modal image from thumbnail click
-                className={`rounded-lg border-2 p-1 ${modalImageIndex === index ? "border-indigo-500" : "border-transparent"} flex-shrink-0 focus:outline-none`}
+                key={idx}
+                onClick={() => setModalImageIndex(idx)}
+                className={`flex-shrink-0 rounded-lg border-2 p-1 focus:outline-none transition-colors hover:border-primary ${
+                  modalImageIndex === idx
+                    ? "border-indigo-500"
+                    : "border-transparent"
+                }`}
               >
                 <Image
-                  src={image.image}
+                  src={img.image}
                   height={64}
                   width={64}
-                  alt={image.short_description}
+                  alt={img.short_description}
                   className="h-16 w-16 rounded-md object-cover md:h-24 md:w-24"
                 />
               </button>
