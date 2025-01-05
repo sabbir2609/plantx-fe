@@ -107,7 +107,6 @@ const socialLinks: SocialLink[] = [
 
 export default function Navbar() {
   const router = usePathname();
-
   // State
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(() => {
@@ -228,82 +227,112 @@ export default function Navbar() {
         } z-40 md:hidden`}
         style={{ width: "270px" }}
       >
-        <div className="flex h-full flex-col bg-base-200">
-          <Link
-            href="/"
-            className="border-b border-base-200 bg-base-300 p-3 text-center text-2xl font-bold tracking-wide"
-          >
-            Viriditas
-          </Link>
+        {/* side bar */}
+        <div className="flex h-full flex-col justify-between bg-base-200">
+          <div>
+            <Link
+              href="/"
+              className="flex justify-around border-b border-base-200 bg-base-300 p-3 text-center text-2xl font-bold tracking-wide"
+            >
+              Viriditas
+            </Link>
 
-          {/* colapsibe manu  */}
-          <div className="h-full overflow-y-auto p-6">
-            {navLinks.map((link, index) => (
-              <div key={link.id} className="mb-4">
-                <div
-                  className={`flex cursor-pointer items-center justify-between`}
-                  onClick={() => toggleMenu(index)}
-                >
-                  {link.link ? (
-                    <Link
-                      href={link.link}
-                      className="flex items-center text-nowrap font-semibold"
-                      onClick={closeDrawer}
-                    >
-                      {link.icon && (
-                        <span className="mr-2 flex items-center">
-                          {link.icon}
-                        </span>
-                      )}
-                      {link.name}
-                    </Link>
-                  ) : (
-                    <span className="flex items-center text-nowrap font-semibold">
-                      {link.icon && (
-                        <span className="mr-2 flex items-center">
-                          {link.icon}
-                        </span>
-                      )}
-                      {link.name}
-                    </span>
-                  )}
-                  {link.sublinks && (
-                    <span
-                      className={`transition-transform duration-500 ease-in-out ${
-                        activeIndex === index ? "rotate-180" : ""
-                      }`}
-                    >
-                      <ChevronDownIcon className="h-5 w-5" />
-                    </span>
-                  )}
-                </div>
-
-                {link.sublinks && (
+            {/* Side bar content */}
+            <div className="join join-vertical w-full">
+              {navLinks.map((link, index) =>
+                link.sublinks ? (
+                  // If the link has sublinks, use the collapse component
                   <div
-                    className={`ml-4 mt-2 overflow-hidden transition-all duration-500 ease-in-out ${
-                      activeIndex === index
-                        ? "max-h-96 opacity-100"
-                        : "max-h-0 opacity-0"
-                    }`}
+                    key={link.id}
+                    className="collapse join-item collapse-arrow"
                   >
-                    {link.sublinks.map((sublink, subIndex) => (
+                    <input
+                      type="radio"
+                      name="my-accordion-4"
+                      defaultChecked={index === 0}
+                    />
+                    <div className="collapse-title flex items-center justify-between text-xl font-medium">
+                      {link.link ? (
+                        // Main link with sublinks
+                        <Link
+                          href={link.link}
+                          className="flex items-center text-nowrap font-semibold"
+                          onClick={closeDrawer}
+                        >
+                          {link.icon && (
+                            <span className="mr-2 flex items-center">
+                              {link.icon}
+                            </span>
+                          )}
+                          {link.name}
+                        </Link>
+                      ) : (
+                        // Main link without URL
+                        <span className="flex items-center text-nowrap font-semibold">
+                          {link.icon && (
+                            <span className="mr-2 flex items-center">
+                              {link.icon}
+                            </span>
+                          )}
+                          {link.name}
+                        </span>
+                      )}
+                    </div>
+                    <div className="collapse-content">
+                      {link.sublinks.map((sublink, subIndex) => (
+                        // Sublinks
+                        <Link
+                          key={subIndex}
+                          href={sublink.link}
+                          className="block text-nowrap p-2 font-medium hover:bg-base-300"
+                          onClick={closeDrawer}
+                        >
+                          {sublink.name}
+                        </Link>
+                      ))}
+                    </div>
+                    {link.isDeviderAtEnd && (
+                      <div className="divider divider-primary px-4"></div>
+                    )}
+                  </div>
+                ) : (
+                  // If the link has no sublinks, render a simple link
+                  <div
+                    key={link.id}
+                    className="join-item p-3 hover:bg-base-300"
+                  >
+                    {link.link ? (
+                      // Main link without sublinks
                       <Link
-                        key={subIndex}
-                        href={sublink.link}
-                        className="block text-nowrap p-2 font-medium hover:text-primary"
+                        href={link.link}
+                        className="flex items-center text-nowrap font-semibold"
                         onClick={closeDrawer}
                       >
-                        {sublink.name}
+                        {link.icon && (
+                          <span className="mr-2 flex items-center">
+                            {link.icon}
+                          </span>
+                        )}
+                        {link.name}
                       </Link>
-                    ))}
+                    ) : (
+                      // Main link without URL
+                      <span className="flex items-center text-nowrap font-semibold">
+                        {link.icon && (
+                          <span className="mr-2 flex items-center">
+                            {link.icon}
+                          </span>
+                        )}
+                        {link.name}
+                      </span>
+                    )}
+                    {link.isDeviderAtEnd && (
+                      <div className="divider divider-primary px-4"></div>
+                    )}
                   </div>
-                )}
-
-                {link.isDeviderAtEnd && (
-                  <div className="divider divider-primary"></div>
-                )}
-              </div>
-            ))}
+                ),
+              )}
+            </div>
           </div>
 
           <div className="flex justify-around border-t border-base-200 bg-base-300 p-3">

@@ -31,14 +31,14 @@ export default function Home() {
         {/* <Ideas />  */}
       </div>
       <WhyChooseUs />
-      <AnimatedSection delay={0.3}>
-        <OurClients />
-      </AnimatedSection>
       <AnimatedSection delay={0.2}>
         <Testimonial />
       </AnimatedSection>
       <AnimatedSection delay={0.2}>
-        <Faq />
+        <div className="flex flex-col items-center lg:flex-row lg:justify-center lg:space-x-8 mb-10">
+          <OurClients />
+          <Faq />
+        </div>
       </AnimatedSection>
       <AnimatedSection delay={0.3}>
         <ContactUs />

@@ -43,9 +43,9 @@ export default function WhyChooseUs() {
     ];
 
     return (
-        <div className="mx-auto p-4 py-12 lg:p-8">
-            <h1 className="mb-6 pb-8 text-center lg:text-left text-3xl font-bold text-nowrap">
-                Why Choose Us
+        <div className="mx-auto p-4 lg:p-8">
+            <h1 className="mb-6 pb-8 text-center text-3xl font-bold">
+              Why Choose Us
             </h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-8">
                 {WhyChooseUs.map((item, index) => (

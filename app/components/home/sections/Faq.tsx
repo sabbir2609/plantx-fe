@@ -34,7 +34,7 @@ export default function Faq() {
     ];
 
     return (
-        <div className="px-4 rounded-t-md my-10">
+        <div className="px-4 rounded-t-md">
             <h2 className="text-3xl font-bold text-center mb-12">FAQ</h2>
             <div className="max-w-5xl mx-auto space-y-4">
                 {faqData.map((faq, index) => (
