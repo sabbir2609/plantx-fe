@@ -139,7 +139,7 @@ export default function Navbar() {
           Viriditas
         </Link>
 
-        <div className="hidden space-x-10 text-white md:flex">
+        <div className="hidden space-x-10 text-white md:flex z-50">
           <div className="hidden space-x-10 text-white md:flex">
             {navLinks
               .filter((link) => !link.hideOnlargeScreen)

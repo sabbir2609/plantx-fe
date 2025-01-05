@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowLeft, Share2, Tag } from "lucide-react";
 import { ShareButton } from "@/app/components/common";
 
-// ...existing interfaces...
+//Inerfaces
 interface Category {
   id: number;
   title: string;
@@ -54,9 +54,12 @@ export default async function Service({
 
       <div className="grid gap-8 lg:grid-cols-2">
         {/* Image Gallery */}
-                <div className="rounded-xl bg-base-200 p-4">
+        <div className="block rounded-xl">
           {service.images.length > 0 ? (
-            <ProductImageViewer images={service.images} className="h-96 w-full" />
+              <ProductImageViewer
+                images={service.images}
+                className="h-96"
+              />
           ) : (
             <div className="relative h-full w-full overflow-hidden rounded-lg">
               <Image
