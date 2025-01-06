@@ -1,10 +1,25 @@
-import { About, ContactUs, HomeFooter, Hero, Projects, Slogan, Services, GetInTouch, WhyChooseUs, OurClients, Testimonial, Ideas, Events, Faq } from "@/app/components/home";
+import {
+  About,
+  ContactUs,
+  HomeFooter,
+  Hero,
+  Projects,
+  Slogan,
+  Services,
+  GetInTouch,
+  WhyChooseUs,
+  OurClients,
+  Testimonial,
+  Ideas,
+  Events,
+  Faq,
+} from "@/app/components/home";
 import AnimatedSection from "@/app/components/home/Wrapper/AnimatedSection";
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Homepage',
-  description: 'Homepage of Viriditas',
+  title: "Homepage",
+  description: "Homepage of Viriditas",
 };
 
 export default function Home() {
@@ -38,10 +53,14 @@ export default function Home() {
         <div className="container mx-auto mb-10">
           <div className="flex flex-col items-center gap-8 lg:flex-row lg:justify-center">
             <div className="w-full lg:w-1/2">
-              <OurClients />
+              <AnimatedSection delay={0.2}>
+                <OurClients />
+              </AnimatedSection>
             </div>
             <div className="w-full lg:w-1/2">
-              <Faq />
+              <AnimatedSection delay={0.2}>
+                <Faq />
+              </AnimatedSection>
             </div>
           </div>
         </div>

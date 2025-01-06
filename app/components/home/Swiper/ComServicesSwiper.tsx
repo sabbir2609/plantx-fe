@@ -70,12 +70,11 @@ export default function ServicesSwiper({ services }: ServiceSwiperProps) {
               </h1>
 
               <div className="transform opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                <button className="btn btn-sm rounded-md hover:btn-outline gap-2">
-                  View Service 
+                <button className="btn btn-sm gap-2 rounded-md transition-all duration-300 hover:btn-outline">
+                  View Service
                   <ArrowRight size={16} />
                 </button>
               </div>
-              
             </div>
           </Link>
         </SwiperSlide>
