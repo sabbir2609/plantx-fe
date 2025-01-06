@@ -1,9 +1,11 @@
 import { Fetch } from "@/app/lib";
 import Image from "next/image";
 import Link from "next/link";
-import { Calendar, User, ArrowLeft } from "lucide-react";
-import type { Metadata } from "next";
+import { Calendar, User } from "lucide-react";
 import { ShareButton } from "@/app/components/common";
+
+import type { Metadata, ResolvingMetadata } from "next";
+import { console } from "inspector";
 
 // interfaces
 interface BlogCategory {
@@ -17,33 +19,50 @@ interface BlogPost {
   id: number;
   author_name: string;
   title: string;
+  slug: string;
   image: string | null;
   content: string;
   categories: BlogCategory[];
   created_at: string;
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata> {
-  const post = await Fetch({ endpoint: `blog/posts/${params.slug}` });
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateMetadata(props: Props, parent: ResolvingMetadata): Promise<Metadata> {
+  const params = await props.params;
+  // read route params
+  const slug = params.slug;
+  console.log(slug);
+  // fetch data
+  const data = await Fetch({ endpoint: `blog/posts/${slug}` });
+  const blog: BlogPost = data;
+
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || [];
+
   return {
-    title: post.title,
-    description: post.excerpt,
+    title: blog.title,
+    description: blog.content.slice(0, 160),
     openGraph: {
-      title: post.title,
-      description: post.excerpt,
-      images: [{ url: post.image || "/static/viriditas.webp" }],
+      images: [
+        {
+          url: blog.image || "/static/viriditas.webp",
+          width: 800,
+          height: 600,
+          alt: blog.title,
+        },
+        ...previousImages,
+      ],
     },
   };
 }
 
-export default async function Page({ params }: { params: { slug: string } }) {
+export default async function Page(props: Props) {
+  const params = await props.params;
   const data = await Fetch({ endpoint: `blog/posts/${params.slug}` });
   const post: BlogPost = data;
-
   return (
     <article className="mx-auto max-w-4xl">
       {/* Hero Section */}
@@ -95,11 +114,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
         />
 
         {/* Share Buttons */}
-        <div className="mt-10 flex items-center gap-4 border-t pt-6 justify-between">
+        <div className="mt-10 flex items-center justify-between gap-4 border-t pt-6">
           <span className="font-semibold">Share this article</span>
-          <ShareButton title={post.title} url={`${params.slug}`} />
+          <ShareButton title={post.title} url={`${post.slug}`} />
         </div>
-        
       </div>
     </article>
   );
