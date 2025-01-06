@@ -35,7 +35,7 @@ export default function ContactUs() {
   ];
 
   return (
-    <div className="grid w-full grid-cols-1 gap-5 p-4 md:grid-cols-2 rounded-md shadow-lg">
+    <div className="grid w-full grid-cols-1 gap-5 p-4 md:grid-cols-2 rounded-md">
       <div className="flex select-text flex-col justify-center rounded-lg bg-base-200 p-6 shadow-md">
         <h2 className="mb-6 text-4xl font-extrabold text-center">Contact Us</h2>
 

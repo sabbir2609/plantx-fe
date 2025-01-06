@@ -64,15 +64,16 @@ export default function ServicesSwiper({ services }: ServiceSwiperProps) {
 
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-90" />
 
-            <div className="absolute inset-0 flex flex-col items-center justify-end p-6 text-center">
+            <div className="absolute inset-0 flex flex-col items-center justify-end p-8 text-center">
               <h1 className="mb-2 text-2xl font-bold text-white drop-shadow-lg transition-transform duration-300 group-hover:-translate-y-2">
                 {item.title}
               </h1>
 
               <div className="transform opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                <span className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-2 text-sm text-white backdrop-blur-sm">
-                  View Service <ArrowRight size={16} />
-                </span>
+                <button className="btn btn-sm rounded-md hover:btn-outline gap-2">
+                  View Service 
+                  <ArrowRight size={16} />
+                </button>
               </div>
               
             </div>

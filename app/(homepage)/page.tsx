@@ -35,9 +35,15 @@ export default function Home() {
         <Testimonial />
       </AnimatedSection>
       <AnimatedSection delay={0.2}>
-        <div className="flex flex-col items-center lg:flex-row lg:justify-center lg:space-x-8 mb-10">
-          <OurClients />
-          <Faq />
+        <div className="container mx-auto mb-10">
+          <div className="flex flex-col items-center gap-8 lg:flex-row lg:justify-center">
+            <div className="w-full lg:w-1/2">
+              <OurClients />
+            </div>
+            <div className="w-full lg:w-1/2">
+              <Faq />
+            </div>
+          </div>
         </div>
       </AnimatedSection>
       <AnimatedSection delay={0.3}>
