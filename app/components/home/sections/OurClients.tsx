@@ -19,7 +19,7 @@ export default async function OurClients() {
 
   return (
     <section className="mx-auto rounded-md">
-      <div className="mx-auto flex max-w-7xl flex-col justify-center gap-4 pb-12 align-middle sm:px-6 lg:flex-row lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col justify-center gap-4 align-middle sm:px-6 lg:flex-row lg:px-8">
         <div className="mb-4 place-content-center text-center lg:mb-0 lg:w-2/6 lg:text-right">
           <h2 className={`text-nowrap text-3xl font-bold`}>Our Clients</h2>
           <h4 className="text-lg">Trusted by the best</h4>

@@ -27,6 +27,7 @@ interface Tags {
 interface Service {
   id: number;
   title: string;
+  slug: string;
   description: string;
   images: Image[];
   categories: Category[];
@@ -56,10 +57,7 @@ export default async function Service({
         {/* Image Gallery */}
         <div className="block rounded-xl">
           {service.images.length > 0 ? (
-              <ProductImageViewer
-                images={service.images}
-                className="h-96"
-              />
+            <ProductImageViewer images={service.images} className="h-96" />
           ) : (
             <div className="relative h-full w-full overflow-hidden rounded-lg">
               <Image
@@ -123,10 +121,13 @@ export default async function Service({
           )}
 
           {/* Share Button */}
-          <ShareButton
-            title={service.title}
-            url={`${process.env.NEXT_PUBLIC_BASE_URL}/services/${slug}`}
-          />
+          <div className="mt-10 flex items-center gap-4 border-t pt-6">
+            <span className="font-semibold">Share this article</span>
+            <ShareButton
+              title={service.title}
+              url={service.slug}
+            />
+          </div>
         </div>
       </div>
     </div>

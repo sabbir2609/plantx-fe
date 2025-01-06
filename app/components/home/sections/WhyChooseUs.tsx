@@ -1,11 +1,4 @@
-import {
-    CheckCircle,
-    DollarSign,
-    Heart,
-    Leaf,
-    Lightbulb,
-    Settings,
-} from "lucide-react";
+import { CheckCircle, DollarSign, Heart, Leaf, Lightbulb, Settings } from "lucide-react";
 import AnimatedSection from "../Wrapper/AnimatedSection";
 
 export default function WhyChooseUs() {
@@ -43,18 +36,23 @@ export default function WhyChooseUs() {
     ];
 
     return (
-        <div className="mx-auto p-4 lg:p-8">
-            <h1 className="mb-6 pb-8 text-center text-3xl font-bold">
-              Why Choose Us
+        <div className="mx-auto p-4 mb-8 lg:p-8 select-none">
+            <h1 className="mb-8 text-center text-4xl font-bold">
+                Why Choose Us
             </h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {WhyChooseUs.map((item, index) => (
                     <AnimatedSection key={index} delay={index * 0.1}>
-                        <div className="flex flex-col p-6 rounded-md shadow-md h-full bg-base-200">
-                            <div className="flex items-center">
-                                <item.icon className="w-8 h-8 text-green-700 dark:text-green-300" />
-                                <h3 className="ml-4 text-lg lg:text-2xl">{item.title}</h3>
+                        <div className="group flex flex-col p-6 rounded-lg shadow-md bg-base-200 hover:shadow-lg transition-all duration-300 h-full">
+                            <div className="flex items-center mb-4">
+                                <div className="p-2 rounded-full bg-primary/10">
+                                    <item.icon className="w-8 h-8 text-accent" />
+                                </div>
+                                <h3 className="ml-4 text-xl font-semibold">{item.title}</h3>
                             </div>
+                            <p className="text-base-content/70 mt-2">
+                                {item.description}
+                            </p>
                         </div>
                     </AnimatedSection>
                 ))}

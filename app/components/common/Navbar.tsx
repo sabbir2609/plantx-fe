@@ -20,6 +20,7 @@ import {
   Twitter,
   ChevronDownIcon,
   Menu,
+  Linkedin,
 } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -90,10 +91,10 @@ const navLinks: LinkItem[] = [
 
 // Social links
 const socialLinks: SocialLink[] = [
-  {
-    name: "Youtube",
-    link: "https://www.youtube.com/@ViriditasInterior",
-    icon: <Youtube />,
+    {
+    name: "LinkedIn",
+    link: "https://linkedin.com/company/theviriditas",
+    icon: <Linkedin />,
   },
   {
     name: "Facebook",
@@ -108,13 +109,10 @@ const socialLinks: SocialLink[] = [
 ];
 
 export default function Navbar() {
+  // Hooks
   const router = usePathname();
   // State
   const [open, setOpen] = useState(false);
-  const [activeIndex, setActiveIndex] = useState<number | null>(() => {
-    const index = navLinks.findIndex((link) => link.defaultOpen);
-    return index === -1 ? null : index;
-  });
 
   // Effect
   useEffect(() => {
@@ -127,15 +125,12 @@ export default function Navbar() {
 
   // Functions
   const closeDrawer = () => setOpen(false);
-  function toggleMenu(index: number): void {
-    setActiveIndex(activeIndex === index ? null : index);
-  }
 
   return (
     <nav
-      className={`${router === "/" ? "absolute left-0 top-0" : "bg-base-300"} z-50 w-full px-4 py-1`}
+      className={`${router === "/" ? "fixed left-0 top-0 bg-base-300" : "bg-base-300"} left-0 fixed top-0 z-50 w-full px-4 py-1`}
     >
-      <div className="container mx-auto flex items-center justify-between">
+      <div className="mx-auto flex items-center justify-between">
         <Link href="/" className="text-2xl font-bold tracking-wide">
           Viriditas
         </Link>
@@ -194,20 +189,14 @@ export default function Navbar() {
 
         <div className="flex items-center space-x-3">
           <div className="flex items-center space-x-1">
-            {/* <Link
-              href="https://www.instagram.com/theviriditas/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-primary"
-            >
-              <Instagram />
-            </Link> */}
-
             {/* theme change */}
             <ThemeChange />
 
             {/* search  */}
-            <Link href="/search" className="btn btn-circle btn-ghost hover:text-primary">
+            <Link
+              href="/search"
+              className="btn btn-circle btn-ghost hover:text-accent"
+            >
               <Search />
             </Link>
           </div>
@@ -217,9 +206,7 @@ export default function Navbar() {
               className={`btn btn-square btn-ghost ${open ? "open" : ""}`}
               onClick={() => setOpen(!open)}
             >
-
               {open ? <CircleX /> : <Menu />}
-              
             </button>
           </div>
         </div>

@@ -9,7 +9,8 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
-import { FooterWrapper, Navbar } from "./components/common";
+import { Fab, FooterWrapper, Navbar } from "./components/common";
+import { AnnouncementBanner } from "./components/home";
 
 const APP_NAME = "Viriditas";
 const APP_DEFAULT_TITLE = "Viriditas - Elevate your space with Nature";
@@ -97,13 +98,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${glacialIndifference.className} ${poppins.variable}`}>
+      <body className={`${glacialIndifference.className} ${poppins.variable} min-h-screen flex flex-col`}>
         <GoogleTagManager
           gtmId={`${process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID}`}
         />
         <NextTopLoader />
+        <AnnouncementBanner />
         <Navbar />
-        {children}
+        <main className="flex-grow bg-base-100 mt-[56px]">
+          {children}
+          <Fab />
+        </main>
         <FooterWrapper />
         <SpeedInsights />
         <Analytics />

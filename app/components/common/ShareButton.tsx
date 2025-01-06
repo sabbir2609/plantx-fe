@@ -26,12 +26,9 @@ export default function ShareButton({ title, url }: ShareButtonProps) {
   }
 
   return (
-    <button 
-      onClick={handleShare}
-      className="inline-flex items-center rounded-lg bg-primary px-4 py-2 text-white hover:bg-primary/90"
-    >
+    <button onClick={handleShare} className="btn btn-ghost btn-sm gap-2">
       <Share2 className="mr-2 h-4 w-4" />
-      {shared ? 'Shared!' : 'Share'}
+      {shared ? "Shared!" : "Share"}
     </button>
-  )
+  );
 }
