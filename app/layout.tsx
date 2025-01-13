@@ -10,7 +10,6 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 import { Fab, FooterWrapper, Navbar } from "./components/common";
-import { AnnouncementBanner } from "./components/home";
 
 const APP_NAME = "Viriditas";
 const APP_DEFAULT_TITLE = "Viriditas - Elevate your space with Nature";
@@ -103,7 +102,6 @@ export default function RootLayout({
           gtmId={`${process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID}`}
         />
         <NextTopLoader />
-        <AnnouncementBanner />
         <Navbar />
         <main className="flex-grow bg-base-100 mt-[56px]">
           {children}
