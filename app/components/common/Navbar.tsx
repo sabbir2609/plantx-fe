@@ -130,10 +130,11 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`${router === "/" ? "fixed left-0 top-0 bg-base-300" : "bg-base-300"} left-0 fixed top-0 z-50 w-full px-4 py-1`}
+      className={`${router === "/" ? "fixed left-0 top-0 bg-base-300" : "bg-base-300"} fixed left-0 top-0 z-50 w-full py-1`}
     >
+      <AnnouncementBanner />
       <div className="mx-auto flex items-center justify-between">
-        <Link href="/" className="text-2xl font-bold tracking-wide">
+        <Link href="/" className="px-4 text-2xl font-bold tracking-wide">
           Viriditas
         </Link>
 
@@ -189,8 +190,8 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="flex items-center space-x-3">
-          <div className="flex items-center space-x-1">
+        <div className="flex items-center">
+          <div className="flex items-center">
             {/* theme change */}
             <ThemeChange />
 
@@ -205,7 +206,7 @@ export default function Navbar() {
 
           <div className={`z-50 md:hidden ${open ? "z-50 text-white" : ""}`}>
             <button
-              className={`btn btn-square btn-ghost ${open ? "open" : ""}`}
+              className={`btn btn-square btn-ghost me-1 ${open ? "open" : ""}`}
               onClick={() => setOpen(!open)}
             >
               {open ? <CircleX /> : <Menu />}
