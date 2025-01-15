@@ -21,6 +21,7 @@ import {
   ChevronDownIcon,
   Menu,
   Linkedin,
+  Link2,
 } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -83,10 +84,10 @@ const navLinks: LinkItem[] = [
   },
   {
     id: 6,
-    name: "Help",
-    link: "/help",
-    hideOnlargeScreen: true,
-    icon: <HelpCircle size={20} className="inline-block" />,
+    name: "Links",
+    link: "/links",
+    hideOnlargeScreen: false,
+    icon: <Link2 size={20} className="inline-block" />,
   },
 ];
 

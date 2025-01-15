@@ -1,6 +1,4 @@
-"use client";
-
-import { useEffect, useState } from "react";
+import { TrackLink } from "@/app/components/utils";
 import Link from "next/link";
 import { SocialIcon } from "react-social-icons";
 
@@ -38,51 +36,22 @@ const socialLinks: SocialLink[] = [
   },
 ];
 export default function LinkPage() {
-  const [pageHits, setPageHits] = useState(0);
-  const [socialClicks, setSocialClicks] = useState<Record<string, number>>({
-    facebook: 0,
-    instagram: 0,
-    youtube: 0,
-    tiktok: 0,
-    linkedin: 0,
-  });
-
-  const handleSocialClick = (name: string) => {
-    setSocialClicks((prev) => ({
-      ...prev,
-      [name]: prev[name] + 1,
-    }));
-  };
-
-  useEffect(() => {
-    setPageHits((prev) => prev + 1);
-  }, []);
-
+  
   return (
     <div className="card mx-auto max-w-md bg-base-100 p-4 shadow-md">
       <h1 className="card-title mb-4">Social Links</h1>
-      <div className="stats mb-4 shadow">
-        <div className="stat">
-          <div className="stat-title">Page hits</div>
-          <div className="stat-value">{pageHits}</div>
-        </div>
-      </div>
       <ul className="flex flex-col gap-2">
         {socialLinks.map((social, index) => (
           <li
             key={index}
-            className="flex items-center gap-2 bg-base-200 p-2 rounded-full shadow-sm"
+            className="flex items-center gap-2 rounded-full bg-base-200 p-2 shadow-sm"
           >
-              <SocialIcon url={social.url} />
-              <Link
-                className="upper link link-accent no-underline"
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => handleSocialClick(social.name.toLowerCase())}
-              >
-                {social.name}
-              </Link>
+            <SocialIcon url={social.url} />
+
+            <TrackLink href={social.url}>
+              {social.name}
+            </TrackLink>
+            
           </li>
         ))}
       </ul>
