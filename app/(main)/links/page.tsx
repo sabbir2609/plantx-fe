@@ -1,6 +1,13 @@
 import { TrackLink } from "@/app/components/utils";
-import Link from "next/link";
 import { SocialIcon } from "react-social-icons";
+import type { Metadata } from "next";
+import { TrackPage } from "@/app/lib";
+import { headers } from "next/headers";
+
+export const metadata: Metadata = {
+  title: "Social Links",
+  description: "Social Links",
+};
 
 interface SocialLink {
   id: number;
@@ -35,8 +42,13 @@ const socialLinks: SocialLink[] = [
     url: "https://www.linkedin.com/company/theviriditas",
   },
 ];
-export default function LinkPage() {
-  
+export default async function LinkPage() {
+  // get full URL
+  const headersList = headers();
+  const url = (await headersList).get("referer") || "";
+
+  await TrackPage(url);
+
   return (
     <div className="card mx-auto max-w-md bg-base-100 p-4 shadow-md">
       <h1 className="card-title mb-4">Social Links</h1>
@@ -48,10 +60,7 @@ export default function LinkPage() {
           >
             <SocialIcon url={social.url} />
 
-            <TrackLink href={social.url}>
-              {social.name}
-            </TrackLink>
-            
+            <TrackLink href={social.url}>{social.name}</TrackLink>
           </li>
         ))}
       </ul>

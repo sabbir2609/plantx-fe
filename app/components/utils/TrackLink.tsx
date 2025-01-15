@@ -26,6 +26,8 @@ export default function TrackLink({
         timestamp: new Date().toISOString(),
       };
 
+      console.log(payload);
+
       const endpoint = process.env.NEXT_PUBLIC_HOST
         ? `${process.env.NEXT_PUBLIC_HOST}/track/tracklinks/`
         : "http://localhost:8000/api/track/tracklinks/";
