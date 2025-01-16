@@ -1,9 +1,9 @@
 "use client";
 
 import { TrackLink } from "@/app/components/utils";
-import { TrackPage } from "@/app/lib";
+import Loading from "@/app/loading";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface SocialLink {
   id: number;
@@ -47,43 +47,71 @@ const socialLinks: SocialLink[] = [
 ];
 
 export default function LinkPage() {
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
-    const trackVisit = async () => {
-      try {
-        await TrackPage(window.location.href);
-      } catch (error) {
-        console.error("Failed to track page visit:", error);
-      }
+    const title = "Social Links - Viriditas";
+    document.title = title;
+
+    //mount
+    setIsLoading(true);
+
+    //payload
+    const payload = {
+      link: "https://theviriditas.com/links",
+      referrer: document?.referrer || null,
+      user_agent: navigator?.userAgent,
+      timestamp: new Date().toISOString(),
     };
 
-    trackVisit();
+    try {
+      fetch(`${process.env.NEXT_PUBLIC_HOST}/track/tracklinks/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+    } catch (error) {
+      console.error("Error tracking link click:", error);
+    } finally {
+      setIsLoading(false);
+    }
   }, []);
 
   return (
-    <div className="card mx-auto max-w-md bg-base-100 p-4">
-      <title>Social Links - Viriditas</title>
-      <h1 className="card-title mb-6 justify-center text-3xl font-bold">
-        Social Links
-      </h1>
-      <ul className="flex flex-col gap-2">
-        {socialLinks.map((social, index) => (
-          <li
-            key={index}
-            className="flex items-center gap-2 rounded-full bg-base-200 p-2 shadow-sm transition-all duration-300 hover:scale-105 hover:bg-primary hover:text-white"
-          >
-            <TrackLink href={social.url} className="flex flex-row items-center justify-between gap-2 no-underline">
-              <Image
-                src={social.icon}
-                height={26}
-                width={26}
-                alt={social.name}
-                className="h-8 w-8 outline rounded-full"
-              />
-              <span className="text-lg font-semibold">{social.name}</span>
-            </TrackLink>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <div className="card mx-auto max-w-md bg-base-100 p-4">
+          <h1 className="card-title mb-6 justify-center text-3xl font-bold">
+            Social Links
+          </h1>
+          <ul className="flex flex-col gap-2">
+            {socialLinks.map((social, index) => (
+              <li
+                key={index}
+                className="flex items-center gap-2 rounded-full bg-base-200 p-2 shadow-sm transition-all duration-300 hover:scale-105 hover:bg-primary hover:text-white"
+              >
+                <TrackLink
+                  href={social.url}
+                  className="flex flex-row items-center justify-between gap-2 no-underline"
+                >
+                  <Image
+                    src={social.icon}
+                    height={26}
+                    width={26}
+                    alt={social.name}
+                    className="h-8 w-8 rounded-full outline"
+                  />
+                  <span className="text-lg font-semibold">{social.name}</span>
+                </TrackLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </>
   );
 }
