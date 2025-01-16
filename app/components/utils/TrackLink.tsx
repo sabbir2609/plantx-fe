@@ -52,7 +52,7 @@ export default function TrackLink({
       target="_blank"
       rel="noopener noreferrer"
       onClick={handleClick}
-      className={`transition-opacity duration-200 ${isLoading ? "opacity-70" : ""} ${className || "hover:text-primary-focus text-primary underline"}`}
+      className={`transition-opacity duration-200 ${isLoading ? "opacity-70" : ""} ${className || "hover:text-primary-focus text-primary no-underline"}`}
     >
       {children}
     </Link>
