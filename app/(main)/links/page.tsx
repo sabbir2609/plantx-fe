@@ -18,31 +18,31 @@ const socialLinks: SocialLink[] = [
     id: 1,
     name: "Facebook",
     url: "https://www.facebook.com/theviriditas",
-    icon: "/social-icons/Facebook.svg",
+    icon: "/social-icons/facebook.svg",
   },
   {
     id: 2,
     name: "Instagram",
     url: "https://www.instagram.com/theviriditas",
-    icon: "/social-icons/Instagram.svg",
+    icon: "/social-icons/instagram.svg",
   },
   {
     id: 3,
     name: "YouTube",
     url: "https://www.youtube.com/@ViriditasInterior",
-    icon: "/social-icons/YouTube.svg",
+    icon: "/social-icons/youtube.svg",
   },
   {
     id: 4,
     name: "TikTok",
     url: "https://www.tiktok.com/@the_viriditas",
-    icon: "/social-icons/TikTok.svg",
+    icon: "/social-icons/tiktok.svg",
   },
   {
     id: 5,
     name: "LinkedIn",
     url: "https://www.linkedin.com/company/theviriditas",
-    icon: "/social-icons/LinkedIn.svg",
+    icon: "/social-icons/linkedin.svg",
   },
 ];
 
@@ -103,7 +103,7 @@ export default function LinkPage() {
                     height={26}
                     width={26}
                     alt={social.name}
-                    className="h-8 w-8 rounded-full outline"
+                    className="h-8 w-8 rounded-full"
                   />
                   <span className="text-lg font-semibold">{social.name}</span>
                 </TrackLink>
