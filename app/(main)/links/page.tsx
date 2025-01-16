@@ -18,31 +18,31 @@ const socialLinks: SocialLink[] = [
     id: 1,
     name: "Facebook",
     url: "https://www.facebook.com/theviriditas",
-    icon: "/social-icons/facebook.svg",
+    icon: "/social-icons/fb.svg",
   },
   {
     id: 2,
     name: "Instagram",
     url: "https://www.instagram.com/theviriditas",
-    icon: "/social-icons/instagram.svg",
+    icon: "/social-icons/ig.svg",
   },
   {
     id: 3,
     name: "YouTube",
     url: "https://www.youtube.com/@ViriditasInterior",
-    icon: "/social-icons/youtube.svg",
+    icon: "/social-icons/yt.svg",
   },
   {
     id: 4,
     name: "TikTok",
     url: "https://www.tiktok.com/@the_viriditas",
-    icon: "/social-icons/tiktok.svg",
+    icon: "/social-icons/tk.svg",
   },
   {
     id: 5,
     name: "LinkedIn",
     url: "https://www.linkedin.com/company/theviriditas",
-    icon: "/social-icons/linkedin.svg",
+    icon: "/social-icons/in.svg",
   },
 ];
 
