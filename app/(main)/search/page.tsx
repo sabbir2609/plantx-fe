@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useDebounce } from "use-debounce";
 import Loading from "@/app/loading";
 
@@ -22,6 +22,7 @@ interface SearchResponse {
 }
 
 export default function SearchPage() {
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const [query, setQuery] = useState<string>("");
   const [debouncedQuery] = useDebounce(query, 300);
   const [results, setResults] = useState<SearchResult[]>([]);
@@ -34,6 +35,22 @@ export default function SearchPage() {
 
   const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_CUSTOME_SEARCH_ID;
   const CX = process.env.NEXT_PUBLIC_CX;
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setSuggestions([]);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dropdownRef]);
 
   const fetchSuggestions = async (input: string) => {
     if (input.length < 3) return;
@@ -111,7 +128,7 @@ export default function SearchPage() {
 
       <div className="relative w-full max-w-xl">
         <form onSubmit={handleSearch} className="mb-6 flex">
-          <div className="relative flex-1">
+          <div className="relative flex-1" ref={dropdownRef}>
             <input
               type="text"
               value={query}
@@ -125,10 +142,11 @@ export default function SearchPage() {
                   <li
                     key={index}
                     className="cursor-pointer p-2 hover:bg-base-200"
-                    onClick={() => {
+                    onClick={(e) => {
+                      e.preventDefault();
                       setQuery(suggestion);
                       setSuggestions([]);
-                      handleSearch(null as any, 1);
+                      handleSearch(e, 1);
                     }}
                   >
                     {suggestion}
