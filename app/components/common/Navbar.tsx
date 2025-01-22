@@ -86,14 +86,21 @@ const navLinks: LinkItem[] = [
     id: 6,
     name: "Links",
     link: "/links",
-    hideOnlargeScreen: false,
+    hideOnlargeScreen: true,
     icon: <Link2 size={20} className="inline-block" />,
+  },
+  {
+    id: 7,
+    name: "Plantopia",
+    link: "/plantopia",
+    hideOnlargeScreen: false,
+    icon: <Sprout size={20} className="inline-block" />,
   },
 ];
 
 // Social links
 const socialLinks: SocialLink[] = [
-    {
+  {
     name: "LinkedIn",
     link: "https://linkedin.com/company/theviriditas",
     icon: <Linkedin />,
@@ -130,7 +137,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`${router === "/" ? "fixed left-0 top-0 bg-base-300" : "bg-base-300"} fixed left-0 top-0 z-50 w-full py-1`}
+      className={`${router === "/" ? "fixed top-0 bg-base-300" : "bg-base-300"} sticky top-0 z-50 w-full py-1`}
     >
       <AnnouncementBanner />
       <div className="mx-auto flex items-center justify-between">
@@ -138,28 +145,25 @@ export default function Navbar() {
           Viriditas
         </Link>
 
-        <div className="z-50 hidden space-x-10 md:flex">
-          <div className="hidden space-x-10 md:flex">
+        <div className="z-50 hidden space-x-3 md:flex">
+          <div className="hidden space-x-5 md:flex">
             {navLinks
               .filter((link) => !link.hideOnlargeScreen)
               .map((link) => (
                 <div key={link.id} className="group relative">
                   {link.link ? (
-                    <Link
-                      href={link.link}
-                      className="flex items-center space-x-4"
-                    >
+                    <Link href={link.link} className="flex items-center">
                       <span className="link-underline link-underline-black font-medium">
                         {link.name}
                       </span>
                     </Link>
                   ) : (
-                    <div className="flex items-center space-x-4">
+                    <div className="flex items-center">
                       <span className="font-medium">{link.name}</span>
                     </div>
                   )}
                   {link.sublinks && (
-                    <div className="absolute left-0 top-full hidden rounded-sm bg-base-300 px-6 group-hover:block">
+                    <div className="absolute left-0 top-full hidden rounded-sm bg-base-300 px-6 py-4 group-hover:block">
                       {link.sublinks.map((sublink, index) => (
                         <Link
                           key={index}
@@ -176,7 +180,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        <div className="hidden items-center space-x-10 md:flex">
+        <div className="hidden items-center space-x-4 md:flex">
           {socialLinks.map((link, index) => (
             <Link
               key={index}
