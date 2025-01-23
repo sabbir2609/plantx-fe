@@ -137,7 +137,11 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`${router === "/" ? "fixed top-0 bg-base-300" : "bg-base-300"} sticky top-0 z-50 w-full py-1`}
+      className={`${
+        router === "/"
+          ? "relative -mb-16 bg-transparent"
+          : "sticky top-0 bg-base-300"
+      } z-50 w-full py-1`}
     >
       <AnnouncementBanner />
       <div className="mx-auto flex items-center justify-between">

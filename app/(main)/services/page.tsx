@@ -52,10 +52,10 @@ export default async function services(context: any) {
     <div className="container mx-auto px-4 py-8 md:px-6">
       <div className="flex flex-col gap-8">
         <div className="flex items-center justify-between">
-          <h1 className="text-4xl font-bold tracking-tight text-base-content/90">
+          <h1 className="text-2xl lg:text-4xl font-bold tracking-tight text-base-content/90">
             Browse all services
           </h1>
-          <span className="badge badge-primary">{data["count"]} Services</span>
+          <span className="badge badge-primary text-nowrap">{data["count"]} Services</span>
         </div>
 
         <div className="grid animate-[fade-in_0.5s_ease-in-out] grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">

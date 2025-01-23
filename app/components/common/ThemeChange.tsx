@@ -4,7 +4,13 @@ import { Moon, Sun } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 import { themeChange } from 'theme-change';
 
-export default function ThemeChange() {
+interface ThemeChangeProps {
+    className?: string;
+}
+
+export default function ThemeChange(
+    props: ThemeChangeProps
+) {
     const [theme, setTheme] = useState('light');
 
     useEffect(() => {
@@ -23,7 +29,7 @@ export default function ThemeChange() {
             area-label="Theme Change"
             title="Theme Change"
             onClick={handleThemeChange}
-            className="btn btn-ghost btn-circle transition duration-500 ease-in-out transform hover:scale-110 focus:outline-none"
+            className={`btn btn-ghost btn-circle transition duration-500 ease-in-out transform hover:scale-110 focus:outline-none ${props.className}`}
         >
             {theme === 'dark' ? (
                 <Sun className="transition-opacity duration-500" />

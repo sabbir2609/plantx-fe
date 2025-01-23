@@ -14,7 +14,7 @@ import {
   Events,
   Faq,
 } from "@/app/components/home";
-import AnimatedSection from "@/app/components/home/Wrapper/AnimatedSection";
+import AnimatedSection from "@/app/components/home/wrapper/AnimatedSection";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
