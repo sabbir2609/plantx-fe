@@ -21,6 +21,7 @@ import {
   ChevronDownIcon,
   Menu,
   Linkedin,
+  Link2,
 } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -83,16 +84,23 @@ const navLinks: LinkItem[] = [
   },
   {
     id: 6,
-    name: "Help",
-    link: "/help",
+    name: "Links",
+    link: "/links",
     hideOnlargeScreen: true,
-    icon: <HelpCircle size={20} className="inline-block" />,
+    icon: <Link2 size={20} className="inline-block" />,
+  },
+  {
+    id: 7,
+    name: "Plantopia",
+    link: "/plantopia",
+    hideOnlargeScreen: false,
+    icon: <Sprout size={20} className="inline-block" />,
   },
 ];
 
 // Social links
 const socialLinks: SocialLink[] = [
-    {
+  {
     name: "LinkedIn",
     link: "https://linkedin.com/company/theviriditas",
     icon: <Linkedin />,
@@ -129,35 +137,33 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`${router === "/" ? "fixed left-0 top-0 bg-base-300" : "bg-base-300"} left-0 fixed top-0 z-50 w-full px-4 py-1`}
+      className={`${router === "/" ? "fixed top-0 bg-base-300" : "bg-base-300"} sticky top-0 z-50 w-full py-1`}
     >
+      <AnnouncementBanner />
       <div className="mx-auto flex items-center justify-between">
-        <Link href="/" className="text-2xl font-bold tracking-wide">
+        <Link href="/" className="px-4 text-2xl font-bold tracking-wide">
           Viriditas
         </Link>
 
-        <div className="z-50 hidden space-x-10 md:flex">
-          <div className="hidden space-x-10 md:flex">
+        <div className="z-50 hidden space-x-3 md:flex">
+          <div className="hidden space-x-5 md:flex">
             {navLinks
               .filter((link) => !link.hideOnlargeScreen)
               .map((link) => (
                 <div key={link.id} className="group relative">
                   {link.link ? (
-                    <Link
-                      href={link.link}
-                      className="flex items-center space-x-4"
-                    >
+                    <Link href={link.link} className="flex items-center">
                       <span className="link-underline link-underline-black font-medium">
                         {link.name}
                       </span>
                     </Link>
                   ) : (
-                    <div className="flex items-center space-x-4">
+                    <div className="flex items-center">
                       <span className="font-medium">{link.name}</span>
                     </div>
                   )}
                   {link.sublinks && (
-                    <div className="absolute left-0 top-full hidden rounded-sm bg-base-300 px-6 group-hover:block">
+                    <div className="absolute left-0 top-full hidden rounded-sm bg-base-300 px-6 py-4 group-hover:block">
                       {link.sublinks.map((sublink, index) => (
                         <Link
                           key={index}
@@ -174,7 +180,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        <div className="hidden items-center space-x-10 md:flex">
+        <div className="hidden items-center space-x-4 md:flex">
           {socialLinks.map((link, index) => (
             <Link
               key={index}
@@ -188,8 +194,8 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="flex items-center space-x-3">
-          <div className="flex items-center space-x-1">
+        <div className="flex items-center">
+          <div className="flex items-center">
             {/* theme change */}
             <ThemeChange />
 
@@ -204,7 +210,7 @@ export default function Navbar() {
 
           <div className={`z-50 md:hidden ${open ? "z-50 text-white" : ""}`}>
             <button
-              className={`btn btn-square btn-ghost ${open ? "open" : ""}`}
+              className={`btn btn-square btn-ghost me-1 ${open ? "open" : ""}`}
               onClick={() => setOpen(!open)}
             >
               {open ? <CircleX /> : <Menu />}

@@ -3,18 +3,19 @@ import { Poppins } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 
-import NextTopLoader from 'nextjs-toploader';
+import NextTopLoader from "nextjs-toploader";
 
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { Fab, FooterWrapper, Navbar } from "./components/common";
 
 const APP_NAME = "Viriditas";
 const APP_DEFAULT_TITLE = "Viriditas - Elevate your space with Nature";
 const APP_TITLE_TEMPLATE = "Viriditas - %s";
-const APP_DESCRIPTION = "Viriditas - Elevate your space with nature. Discover our plant-based decor solutions designed to reduce carbon emissions and bring the beauty of nature into your home. Transform your environment sustainably with our carefully curated collection of eco-friendly decor.";
+const APP_DESCRIPTION =
+  "Viriditas - Elevate your space with nature. Discover our plant-based decor solutions designed to reduce carbon emissions and bring the beauty of nature into your home. Transform your environment sustainably with our carefully curated collection of eco-friendly decor.";
 
 export const metadata: Metadata = {
   applicationName: APP_NAME,
@@ -24,12 +25,24 @@ export const metadata: Metadata = {
   },
   description: APP_DESCRIPTION,
   generator: "Next.js",
-  keywords: ["Nature", "Plants", "Decor", "Eco-friendly", "Sustainable", "Home", "Garden", "Interior Design", "Plant-based", "Carbon Emissions", "Viriditas"],
-  metadataBase: new URL('https://theviriditas.com'),
+  keywords: [
+    "Nature",
+    "Plants",
+    "Decor",
+    "Eco-friendly",
+    "Sustainable",
+    "Home",
+    "Garden",
+    "Interior Design",
+    "Plant-based",
+    "Carbon Emissions",
+    "Viriditas",
+  ],
+  metadataBase: new URL("https://theviriditas.com"),
   alternates: {
-    canonical: '/',
+    canonical: "/",
     languages: {
-      'en-US': '/en-US',
+      "en-US": "/en-US",
     },
   },
   formatDetection: {
@@ -50,7 +63,7 @@ export const metadata: Metadata = {
         height: 630,
       },
     ],
-    locale: 'en_US',
+    locale: "en_US",
     type: "website",
   },
   twitter: {
@@ -67,7 +80,7 @@ export const metadata: Metadata = {
     "max-image-preview": "large",
     "max-snippet": -1,
     "max-video-preview": -1,
-    googleBot: "index, follow"
+    googleBot: "index, follow",
   },
 };
 
@@ -77,17 +90,16 @@ export const viewport: Viewport = {
   themeColor: "#00845a",
 };
 
-
 const glacialIndifference = localFont({
   src: "/lib/fonts/GlacialIndifference-Regular.otf",
   display: "swap",
-})
+});
 
 const poppins = Poppins({
   display: "swap",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
-  variable: '--font-poppins',
+  variable: "--font-poppins",
 });
 
 export default function RootLayout({
@@ -97,17 +109,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${glacialIndifference.className} ${poppins.variable} min-h-screen flex flex-col`}>
+      <body
+        className={`${glacialIndifference.className} ${poppins.variable}`}
+      >
         <GoogleTagManager
           gtmId={`${process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID}`}
         />
         <NextTopLoader />
-        <Navbar />
-        <main className="flex-grow bg-base-100 mt-[56px]">
-          {children}
-          <Fab />
-        </main>
-        <FooterWrapper />
+        {children}
         <SpeedInsights />
         <Analytics />
         <GoogleAnalytics
