@@ -20,9 +20,11 @@
     "sabbir",
     "Swiper",
     "tailwindcss",
+    "tiktok",
     "toploader",
     "turbopack",
     "Viriditas",
     "webp"
-  ]
+  ],
+  "editor.wordWrap": "on"
 }

@@ -1,5 +1,5 @@
 import { Fetch } from "@/app/lib";
-import { EventCard } from "@/components/main";
+import { EventCard } from "@/app/components/main";
 
 interface Event {
     id: number;
