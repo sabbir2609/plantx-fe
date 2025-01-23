@@ -11,11 +11,11 @@ interface HeroProps {
 
 // Import all banner images
 const bannerImages = [
-  "/images/hero/banner_lg/banner_lg (1).jpg",
-  "/images/hero/banner_lg/banner_lg (2).jpg",
-  "/images/hero/banner_lg/banner_lg (3).jpg",
-  "/images/hero/banner_lg/banner_lg (4).jpg",
-  "/images/hero/banner_lg/banner_lg (5).jpg",
+  "/images/hero/banner_lg (1).webp",
+  "/images/hero/banner_lg (2).webp",
+  "/images/hero/banner_lg (3).webp",
+  "/images/hero/banner_lg (4).webp",
+  "/images/hero/banner_lg (5).webp",
 ];
 
 export default function HeroImageLg({ title, description }: HeroProps) {

@@ -110,7 +110,7 @@ export default async function Page() {
                 {post.categories.map((category) => (
                   <span
                     key={category.id}
-                    className="rounded-full bg-primary px-3 py-1 text-xs"
+                    className="rounded-full bg-primary/40 px-3 py-1 text-xs"
                   >
                     {category.name}
                   </span>

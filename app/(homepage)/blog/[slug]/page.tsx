@@ -77,7 +77,7 @@ export default async function Page(props: Props) {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-base-100/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
       </div>
 
       <div className="mx-auto max-w-2xl px-4 py-8">
@@ -87,7 +87,7 @@ export default async function Page(props: Props) {
             <Link
               key={category.id}
               href={`/blog/category/${category.slug}`}
-              className="rounded-full bg-accent/10 px-4 py-1 text-sm font-medium text-accent hover:bg-accent/20"
+              className="rounded-full bg-primary/40 px-4 py-1 text-sm font-medium hover:bg-accent/20"
             >
               {category.name}
             </Link>
