@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🌿 Plantopia Store
 
-## Getting Started
+A modern e-commerce platform for plant enthusiasts, powered by Next.js and DaisyUI.
 
-First, run the development server:
+## ✨ Features
+
+- 🛍️ Modern E-commerce Interface
+- 🌙 Dark/Light Theme
+- 📱 Responsive Design
+- 🔍 Advanced Search
+- 🛒 Shopping Cart
+- 👤 User Profiles
+- 📦 Order Management
+
+## 🚀 Tech Stack
+
+- Next.js 14
+- TypeScript
+- TailwindCSS
+- DaisyUI
+- Lucide Icons
+- React Query
+- Zustand
+
+## 🛠️ Installation
 
 ```bash
-npm run dev
-# or
+# Clone the repository
+git clone https://github.com/yourusername/plantopia-store.git
+
+# Navigate to project directory
+cd plantopia-store
+
+# Install dependencies
+yarn install
+
+# Start development server
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📁 Project Structure
+```bash
+plantopia-store/
+├── app/
+│   ├── components/
+│   ├── hooks/
+│   ├── store/
+│   └── utils/
+├── public/
+├── styles/
+└── types/
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📝 Environment Variables
+Create a .env.local file in the root directory:
+```
+🤝 Contributing
+1. Fork the repository  
+2. Create your feature branch (git checkout -b 3. feature/amazing-feature)  
+4. Commit your changes (git commit -m 'Add some 5. amazing feature')  
+6. Push to the branch (git push origin feature/amazing-feature)  
+7. Open a Pull Request  
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 📄 License  
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+🙏 Acknowledgments  
+Plant images from Unsplash  
+Icons from Lucide  
+UI Components from DaisyUI  
+Made with 💚 by [Sabbir](github.com/sabbir2609)
