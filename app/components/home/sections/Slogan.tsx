@@ -38,7 +38,7 @@ export default function Slogan() {
                 <div className="text-center">
                     <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold tracking-tight">
                         <span className="mr-3">We Design Your</span>
-                        <span className="inline-block min-w-[7ch] text-primary">
+                        <span className="inline-block min-w-[7ch] text-left text-primary">
                             {`${words[index].substring(0, subIndex)}${blink ? '|' : ''}`}
                         </span>
                     </h2>

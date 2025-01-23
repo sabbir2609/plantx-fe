@@ -12,7 +12,7 @@ const config: Config = {
     themes: [
       {
         light: {
-          primary: "#a4c3d2",
+          primary: "#0077b6",
           "primary-focus": "#1C3425",
           "primary-content": "#ffffff",
 
@@ -71,6 +71,31 @@ const config: Config = {
           success: "#68D391", // Fresh green
           warning: "#F6AD55", // Soft orange
           error: "#FC8181", // Coral red
+          primary: "#4281a4", // Google Material Design Dark Purple
+          "primary-focus": "#3700b3", // Google Material Design Dark Purple (Focus)
+          "primary-content": "#ffffff", // White
+
+          secondary: "#03dac6", // Google Material Design Teal
+          "secondary-focus": "#018786", // Google Material Design Teal (Focus)
+          "secondary-content": "#000000", // Black
+
+          accent: "#03dac6", // Google Material Design Teal
+          "accent-focus": "#018786", // Google Material Design Teal (Focus)
+          "accent-content": "#ffffff", // White
+
+          neutral: "#121212", // Google Material Design Dark Gray
+          "neutral-focus": "#1e1e1e", // Slightly Lighter Dark Gray
+          "neutral-content": "#ffffff", // White
+
+          "base-100": "#121212", // Google Material Design Dark Base
+          "base-200": "#1e1e1e", // Slightly Lighter Dark Base
+          "base-300": "#333333", // Darker Gray
+          "base-content": "#ffffff", // White
+
+          info: "#2196f3", // Blue
+          success: "#4caf50", // Green
+          warning: "#ff9800", // Orange
+          error: "#f44336", // Red
         },
       },
     ],
