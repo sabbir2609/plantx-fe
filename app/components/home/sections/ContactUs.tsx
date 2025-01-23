@@ -1,6 +1,7 @@
 import { Mail, MapPin, PhoneCall } from "lucide-react";
 import { ContactForm } from "..";
 import { SocialIcon } from 'react-social-icons';
+import Link from "next/link";
 
 export default function ContactUs() {
   const contactInfo = [
@@ -35,24 +36,34 @@ export default function ContactUs() {
   ];
 
   return (
-    <div className="grid w-full grid-cols-1 gap-5 p-4 md:grid-cols-2 rounded-md">
+    <div className="grid w-full grid-cols-1 gap-5 rounded-md p-4 md:grid-cols-2">
       <div className="flex select-text flex-col justify-center rounded-lg bg-base-200 p-6 shadow-md">
-        <h2 className="mb-6 text-4xl font-extrabold text-center">Contact Us</h2>
+        <h2 className="mb-6 text-center text-4xl font-extrabold">Contact Us</h2>
 
-        <div className="flex items-center space-x-2 mb-4">
-          <MapPin size={20} />
-          <p className="text-lg">{contactInfo[0].address}</p>
+        <div className="mb-4 flex items-center space-x-2">
+          {/* <MapPin size={20} /> */}
+          <p className="text-lg text-wrap">{contactInfo[0].address}</p>
         </div>
-        <div className="flex items-center space-x-2 mb-4">
+        <div className="mb-4 flex items-center space-x-2">
           <Mail size={20} />
-          <p className="text-lg">{contactInfo[0].email}</p>
+          <Link
+            className="text-lg text-primary"
+            href={`mailto:${contactInfo[0].email}`}
+          >
+            {contactInfo[0].email}
+          </Link>
         </div>
-        <div className="flex items-center space-x-2 mb-4">
+        <div className="mb-4 flex items-center space-x-2">
           <PhoneCall size={20} />
-          <p className="text-lg">{contactInfo[0].phone}</p>
+          <Link
+            className="text-lg text-primary"
+            href={`tel:${contactInfo[0].phone}`}
+          >
+            {contactInfo[0].phone}
+          </Link>
         </div>
 
-        <h3 className="text-lg font-bold text-center">Follow us on:</h3>
+        <h3 className="text-center text-lg font-bold">Follow us on:</h3>
         <div className="flex justify-center space-x-4 py-4">
           {socialLinks.map((social, index) => (
             <SocialIcon
@@ -62,7 +73,7 @@ export default function ContactUs() {
               rel="noopener noreferrer"
               fgColor="#fff"
               bgColor="#333"
-              className="transition-transform transform hover:scale-110"
+              className="transform transition-transform hover:scale-110"
               style={{ height: 40, width: 40 }}
             />
           ))}

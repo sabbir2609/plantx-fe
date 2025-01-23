@@ -1,5 +1,5 @@
 import { Fetch } from "@/app/lib";
-import ServicesTab from "../Swiper/ServicesTab";
+import ServicesTab from "../swiper/ServicesTab";
 
 interface ServiceCategory {
     id: number;

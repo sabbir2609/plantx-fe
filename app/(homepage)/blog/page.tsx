@@ -77,7 +77,7 @@ export default async function Page() {
           ))}
         </div>
       ) : (
-        <div className="flex flex-col items-center justify-center bg-base-300/60 p-4 rounded-lg mb-10">
+        <div className="mb-10 flex flex-col items-center justify-center rounded-lg bg-base-300/60 p-4">
           <div className="mb-4 rounded-full bg-accent/10 p-4">
             <Rss className="h-8 w-8 text-red-500/50" />
           </div>
@@ -110,7 +110,7 @@ export default async function Page() {
                 {post.categories.map((category) => (
                   <span
                     key={category.id}
-                    className="rounded-full bg-primary/10 px-3 py-1 text-xs text-primary"
+                    className="rounded-full bg-primary/40 px-3 py-1 text-xs"
                   >
                     {category.name}
                   </span>

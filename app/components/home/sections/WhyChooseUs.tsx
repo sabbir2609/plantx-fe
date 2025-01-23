@@ -1,5 +1,5 @@
 import { CheckCircle, DollarSign, Heart, Leaf, Lightbulb, Settings } from "lucide-react";
-import AnimatedSection from "../Wrapper/AnimatedSection";
+import AnimatedSection from "../wrapper/AnimatedSection";
 
 export default function WhyChooseUs() {
     const WhyChooseUs = [

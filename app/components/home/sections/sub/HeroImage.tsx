@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Leaf } from "lucide-react";
 
 interface HeroProps {
   title: string;
@@ -11,11 +12,11 @@ interface HeroProps {
 
 // Import all banner images
 const bannerImages = [
-  "/images/hero/banner_lg/banner_lg (1).jpg",
-  "/images/hero/banner_lg/banner_lg (2).jpg",
-  "/images/hero/banner_lg/banner_lg (3).jpg",
-  "/images/hero/banner_lg/banner_lg (4).jpg",
-  "/images/hero/banner_lg/banner_lg (5).jpg",
+  "/images/hero/banner_lg (1).webp",
+  "/images/hero/banner_lg (2).webp",
+  "/images/hero/banner_lg (3).webp",
+  "/images/hero/banner_lg (4).webp",
+  "/images/hero/banner_lg (5).webp",
 ];
 
 export default function HeroImageLg({ title, description }: HeroProps) {
@@ -32,7 +33,7 @@ export default function HeroImageLg({ title, description }: HeroProps) {
   }, []);
 
   return (
-    <section className="relative h-screen w-full ">
+    <section className="relative h-screen w-full">
       {bannerImages.map((image, index) => (
         <Image
           key={index}
@@ -53,8 +54,16 @@ export default function HeroImageLg({ title, description }: HeroProps) {
               {title}
             </h1>
             <p className="text-lg text-white/90 md:text-xl">{description}</p>
-            <Link href="#service-section" className="btn btn-primary btn-lg">
-              Get Started
+            <Link
+              href="#service-section"
+              className="group btn btn-primary relative inline-flex items-center justify-center overflow-hidden"
+            >
+              <span className="absolute inset-0 flex h-full w-full -translate-x-full items-center justify-center transition-all duration-500 group-hover:translate-x-0">
+                <Leaf className="h-5 w-5" />
+              </span>
+              <span className="relative transition-all duration-500 group-hover:translate-x-4 group-hover:opacity-0">
+                Get started
+              </span>
             </Link>
           </div>
         </div>
