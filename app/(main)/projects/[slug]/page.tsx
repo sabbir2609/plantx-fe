@@ -1,84 +1,138 @@
-import { Fetch } from '@/app/lib';
-import { ProductImageViewer } from '@/app/components/main';
-import Image from 'next/image';
+import { Fetch } from "@/app/lib";
+import { ProductImageViewer } from "@/app/components/main";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowLeft, Home } from "lucide-react";
+import { ShareButton } from "@/app/components/common";
 
 interface ProjectCategory {
-    id: number;
-    type: string;
-    title: string;
+  id: number;
+  type: string;
+  title: string;
 }
 
 interface ProjectImage {
-    id: number;
-    image: string;
-    short_description: string;
+  id: number;
+  image: string;
+  short_description: string;
 }
 
 interface Project {
-    id: number;
-    title: string;
-    slug: string;
-    categories: ProjectCategory[];
-    client: string;
-    year: number;
-    description: string;
-    images: ProjectImage[];
+  id: number;
+  title: string;
+  slug: string;
+  categories: ProjectCategory[];
+  client: string;
+  year: number;
+  description: string;
+  images: ProjectImage[];
 }
 
+export default async function Plants(props: {
+  params: Promise<{ slug: string }>;
+}) {
+  const params = await props.params;
+  const data = await Fetch({ endpoint: `main/projects/${params.slug}` });
+  const project: Project = data;
 
-export default async function Plants(props: { params: Promise<{ slug: string }> }) {
-    const params = await props.params;
+  return (
+    <div className="container mx-auto max-w-4xl px-4 py-8">
+      {/* Breadcrumb */}
+      <nav className="mb-8 flex items-center gap-2 text-sm">
+        <Link href="/" className="flex items-center gap-1 hover:text-primary">
+          <Home className="h-4 w-4" />
+          Home
+        </Link>
+        <span>/</span>
+        <Link href="/projects" className="hover:text-primary">
+          Projects
+        </Link>
+        <span>/</span>
+        <span className="truncate text-primary lg:text-current">
+          {project.title}
+        </span>
+      </nav>
 
-    const data = await Fetch({ endpoint: `main/projects/${params.slug}` });
-    const project: Project = data;
+      {/* Back Button */}
+      <Link
+        href="/projects"
+        className="btn btn-ghost btn-sm mb-6 inline-flex items-center gap-2"
+      >
+        <ArrowLeft className="h-4 w-4" />
+        Back to Projects
+      </Link>
 
-    return (
-        <div className="mx-auto p-2">
-            <h1 className="px-2 text-xl font-semibold mb-4 text-accent leading-6">
-                {project.title}
-            </h1>
+      {/* Title Section */}
+      <h1 className="mb-6 text-2xl font-bold text-primary lg:text-4xl">
+        {project.title}
+      </h1>
 
-            <div className="rounded-sm mb-4">
-                {project.images.length > 0 ? (
-                    <ProductImageViewer images={project.images} />
-                ) : (
-                    <Image
-                        src="/static/viriditas.webp"
-                        width={600}
-                        height={400}
-                        alt='No Image Available'
-                        className='object-contain w-full lg:h-[60vh] rounded-md'
-                    />
-                )}
+      {/* Main Content Stack */}
+      <div className="space-y-8">
+        {/* Image Gallery */}
+        <div className="rounded-xl bg-base-200 p-2">
+          {project.images.length > 0 ? (
+            <ProductImageViewer images={project.images} />
+          ) : (
+            <div className="relative aspect-video overflow-hidden rounded-lg">
+              <Image
+                src="/static/viriditas.webp"
+                fill
+                alt="No Image Available"
+                className="object-cover transition-transform hover:scale-105"
+              />
             </div>
-
-            <div className="p-2 gap-2">
-                <div className="flex items-center gap-2">
-                    <strong>Categories: </strong>
-                    {project.categories.map((category) => (
-                        <div key={category.id} className="bg-accent badge inline-block text-xs">
-                            {category.type}-{category.title}
-                        </div>
-                    ))}
-                </div>
-
-                <div className="flex items-center gap-2">
-                    <strong>Client: </strong>
-                    {project.client}
-                </div>
-
-                <div className="flex items-center gap-2">
-                    <strong>Year: </strong>
-                    {project.year}
-                </div>
-
-                <hr className='my-4' />
-
-                <div className="w-full">
-                    <div className='prose overflow-x-hidden lg:max-w-none bg-base-200 p-4 lg:p-8 rounded-lg' dangerouslySetInnerHTML={{ __html: project.description }} />
-                </div>
-            </div>
-
+          )}
         </div>
-    );
+
+        {/* Project Details */}
+        <div className="space-y-6">
+          {/* Metadata Cards */}
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="card bg-base-200">
+              <div className="card-body p-4">
+                <h3 className="card-title text-sm">Categories</h3>
+                <div className="flex flex-wrap gap-2">
+                  {project.categories.map((category) => (
+                    <span key={category.id} className="badge badge-primary">
+                      {category.type}-{category.title}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="card bg-base-200">
+              <div className="card-body p-4">
+                <h3 className="card-title text-sm">Project Info</h3>
+                <div className="space-y-2 text-sm">
+                  <p>
+                    <strong>Client:</strong> {project.client}
+                  </p>
+                  <p>
+                    <strong>Year:</strong> {project.year}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Description */}
+          <div className="card bg-base-200">
+            <div className="card-body">
+              <h2 className="card-title mb-4">Project Description</h2>
+              <div
+                className="prose max-w-none"
+                dangerouslySetInnerHTML={{ __html: project.description }}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="mt-5 px-8 flex items-center justify-between">
+        <p className="text-sm text-primary-content me-5">Share this project</p>
+        <ShareButton title="Share this project" url={`${project.slug}`} />
+      </div>
+    </div>
+  );
 }
