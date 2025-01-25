@@ -72,9 +72,13 @@ const navLinks: LinkItem[] = [
   },
   {
     id: 4,
-    name: "About",
-    link: "/about",
+    name: "About us",
     icon: <UsersRound size={20} className="inline-block" />,
+    hideOnlargeScreen: false,
+    sublinks: [
+      { name: "Our Team", link: "/team" },
+      { name: "About", link: "/about" },
+    ],
   },
   {
     id: 5,
@@ -260,12 +264,12 @@ export default function Navbar() {
                       name="my-accordion-4"
                       defaultChecked={index === 0}
                     />
-                    <div className="collapse-title flex items-center justify-between text-xl font-medium">
+                    <div className="collapse-title flex items-center justify-between">
                       {link.link ? (
                         // Main link with sublinks
                         <Link
                           href={link.link}
-                          className="flex items-center text-nowrap font-semibold"
+                          className="flex items-center text-nowrap"
                           onClick={closeDrawer}
                         >
                           {link.icon && (
