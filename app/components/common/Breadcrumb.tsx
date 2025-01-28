@@ -2,18 +2,12 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { ChevronRight, Home } from "lucide-react";
-
-interface Breadcrumb {
-  label: string;
-  href: string;
-  isCurrent: boolean;
-}
+import { Home } from "lucide-react";
 
 export default function Breadcrumb() {
   const pathname = usePathname();
 
-  const generateBreadcrumbs = (): Breadcrumb[] => {
+  const generateBreadcrumbs = () => {
     const asPathWithoutQuery = pathname.split("?")[0];
     const asPathNestedRoutes = asPathWithoutQuery
       .split("/")
@@ -40,38 +34,30 @@ export default function Breadcrumb() {
   if (breadcrumbs.length === 1) return null;
 
   return (
-    <nav aria-label="breadcrumb" className="w-full">
-      <ol className="flex items-center gap-2 text-sm">
-        {breadcrumbs.map((breadcrumb, index) => (
-          <li
-            key={breadcrumb.href}
-            className={`flex items-center ${
-              breadcrumb.isCurrent ? "text-primary" : "text-base-content/60"
-            }`}
-          >
-            {index === 0 ? (
-              <Link
-                href={breadcrumb.href}
-                className="flex items-center hover:text-primary"
-              >
-                <Home className="h-4 w-4" />
-              </Link>
+    <div className="breadcrumbs text-sm">
+      <ul>
+        {breadcrumbs.map((breadcrumb) => (
+          <li key={breadcrumb.href}>
+            {breadcrumb.isCurrent ? (
+              <span className="font-medium text-primary">
+                {breadcrumb.href === "/" ? (
+                  <Home className="h-4 w-4" />
+                ) : (
+                  breadcrumb.label
+                )}
+              </span>
             ) : (
-              <>
-                <ChevronRight className="h-4 w-4" />
-                <Link
-                  href={breadcrumb.href}
-                  className={`ml-2 truncate hover:text-primary ${
-                    breadcrumb.isCurrent ? "font-medium" : ""
-                  }`}
-                >
-                  {breadcrumb.label}
-                </Link>
-              </>
+              <Link href={breadcrumb.href} className="hover:text-primary">
+                {breadcrumb.href === "/" ? (
+                  <Home className="h-4 w-4" />
+                ) : (
+                  breadcrumb.label
+                )}
+              </Link>
             )}
           </li>
         ))}
-      </ol>
-    </nav>
+      </ul>
+    </div>
   );
 }
