@@ -1,20 +1,19 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
-import { Eye, EyeOff, Mail, Lock, ArrowRight } from "lucide-react";
+import { Mail, ArrowRight } from "lucide-react";
+import { PasswordInput, SubmitButton } from "@/app/components/store";
+
+async function login(formData: FormData) {
+  "use server";
+
+  const email = formData.get("email");
+  const password = formData.get("password");
+  const remember = formData.get("remember");
+
+  // Add login logic here
+  console.log({ email, password, remember });
+}
 
 export default function LoginPage() {
-  const [showPassword, setShowPassword] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-    // Add login logic here
-    setTimeout(() => setIsLoading(false), 2000);
-  };
-
   return (
     <div className="min-h-screen bg-base-200 py-16">
       <div className="container mx-auto px-4">
@@ -34,7 +33,7 @@ export default function LoginPage() {
           {/* Login Card */}
           <div className="card bg-base-100 shadow-lg">
             <div className="card-body">
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form action={login} className="space-y-4">
                 {/* Email Input */}
                 <div className="form-control">
                   <label className="label">
@@ -42,12 +41,13 @@ export default function LoginPage() {
                   </label>
                   <div className="relative">
                     <input
+                      name="email"
                       type="email"
                       placeholder="Enter your email"
                       className="input input-bordered w-full pl-10"
                       required
                     />
-                    <Mail className="absolute left-3 top-3 h-5 w-5" />
+                    <Mail className="absolute left-3 top-3 h-5 w-5 text-secondary" />
                   </div>
                 </div>
 
@@ -62,45 +62,21 @@ export default function LoginPage() {
                       Forgot password?
                     </Link>
                   </label>
-                  <div className="relative">
-                    <input
-                      type={showPassword ? "text" : "password"}
-                      placeholder="Enter your password"
-                      className="input input-bordered w-full pl-10"
-                      required
-                    />
-                    <Lock className="absolute left-3 top-3 h-5 w-5" />
-                    <button
-                      type="button"
-                      onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 top-3"
-                    >
-                      {showPassword ? (
-                        <EyeOff className="h-5 w-5" />
-                      ) : (
-                        <Eye className="h-5 w-5" />
-                      )}
-                    </button>
-                  </div>
+                  <PasswordInput name="password" />
                 </div>
 
                 {/* Remember Me */}
                 <div className="flex items-center gap-2">
-                  <input type="checkbox" className="checkbox checkbox-sm" />
+                  <input
+                    name="remember"
+                    type="checkbox"
+                    className="checkbox checkbox-sm"
+                  />
                   <span className="label-text">Remember me</span>
                 </div>
 
                 {/* Submit Button */}
-                <button
-                  type="submit"
-                  className={`btn btn-primary w-full ${
-                    isLoading ? "loading" : ""
-                  }`}
-                  disabled={isLoading}
-                >
-                  {isLoading ? "Logging in..." : "Login"}
-                  <ArrowRight className="h-5 w-5" />
-                </button>
+                <SubmitButton buttonText="Login" loadingText="Logging in..." />
               </form>
 
               {/* Divider */}
@@ -110,8 +86,12 @@ export default function LoginPage() {
 
               {/* Social Login */}
               <div className="grid grid-cols-2 gap-4">
-                <button className="btn btn-outline">Google</button>
-                <button className="btn btn-outline">GitHub</button>
+                <Link href="/api/auth/google" className="btn btn-outline">
+                  Google
+                </Link>
+                <Link href="/api/auth/github" className="btn btn-outline">
+                  GitHub
+                </Link>
               </div>
 
               {/* Sign Up Link */}

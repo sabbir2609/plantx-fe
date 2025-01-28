@@ -1,104 +1,98 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Leaf, ArrowRight } from "lucide-react";
-import Link from "next/link";
 
 export default function PlantopiaStore() {
-  const [counter, setCounter] = useState(60);
+  const LAUNCH_DATE = new Date("2025-04-01").getTime();
+
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
 
   useEffect(() => {
-    const countdown = setInterval(() => {
-      if (counter > 0) {
-        setCounter(counter - 1);
-      }
-    }, 1000);
-    return () => clearInterval(countdown);
-  }, [counter]);
+    const calculateTime = () => {
+      const now = new Date().getTime();
+      const distance = LAUNCH_DATE - now;
+
+      if (distance < 0) return;
+
+      setTimeLeft({
+        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+        hours: Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+        ),
+        minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+        seconds: Math.floor((distance % (1000 * 60)) / 1000),
+      });
+    };
+
+    calculateTime();
+    const timer = setInterval(calculateTime, 1000);
+    return () => clearInterval(timer);
+  }, [LAUNCH_DATE]);
 
   return (
-    <div className="container mx-auto px-4 py-20">
-      <div className="flex flex-col items-center space-y-8 text-center">
-        {/* Logo and Title */}
-        <div className="space-y-2">
-          <h1 className="text-5xl font-extrabold tracking-tight lg:text-7xl">
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Plantopia
-            </span>
-          </h1>
-          <p className="text-lg font-light tracking-wide opacity-75">
-            by Viriditas - Opening Soon
-          </p>
-        </div>
-
-        {/* Description */}
-        <p className="max-w-2xl text-lg">
-          Experience the future of plant shopping. Join us for the grand opening
-          of your new favorite plant destination.
-        </p>
-
-        {/* Countdown Timer */}
-        <div className="rounded-xl bg-base-200/50 px-4 p-8 backdrop-blur">
-          <h2 className="mb-4 text-2xl font-semibold">Grand Opening In</h2>
-
-          <div className="grid auto-cols-max grid-flow-col gap-5 text-center">
-            <div className="flex flex-col">
-              <span className="countdown font-mono text-5xl">
-                <span style={{ "--value": 15 } as any}></span>
+    <main className="relative min-h-screen overflow-hidden bg-gradient-to-br from-base-200 via-base-100 to-base-200">
+      <div className="container mx-auto px-4 py-20">
+        <div className="mx-auto max-w-4xl space-y-16 text-center">
+          {/* Hero */}
+          <div className="space-y-6">
+            <h1 className="text-5xl font-bold tracking-tight sm:text-7xl">
+              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                Plantopia Store
               </span>
-              days
-            </div>
-            <div className="flex flex-col">
-              <span className="countdown font-mono text-5xl">
-                <span style={{ "--value": 10 } as any}></span>
-              </span>
-              hours
-            </div>
-            <div className="flex flex-col">
-              <span className="countdown font-mono text-5xl">
-                <span style={{ "--value": 24 } as any}></span>
-              </span>
-              min
-            </div>
-            <div className="flex flex-col">
-              <span className="countdown font-mono text-5xl">
-                <span style={{ "--value": counter } as any}></span>
-              </span>
-              sec
-            </div>
+            </h1>
+            <p className="text-xl text-base-content/70">
+              Coming soon to transform your plant shopping experience
+            </p>
           </div>
-        </div>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-wrap justify-center gap-4">
-          <Link href="/links" className="group btn btn-primary btn-lg gap-2">
-            Follow for Updates
-            <ArrowRight className="transition-transform group-hover:translate-x-1" />
-          </Link>
-        </div>
+          {/* Countdown */}
+          {/* Countdown Timer */}
+          <div className="grid grid-cols-2 gap-3 sm:inline-grid auto-cols-max grid-flow-col">
+            {[
+              { label: 'days', value: timeLeft.days },
+              { label: 'hours', value: timeLeft.hours },
+              { label: 'min', value: timeLeft.minutes },
+              { label: 'sec', value: timeLeft.seconds }
+            ].map(({ label, value }) => (
+              <div
+                key={label}
+                className="flex flex-col items-center justify-center gap-1 rounded-lg
+                  bg-base-100/20 px-3 py-2 sm:gap-2
+                  backdrop-blur-sm transition-all hover:bg-base-100/30
+                  border border-base-content/5"
+              >
+                <span className="font-mono text-2xl font-bold tabular-nums 
+                  sm:text-4xl md:text-5xl lg:text-6xl">
+                  {String(value).padStart(2, '0')}
+                </span>
+                <span className="text-[10px] font-medium uppercase tracking-wider 
+                  text-base-content/60 sm:text-xs">
+                  {label}
+                </span>
+              </div>
+            ))}
+          </div>
 
-        {/* Features Preview */}
-        <div className="mt-16 grid gap-8 md:grid-cols-3">
-          <div className="card bg-base-200/50 backdrop-blur">
-            <div className="card-body">
-              <h3 className="card-title">Exclusive Plants</h3>
-              <p>Discover rare and unique plant varieties</p>
-            </div>
-          </div>
-          <div className="card bg-base-200/50 backdrop-blur">
-            <div className="card-body">
-              <h3 className="card-title">Expert Care</h3>
-              <p>Get personalized plant care guidance</p>
-            </div>
-          </div>
-          <div className="card bg-base-200/50 backdrop-blur">
-            <div className="card-body">
-              <h3 className="card-title">Community</h3>
-              <p>Join our growing plant lovers community</p>
-            </div>
+          {/* Features */}
+          <div className="grid gap-8 sm:grid-cols-3">
+            {["Exclusive Collection", "Expert Care Guidance", "Community"].map(
+              (feature) => (
+                <div
+                  key={feature}
+                  className="rounded-lg bg-base-100/50 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:-translate-y-1"
+                >
+                  <h3 className="text-lg font-semibold">{feature}</h3>
+                </div>
+              ),
+            )}
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
