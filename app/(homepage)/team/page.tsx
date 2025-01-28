@@ -46,20 +46,21 @@ export default async function Page() {
 
       {/* Team Grid Section */}
       <div className="mx-auto max-w-7xl py-20">
-        <div className="grid gap-8 px-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 px-4 lg:grid-cols-4">
           {teamMembers.map((member) => (
             <div
               key={member.id}
-              className="group relative overflow-hidden rounded-xl bg-base-100 shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl"
+              className="group relative overflow-hidden rounded-md bg-base-300 shadow-sm transition-all hover:shadow-md"
             >
               <div className="relative aspect-[3/4] overflow-hidden">
                 <Image
                   src={member.image}
                   alt={member.user}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  height={800}
+                  width={800}
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-base-100 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-gradient-to-t from-base-300 to-transparent opacity-100 transition-opacity group-hover:opacity-0" />
               </div>
 
               <div className="relative p-6">
@@ -68,7 +69,7 @@ export default async function Page() {
                   {member.position}
                 </p>
 
-                <div className="mt-4 flex space-x-3">
+                <div className="mt-4 flex space-x-2">
                   <Link href={"#"} className="btn btn-circle btn-ghost btn-sm">
                     <Mail className="h-4 w-4" />
                   </Link>
@@ -79,7 +80,6 @@ export default async function Page() {
                     <Twitter className="h-4 w-4" />
                   </Link>
                 </div>
-                
               </div>
             </div>
           ))}
