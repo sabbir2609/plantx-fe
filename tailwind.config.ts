@@ -12,59 +12,71 @@ const config: Config = {
     themes: [
       {
         light: {
-          primary: "#0077b6",
-          "primary-focus": "#1C3425",
-          "primary-content": "#ffffff",
+          // Primary - Forest Green
+          primary: "#2F7A4D",
+          "primary-focus": "#1E5434",
+          "primary-content": "#FFFFFF",
 
-          secondary: "#6b9080",
-          "secondary-focus": "#D6CCB8",
-          "secondary-content": "#1C3425",
+          // Secondary - Sage
+          secondary: "#86A789",
+          "secondary-focus": "#6B8A6E",
+          "secondary-content": "#FFFFFF",
 
-          accent: "#67b99a",
-          "accent-focus": "#D6CCB8",
-          "accent-content": "#1C3425",
+          // Accent - Terra Cotta
+          accent: "#C17C74",
+          "accent-focus": "#A65D54",
+          "accent-content": "#FFFFFF",
 
-          neutral: "#3d4451",
-          "neutral-focus": "#2a2e37",
-          "neutral-content": "#ffffff",
+          // Neutral - Bark
+          neutral: "#4A4238",
+          "neutral-focus": "#332D26",
+          "neutral-content": "#FFFFFF",
 
-          "base-100": "#f6fff8",
-          "base-200": "#eaf4f4",
-          "base-300": "#cce3de",
+          // Base - Natural Light
+          "base-100": "#FDFDF5",
+          "base-200": "#F3F3E7",
+          "base-300": "#E8E8D5",
+          "base-content": "#2D2D1F",
 
-          "base-content": "#1f2937",
-
-          info: "#2094f3", // Blue
-          success: "#009485", // Green
-          warning: "#ff9900", // Orange
-          error: "#ff5724", // Red
+          // Status Colors
+          info: "#7CC2D4",
+          success: "#78B088",
+          warning: "#DEB841",
+          error: "#DE6B48",
         },
+
         dark: {
-          primary: "#4281a4", // Google Material Design Dark Purple
-          "primary-focus": "#3700b3", // Google Material Design Dark Purple (Focus)
-          "primary-content": "#ffffff", // White
+          // Primary - Deep Forest
+          primary: "#3B8C5C",
+          "primary-focus": "#2A6443",
+          "primary-content": "#E8F5ED",
 
-          secondary: "#03dac6", // Google Material Design Teal
-          "secondary-focus": "#018786", // Google Material Design Teal (Focus)
-          "secondary-content": "#000000", // Black
+          // Secondary - Deep Sage
+          secondary: "#7C9A82",
+          "secondary-focus": "#5F7B64",
+          "secondary-content": "#F0F5F1",
 
-          accent: "#03dac6", // Google Material Design Teal
-          "accent-focus": "#018786", // Google Material Design Teal (Focus)
-          "accent-content": "#ffffff", // White
+          // Accent - Autumn
+          accent: "#B86F68",
+          "accent-focus": "#9A574F",
+          "accent-content": "#FFF1F0",
 
-          neutral: "#121212", // Google Material Design Dark Gray
-          "neutral-focus": "#1e1e1e", // Slightly Lighter Dark Gray
-          "neutral-content": "#ffffff", // White
+          // Neutral - Dark Wood
+          neutral: "#2C2822",
+          "neutral-focus": "#1A1814",
+          "neutral-content": "#F5F5F0",
 
-          "base-100": "#121212", // Google Material Design Dark Base
-          "base-200": "#1e1e1e", // Slightly Lighter Dark Base
-          "base-300": "#333333", // Darker Gray
-          "base-content": "#ffffff", // White
+          // Base - Night Forest
+          "base-100": "#1C1C14",
+          "base-200": "#24241B",
+          "base-300": "#2E2E22",
+          "base-content": "#F8F8F0",
 
-          info: "#2196f3", // Blue
-          success: "#4caf50", // Green
-          warning: "#ff9800", // Orange
-          error: "#f44336", // Red
+          // Status Colors
+          info: "#5B919E",
+          success: "#5B8868",
+          warning: "#B39235",
+          error: "#B85539",
         },
       },
     ],
