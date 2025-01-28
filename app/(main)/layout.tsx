@@ -1,4 +1,4 @@
-import { FooterWrapper, Navbar } from "../components/common";
+import { Breadcrumb, FooterWrapper, Navbar } from "../components/common";
 
 export default function MainLayout({
   children,
