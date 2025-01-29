@@ -28,18 +28,17 @@ export default async function Page() {
   const residentialCategories: Category[] = await getCommercialCategories();
 
   return (
-    <div className="min-h-screen bg-base-200/30">
+    <div className="min-h-screen mx-auto">
       <div className="mx-auto max-w-screen-xl p-4 py-8">
         <Breadcrumb />
 
         {/* Hero Section */}
         <div className="mb-12 mt-8">
-          <h1 className="mb-4 text-4xl font-bold tracking-tight">
-            Residential Services
+          <h1 className="mb-4 text-3xl font-bold tracking-tight">
+            Commercial Services
           </h1>
           <p className="max-w-2xl text-base-content/70">
-            Transform your living space with our professional plant services. We
-            offer tailored solutions for homes and residential spaces.
+            Transform your living space with our professional plant services. We offer a wide range of services to help you create a beautiful and healthy environment for your office or commercial space.
           </p>
         </div>
 
@@ -58,7 +57,7 @@ export default async function Page() {
                   height={1080}
                   width={1920}
                   priority
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover h-full w-full transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
               </figure>

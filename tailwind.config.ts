@@ -11,72 +11,72 @@ const config: Config = {
   daisyui: {
     themes: [
       {
-        light: {
-          // Primary - Forest Green
-          primary: "#2F7A4D",
-          "primary-focus": "#1E5434",
+                light: {
+          // Primary - Material Light Green
+          primary: "#8BC34A",
+          "primary-focus": "#7CB342",
           "primary-content": "#FFFFFF",
-
-          // Secondary - Sage
-          secondary: "#86A789",
-          "secondary-focus": "#6B8A6E",
-          "secondary-content": "#FFFFFF",
-
-          // Accent - Terra Cotta
-          accent: "#C17C74",
-          "accent-focus": "#A65D54",
-          "accent-content": "#FFFFFF",
-
-          // Neutral - Bark
-          neutral: "#4A4238",
-          "neutral-focus": "#332D26",
+        
+          // Secondary - Mint Green
+          secondary: "#9CCC65",
+          "secondary-focus": "#8BC34A",
+          "secondary-content": "#1A1A1A",
+        
+          // Accent - Soft Lime
+          accent: "#AED581",
+          "accent-focus": "#9CCC65",
+          "accent-content": "#1A1A1A",
+        
+          // Neutral - Material Gray
+          neutral: "#757575",
+          "neutral-focus": "#616161",
           "neutral-content": "#FFFFFF",
-
-          // Base - Natural Light
-          "base-100": "#FDFDF5",
-          "base-200": "#F3F3E7",
-          "base-300": "#E8E8D5",
-          "base-content": "#2D2D1F",
-
+        
+          // Base - Clean Light
+          "base-100": "#FAFAFA",
+          "base-200": "#F5F5F5",
+          "base-300": "#EEEEEE",
+          "base-content": "#212121",
+        
           // Status Colors
-          info: "#7CC2D4",
-          success: "#78B088",
-          warning: "#DEB841",
-          error: "#DE6B48",
+          info: "#64B5F6",
+          success: "#81C784",
+          warning: "#FFD54F",
+          error: "#E57373",
         },
-
+        
         dark: {
-          // Primary - Deep Forest
-          primary: "#3B8C5C",
-          "primary-focus": "#2A6443",
-          "primary-content": "#E8F5ED",
-
-          // Secondary - Deep Sage
-          secondary: "#7C9A82",
-          "secondary-focus": "#5F7B64",
-          "secondary-content": "#F0F5F1",
-
-          // Accent - Autumn
-          accent: "#B86F68",
-          "accent-focus": "#9A574F",
-          "accent-content": "#FFF1F0",
-
-          // Neutral - Dark Wood
-          neutral: "#2C2822",
-          "neutral-focus": "#1A1814",
-          "neutral-content": "#F5F5F0",
-
-          // Base - Night Forest
-          "base-100": "#1C1C14",
-          "base-200": "#24241B",
-          "base-300": "#2E2E22",
-          "base-content": "#F8F8F0",
-
+          // Primary - Deep Light Green
+          primary: "#689F38",
+          "primary-focus": "#558B2F",
+          "primary-content": "#F1F8E9",
+        
+          // Secondary - Deep Mint
+          secondary: "#7CB342",
+          "secondary-focus": "#689F38",
+          "secondary-content": "#F1F8E9",
+        
+          // Accent - Deep Lime
+          accent: "#9CCC65",
+          "accent-focus": "#8BC34A",
+          "accent-content": "#1A1A1A",
+        
+          // Neutral - Material Dark Gray
+          neutral: "#424242",
+          "neutral-focus": "#303030",
+          "neutral-content": "#FAFAFA",
+        
+          // Base - Material Dark
+          "base-100": "#212121",
+          "base-200": "#303030",
+          "base-300": "#424242",
+          "base-content": "#FAFAFA",
+        
           // Status Colors
-          info: "#5B919E",
-          success: "#5B8868",
-          warning: "#B39235",
-          error: "#B85539",
+          info: "#42A5F5",
+          success: "#66BB6A",
+          warning: "#FFCA28",
+          error: "#EF5350",
         },
       },
     ],

@@ -121,7 +121,7 @@ export default async function Service({
           )}
 
           {/* Share Button */}
-          <div className="mt-10 flex items-center gap-4 border-t pt-6">
+          <div className="mt-10 flex justify-between items-center gap-4 border-t pt-6">
             <span className="font-semibold">Share this article</span>
             <ShareButton
               title={service.title}

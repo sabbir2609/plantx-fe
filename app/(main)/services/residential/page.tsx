@@ -30,13 +30,13 @@ export default async function Page() {
   const residentialCategories: Category[] = await getResidentialCategories();
 
   return (
-    <div className="min-h-screen bg-base-200/30">
+    <div className="mx-auto min-h-screen">
       <div className="mx-auto max-w-screen-xl p-4 py-8">
         <Breadcrumb />
 
         {/* Hero Section */}
         <div className="mb-12 mt-8">
-          <h1 className="mb-4 text-4xl font-bold tracking-tight">
+          <h1 className="mb-4 text-3xl font-bold tracking-tight">
             Residential Services
           </h1>
           <p className="max-w-2xl text-base-content/70">
@@ -59,7 +59,7 @@ export default async function Page() {
                   alt={category.title}
                   height={800}
                   width={800}
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
               </figure>

@@ -40,7 +40,7 @@ export default function HeroImage({ title, description }: HeroProps) {
       setCurrentImageIndex(
         (prevIndex) => (prevIndex + 1) % bannerImages.lg.length,
       );
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);

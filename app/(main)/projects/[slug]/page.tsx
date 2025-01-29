@@ -118,20 +118,18 @@ export default async function Plants(props: {
           </div>
 
           {/* Description */}
-          <div className="card bg-base-200">
-            <div className="card-body">
-              <h2 className="card-title mb-4">Project Description</h2>
+          <div className="bg-base-200 p-4 rounded-md">
+              <h2 className="mb-4 font-semibold">Project Description</h2>
               <div
                 className="prose max-w-none"
                 dangerouslySetInnerHTML={{ __html: project.description }}
               />
-            </div>
           </div>
         </div>
       </div>
       <div className="mt-5 px-8 flex items-center justify-between">
-        <p className="text-sm text-primary-content me-5">Share this project</p>
-        <ShareButton title="Share this project" url={`${project.slug}`} />
+        <p className="text-sm me-5">Share this project</p>
+        <ShareButton title={`${project.title}`} url={`${project.slug}`} />
       </div>
     </div>
   );
